@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:basphalt_stone_bricks"
+    },
+    "P": {
+      "tag": "forge:sticks"
+    }
+  },
+  "pattern": [
+    "IPI",
+    "IPI"
+  ],
+  "result": {
+    "count": 3,
+    "item": "havenalchemy:basphalt_stone_bricks_fence"
+  },
+  "show_notification": true
+}

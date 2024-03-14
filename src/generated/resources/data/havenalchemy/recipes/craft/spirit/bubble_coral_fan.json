@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "havenalchemy:coral_spirit"
+    },
+    "D": {
+      "item": "minecraft:magenta_dye"
+    }
+  },
+  "pattern": [
+    "C C",
+    " D ",
+    "C C"
+  ],
+  "result": {
+    "count": 6,
+    "item": "minecraft:bubble_coral_fan"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    "NNN",
+    " N ",
+    "NNN"
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:cactus"
+  },
+  "show_notification": true
+}

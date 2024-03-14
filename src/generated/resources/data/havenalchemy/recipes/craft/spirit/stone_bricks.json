@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:coal_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:stone_spirit"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "count": 20,
+    "item": "minecraft:stone_bricks"
+  },
+  "show_notification": true
+}

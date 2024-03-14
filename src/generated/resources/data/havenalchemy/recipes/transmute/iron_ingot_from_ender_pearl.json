@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "havenalchemy:alchemy_stone_fractured"
+    },
+    "L": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    " L ",
+    "LAL",
+    " L "
+  ],
+  "result": {
+    "item": "minecraft:iron_ingot"
+  },
+  "show_notification": true
+}

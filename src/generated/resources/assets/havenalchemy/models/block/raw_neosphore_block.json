@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "havenalchemy:block/raw_neosphore_block"
+  }
+}

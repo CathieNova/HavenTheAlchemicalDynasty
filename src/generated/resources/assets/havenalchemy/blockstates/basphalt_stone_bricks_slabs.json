@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "havenalchemy:block/basphalt_stone_bricks_slabs"
+    },
+    "type=double": {
+      "model": "havenalchemy:block/basphalt_stone_bricks"
+    },
+    "type=top": {
+      "model": "havenalchemy:block/basphalt_stone_bricks_slabs_top"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_alchemy_stone_fractured": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "havenalchemy:alchemy_stone_fractured"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "havenalchemy:craft/alchemy_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_alchemy_stone_fractured",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "havenalchemy:craft/alchemy_stone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

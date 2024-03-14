@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "havenalchemy:dark_matter"
+    }
+  },
+  "pattern": [
+    "L L",
+    "LLL",
+    "LLL"
+  ],
+  "result": {
+    "item": "havenalchemy:dark_matter_chestplate"
+  },
+  "show_notification": true
+}

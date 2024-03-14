@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:earth_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:nether_spirit"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:soul_soil"
+  },
+  "show_notification": true
+}

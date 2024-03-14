@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "havenalchemy:craft/spirit/prismarine_shard"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_water_spirit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "havenalchemy:water_spirit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_water_spirit",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "havenalchemy:craft/spirit/prismarine_shard"
+    ]
+  },
+  "sends_telemetry_event": false
+}

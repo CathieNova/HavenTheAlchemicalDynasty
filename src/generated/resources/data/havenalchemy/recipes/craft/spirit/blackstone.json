@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "havenalchemy:nether_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:stone_spirit"
+    }
+  },
+  "pattern": [
+    "NNN",
+    "NSN",
+    "NNN"
+  ],
+  "result": {
+    "count": 24,
+    "item": "minecraft:blackstone"
+  },
+  "show_notification": true
+}

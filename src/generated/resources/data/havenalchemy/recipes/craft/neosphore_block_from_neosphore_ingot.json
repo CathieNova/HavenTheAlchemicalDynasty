@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "havenalchemy:neosphore_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "havenalchemy:neosphore_block"
+  }
+}

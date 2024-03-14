@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "havenalchemy:stone_spirit"
+    },
+    "W": {
+      "item": "havenalchemy:water_spirit"
+    }
+  },
+  "pattern": [
+    " S ",
+    "SWS",
+    " S "
+  ],
+  "result": {
+    "count": 12,
+    "item": "minecraft:dripstone_block"
+  },
+  "show_notification": true
+}

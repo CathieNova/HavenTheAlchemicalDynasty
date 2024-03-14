@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "havenalchemy:alchemy_dust"
+    },
+    "E": {
+      "item": "havenalchemy:essence_shard"
+    },
+    "H": {
+      "item": "havenalchemy:alchemy_dust_high"
+    },
+    "M": {
+      "item": "havenalchemy:alchemy_dust_medium"
+    }
+  },
+  "pattern": [
+    "HMH",
+    "DED",
+    "HMH"
+  ],
+  "result": {
+    "item": "havenalchemy:alchemy_stone"
+  },
+  "show_notification": true
+}

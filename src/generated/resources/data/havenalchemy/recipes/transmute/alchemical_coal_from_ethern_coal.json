@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "havenalchemy:ethern_coal"
+    },
+    {
+      "item": "havenalchemy:alchemy_stone_fractured"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "havenalchemy:alchemical_coal"
+  }
+}

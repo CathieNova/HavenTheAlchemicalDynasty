@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "havenalchemy:amethyst_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:stone_spirit"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SAS",
+    "SSS"
+  ],
+  "result": {
+    "count": 20,
+    "item": "minecraft:calcite"
+  },
+  "show_notification": true
+}

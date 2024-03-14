@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "havenalchemy:dye_spirit"
+    }
+  },
+  "pattern": [
+    "D  ",
+    "D  ",
+    "D  "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:light_blue_dye"
+  },
+  "show_notification": true
+}

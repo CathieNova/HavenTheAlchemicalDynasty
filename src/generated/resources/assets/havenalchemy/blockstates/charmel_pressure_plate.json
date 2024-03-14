@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "havenalchemy:block/charmel_pressure_plate"
+    },
+    "powered=true": {
+      "model": "havenalchemy:block/charmel_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_asphalt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "havenalchemy:asphalt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "havenalchemy:craft/asphalt_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_asphalt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "havenalchemy:craft/asphalt_bricks"
+    ]
+  },
+  "sends_telemetry_event": false
+}

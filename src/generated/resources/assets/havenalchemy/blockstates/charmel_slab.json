@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "havenalchemy:block/charmel_slab"
+    },
+    "type=double": {
+      "model": "havenalchemy:block/charmel_planks"
+    },
+    "type=top": {
+      "model": "havenalchemy:block/charmel_slab_top"
+    }
+  }
+}

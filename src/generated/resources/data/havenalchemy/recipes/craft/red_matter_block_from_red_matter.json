@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "havenalchemy:red_matter"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "havenalchemy:red_matter_block"
+  }
+}

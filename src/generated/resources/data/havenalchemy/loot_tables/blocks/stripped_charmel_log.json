@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "havenalchemy:stripped_charmel_log"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "havenalchemy:blocks/stripped_charmel_log"
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_alchemical_coal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "havenalchemy:alchemical_coal_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "havenalchemy:transmute_block/ethern_coal_block_from_alchemical_coal_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_alchemical_coal_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "havenalchemy:transmute_block/ethern_coal_block_from_alchemical_coal_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    " C ",
+    "CDC",
+    " C "
+  ],
+  "result": {
+    "count": 16,
+    "item": "havenalchemy:alchemy_dust_high"
+  },
+  "show_notification": true
+}

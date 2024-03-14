@@ -1,0 +1,17 @@
+{
+  "type": "havenalchemy:alchemical_chamber",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "minecraft:iron_block"
+    },
+    {
+      "item": "havenalchemy:essentia_spirit_block"
+    }
+  ],
+  "result": {
+    "item": "havenalchemy:iron_seeds"
+  }
+}

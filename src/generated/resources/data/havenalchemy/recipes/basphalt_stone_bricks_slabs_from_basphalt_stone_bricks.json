@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:basphalt_stone_bricks"
+    }
+  },
+  "pattern": [
+    "III"
+  ],
+  "result": {
+    "count": 6,
+    "item": "havenalchemy:basphalt_stone_bricks_slabs"
+  },
+  "show_notification": true
+}

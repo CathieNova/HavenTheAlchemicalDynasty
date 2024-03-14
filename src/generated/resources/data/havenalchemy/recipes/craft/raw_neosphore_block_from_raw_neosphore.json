@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "havenalchemy:raw_neosphore"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "havenalchemy:raw_neosphore_block"
+  }
+}

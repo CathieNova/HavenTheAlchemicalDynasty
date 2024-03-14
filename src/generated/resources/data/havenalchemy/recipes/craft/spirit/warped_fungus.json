@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "havenalchemy:nether_spirit"
+    },
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    " N ",
+    " M ",
+    " N "
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:warped_fungus"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "havenalchemy:prismarine_spirit"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:prismarine_shard"
+  },
+  "show_notification": true
+}

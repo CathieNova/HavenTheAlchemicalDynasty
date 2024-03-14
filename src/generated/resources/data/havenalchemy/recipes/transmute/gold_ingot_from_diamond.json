@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "havenalchemy:alchemy_stone_fractured"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:gold_ingot"
+  }
+}

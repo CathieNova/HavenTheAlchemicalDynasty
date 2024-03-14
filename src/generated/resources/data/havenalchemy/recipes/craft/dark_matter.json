@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "havenalchemy:aether_fuel"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "DDD",
+    "AAA"
+  ],
+  "result": {
+    "item": "havenalchemy:dark_matter"
+  },
+  "show_notification": true
+}

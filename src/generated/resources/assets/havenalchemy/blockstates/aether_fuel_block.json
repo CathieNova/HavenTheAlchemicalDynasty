@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "havenalchemy:block/aether_fuel_block"
+    }
+  }
+}

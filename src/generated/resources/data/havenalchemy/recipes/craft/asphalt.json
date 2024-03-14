@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "G": {
+      "item": "minecraft:gravel"
+    },
+    "S": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "GSG",
+    "SCS",
+    "GSG"
+  ],
+  "result": {
+    "count": 4,
+    "item": "havenalchemy:asphalt"
+  },
+  "show_notification": true
+}

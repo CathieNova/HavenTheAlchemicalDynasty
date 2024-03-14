@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:nature_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:dirt_spirit"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "count": 20,
+    "item": "minecraft:grass_block"
+  },
+  "show_notification": true
+}

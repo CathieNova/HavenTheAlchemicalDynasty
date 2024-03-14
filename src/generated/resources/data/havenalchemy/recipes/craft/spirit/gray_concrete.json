@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:water_spirit"
+    },
+    "S": {
+      "item": "minecraft:gray_concrete_powder"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:gray_concrete"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Q": {
+      "item": "havenalchemy:nether_quartz_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:stone_spirit"
+    }
+  },
+  "pattern": [
+    " Q ",
+    "SSS",
+    " S "
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:diorite"
+  },
+  "show_notification": true
+}

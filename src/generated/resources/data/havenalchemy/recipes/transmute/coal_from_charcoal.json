@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "havenalchemy:alchemy_stone_fractured"
+    },
+    "L": {
+      "item": "minecraft:charcoal"
+    }
+  },
+  "pattern": [
+    " L ",
+    "LAL",
+    " L "
+  ],
+  "result": {
+    "item": "minecraft:coal"
+  },
+  "show_notification": true
+}

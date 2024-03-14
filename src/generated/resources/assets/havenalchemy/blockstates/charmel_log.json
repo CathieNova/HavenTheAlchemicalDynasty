@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "havenalchemy:block/charmel_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "havenalchemy:block/charmel_log"
+    },
+    "axis=z": {
+      "model": "havenalchemy:block/charmel_log_horizontal",
+      "x": 90
+    }
+  }
+}

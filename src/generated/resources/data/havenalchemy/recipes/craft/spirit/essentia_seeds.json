@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "S": {
+      "item": "havenalchemy:essence_shard"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "item": "havenalchemy:essentia_seeds"
+  },
+  "show_notification": true
+}

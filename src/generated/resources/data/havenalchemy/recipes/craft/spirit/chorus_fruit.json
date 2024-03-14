@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "havenalchemy:end_spirit"
+    },
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    "ENE",
+    "   ",
+    "   "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:chorus_fruit"
+  },
+  "show_notification": true
+}

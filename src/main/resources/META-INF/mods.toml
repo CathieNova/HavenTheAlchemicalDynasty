@@ -1,0 +1,33 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+[[mods]]
+    modId="havenalchemy"
+    version="${mod_version}"
+    displayName="${mod_name}"
+    authors="${mod_authors}"
+    description='''${mod_description}'''
+[[dependencies.havenalchemy]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.havenalchemy]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.havenalchemy]]
+    modId="jei"
+    mandatory=false
+    versionRange="[15.0.0.12,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.havenalchemy]]
+    modId="curios"
+    mandatory=false
+    versionRange="[5.2.0,)"
+    ordering="NONE"
+    side="BOTH"

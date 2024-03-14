@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_charmel_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "havenalchemy:charmel_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "havenalchemy:charmel_pressure_plate_from_charmel_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_charmel_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "havenalchemy:charmel_pressure_plate_from_charmel_planks"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Q": {
+      "item": "havenalchemy:nether_quartz_spirit"
+    },
+    "S": {
+      "item": "havenalchemy:stone_spirit"
+    }
+  },
+  "pattern": [
+    " S ",
+    "SQS",
+    " S "
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:granite"
+  },
+  "show_notification": true
+}

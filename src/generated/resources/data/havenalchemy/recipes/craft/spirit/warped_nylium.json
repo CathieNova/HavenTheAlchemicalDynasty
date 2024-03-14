@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "havenalchemy:nether_spirit"
+    },
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "NNN",
+    "MMM"
+  ],
+  "result": {
+    "count": 20,
+    "item": "minecraft:warped_nylium"
+  },
+  "show_notification": true
+}

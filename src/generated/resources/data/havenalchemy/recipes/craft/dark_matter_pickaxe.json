@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "havenalchemy:dark_matter"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "LLL",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "item": "havenalchemy:dark_matter_pickaxe"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "havenalchemy:coral_spirit"
+    },
+    "D": {
+      "item": "minecraft:pink_dye"
+    }
+  },
+  "pattern": [
+    " C ",
+    "CDC",
+    " C "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:brain_coral"
+  },
+  "show_notification": true
+}

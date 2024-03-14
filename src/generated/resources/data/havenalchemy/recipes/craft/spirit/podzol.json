@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "havenalchemy:dirt_spirit"
+    },
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    " D ",
+    "DND",
+    " D "
+  ],
+  "result": {
+    "count": 12,
+    "item": "minecraft:podzol"
+  },
+  "show_notification": true
+}

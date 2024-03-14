@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "havenalchemy:block/stripped_charmel_log_top",
+    "side": "havenalchemy:block/stripped_charmel_log"
+  }
+}

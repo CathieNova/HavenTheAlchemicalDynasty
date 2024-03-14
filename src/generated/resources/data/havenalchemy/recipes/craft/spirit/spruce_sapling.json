@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    },
+    "W": {
+      "item": "havenalchemy:wood_spirit"
+    }
+  },
+  "pattern": [
+    "   ",
+    "WNW",
+    "   "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:spruce_sapling"
+  },
+  "show_notification": true
+}

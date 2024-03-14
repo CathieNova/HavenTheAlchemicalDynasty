@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "havenalchemy:dirt_spirit"
+    },
+    "F": {
+      "item": "havenalchemy:fire_spirit"
+    }
+  },
+  "pattern": [
+    "FD",
+    "DF"
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:red_sand"
+  },
+  "show_notification": true
+}

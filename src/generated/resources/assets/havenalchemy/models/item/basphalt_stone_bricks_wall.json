@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "havenalchemy:block/basphalt_stone_bricks"
+  }
+}

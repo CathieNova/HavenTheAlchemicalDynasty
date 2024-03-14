@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    "N N",
+    "NNN",
+    " N "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:lily_pad"
+  },
+  "show_notification": true
+}

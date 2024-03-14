@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "havenalchemy:nature_spirit"
+    }
+  },
+  "pattern": [
+    " N ",
+    "NNN",
+    "N N"
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:sugar_cane"
+  },
+  "show_notification": true
+}

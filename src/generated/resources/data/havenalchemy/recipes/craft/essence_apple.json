@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "E": {
+      "item": "havenalchemy:essence_shard"
+    }
+  },
+  "pattern": [
+    "EEE",
+    "EAE",
+    "EEE"
+  ],
+  "result": {
+    "item": "havenalchemy:essence_apple"
+  },
+  "show_notification": true
+}

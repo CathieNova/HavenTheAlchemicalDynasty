@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "W": {
+      "item": "havenalchemy:water_spirit"
+    }
+  },
+  "pattern": [
+    " W ",
+    "WBW",
+    " W "
+  ],
+  "result": {
+    "item": "minecraft:water_bucket"
+  },
+  "show_notification": true
+}

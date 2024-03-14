@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "havenalchemy:basphalt_stone"
+    }
+  },
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "result": {
+    "count": 6,
+    "item": "havenalchemy:basphalt_stone_wall"
+  },
+  "show_notification": true
+}

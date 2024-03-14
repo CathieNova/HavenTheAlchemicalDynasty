@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "havenalchemy:alchemy_stone_fractured"
+    },
+    "L": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "pattern": [
+    "ALA",
+    "L L",
+    "ALA"
+  ],
+  "result": {
+    "item": "minecraft:emerald_block"
+  },
+  "show_notification": true
+}

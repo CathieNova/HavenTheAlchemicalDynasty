@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "havenalchemy:nether_spirit"
+    },
+    "W": {
+      "item": "havenalchemy:wood_spirit"
+    }
+  },
+  "pattern": [
+    " W ",
+    " N ",
+    " W "
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:warped_stem"
+  },
+  "show_notification": true
+}

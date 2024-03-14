@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "havenalchemy:block/basphalt_stone_bricks"
+  }
+}
