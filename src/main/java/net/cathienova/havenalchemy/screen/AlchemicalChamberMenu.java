@@ -19,12 +19,12 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
     private final ContainerData data;
 
     public AlchemicalChamberMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(11));
     }
 
     public AlchemicalChamberMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), pContainerId);
-        checkContainerSize(inv, 4);
+        checkContainerSize(inv, 11);
         blockEntity = ((AlchemicalChamberBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
@@ -33,10 +33,17 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler, 0, 31, 12));
-            this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 12));
-            this.addSlot(new SlotItemHandler(iItemHandler, 2, 129, 12));
-            this.addSlot(new SlotItemHandler(iItemHandler, 3, 80, 53));
+            this.addSlot(new SlotItemHandler(iItemHandler, 0, 67, 47));
+            this.addSlot(new SlotItemHandler(iItemHandler, 1, 93, 47));
+            this.addSlot(new SlotItemHandler(iItemHandler, 2, 17, 22));
+            this.addSlot(new SlotItemHandler(iItemHandler, 3, 42, 22));
+            this.addSlot(new SlotItemHandler(iItemHandler, 4, 17, 47));
+            this.addSlot(new SlotItemHandler(iItemHandler, 5, 42, 47));
+            this.addSlot(new SlotItemHandler(iItemHandler, 6, 118, 22));
+            this.addSlot(new SlotItemHandler(iItemHandler, 7, 143, 22));
+            this.addSlot(new SlotItemHandler(iItemHandler, 8, 118, 47));
+            this.addSlot(new SlotItemHandler(iItemHandler, 9, 143, 47));
+            this.addSlot(new SlotItemHandler(iItemHandler, 10, 80, 13));
         });
 
         addDataSlots(data);
@@ -49,7 +56,7 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 18; // This is the height in pixels of your arrow
+        int progressArrowSize = 44; // This is the height in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
@@ -69,7 +76,7 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 11;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);

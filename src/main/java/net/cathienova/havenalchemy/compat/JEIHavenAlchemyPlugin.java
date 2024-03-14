@@ -18,7 +18,6 @@ import java.util.List;
 @JeiPlugin
 public class JEIHavenAlchemyPlugin implements IModPlugin
 {
-
     @Override
     public ResourceLocation getPluginUid()
     {
@@ -43,7 +42,7 @@ public class JEIHavenAlchemyPlugin implements IModPlugin
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration)
     {
-        registration.addRecipeClickArea(AlchemicalChamberScreen.class, 103, 59, 24, 17,
+        registration.addRecipeClickArea(AlchemicalChamberScreen.class, 65, 34, 48, 8,
                 AlchemicalChamberCategory.ALCHEMICAL_CHAMBER_RECIPE_RECIPE_TYPE);
     }
 }

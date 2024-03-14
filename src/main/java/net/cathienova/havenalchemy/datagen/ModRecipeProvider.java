@@ -18,6 +18,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -1073,16 +1074,29 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_fire_spirit", has(ModItems.fire_spirit.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/lava_bucket");
 
-        createAlchemicalChamberRecipe(consumer, ModItems.iron_seeds.get(), Items.WHEAT_SEEDS, Items.IRON_BLOCK, ModBlocks.essentia_spirit_block.get());
+        createAlchemicalChamberRecipe(consumer,
+                ModItems.iron_seeds.get(),
+                Items.WHEAT_SEEDS,
+                ModItems.alchemy_dust.get(),
+                Items.IRON_BLOCK,Items.IRON_BLOCK,Items.IRON_BLOCK,Items.IRON_BLOCK,
+                ModBlocks.essentia_spirit_block.get(), ModBlocks.essentia_spirit_block.get(), ModBlocks.essentia_spirit_block.get(), ModBlocks.essentia_spirit_block.get());
     }
 
-    private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3) {
+    private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed, ItemLike dust, ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3, ItemLike ingredient4, ItemLike ingredient5, ItemLike ingredient6, ItemLike ingredient7, ItemLike ingredient8)
+    {
         AlchemicalChamberRecipeBuilder.customRecipe(new ResourceLocation(HavenAlchemy.MOD_ID + "alchemical_chamber"), AlchemicalChamberRecipe.Serializer.INSTANCE)
+                .ingredient(seed)
+                .ingredient(dust)
                 .ingredient(ingredient1)
                 .ingredient(ingredient2)
                 .ingredient(ingredient3)
+                .ingredient(ingredient4)
+                .ingredient(ingredient5)
+                .ingredient(ingredient6)
+                .ingredient(ingredient7)
+                .ingredient(ingredient8)
                 .result(result)
-                .save(consumer, new ResourceLocation(HavenAlchemy.MOD_ID + ":craft/alchemical_chamber/" + getItemName(result)));
+                .save(consumer, new ResourceLocation(HavenAlchemy.MOD_ID + ":alchemical_chamber/" + getItemName(result)));
     }
 
     protected static void spiritCirclePlusCrafting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2, int amount)

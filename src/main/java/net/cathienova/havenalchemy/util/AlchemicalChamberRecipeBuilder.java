@@ -64,7 +64,7 @@ public class AlchemicalChamberRecipeBuilder {
 
             @Override
             public RecipeSerializer<?> getType() {
-                return serializer; // Return the actual serializer instead of null.
+                return serializer; // Return the actual serializer.
             }
 
             @Nullable

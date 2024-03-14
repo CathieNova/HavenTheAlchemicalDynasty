@@ -45,7 +45,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.essentia_spirit_block.get()));
                         add.accept(new ItemStack(ModBlocks.mysterium_spirit_block.get()));
                         add.accept(new ItemStack(ModBlocks.vitalium_spirit_block.get()));
-                        add.accept(new ItemStack(ModBlocks.celestial_spirit_block.get()));
+                        add.accept(new ItemStack(ModBlocks.celestium_spirit_block.get()));
                         add.accept(new ItemStack(ModBlocks.eternium_spirit_block.get()));
 
                         //Armor

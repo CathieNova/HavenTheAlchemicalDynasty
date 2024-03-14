@@ -27,7 +27,7 @@ public class AlchemicalChamberCategory implements IRecipeCategory<AlchemicalCham
 
     public AlchemicalChamberCategory(IGuiHelper helper)
     {
-        this.background = helper.createDrawable(TEXTURE, 4, 4, 171, 78);
+        this.background = helper.createDrawable(TEXTURE, 3, 4, 173, 72);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.alchemical_chamber.get()));
     }
 
@@ -58,9 +58,17 @@ public class AlchemicalChamberCategory implements IRecipeCategory<AlchemicalCham
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, AlchemicalChamberRecipe recipe, IFocusGroup focuses)
     {
-        builder.addSlot(RecipeIngredientRole.INPUT, 27, 8).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 76, 8).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.INPUT, 125, 8).addIngredients(recipe.getIngredients().get(2));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 76, 49).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.INPUT, 64, 43).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 90, 43).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 14, 18).addIngredients(recipe.getIngredients().get(2));
+        builder.addSlot(RecipeIngredientRole.INPUT, 39, 18).addIngredients(recipe.getIngredients().get(3));
+        builder.addSlot(RecipeIngredientRole.INPUT, 14, 43).addIngredients(recipe.getIngredients().get(4));
+        builder.addSlot(RecipeIngredientRole.INPUT, 39, 43).addIngredients(recipe.getIngredients().get(5));
+        builder.addSlot(RecipeIngredientRole.INPUT, 115, 18).addIngredients(recipe.getIngredients().get(6));
+        builder.addSlot(RecipeIngredientRole.INPUT, 140, 18).addIngredients(recipe.getIngredients().get(7));
+        builder.addSlot(RecipeIngredientRole.INPUT, 115, 43).addIngredients(recipe.getIngredients().get(8));
+        builder.addSlot(RecipeIngredientRole.INPUT, 140, 43).addIngredients(recipe.getIngredients().get(9));
+
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 77, 9).addItemStack(recipe.getResultItem(null));
     }
 }

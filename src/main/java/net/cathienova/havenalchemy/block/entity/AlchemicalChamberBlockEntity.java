@@ -1,7 +1,5 @@
 package net.cathienova.havenalchemy.block.entity;
 
-import net.cathienova.havenalchemy.block.ModBlocks;
-import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
 import net.cathienova.havenalchemy.screen.AlchemicalChamberMenu;
 import net.minecraft.core.BlockPos;
@@ -17,10 +15,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -34,7 +30,7 @@ import java.util.Optional;
 
 public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuProvider
 {
-    private final ItemStackHandler stackHandler = new ItemStackHandler(4)
+    private final ItemStackHandler stackHandler = new ItemStackHandler(11)
     {
         @Override
         protected void onContentsChanged(int slot)
@@ -51,13 +47,21 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
     private static final int INPUT_SLOT_1 = 0;
     private static final int INPUT_SLOT_2 = 1;
     private static final int INPUT_SLOT_3 = 2;
-    private static final int OUTPUT_SLOT = 3;
+    private static final int INPUT_SLOT_4 = 3;
+    private static final int INPUT_SLOT_5 = 4;
+    private static final int INPUT_SLOT_6 = 5;
+    private static final int INPUT_SLOT_7 = 6;
+    private static final int INPUT_SLOT_8 = 7;
+    private static final int INPUT_SLOT_9 = 8;
+    private static final int INPUT_SLOT_10 = 9;
+
+    private static final int OUTPUT_SLOT = 10;
 
     private LazyOptional<IItemHandler> handler = LazyOptional.empty();
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 78;
+    private int maxProgress = 100;
 
     public AlchemicalChamberBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
@@ -88,7 +92,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             @Override
             public int getCount()
             {
-                return 4;
+                return 11;
             }
         };
     }
@@ -222,7 +226,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             boolean canCraft = true;
 
             // Verify that all required items for the recipe are present
-            for (int i = 0; i < 3; i++) { // slot indexes are 0, 1, 2 for inputs
+            for (int i = 0; i < 10; i++) { // slot indexes are 0, 1, 2 for inputs
                 if (this.stackHandler.getStackInSlot(i).isEmpty()) {
                     canCraft = false;
                     break;
@@ -230,7 +234,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             }
 
             if (canCraft) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 10; i++) {
                     this.stackHandler.extractItem(i, 1, false);
                 }
 

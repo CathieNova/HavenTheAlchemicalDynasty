@@ -22,8 +22,11 @@ public class AlchemicalChamberScreen extends AbstractContainerScreen<AlchemicalC
     protected void init()
     {
         super.init();
-        this.inventoryLabelY = 100000;
-        this.titleLabelY = 100000;
+        this.inventoryLabelY = 73;
+        this.inventoryLabelX = 8;
+        this.titleLabelY = 10000;
+        this.titleLabelX = 10000;
+
     }
 
     @Override
@@ -41,7 +44,7 @@ public class AlchemicalChamberScreen extends AbstractContainerScreen<AlchemicalC
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(BACKGROUND, x + 103, y + 59, 176, 0, menu.getScaledProgress(), 4);
+            guiGraphics.blit(BACKGROUND, x + 66, y + 36, 176, 0, menu.getScaledProgress(), 4);
         }
     }
 

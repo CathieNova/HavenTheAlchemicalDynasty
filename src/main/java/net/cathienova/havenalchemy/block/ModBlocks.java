@@ -66,7 +66,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> vitalium_spirit_block = registerBlock("vitalium_spirit_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> celestial_spirit_block = registerBlock("celestial_spirit_block",
+    public static final RegistryObject<Block> celestium_spirit_block = registerBlock("celestium_spirit_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> eternium_spirit_block = registerBlock("eternium_spirit_block",

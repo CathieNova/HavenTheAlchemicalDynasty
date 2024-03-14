@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-13T20:53:20.4134353	Item Models: havenalchemy
+// 1.20.1	2024-03-14T03:37:42.4224411	Item Models: havenalchemy
 dcc52f86acf99d27181b96f122a07363bd87d29a assets/havenalchemy/models/item/aether_fuel.json
 f16bd4573c3905c48259e5e609e25ac69dd9619f assets/havenalchemy/models/item/air_seeds.json
 3778cc10eca28a917042feaf4f180c7bdf046339 assets/havenalchemy/models/item/air_spirit.json
@@ -30,6 +30,7 @@ dba4f83c00f76793a1884b48aa8cbc7b25180a96 assets/havenalchemy/models/item/basphal
 e2949a479ef990d0e8a1556e9605b0693a07abb5 assets/havenalchemy/models/item/basphalt_stone_stairs.json
 4167936ad8b45e5eb5a47fc374c97e64bd19698f assets/havenalchemy/models/item/basphalt_stone_wall.json
 f51ef9ed426834450f85c2d2d137546305ddc524 assets/havenalchemy/models/item/boots_of_meow.json
+e8ec2a476f85ae95b4caf43f55e11ae55714ca21 assets/havenalchemy/models/item/celestium_spirit.json
 71462e9a1f67d90720b443699734375cfd1be134 assets/havenalchemy/models/item/charmel_button.json
 2f033c542193473b94849ee176fbb3f3fa035e5c assets/havenalchemy/models/item/charmel_fence.json
 fd88a377316d108b4b7a1a5e83406ed5017d4c96 assets/havenalchemy/models/item/charmel_fence_gate.json
@@ -113,6 +114,7 @@ b4d9f47d5af47b148b282ff1a156c6912206525e assets/havenalchemy/models/item/essence
 93c669d5c665cc77ea1600c4fd64f56fcb32fca1 assets/havenalchemy/models/item/essence_shard.json
 46de93b81cbffe6aa245e318133c7d2dfb57d705 assets/havenalchemy/models/item/essentia_seeds.json
 32078b0c24ad8377efe91650a0d252dd9d8b17e8 assets/havenalchemy/models/item/essentia_spirit.json
+2763f2caf241a4be3b871b4ad7c6b0ee836c5ead assets/havenalchemy/models/item/eternium_spirit.json
 575b0af500fc3832fd8ebb818b1ae9d0b6742b79 assets/havenalchemy/models/item/ethern_coal.json
 9be00ddf788041ca7aeaccecf0541f2a5a80aea2 assets/havenalchemy/models/item/experience_seeds.json
 8d1845bc0aa9f65721339e8fb18a0b14116f5c80 assets/havenalchemy/models/item/experience_spirit.json
@@ -134,6 +136,7 @@ bdc92a658bb6dd007a3582da760377127a6edb77 assets/havenalchemy/models/item/iron_sp
 712076b75f36e8aa6e4ae9984dfaee4cca8d8ed1 assets/havenalchemy/models/item/lapis_spirit.json
 761d5c4803e0d48471223af4fef2fed94ea72098 assets/havenalchemy/models/item/magnet.json
 ecc938793a5265418585a72ed114974c658174c6 assets/havenalchemy/models/item/mending_necklace.json
+b9c4345ff452df7b90adc236d4bb0c33746d23c5 assets/havenalchemy/models/item/mysterium_spirit.json
 1e8e903d514b76432661229b87c1409db6d05393 assets/havenalchemy/models/item/nature_seeds.json
 392b2abb593831db21a8952c4d5608f68d90aec1 assets/havenalchemy/models/item/nature_spirit.json
 b11133b52457a9e3efd826054d2c4729362197bd assets/havenalchemy/models/item/neosphore_axe.json
@@ -260,6 +263,7 @@ f0097dbc461524fb482adb4978a6a1c823b37539 assets/havenalchemy/models/item/regener
 5ab3a5b710bdd9f2dee99f66893c22e99b699505 assets/havenalchemy/models/item/ring_of_love.json
 eb8f8db0e2b90e6f92b5138e51ca1056e6a9cf67 assets/havenalchemy/models/item/stone_seeds.json
 db063378ff991b36e09a2b1562f23a396241e679 assets/havenalchemy/models/item/stone_spirit.json
+85986206fd583c9fd8ef9da8445257cd16674beb assets/havenalchemy/models/item/vitalium_spirit.json
 8c1eea481a282631a43b31450000ca7e5b74d09a assets/havenalchemy/models/item/water_pendant.json
 f0725a3b6c31f1409a45ea855594bd0f002e6c35 assets/havenalchemy/models/item/water_seeds.json
 a47f56e4fd7a94ce66042c5729736d56e488d870 assets/havenalchemy/models/item/water_spirit.json

@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-13T20:53:20.416907	Loot Tables
+// 1.20.1	2024-03-14T03:37:42.4274003	Loot Tables
 4591323849b4d2e980fe1310b12a22bba0955b0c data/havenalchemy/loot_tables/blocks/aether_fuel_block.json
 30720677aac1522d56143b5674c01d25601dab73 data/havenalchemy/loot_tables/blocks/air_crop.json
 4ba78ca418fd26b0d75899b92e0a8c22b2e82653 data/havenalchemy/loot_tables/blocks/alchemical_chamber.json
@@ -27,6 +27,7 @@ db46305d00e53dc003d2294af039e86569d9b2c6 data/havenalchemy/loot_tables/blocks/ba
 3eb272ca44501bfe101361aa2937e685626311c6 data/havenalchemy/loot_tables/blocks/basphalt_stone_slabs.json
 443586c9db416814dea824b374d5bf4d37e17ef4 data/havenalchemy/loot_tables/blocks/basphalt_stone_stairs.json
 8f8743485d939c8ca9aaa601c436b63d18f95002 data/havenalchemy/loot_tables/blocks/basphalt_stone_wall.json
+0e36ae58188d91c9da7b6926a8b603bee01b6700 data/havenalchemy/loot_tables/blocks/celestium_spirit_block.json
 f68c0297d28eb335582bc726417d9a1ed29dfca6 data/havenalchemy/loot_tables/blocks/charmel_button.json
 f9c88dcb3f560e05c8540923f8418ec0f3c430d7 data/havenalchemy/loot_tables/blocks/charmel_fence.json
 5a0a838629276510fda89fbfbfd5731fffb969ef data/havenalchemy/loot_tables/blocks/charmel_fence_gate.json
@@ -51,6 +52,7 @@ b884b92eab86246472fa638f36780125dccae76d data/havenalchemy/loot_tables/blocks/em
 7b0237b3b5b8b104e8ea4e139f6d6f3382b5bae9 data/havenalchemy/loot_tables/blocks/end_crop.json
 492d47c9e9e8509e901b1c011a71921820579e5e data/havenalchemy/loot_tables/blocks/essentia_crop.json
 da6fbaac3356615d13bb0ac4443f33461de24e73 data/havenalchemy/loot_tables/blocks/essentia_spirit_block.json
+5f7ea6d08a1d28a8bfcc3e3fdf1db4703c62e742 data/havenalchemy/loot_tables/blocks/eternium_spirit_block.json
 30f1a3facf73b0be17cb764052a38f8da9e84e62 data/havenalchemy/loot_tables/blocks/ethern_coal_block.json
 0775f7546f9b84e04b72748ccdf2f3dcd30ece57 data/havenalchemy/loot_tables/blocks/experience_crop.json
 de01efc27e9b55a97d22bbc99300bc9cd5c206db data/havenalchemy/loot_tables/blocks/fire_crop.json
@@ -60,6 +62,7 @@ de01efc27e9b55a97d22bbc99300bc9cd5c206db data/havenalchemy/loot_tables/blocks/fi
 b06302b4857ad93f3f137aa4cf958d014971fadb data/havenalchemy/loot_tables/blocks/ice_crop.json
 2232f3f662e82786c3c71d9c0f6a59f90b10cc1d data/havenalchemy/loot_tables/blocks/iron_crop.json
 d8f94414823b52eab4ebcd5b67679bc51468404c data/havenalchemy/loot_tables/blocks/lapis_crop.json
+d9d1b3f726eca0fad3e5a3b33e2a3a3d5cc19aa3 data/havenalchemy/loot_tables/blocks/mysterium_spirit_block.json
 e6e924bb7cc8f0d341e09cca12b93fd6afcfa398 data/havenalchemy/loot_tables/blocks/nature_crop.json
 455e450f787c9266ca7c99b97eb0ade657ea1925 data/havenalchemy/loot_tables/blocks/neosphore_block.json
 80630234eccdb31a080a41cf8abbbe85d6974d26 data/havenalchemy/loot_tables/blocks/neosphore_ore.json
@@ -74,5 +77,6 @@ c48c2cd4720c2a5ff13c26a1a5009bfe7930925f data/havenalchemy/loot_tables/blocks/re
 b3645ec9003a2b2a21196948a09f830745311580 data/havenalchemy/loot_tables/blocks/stone_crop.json
 8cc370e2bbb6827fca4e9293454e56d8fdd227ac data/havenalchemy/loot_tables/blocks/stripped_charmel_log.json
 f8c03b86b7fc12a8dcf6704f24e6a07d3c7d0f75 data/havenalchemy/loot_tables/blocks/stripped_charmel_wood.json
+23b5da696792271f55b7e99f635b0eec24e8cfad data/havenalchemy/loot_tables/blocks/vitalium_spirit_block.json
 2059b13b7d8c84603a3fbbbd88033b67d5ade273 data/havenalchemy/loot_tables/blocks/water_crop.json
 43e2b364c812b3d1701c1bbe005e0307cab8e22f data/havenalchemy/loot_tables/blocks/wood_crop.json

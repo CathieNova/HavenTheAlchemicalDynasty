@@ -1,37 +1,37 @@
-[13Mar2024 23:24:37.473] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Cathi\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, havenalchemy, --all, --output, D:\[Minecraft]\!Projects\HavenAlchemy\src\generated\resources, --existing, D:\[Minecraft]\!Projects\HavenAlchemy\src\main\resources]
-[13Mar2024 23:24:37.477] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.5 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
-[13Mar2024 23:24:38.047] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[13Mar2024 23:24:38.099] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Cathi/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[13Mar2024 23:24:38.419] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[13Mar2024 23:24:38.424] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[13Mar2024 23:24:38.429] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[13Mar2024 23:24:38.435] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
-[13Mar2024 23:24:38.539] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[13Mar2024 23:24:39.865] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[13Mar2024 23:24:39.868] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Cathi\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, havenalchemy, --all, --output, D:\[Minecraft]\!Projects\HavenAlchemy\src\generated\resources, --existing, D:\[Minecraft]\!Projects\HavenAlchemy\src\main\resources]
-[13Mar2024 23:24:40.140] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using D:\[Minecraft]\!Projects\HavenAlchemy/build/createSrgToMcp/output.srg
-[13Mar2024 23:24:40.454] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [havenalchemy]
-[13Mar2024 23:24:44.521] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
-[13Mar2024 23:24:44.522] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
-[13Mar2024 23:24:44.693] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[13Mar2024 23:24:44.697] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 2.643 ms
-[13Mar2024 23:24:44.971] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Cathi/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[13Mar2024 23:24:44.972] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Cathi/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[13Mar2024 23:24:45.144] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[13Mar2024 23:24:45.211] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 66 ms
-[13Mar2024 23:24:45.211] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[13Mar2024 23:24:45.271] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 59 ms
-[13Mar2024 23:24:45.271] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: havenalchemy
-[13Mar2024 23:24:45.599] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: havenalchemy finished after 328 ms
-[13Mar2024 23:24:45.600] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: havenalchemy
-[13Mar2024 23:24:45.712] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: havenalchemy finished after 111 ms
-[13Mar2024 23:24:45.712] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id havenalchemy
-[13Mar2024 23:24:45.724] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id havenalchemy finished after 12 ms
-[13Mar2024 23:24:45.724] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id havenalchemy
-[13Mar2024 23:24:45.727] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id havenalchemy finished after 2 ms
-[13Mar2024 23:24:45.727] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[13Mar2024 23:24:45.745] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 17 ms
-[13Mar2024 23:24:45.745] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : havenalchemy
-[13Mar2024 23:24:45.750] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : havenalchemy finished after 4 ms
-[13Mar2024 23:24:45.750] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 605 ms
-[13Mar2024 23:24:45.772] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 1358, old count: 1358, new count: 1359, removed stale: 0, written: 0
+[14Mar2024 04:15:07.473] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Cathi\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, havenalchemy, --all, --output, D:\[Minecraft]\!Projects\HavenAlchemy\src\generated\resources, --existing, D:\[Minecraft]\!Projects\HavenAlchemy\src\main\resources]
+[14Mar2024 04:15:07.477] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.5 by Oracle Corporation; OS Windows 10 arch amd64 version 10.0
+[14Mar2024 04:15:07.590] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[14Mar2024 04:15:07.645] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Cathi/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[14Mar2024 04:15:07.958] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[14Mar2024 04:15:07.963] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[14Mar2024 04:15:07.967] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[14Mar2024 04:15:07.972] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Cathi\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
+[14Mar2024 04:15:08.081] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[14Mar2024 04:15:09.411] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[14Mar2024 04:15:09.414] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Cathi\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, havenalchemy, --all, --output, D:\[Minecraft]\!Projects\HavenAlchemy\src\generated\resources, --existing, D:\[Minecraft]\!Projects\HavenAlchemy\src\main\resources]
+[14Mar2024 04:15:09.750] [main/INFO] [mixin/]: Remapping refMap curios.refmap.json using D:\[Minecraft]\!Projects\HavenAlchemy/build/createSrgToMcp/output.srg
+[14Mar2024 04:15:10.092] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [havenalchemy]
+[14Mar2024 04:15:14.467] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
+[14Mar2024 04:15:14.468] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
+[14Mar2024 04:15:14.673] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[14Mar2024 04:15:14.679] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.210 ms
+[14Mar2024 04:15:14.979] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Cathi/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[14Mar2024 04:15:14.979] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Cathi/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[14Mar2024 04:15:15.145] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[14Mar2024 04:15:15.225] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 79 ms
+[14Mar2024 04:15:15.225] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[14Mar2024 04:15:15.300] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 74 ms
+[14Mar2024 04:15:15.300] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: havenalchemy
+[14Mar2024 04:15:15.653] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: havenalchemy finished after 353 ms
+[14Mar2024 04:15:15.654] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: havenalchemy
+[14Mar2024 04:15:15.792] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: havenalchemy finished after 137 ms
+[14Mar2024 04:15:15.792] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id havenalchemy
+[14Mar2024 04:15:15.808] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id havenalchemy finished after 15 ms
+[14Mar2024 04:15:15.808] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id havenalchemy
+[14Mar2024 04:15:15.811] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id havenalchemy finished after 3 ms
+[14Mar2024 04:15:15.811] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[14Mar2024 04:15:15.830] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 18 ms
+[14Mar2024 04:15:15.830] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : havenalchemy
+[14Mar2024 04:15:15.834] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : havenalchemy finished after 3 ms
+[14Mar2024 04:15:15.834] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 689 ms
+[14Mar2024 04:15:15.862] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 1366, old count: 1366, new count: 1367, removed stale: 0, written: 0
