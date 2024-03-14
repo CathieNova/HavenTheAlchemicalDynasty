@@ -33,6 +33,10 @@ public class ModBlockStateProvider extends BlockStateProvider
         blockWithItem(ModBlocks.dark_matter_block);
         blockWithItem(ModBlocks.red_matter_block);
         blockWithItem(ModBlocks.essentia_spirit_block);
+        blockWithItem(ModBlocks.mysterium_spirit_block);
+        blockWithItem(ModBlocks.vitalium_spirit_block);
+        blockWithItem(ModBlocks.celestium_spirit_block);
+        blockWithItem(ModBlocks.eternium_spirit_block);
         simpleBlockWithItem(ModBlocks.alchemical_chamber.get(), new ModelFile.UncheckedModelFile(modLoc("block/alchemical_chamber")));
 
         CropDrops((CropBlock) ModBlocks.essentia_crop.get(), "essentia_crop", "essentia_crop");

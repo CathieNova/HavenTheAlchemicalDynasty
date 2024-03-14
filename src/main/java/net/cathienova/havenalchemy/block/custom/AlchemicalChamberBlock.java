@@ -92,6 +92,6 @@ public class AlchemicalChamberBlock extends BaseEntityBlock
         }
 
         return createTickerHelper(pBlockEntityType, ModBlockEntities.alchemical_chamber.get(),
-                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1));
+                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick(pLevel1, pPos, pState1, pBlockEntity));
     }
 }

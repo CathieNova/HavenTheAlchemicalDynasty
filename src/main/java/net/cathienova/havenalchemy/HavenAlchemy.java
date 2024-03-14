@@ -8,6 +8,7 @@ import net.cathienova.havenalchemy.handler.MobDropHandler;
 import net.cathienova.havenalchemy.item.ModCreativeModTabs;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.loot.ModLootModifier;
+import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.recipe.ModRecipes;
 import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
 import net.cathienova.havenalchemy.screen.ModMenuTypes;
@@ -41,6 +42,7 @@ public class HavenAlchemy
         ModLootModifier.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+        ModMessages.register();
         MinecraftForge.EVENT_BUS.register(new MobDropHandler());
         MinecraftForge.EVENT_BUS.register(BootsofMeowHandler.class);
         ModRecipes.register(modEventBus);

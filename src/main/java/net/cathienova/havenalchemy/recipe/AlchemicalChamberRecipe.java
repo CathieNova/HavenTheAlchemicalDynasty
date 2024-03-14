@@ -8,13 +8,16 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AlchemicalChamberRecipe implements Recipe<SimpleContainer>
 {
@@ -30,28 +33,31 @@ public class AlchemicalChamberRecipe implements Recipe<SimpleContainer>
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel)
-    {
-        if (pLevel.isClientSide)
-        {
+    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        if (pLevel.isClientSide) {
             return false;
         }
 
-        // Create a copy of the input list to track which ingredients have been matched.
-        List<Ingredient> requiredIngredients = new ArrayList<>(this.inputItems);
+        // Map to hold the count of each ingredient found.
+        Map<Item, Integer> ingredientCountMap = new HashMap<>();
 
-        for (int i = 0; i < pContainer.getContainerSize(); i++)
-        {
-            ItemStack itemStack = pContainer.getItem(i);
-            if (!itemStack.isEmpty())
-            {
-                // Check each ingredient to see if it matches the current item stack.
-                requiredIngredients.removeIf(ingredient -> ingredient.test(itemStack));
+        // Populate the map with required ingredients and their quantities.
+        for (Ingredient ingredient : this.inputItems) {
+            for (ItemStack stack : ingredient.getItems()) {
+                ingredientCountMap.put(stack.getItem(), ingredientCountMap.getOrDefault(stack.getItem(), 0) + 1);
             }
         }
 
-        // If all required ingredients have been matched (list is empty), the recipe matches.
-        return requiredIngredients.isEmpty();
+        // Check items in the container against the required ingredients and quantities.
+        for (int i = 0; i < pContainer.getContainerSize(); i++) {
+            ItemStack itemStack = pContainer.getItem(i);
+            if (!itemStack.isEmpty() && ingredientCountMap.containsKey(itemStack.getItem())) {
+                ingredientCountMap.put(itemStack.getItem(), ingredientCountMap.get(itemStack.getItem()) - itemStack.getCount());
+            }
+        }
+
+        // Verify all required ingredients have been accounted for.
+        return ingredientCountMap.values().stream().allMatch(count -> count <= 0);
     }
 
     @Override
@@ -94,6 +100,21 @@ public class AlchemicalChamberRecipe implements Recipe<SimpleContainer>
     public RecipeType<?> getType()
     {
         return Type.INSTANCE;
+    }
+
+    public List<ItemStack> getIngredientsAsStacks() {
+        Map<Item, Integer> itemCountMap = new HashMap<>();
+        // Assuming `ingredients` is a List<Ingredient> populated from your recipe JSON
+        for (Ingredient ingredient : this.inputItems) {
+            for (ItemStack itemStack : ingredient.getItems()) {
+                Item item = itemStack.getItem();
+                itemCountMap.put(item, itemCountMap.getOrDefault(item, 0) + 1);
+            }
+        }
+
+        List<ItemStack> ingredientsWithQuantities = new ArrayList<>();
+        itemCountMap.forEach((item, count) -> ingredientsWithQuantities.add(new ItemStack(item, count)));
+        return ingredientsWithQuantities;
     }
 
     public static class Type implements RecipeType<AlchemicalChamberRecipe>

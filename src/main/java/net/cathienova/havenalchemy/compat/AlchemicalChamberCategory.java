@@ -27,7 +27,7 @@ public class AlchemicalChamberCategory implements IRecipeCategory<AlchemicalCham
 
     public AlchemicalChamberCategory(IGuiHelper helper)
     {
-        this.background = helper.createDrawable(TEXTURE, 3, 4, 173, 72);
+        this.background = helper.createDrawable(TEXTURE, 3, 4, 169, 72);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.alchemical_chamber.get()));
     }
 

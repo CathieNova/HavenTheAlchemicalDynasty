@@ -129,4 +129,8 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
+
+    public AlchemicalChamberBlockEntity getBlockEntity() {
+        return this.blockEntity;
+    }
 }
