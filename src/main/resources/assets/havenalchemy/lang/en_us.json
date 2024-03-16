@@ -1,5 +1,6 @@
 {
     "itemGroup.havenalchemy.havenalchemy_tab": "Haven Alchemy",
+    "itemGroup.havenalchemy.havenalchemy_blocks_tab": "Haven Alchemy Blocks",
 
     "block.havenalchemy.alchemical_coal_block": "Alchemical Coal Block",
     "block.havenalchemy.ethern_coal_block": "Ethern Coal Block",
@@ -22,6 +23,10 @@
     "block.havenalchemy.dark_matter_block": "Dark Matter Block",
     "block.havenalchemy.red_matter_block": "Red Matter Block",
     "block.havenalchemy.essentia_spirit_block": "Essentia Spirit Block",
+    "block.havenalchemy.mysterium_spirit_block": "Mysterium Spirit Block",
+    "block.havenalchemy.vitalium_spirit_block": "Vitalium Spirit Block",
+    "block.havenalchemy.celestium_spirit_block": "Celestium Spirit Block",
+    "block.havenalchemy.eternium_spirit_block": "Eternium Spirit Block",
 
     "block.havenalchemy.charmel_log": "Charmel Log",
     "block.havenalchemy.charmel_leaves": "Charmel Leaves",
@@ -147,9 +152,16 @@
 
     "item.havenalchemy.essentia_seeds": "Essentia Seeds",
     "item.havenalchemy.essentia_spirit": "Essentia Spirit",
+    "item.havenalchemy.mysterium_spirit": "Mysterium Spirit",
+    "item.havenalchemy.vitalium_spirit": "Vitalium Spirit",
+    "item.havenalchemy.celestium_spirit": "Celestium Spirit",
+    "item.havenalchemy.eternium_spirit": "Eternium Spirit",
 
     "item.havenalchemy.coal_seeds": "Coal Seeds",
     "item.havenalchemy.coal_spirit": "Coal Spirit",
+
+    "item.havenalchemy.amethyst_seeds": "Amethyst Seeds",
+    "item.havenalchemy.amethyst_spirit": "Amethyst Spirit",
 
     "item.havenalchemy.coral_seeds": "Coral Seeds",
     "item.havenalchemy.coral_spirit": "Coral Spirit",
@@ -234,6 +246,23 @@
 
     "item.havenalchemy.earth_seeds": "Earth Seeds",
     "item.havenalchemy.earth_spirit": "Earth Spirit",
+
+    "item.havenalchemy.deepslate_seeds": "Deepslate Seeds",
+    "item.havenalchemy.deepslate_spirit": "Deepslate Spirit",
+
+
+
+    "item.havenalchemy.acacia_bark": "Acacia Bark",
+    "item.havenalchemy.birch_bark": "Birch Bark",
+    "item.havenalchemy.dark_oak_bark": "Dark Oak Bark",
+    "item.havenalchemy.jungle_bark": "Jungle Bark",
+    "item.havenalchemy.oak_bark": "Oak Bark",
+    "item.havenalchemy.spruce_bark": "Spruce Bark",
+    "item.havenalchemy.warped_bark": "Warped Bark",
+    "item.havenalchemy.crimson_bark": "Crimson Bark",
+    "item.havenalchemy.mangrove_bark": "Mangrove Bark",
+    "item.havenalchemy.cherry_bark": "Cherry Bark",
+    "item.havenalchemy.charmel_bark": "Charmel Bark",
 
     "item.havenalchemy.smithing_template.neosphore_upgrade.applies_to": "Red Matter Equipment",
     "item.havenalchemy.smithing_template.neosphore_upgrade.ingredients": "Neosphore Ingot",

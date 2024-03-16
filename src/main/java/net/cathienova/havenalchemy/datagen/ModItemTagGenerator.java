@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -51,6 +52,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.stripped_charmel_log.get().asItem())
                 .add(ModBlocks.stripped_charmel_wood.get().asItem())
             ;
+        this.tag(ItemTags.LOGS)
+                .add(ModBlocks.charmel_log.get().asItem())
+                .add(ModBlocks.stripped_charmel_log.get().asItem())
+            ;
 
         this.tag(ItemTags.PLANKS)
                 .add(ModBlocks.charmel_planks.get().asItem())
@@ -63,6 +68,25 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ItemTags.WOODEN_STAIRS)
                 .add(ModBlocks.charmel_stairs.get().asItem())
             ;
+
+        this.tag(ModTags.Items.dyes)
+                .add(Items.BLACK_DYE)
+                .add(Items.BLUE_DYE)
+                .add(Items.BROWN_DYE)
+                .add(Items.CYAN_DYE)
+                .add(Items.GRAY_DYE)
+                .add(Items.GREEN_DYE)
+                .add(Items.LIGHT_BLUE_DYE)
+                .add(Items.LIGHT_GRAY_DYE)
+                .add(Items.LIME_DYE)
+                .add(Items.MAGENTA_DYE)
+                .add(Items.ORANGE_DYE)
+                .add(Items.PINK_DYE)
+                .add(Items.PURPLE_DYE)
+                .add(Items.RED_DYE)
+                .add(Items.WHITE_DYE)
+                .add(Items.YELLOW_DYE)
+                ;
 
         this.tag(ModTags.Items.spirits)
                 .add(ModItems.essentia_spirit.get())
@@ -101,6 +125,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.air_spirit.get())
                 .add(ModItems.earth_spirit.get())
             ;
+
         this.tag(ModTags.Items.seeds)
                 .add(ModItems.essentia_seeds.get())
                 .add(ModItems.coal_seeds.get())
@@ -133,6 +158,41 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.netherite_seeds.get())
                 .add(ModItems.air_seeds.get())
                 .add(ModItems.earth_seeds.get())
+                ;
+
+        this.tag(ModTags.Items.bark)
+                .add(ModItems.oak_bark.get())
+                .add(ModItems.spruce_bark.get())
+                .add(ModItems.birch_bark.get())
+                .add(ModItems.jungle_bark.get())
+                .add(ModItems.acacia_bark.get())
+                .add(ModItems.dark_oak_bark.get())
+                .add(ModItems.crimson_bark.get())
+                .add(ModItems.warped_bark.get())
+                .add(ModItems.charmel_bark.get())
+                ;
+
+        this.tag(ModTags.Items.coral)
+                .add(Items.DEAD_BRAIN_CORAL_BLOCK)
+                .add(Items.DEAD_BUBBLE_CORAL_BLOCK)
+                .add(Items.DEAD_FIRE_CORAL_BLOCK)
+                .add(Items.DEAD_HORN_CORAL_BLOCK)
+                .add(Items.DEAD_TUBE_CORAL_BLOCK)
+                .add(Items.BRAIN_CORAL_BLOCK)
+                .add(Items.BUBBLE_CORAL_BLOCK)
+                .add(Items.FIRE_CORAL_BLOCK)
+                .add(Items.HORN_CORAL_BLOCK)
+                .add(Items.TUBE_CORAL_BLOCK)
+                .add(Items.DEAD_BRAIN_CORAL)
+                .add(Items.DEAD_BUBBLE_CORAL)
+                .add(Items.DEAD_FIRE_CORAL)
+                .add(Items.DEAD_HORN_CORAL)
+                .add(Items.DEAD_TUBE_CORAL)
+                ;
+
+        this.tag(ModTags.Items.alchemy_stones)
+                .add(ModItems.alchemy_stone.get())
+                .add(ModItems.alchemy_stone_fractured.get())
                 ;
     }
 }

@@ -5,6 +5,7 @@ import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
 import net.cathienova.havenalchemy.util.AlchemicalChamberRecipeBuilder;
+import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -65,8 +66,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('M', ModItems.alchemy_dust_medium.get())
                 .define('D', ModItems.alchemy_dust.get())
                 .define('E', ModItems.essence_shard.get())
-                .unlockedBy("has_alchemy_stone_fractured", has(ModItems.alchemy_stone_fractured.get()))
+                .unlockedBy("has_essence_shard", has(ModItems.essence_shard.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemy_stone");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chamber.get(), 1)
+                .pattern("BDB")
+                .pattern("SSS")
+                .pattern("B B")
+                .define('B', ModBlocks.basphalt_stone_bricks.get())
+                .define('D', ModItems.alchemy_dust.get())
+                .define('S', ModBlocks.basphalt_stone.get())
+                .unlockedBy("has_alchemy_dust", has(ModItems.alchemy_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chamber");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_dust.get(), 1)
                 .pattern("LLL")
@@ -111,7 +122,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("GEG")
                 .define('G', Items.GLOWSTONE_DUST)
                 .define('E', Items.ENDER_PEARL)
-                .define('A', ModItems.alchemy_stone_fractured.get())
+                .define('A', ModTags.Items.alchemy_stones)
                 .unlockedBy("has_ender_pearl", has(Items.ENDER_PEARL))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/magnet");
 
@@ -120,7 +131,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("GAG")
                 .pattern("DGD")
                 .define('D', Items.DIAMOND)
-                .define('A', ModItems.alchemy_stone_fractured.get())
+                .define('A', ModTags.Items.alchemy_stones)
                 .define('G', Items.GOLD_INGOT)
                 .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/mending_necklace");
@@ -171,6 +182,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('D', ModItems.dark_matter.get())
                 .unlockedBy("has_dark_matter", has(ModItems.dark_matter.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/red_matter");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.void_matter.get(), 1)
+                .pattern("DDD")
+                .pattern("AAA")
+                .pattern("DDD")
+                .define('A', ModBlocks.aether_fuel_block.get())
+                .define('D', ModItems.red_matter.get())
+                .unlockedBy("has_red_matter", has(ModItems.red_matter.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/void_matter");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.essence_apple.get(), 1)
                 .pattern("EEE")
@@ -233,6 +253,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         BlockRecipe(consumer, ModBlocks.dark_matter_block.get(), ModItems.dark_matter.get());
         BlockRecipe(consumer, ModBlocks.red_matter_block.get(), ModItems.red_matter.get());
         BlockRecipe(consumer, ModBlocks.essentia_spirit_block.get(), ModItems.essentia_spirit.get());
+        BlockRecipe(consumer, ModBlocks.mysterium_spirit_block.get(), ModItems.mysterium_spirit.get());
+        BlockRecipe(consumer, ModBlocks.vitalium_spirit_block.get(), ModItems.vitalium_spirit.get());
+        BlockRecipe(consumer, ModBlocks.celestium_spirit_block.get(), ModItems.celestium_spirit.get());
+        BlockRecipe(consumer, ModBlocks.eternium_spirit_block.get(), ModItems.eternium_spirit.get());
 
         UnBlockRecipe(consumer, ModItems.alchemical_coal.get(), ModBlocks.alchemical_coal_block.get());
         UnBlockRecipe(consumer, ModItems.ethern_coal.get(), ModBlocks.ethern_coal_block.get());
@@ -240,6 +264,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         UnBlockRecipe(consumer, ModItems.dark_matter.get(), ModBlocks.dark_matter_block.get());
         UnBlockRecipe(consumer, ModItems.red_matter.get(), ModBlocks.red_matter_block.get());
         UnBlockRecipe(consumer, ModBlocks.essentia_spirit_block.get(), ModItems.essentia_spirit.get());
+        UnBlockRecipe(consumer, ModBlocks.mysterium_spirit_block.get(), ModItems.mysterium_spirit.get());
+        UnBlockRecipe(consumer, ModBlocks.vitalium_spirit_block.get(), ModItems.vitalium_spirit.get());
+        UnBlockRecipe(consumer, ModBlocks.celestium_spirit_block.get(), ModItems.celestium_spirit.get());
+        UnBlockRecipe(consumer, ModBlocks.eternium_spirit_block.get(), ModItems.eternium_spirit.get());
 
         HelmetCraft(consumer, ModItems.dark_matter_helmet.get(), ModItems.dark_matter.get());
         ChestplateCraft(consumer, ModItems.dark_matter_chestplate.get(), ModItems.dark_matter.get());
@@ -251,10 +279,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         LeggingsCraft(consumer, ModItems.red_matter_leggings.get(), ModItems.red_matter.get());
         BootsCraft(consumer, ModItems.red_matter_boots.get(), ModItems.red_matter.get());
 
-        HelmetCraft(consumer, ModItems.neosphore_helmet.get(), ModItems.neosphore_ingot.get());
+        /*HelmetCraft(consumer, ModItems.neosphore_helmet.get(), ModItems.neosphore_ingot.get());
         ChestplateCraft(consumer, ModItems.neosphore_chestplate.get(), ModItems.neosphore_ingot.get());
         LeggingsCraft(consumer, ModItems.neosphore_leggings.get(), ModItems.neosphore_ingot.get());
-        BootsCraft(consumer, ModItems.neosphore_boots.get(), ModItems.neosphore_ingot.get());
+        BootsCraft(consumer, ModItems.neosphore_boots.get(), ModItems.neosphore_ingot.get());*/
 
         PickaxeCraft(consumer, ModItems.dark_matter_pickaxe.get(), ModItems.dark_matter.get());
         AxeCraft(consumer, ModItems.dark_matter_axe.get(), ModItems.dark_matter.get());
@@ -280,7 +308,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShearsCraft(consumer, ModItems.neosphore_shears.get(), ModItems.neosphore_ingot.get());*/
         //HammerCraft(consumer, ModItems.neosphore_hammer.get(), ModItems.neosphore_ingot.get());
 
-        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.dark_matter_pickaxe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_pickaxe.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_pickaxe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_pickaxe.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_axe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_axe.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shovel.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_shovel.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_hoe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_hoe.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_sword.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_sword.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shears.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_shears.get());
+        //upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_hammer.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_hammer.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_helmet.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_helmet.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_chestplate.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_chestplate.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_leggings.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_leggings.get());
+        upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_boots.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_boots.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.neosphore_smithing_template.get(), 1)
+                .pattern("SIS")
+                .pattern("SNS")
+                .pattern("SSS")
+                .define('S', ModBlocks.basphalt_stone.get())
+                .define('I', ModItems.neosphore_ingot.get())
+                .define('N', ModItems.neosphore_smithing_template.get())
+                .unlockedBy("has_neosphore_smithing_template", has(ModItems.neosphore_smithing_template.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/neosphore_smithing_template");
 
         oreSmelting(consumer, NEOSPHORE_SMELTABLES, RecipeCategory.MISC, ModItems.neosphore_ingot.get(), 0.25f, 200, "neosphore_ingot");
         oreBlasting(consumer, NEOSPHORE_SMELTABLES, RecipeCategory.MISC, ModItems.neosphore_ingot.get(), 0.25f, 100, "neosphore_ingot");
@@ -1074,27 +1122,116 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_fire_spirit", has(ModItems.fire_spirit.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/lava_bucket");
 
-        createAlchemicalChamberRecipe(consumer,
-                ModItems.iron_seeds.get(),
-                Items.WHEAT_SEEDS,
-                ModItems.alchemy_dust.get(),
-                Items.IRON_BLOCK,Items.IRON_BLOCK,Items.IRON_BLOCK,Items.IRON_BLOCK,
-                ModBlocks.essentia_spirit_block.get(), ModBlocks.essentia_spirit_block.get(), ModBlocks.essentia_spirit_block.get(), ModBlocks.essentia_spirit_block.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER, 1)
+                .pattern("BBB")
+                .define('B', ModTags.Items.bark)
+                .unlockedBy("has_bark", has(ModTags.Items.bark))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/paper");
+
+        createAlchemicalChamberRecipe(consumer, ModItems.coal_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.COAL_BLOCK, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.coral_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.FIRE_CORAL_BLOCK, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.diamond_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.DIAMOND_BLOCK, ModBlocks.celestium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.dirt_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.DIRT, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.dye_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.WHITE_DYE, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.emerald_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.EMERALD_BLOCK, ModBlocks.celestium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.end_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.END_STONE, ModBlocks.mysterium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.experience_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.EXPERIENCE_BOTTLE, ModBlocks.celestium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.fire_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.MAGMA_BLOCK, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.glowstone_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.GLOWSTONE, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.gold_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.GOLD_BLOCK, ModBlocks.vitalium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.ice_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.PACKED_ICE, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.iron_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.IRON_BLOCK, ModBlocks.vitalium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.lapis_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.LAPIS_BLOCK, ModBlocks.vitalium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.nature_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.GRASS_BLOCK, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.nether_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.NETHERRACK, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.nether_quartz_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.QUARTZ_BLOCK, ModBlocks.vitalium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.obsidian_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.OBSIDIAN, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.redstone_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.REDSTONE_BLOCK, ModBlocks.vitalium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.water_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.WATER_BUCKET, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.wood_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.OAK_LOG, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.amethyst_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.AMETHYST_BLOCK, ModBlocks.celestium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.copper_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.COPPER_BLOCK, ModBlocks.vitalium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.honey_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.HONEY_BLOCK, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.prismarine_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.PRISMARINE_BRICKS, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.netherite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.NETHERITE_BLOCK, ModBlocks.celestium_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.air_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.FEATHER, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.earth_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.DIRT, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.stone_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.STONE, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.deepslate_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.DEEPSLATE, ModBlocks.essentia_spirit_block.get());
     }
 
-    private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed, ItemLike dust, ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3, ItemLike ingredient4, ItemLike ingredient5, ItemLike ingredient6, ItemLike ingredient7, ItemLike ingredient8)
+    private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed, ItemLike dust, ItemLike ingredient1, ItemLike ingredient2)
     {
         AlchemicalChamberRecipeBuilder.customRecipe(new ResourceLocation(HavenAlchemy.MOD_ID + "alchemical_chamber"), AlchemicalChamberRecipe.Serializer.INSTANCE)
                 .ingredient(seed)
                 .ingredient(dust)
                 .ingredient(ingredient1)
+                .ingredient(ingredient1)
+                .ingredient(ingredient1)
+                .ingredient(ingredient1)
                 .ingredient(ingredient2)
-                .ingredient(ingredient3)
-                .ingredient(ingredient4)
-                .ingredient(ingredient5)
-                .ingredient(ingredient6)
-                .ingredient(ingredient7)
-                .ingredient(ingredient8)
+                .ingredient(ingredient2)
+                .ingredient(ingredient2)
+                .ingredient(ingredient2)
                 .result(result)
                 .save(consumer, new ResourceLocation(HavenAlchemy.MOD_ID + ":alchemical_chamber/" + getItemName(result)));
     }
@@ -1165,7 +1302,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("LAL")
                 .pattern(" L ")
                 .define('L', ingredient)
-                .define('A', ModItems.alchemy_stone_fractured.get())
+                .define('A', ModTags.Items.alchemy_stones)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":transmute/" + getItemName(result) + "_from_" + getItemName(ingredient));
     }
@@ -1177,7 +1314,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("L L")
                 .pattern("ALA")
                 .define('L', ingredient)
-                .define('A', ModItems.alchemy_stone_fractured.get())
+                .define('A', ModTags.Items.alchemy_stones)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":transmute_block/" + getItemName(result) + "_from_" + getItemName(ingredient));
     }
@@ -1186,7 +1323,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, item, 4)
                 .requires(pIngredient, 1)
-                .requires(ModItems.alchemy_stone_fractured.get())
+                .requires(ModTags.Items.alchemy_stones)
                 .unlockedBy("has_" + getItemName(pIngredient), has(pIngredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":transmute/" + getItemName(item) + "_from_" + getItemName(pIngredient));
     }
@@ -1277,7 +1414,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("S")
                 .pattern("S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', Ingredient.of(stickTag))
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1289,7 +1426,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" S ")
                 .pattern(" S ")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', Ingredient.of(stickTag))
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1301,7 +1438,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("LS")
                 .pattern(" S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', Ingredient.of(stickTag))
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1313,7 +1450,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" S")
                 .pattern(" S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', Ingredient.of(stickTag))
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1325,7 +1462,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("L")
                 .pattern("S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', Ingredient.of(stickTag))
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1347,7 +1484,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("LSL")
                 .pattern(" S ")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', Ingredient.of(stickTag))
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }

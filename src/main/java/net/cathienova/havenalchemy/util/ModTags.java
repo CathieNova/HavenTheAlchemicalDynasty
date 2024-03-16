@@ -16,7 +16,6 @@ public class ModTags
         public static final TagKey<Block> needs_neosphore_tool = tag("needs_neosphore_tool");
         public static final TagKey<Block> basphalt_stone = tag("basphalt_stone");
         public static final TagKey<Block> suspicious_basphalt = tag("suspicious_basphalt");
-        public static final TagKey<Block> NEEDS_NEOSPHORE_TOOL = tag("basphalt_stone");
 
         private static TagKey<Block> tag(String name)
         {
@@ -28,6 +27,10 @@ public class ModTags
 
         public static final TagKey<Item> spirits = tag("spirits");
         public static final TagKey<Item> seeds = tag("seeds");
+        public static final TagKey<Item> bark = tag("bark");
+        public static final TagKey<Item> dyes = tag("dyes");
+        public static final TagKey<Item> coral = tag("coral");
+        public static final TagKey<Item> alchemy_stones = tag("alchemy_stones");
 
         private static TagKey<Item> tag(String name)
         {

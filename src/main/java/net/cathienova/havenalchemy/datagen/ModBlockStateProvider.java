@@ -102,10 +102,12 @@ public class ModBlockStateProvider extends BlockStateProvider
         stairsBlock(((StairBlock) ModBlocks.basphalt_cobblestone_stairs.get()), blockTexture(ModBlocks.basphalt_cobblestone.get()));
         stairsBlock(((StairBlock) ModBlocks.basphalt_stone_bricks_stairs.get()), blockTexture(ModBlocks.basphalt_stone_bricks.get()));
         stairsBlock(((StairBlock) ModBlocks.charmel_stairs.get()), blockTexture(ModBlocks.charmel_planks.get()));
+
         slabBlock(((SlabBlock) ModBlocks.basphalt_stone_slabs.get()), blockTexture(ModBlocks.basphalt_stone.get()), blockTexture(ModBlocks.basphalt_stone.get()));
         slabBlock(((SlabBlock) ModBlocks.basphalt_cobblestone_slabs.get()), blockTexture(ModBlocks.basphalt_cobblestone.get()), blockTexture(ModBlocks.basphalt_cobblestone.get()));
         slabBlock(((SlabBlock) ModBlocks.basphalt_stone_bricks_slabs.get()), blockTexture(ModBlocks.basphalt_stone_bricks.get()), blockTexture(ModBlocks.basphalt_stone_bricks.get()));
         slabBlock(((SlabBlock) ModBlocks.charmel_slab.get()), blockTexture(ModBlocks.charmel_planks.get()), blockTexture(ModBlocks.charmel_planks.get()));
+
         buttonBlock((ButtonBlock) ModBlocks.basphalt_stone_button.get(), blockTexture(ModBlocks.basphalt_stone.get()));
         buttonBlock((ButtonBlock) ModBlocks.basphalt_cobblestone_button.get(), blockTexture(ModBlocks.basphalt_cobblestone.get()));
         buttonBlock((ButtonBlock) ModBlocks.basphalt_stone_bricks_button.get(), blockTexture(ModBlocks.basphalt_stone_bricks.get()));

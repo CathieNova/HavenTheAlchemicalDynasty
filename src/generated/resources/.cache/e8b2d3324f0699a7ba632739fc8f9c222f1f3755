@@ -1,9 +1,0 @@
-// 1.20.1	2024-03-14T03:37:42.4264085	Tags for minecraft:item mod id havenalchemy
-f310d11172296c67787dc1f25073fb837a203120 data/havenalchemy/tags/items/seeds.json
-7a2dee111c2f23fa0be3170d491bc69ad2e8983a data/havenalchemy/tags/items/spirits.json
-b6bffe5e561137cfa8e4d730ea3492d675ab1429 data/minecraft/tags/items/coals.json
-3d8da88a9ae0e8d5f992e2cef791107faaed23ab data/minecraft/tags/items/logs_that_burn.json
-bfda02f36e459cf618957b8be218c7c68d66ffa7 data/minecraft/tags/items/planks.json
-dd58a79fa671ebf6c224614c7f2fa16f8214f9f6 data/minecraft/tags/items/trimmable_armor.json
-1ee77906a08f835c42e378737687bb2782f58be6 data/minecraft/tags/items/wooden_slabs.json
-953abb8148b30c3323da232bdfd62a5fc198be6b data/minecraft/tags/items/wooden_stairs.json

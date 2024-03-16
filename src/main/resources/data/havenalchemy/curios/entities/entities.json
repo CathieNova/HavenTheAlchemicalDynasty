@@ -4,16 +4,15 @@
     "minecraft:armor_stand"
   ],
   "slots": [
-    "back",
+    "head",
+    "necklace",
     "body",
+    "back",
     "belt",
     "bracelet",
     "charm",
-    "curio",
     "hands",
-    "head",
-    "necklace",
-    "ring",
-    "feet"
+    "feet",
+    "ring"
   ]
 }

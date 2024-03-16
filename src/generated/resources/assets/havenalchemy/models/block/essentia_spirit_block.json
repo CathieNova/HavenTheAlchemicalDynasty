@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "havenalchemy:block/essentia_spirit_block"
-  }
-}

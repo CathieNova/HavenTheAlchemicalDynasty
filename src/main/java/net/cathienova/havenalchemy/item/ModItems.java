@@ -5,6 +5,7 @@ import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.alchemy_stone.Alchemy_Stone;
 import net.cathienova.havenalchemy.item.alchemy_stone.Alchemy_Stone_Fractured;
 import net.cathienova.havenalchemy.item.artifacts.*;
+import net.cathienova.havenalchemy.item.bark.*;
 import net.cathienova.havenalchemy.item.fuel.FuelItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -59,13 +60,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> void_matter = ITEMS.register("void_matter",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.EPIC)));
-
-// Artifacts
-    public static final RegistryObject<Item> magnet = ITEMS.register("magnet",
-            () -> new Magnet(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 5));
-
-    public static final RegistryObject<Item> mending_necklace = ITEMS.register("mending_necklace",
-            () -> new MendingNecklace(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> essence_shard = ITEMS.register("essence_shard",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
@@ -409,6 +403,48 @@ public class ModItems {
 
     public static final RegistryObject<Item> neosphore_nugget = ITEMS.register("neosphore_nugget",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> acacia_bark = ITEMS.register("acacia_bark",
+            () -> new AcaciaBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> birch_bark = ITEMS.register("birch_bark",
+            () -> new BirchBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> charmel_bark = ITEMS.register("charmel_bark",
+            () -> new CharmelBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> cherry_bark = ITEMS.register("cherry_bark",
+            () -> new CherryBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> crimson_bark = ITEMS.register("crimson_bark",
+            () -> new CrimsonBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> dark_oak_bark = ITEMS.register("dark_oak_bark",
+            () -> new DarkOakBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> jungle_bark = ITEMS.register("jungle_bark",
+            () -> new JungleBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> mangrove_bark = ITEMS.register("mangrove_bark",
+            () -> new MangroveBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> oak_bark = ITEMS.register("oak_bark",
+            () -> new OakBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> spruce_bark = ITEMS.register("spruce_bark",
+            () -> new SpruceBark(new Item.Properties()));
+
+    public static final RegistryObject<Item> warped_bark = ITEMS.register("warped_bark",
+            () -> new WarpedBark(new Item.Properties()));
+
+
+
+
+    public static final RegistryObject<Item> magnet = ITEMS.register("magnet",
+            () -> new Magnet(new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 5));
+
+    public static final RegistryObject<Item> mending_necklace = ITEMS.register("mending_necklace",
+            () -> new MendingNecklace(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> boots_of_meow = ITEMS.register("boots_of_meow",
             () -> new BootsOfMeow(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));

@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:has_structure/ancient_city",
-  "features": "havenalchemy:neosphore_ore_placed",
-  "step": "underground_ores"
-}

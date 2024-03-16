@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "havenalchemy:block/basphalt_stone",
-    "side": "havenalchemy:block/basphalt_stone",
-    "top": "havenalchemy:block/basphalt_stone"
-  }
-}

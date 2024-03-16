@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "havenalchemy:block/charmel_planks",
-    "side": "havenalchemy:block/charmel_planks",
-    "top": "havenalchemy:block/charmel_planks"
-  }
-}

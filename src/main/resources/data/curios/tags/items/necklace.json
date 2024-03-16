@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "havenalchemy:mending_necklace"
+    "havenalchemy:mending_necklace",
+    "havenalchemy:regeneration_pendant",
+    "havenalchemy:fire_pendant",
+    "havenalchemy:water_pendant"
   ]
 }

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "havenalchemy:item/dark_matter_boots",
-    "layer1": "minecraft:trims/items/boots_trim_emerald"
-  }
-}

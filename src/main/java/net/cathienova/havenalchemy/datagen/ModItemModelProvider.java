@@ -55,6 +55,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.essence_shard);
         simpleItem(ModItems.dark_matter);
         simpleItem(ModItems.red_matter);
+        simpleItem(ModItems.void_matter);
         simpleItem(ModItems.essence_apple);
         simpleItem(ModItems.dark_matter_apple);
         simpleItem(ModItems.red_matter_apple);
@@ -209,6 +210,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.fire_pendant);
         simpleItem(ModItems.water_pendant);
         simpleItem(ModItems.nightvision_goggles);
+
+        simpleItem(ModItems.oak_bark);
+        simpleItem(ModItems.spruce_bark);
+        simpleItem(ModItems.birch_bark);
+        simpleItem(ModItems.jungle_bark);
+        simpleItem(ModItems.acacia_bark);
+        simpleItem(ModItems.dark_oak_bark);
+        simpleItem(ModItems.crimson_bark);
+        simpleItem(ModItems.warped_bark);
+        simpleItem(ModItems.cherry_bark);
+        simpleItem(ModItems.mangrove_bark);
+        simpleItem(ModItems.charmel_bark);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

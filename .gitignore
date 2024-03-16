@@ -2,6 +2,7 @@
 bin
 run-data
 run
+src/generated
 *.launch
 .settings
 .metadata

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "havenalchemy:magnet"
+    "havenalchemy:magnet",
+    "havenalchemy:ring_of_haste",
+    "havenalchemy:ring_of_love"
   ]
 }

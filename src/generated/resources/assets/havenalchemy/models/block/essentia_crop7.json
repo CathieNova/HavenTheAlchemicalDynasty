@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/crop",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "crop": "havenalchemy:block/essentia_crop_stage_7"
-  }
-}
