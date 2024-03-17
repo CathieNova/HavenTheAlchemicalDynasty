@@ -16,6 +16,7 @@ public class ModTags
         public static final TagKey<Block> needs_neosphore_tool = tag("needs_neosphore_tool");
         public static final TagKey<Block> basphalt_stone = tag("basphalt_stone");
         public static final TagKey<Block> suspicious_basphalt = tag("suspicious_basphalt");
+        public static final TagKey<Block> needs_sculkerite_tool = tag("needs_sculkerite_tool");
 
         private static TagKey<Block> tag(String name)
         {

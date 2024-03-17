@@ -40,12 +40,12 @@ public class Magnet extends ArtifactBase
             if (!level.isClientSide())
             {
                 ServerPlayer serverPlayer = (ServerPlayer) player;
-
-                if (serverPlayer.tickCount % 20 == 0)
+                if (!serverPlayer.isCrouching())
                 {
-                    player.getInventory().items.stream()
-                            .filter(s -> s.getItem() instanceof Magnet)
-                            .forEach(s -> attractItemsToPlayer(player, s));
+                    if (serverPlayer.tickCount % 5 == 0)
+                    {
+                        attractItemsToPlayer(player, stack);
+                    }
                 }
             }
         }
@@ -62,7 +62,7 @@ public class Magnet extends ArtifactBase
                 entity -> true);
 
         for (ItemEntity item : items) {
-            item.setPickUpDelay(0);
+            item.setPickUpDelay(1);
             Vec3 itemVector = new Vec3(item.getX(), item.getY(), item.getZ());
             Vec3 playerVector = new Vec3(x, y + 0.03, z);
             Vec3 motion = playerVector.subtract(itemVector).scale(0.5);

@@ -14,10 +14,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -41,8 +38,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static final List<ItemLike> BASPHALT_STONE_SMELTABLES = List.of(
             ModBlocks.basphalt_cobblestone.get());
-
-    private static TagKey<Item> stickTag = ItemTags.create(new ResourceLocation("forge", "sticks"));
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer)
@@ -320,6 +315,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_leggings.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_leggings.get());
         upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_boots.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_boots.get());
 
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_AXE, ModItems.sculk_ingot.get(), ModItems.sculkerite_axe.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_PICKAXE, ModItems.sculk_ingot.get(), ModItems.sculkerite_pickaxe.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_SHOVEL, ModItems.sculk_ingot.get(), ModItems.sculkerite_shovel.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_HOE, ModItems.sculk_ingot.get(), ModItems.sculkerite_hoe.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_SWORD, ModItems.sculk_ingot.get(), ModItems.sculkerite_sword.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_HELMET, ModItems.sculk_ingot.get(), ModItems.sculkerite_helmet.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_CHESTPLATE, ModItems.sculk_ingot.get(), ModItems.sculkerite_chestplate_uncharged.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), ModItems.sculkerite_chestplate_uncharged.get(), ModItems.sculk_ingot.get(), ModItems.sculkerite_chestplate.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_LEGGINGS, ModItems.sculk_ingot.get(), ModItems.sculkerite_leggings.get());
+        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_BOOTS, ModItems.sculk_ingot.get(), ModItems.sculkerite_boots.get());
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.neosphore_smithing_template.get(), 1)
                 .pattern("SIS")
                 .pattern("SNS")
@@ -329,6 +335,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('N', ModItems.neosphore_smithing_template.get())
                 .unlockedBy("has_neosphore_smithing_template", has(ModItems.neosphore_smithing_template.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/neosphore_smithing_template");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.sculk_ingot.get(), 1)
+                .pattern("DSD")
+                .pattern("SIS")
+                .pattern("DSD")
+                .define('S', ModItems.sculk_soul.get())
+                .define('D', ModItems.alchemy_dust.get())
+                .define('I', Items.IRON_INGOT)
+                .unlockedBy("has_sculk_soul", has(ModItems.sculk_soul.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/sculk_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.warden_blood.get(), 4)
+                .pattern("DGD")
+                .pattern("GHG")
+                .pattern("DGD")
+                .define('D', ModItems.alchemy_dust.get())
+                .define('G', Items.GLASS_BOTTLE)
+                .define('H', ModItems.warden_heart.get())
+                .unlockedBy("has_warden_heart", has(ModItems.warden_heart.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/warden_blood");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.warden_heart.get(), 1)
+                .pattern("ESE")
+                .pattern("SDS")
+                .pattern("ESE")
+                .define('E', Items.ECHO_SHARD)
+                .define('S', ModItems.sculk_ingot.get())
+                .define('D', Items.DIAMOND)
+                .unlockedBy("has_echo_shard", has(Items.ECHO_SHARD))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/warden_heart");
 
         oreSmelting(consumer, NEOSPHORE_SMELTABLES, RecipeCategory.MISC, ModItems.neosphore_ingot.get(), 0.25f, 200, "neosphore_ingot");
         oreBlasting(consumer, NEOSPHORE_SMELTABLES, RecipeCategory.MISC, ModItems.neosphore_ingot.get(), 0.25f, 100, "neosphore_ingot");
@@ -1414,7 +1450,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("S")
                 .pattern("S")
                 .define('L', ingredient)
-                .define('S', Ingredient.of(stickTag))
+                .define('S', Items.STICK)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1426,7 +1462,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" S ")
                 .pattern(" S ")
                 .define('L', ingredient)
-                .define('S', Ingredient.of(stickTag))
+                .define('S', Items.STICK)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1438,7 +1474,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("LS")
                 .pattern(" S")
                 .define('L', ingredient)
-                .define('S', Ingredient.of(stickTag))
+                .define('S', Items.STICK)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1450,7 +1486,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" S")
                 .pattern(" S")
                 .define('L', ingredient)
-                .define('S', Ingredient.of(stickTag))
+                .define('S', Items.STICK)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1462,7 +1498,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("L")
                 .pattern("S")
                 .define('L', ingredient)
-                .define('S', Ingredient.of(stickTag))
+                .define('S', Items.STICK)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1484,7 +1520,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("LSL")
                 .pattern(" S ")
                 .define('L', ingredient)
-                .define('S', Ingredient.of(stickTag))
+                .define('S', Items.STICK)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1542,7 +1578,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("IPI")
                 .pattern("IPI")
                 .define('I', pIngredient)
-                .define('P', Ingredient.of(stickTag))
+                .define('P', Items.STICK)
                 .unlockedBy(getHasName(pIngredient), has(pIngredient))
                 .save(pFinishedRecipeConsumer, HavenAlchemy.MOD_ID + ":" + getItemName(pFence) + "_from_" + getItemName(pIngredient));
     }
@@ -1560,7 +1596,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pFenceGate)
                 .pattern("PSP")
                 .pattern("PSP")
-                .define('P', Ingredient.of(stickTag))
+                .define('P', Items.STICK)
                 .define('S', pIngredient)
                 .unlockedBy(getHasName(pIngredient), has(pIngredient))
                 .save(pFinishedRecipeConsumer, HavenAlchemy.MOD_ID + ":" + getItemName(pFenceGate) + "_from_" + getItemName(pIngredient));

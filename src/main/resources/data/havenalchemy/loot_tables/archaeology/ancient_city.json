@@ -9,7 +9,7 @@
           "name": "havenalchemy:neosphore_smithing_template"
         }
       ],
-      "rolls": 1.0
+      "rolls": 0.25
     }
   ],
   "random_sequence": "havenalchemy:archaeology/ancient_city"

@@ -4,11 +4,15 @@
   "package": "net.cathienova.havenalchemy.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ScreenMixin"
+    "ScreenMixin",
+    "EntityMixin"
   ],
   "client": [
+    "MinecraftClientMixin",
+    "ClientPacketListenerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "mixins.havenalchemy.refmap.json"
 }

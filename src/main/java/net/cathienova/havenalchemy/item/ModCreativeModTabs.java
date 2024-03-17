@@ -41,20 +41,6 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.ethern_coal_block.get()));
                         add.accept(new ItemStack(ModBlocks.aether_fuel_block.get()));
 
-                        //Armor
-                        add.accept(new ItemStack(ModItems.dark_matter_helmet.get()));
-                        add.accept(new ItemStack(ModItems.dark_matter_chestplate.get()));
-                        add.accept(new ItemStack(ModItems.dark_matter_leggings.get()));
-                        add.accept(new ItemStack(ModItems.dark_matter_boots.get()));
-                        add.accept(new ItemStack(ModItems.red_matter_helmet.get()));
-                        add.accept(new ItemStack(ModItems.red_matter_chestplate.get()));
-                        add.accept(new ItemStack(ModItems.red_matter_leggings.get()));
-                        add.accept(new ItemStack(ModItems.red_matter_boots.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_helmet.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_chestplate.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_leggings.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_boots.get()));
-
                         //Tools
                         add.accept(new ItemStack(ModItems.dark_matter_pickaxe.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_axe.get()));
@@ -62,12 +48,21 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.dark_matter_hoe.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_sword.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_shears.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_helmet.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_chestplate.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_leggings.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_boots.get()));
+
                         add.accept(new ItemStack(ModItems.red_matter_pickaxe.get()));
                         add.accept(new ItemStack(ModItems.red_matter_axe.get()));
                         add.accept(new ItemStack(ModItems.red_matter_shovel.get()));
                         add.accept(new ItemStack(ModItems.red_matter_hoe.get()));
                         add.accept(new ItemStack(ModItems.red_matter_sword.get()));
                         add.accept(new ItemStack(ModItems.red_matter_shears.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_helmet.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_chestplate.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_leggings.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_boots.get()));
 
                         add.accept(new ItemStack(ModItems.raw_neosphore.get()));
                         add.accept(new ItemStack(ModItems.neosphore_ingot.get()));
@@ -82,6 +77,25 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.raw_neosphore_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.neosphore_ore.get().asItem()));
                         add.accept(new ItemStack(ModItems.neosphore_smithing_template.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_helmet.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_chestplate.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_leggings.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_boots.get()));
+
+                        add.accept(new ItemStack(ModItems.sculk_ingot.get()));
+                        add.accept(new ItemStack(ModItems.sculk_soul.get()));
+                        add.accept(new ItemStack(ModItems.warden_heart.get()));
+                        add.accept(new ItemStack(ModItems.warden_blood.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_axe.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_pickaxe.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_sword.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_shovel.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_hoe.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_helmet.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_chestplate_uncharged.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_chestplate.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_leggings.get()));
+                        add.accept(new ItemStack(ModItems.sculkerite_boots.get()));
 
                         //Foods
                         add.accept(new ItemStack(ModItems.essence_apple.get()));
@@ -185,7 +199,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.fire_pendant.get()));
                         add.accept(new ItemStack(ModItems.water_pendant.get()));
                         add.accept(new ItemStack(ModItems.nightvision_goggles.get()));
-
+                        add.accept(new ItemStack(ModItems.warden_ears.get()));
 
                     }).build());
 

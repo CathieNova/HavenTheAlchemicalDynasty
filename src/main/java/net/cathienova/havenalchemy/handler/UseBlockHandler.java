@@ -12,12 +12,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Random;
+
 @Mod.EventBusSubscriber
 public class UseBlockHandler {
-
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         Player player = event.getEntity();
@@ -71,6 +73,39 @@ public class UseBlockHandler {
             {
                 spawnItem(level, player, blockPos, new ItemStack(ModItems.warped_bark.get()));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        if (player.isCreative()) return;
+        Level level = (Level) event.getLevel();
+        BlockPos blockPos = event.getPos();
+        Block block = event.getState().getBlock();
+
+        int sculkSoulDropChance = 25; // Out of 1000
+        Random random = new Random();
+
+        if (block.equals(Blocks.SCULK) && random.nextInt(0, 800) < sculkSoulDropChance)
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
+        }
+        else if (block.equals(Blocks.SCULK_CATALYST) && random.nextInt(0, 250) < sculkSoulDropChance)
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
+        }
+        else if (block.equals(Blocks.SCULK_VEIN) && random.nextInt(0, 800) < sculkSoulDropChance)
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
+        }
+        else if (block.equals(Blocks.SCULK_SHRIEKER) && random.nextInt(0, 250) < sculkSoulDropChance)
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
+        }
+        else if (block.equals(Blocks.SCULK_SENSOR) && random.nextInt(0, 500) < sculkSoulDropChance)
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
         }
     }
 

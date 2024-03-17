@@ -29,6 +29,12 @@ public class ModItemArmor extends ArmorItem {
                             new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0, false, false, false),
                             new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false, false)
                     ))
+                    .put(ModArmorMaterials.sculkerite, ImmutableList.of(
+                            new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, false, false),
+                            new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0, false, false, false)
+                    ))
+
+
                     .build();
 
     public ModItemArmor(ArmorMaterial material, ArmorItem.Type type, Properties properties) {

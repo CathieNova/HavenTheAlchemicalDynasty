@@ -4,15 +4,15 @@ import com.mojang.logging.LogUtils;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
 import net.cathienova.havenalchemy.handler.BootsofMeowHandler;
-import net.cathienova.havenalchemy.handler.MobDropHandler;
-import net.cathienova.havenalchemy.item.ModCreativeModTabs;
-import net.cathienova.havenalchemy.item.ModItems;
+import net.cathienova.havenalchemy.handler.*;
+import net.cathienova.havenalchemy.item.*;
 import net.cathienova.havenalchemy.loot.ModLootModifier;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.recipe.ModRecipes;
 import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
 import net.cathienova.havenalchemy.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,12 +24,16 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
+
+import java.util.ArrayList;
 
 @Mod(HavenAlchemy.MOD_ID)
 public class HavenAlchemy
 {
     public static final String MOD_ID = "havenalchemy";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static ArrayList<LivingEntity> tendrilEntities = new ArrayList<>();
 
     public HavenAlchemy()
     {
@@ -43,7 +47,10 @@ public class HavenAlchemy
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModMessages.register();
+        ModEffects.register(modEventBus);
+        ModEnchants.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(new MobDropHandler());
+        MinecraftForge.EVENT_BUS.register(new DeathHandler());
         MinecraftForge.EVENT_BUS.register(BootsofMeowHandler.class);
         ModRecipes.register(modEventBus);
         modEventBus.addListener(this::addCreative);
@@ -63,6 +70,10 @@ public class HavenAlchemy
     {
     }
 
+    public static void registerRenders(final FMLClientSetupEvent event) {
+        CuriosRendererRegistry.register(ModItems.warden_ears.get(), () -> new ModTrinketRenders());
+    }
+
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
@@ -70,6 +81,7 @@ public class HavenAlchemy
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
+            registerRenders(event);
         }
     }
 }

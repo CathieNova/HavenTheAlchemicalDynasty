@@ -7,7 +7,9 @@ import net.cathienova.havenalchemy.item.alchemy_stone.Alchemy_Stone_Fractured;
 import net.cathienova.havenalchemy.item.artifacts.*;
 import net.cathienova.havenalchemy.item.bark.*;
 import net.cathienova.havenalchemy.item.fuel.FuelItem;
+import net.cathienova.havenalchemy.item.sculkerite.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -64,7 +66,60 @@ public class ModItems {
     public static final RegistryObject<Item> essence_shard = ITEMS.register("essence_shard",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
 
-// Dark Matter Armor
+//Sculkerite
+    public static final RegistryObject<Item> sculk_ingot = ITEMS.register("sculk_ingot",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculk_soul = ITEMS.register("sculk_soul",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> warden_blood = ITEMS.register("warden_blood",
+            () -> new WardenBlood(new Item.Properties().stacksTo(64).rarity(Rarity.RARE).food(ModFoods.warden_blood)));
+
+    public static final RegistryObject<Item> sculkerite_helmet = ITEMS.register("sculkerite_helmet",
+            () -> new ModItemArmor(ModArmorMaterials.sculkerite, ArmorItem.Type.HELMET,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_chestplate = ITEMS.register("sculkerite_chestplate",
+            () -> new SculkeriteChestplate(ModArmorMaterials.sculkerite, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_chestplate_uncharged = ITEMS.register("sculkerite_chestplate_uncharged",
+            () -> new SculkeriteChestplateUncharged(ModArmorMaterials.sculkerite, ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_leggings = ITEMS.register("sculkerite_leggings",
+            () -> new ModItemArmor(ModArmorMaterials.sculkerite, ArmorItem.Type.LEGGINGS,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_boots = ITEMS.register("sculkerite_boots",
+            () -> new ModItemArmor(ModArmorMaterials.sculkerite, ArmorItem.Type.BOOTS,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_sword = ITEMS.register("sculkerite_sword",
+            () -> new SculkeriteSword(ModToolTiers.sculkerite, 3, -2.4F,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_pickaxe = ITEMS.register("sculkerite_pickaxe",
+            () -> new SculkeritePickaxe(ModToolTiers.sculkerite, 0, -3.0F,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_axe = ITEMS.register("sculkerite_axe",
+            () -> new SculkeriteAxe(ModToolTiers.sculkerite, 5, -3.0F,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_shovel = ITEMS.register("sculkerite_shovel",
+            () -> new ShovelItem(ModToolTiers.sculkerite, 1, -3.0F,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> sculkerite_hoe = ITEMS.register("sculkerite_hoe",
+            () -> new HoeItem(ModToolTiers.sculkerite, -4, 0,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> warden_heart = ITEMS.register("warden_heart",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+
+    // Dark Matter Armor
     public static final RegistryObject<Item> dark_matter_helmet = ITEMS.register("dark_matter_helmet",
             () -> new ModItemArmor(ModArmorMaterials.dark_matter, ArmorItem.Type.HELMET,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
@@ -469,4 +524,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> nightvision_goggles = ITEMS.register("nightvision_goggles",
             () -> new NightvisionGoggles(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> warden_ears = ITEMS.register("warden_ears",
+            () -> new WardenEars(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 }

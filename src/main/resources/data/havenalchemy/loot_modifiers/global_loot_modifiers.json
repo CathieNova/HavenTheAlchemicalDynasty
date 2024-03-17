@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "entries": [
+    "havenalchemy:ancient_city_loot_modifier",
+    "havenalchemy:sculk_block_loot_modifier",
+    "havenalchemy:warden_loot_modifier"
+  ]
+}

@@ -2,6 +2,7 @@ package net.cathienova.havenalchemy.datagen;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
+import net.cathienova.havenalchemy.item.ModArmorMaterials;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
@@ -72,6 +73,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.neosphore_chestplate);
         trimmedArmorItem(ModItems.neosphore_leggings);
         trimmedArmorItem(ModItems.neosphore_boots);
+        trimmedArmorItem(ModItems.sculkerite_helmet);
+        trimmedArmorItem(ModItems.sculkerite_chestplate);
+        trimmedArmorItem(ModItems.sculkerite_chestplate_uncharged);
+        trimmedArmorItem(ModItems.sculkerite_leggings);
+        trimmedArmorItem(ModItems.sculkerite_boots);
 
         handHeldItem(ModItems.dark_matter_hoe);
         handHeldItem(ModItems.dark_matter_pickaxe);
@@ -95,6 +101,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.neosphore_hoe);
         handHeldItem(ModItems.neosphore_shovel);
         ShearsItem(ModItems.neosphore_shears);
+
+        simpleItem(ModItems.sculk_ingot);
+        simpleItem(ModItems.sculk_soul);
+        simpleItem(ModItems.warden_blood);
+        simpleItem(ModItems.warden_heart);
+        simpleItem(ModItems.warden_ears);
+
+        handHeldItem(ModItems.sculkerite_axe);
+        handHeldItem(ModItems.sculkerite_pickaxe);
+        handHeldItem(ModItems.sculkerite_sword);
+        handHeldItem(ModItems.sculkerite_hoe);
+        handHeldItem(ModItems.sculkerite_shovel);
 
         simpleItem(ModItems.essentia_seeds);
         simpleItem(ModItems.coal_seeds);
@@ -236,13 +254,6 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(HavenAlchemy.MOD_ID,"item/" + item.getId().getPath()));
     }
 
-    public void suspiciousBlockItem(RegistryObject<Block> block)
-    {
-        this.withExistingParent(HavenAlchemy.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
-                mcLoc("block/block"))
-                .texture("particle", new ResourceLocation(HavenAlchemy.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
-    }
-
     public void evenSimplerBlockItem(RegistryObject<Block> block)
     {
         this.withExistingParent(HavenAlchemy.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
@@ -280,22 +291,26 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(HavenAlchemy.MOD_ID,"block/" + item.getId().getPath()));
     }
 
-    private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
+    private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject)
+    {
         final String MOD_ID = HavenAlchemy.MOD_ID; // Change this to your mod id
 
-        if(itemRegistryObject.get() instanceof ArmorItem armorItem) {
-            trimMaterials.entrySet().forEach(entry -> {
+        if (itemRegistryObject.get() instanceof ArmorItem armorItem)
+        {
+            trimMaterials.entrySet().forEach(entry ->
+            {
 
                 ResourceKey<TrimMaterial> trimMaterial = entry.getKey();
                 float trimValue = entry.getValue();
 
-                String armorType = switch (armorItem.getEquipmentSlot()) {
-                    case HEAD -> "helmet";
-                    case CHEST -> "chestplate";
-                    case LEGS -> "leggings";
-                    case FEET -> "boots";
-                    default -> "";
-                };
+                String armorType = switch (armorItem.getEquipmentSlot())
+                        {
+                            case HEAD -> "helmet";
+                            case CHEST -> "chestplate";
+                            case LEGS -> "leggings";
+                            case FEET -> "boots";
+                            default -> "";
+                        };
 
                 String armorItemPath = "item/" + armorItem;
                 String trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().getPath();
