@@ -293,6 +293,14 @@
     "item.havenalchemy.cherry_bark": "Cherry Bark",
     "item.havenalchemy.charmel_bark": "Charmel Bark",
 
+    "block.havenalchemy.generator_block": "Energy Generator",
+    "block.havenalchemy.charger_block": "Energy Battery",
+    "block.havenalchemy.cable": "Energy Cable",
+    "block.havenalchemy.facade": "Energy Cable Facade",
+    "havenalchemy.screen.generator": "Generator",
+    "tooltip.havenalchemy.facade.is_facading": "§6Block: %s",
+    "tooltip.havenalchemy.facade": "§3Right click to change the facade to facade a different block",
+
     "item.havenalchemy.smithing_template.neosphore_upgrade.applies_to": "Red Matter Equipment",
     "item.havenalchemy.smithing_template.neosphore_upgrade.ingredients": "Neosphore Ingot",
 

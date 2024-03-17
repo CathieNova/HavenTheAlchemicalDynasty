@@ -2,6 +2,7 @@ package net.cathienova.havenalchemy;
 
 import com.mojang.logging.LogUtils;
 import net.cathienova.havenalchemy.block.ModBlocks;
+import net.cathienova.havenalchemy.block.custom.GeneratorContainer;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
 import net.cathienova.havenalchemy.handler.BootsofMeowHandler;
 import net.cathienova.havenalchemy.handler.*;
@@ -10,6 +11,7 @@ import net.cathienova.havenalchemy.loot.ModLootModifier;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.recipe.ModRecipes;
 import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
+import net.cathienova.havenalchemy.screen.GeneratorScreen;
 import net.cathienova.havenalchemy.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.entity.LivingEntity;
@@ -81,6 +83,7 @@ public class HavenAlchemy
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
+            MenuScreens.register(ModMenuTypes.GENERATOR_CONTAINER.get(), GeneratorScreen::new);
             registerRenders(event);
         }
     }

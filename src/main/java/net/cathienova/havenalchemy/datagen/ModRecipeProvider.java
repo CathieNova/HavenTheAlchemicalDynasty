@@ -1253,6 +1253,45 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         createAlchemicalChamberRecipe(consumer, ModItems.deepslate_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.DEEPSLATE, ModBlocks.essentia_spirit_block.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.generator_block.get(), 1)
+                .pattern("III")
+                .pattern("RFR")
+                .pattern("III")
+                .define('I', Items.IRON_INGOT)
+                .define('R', Items.REDSTONE)
+                .define('F', Items.FURNACE)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/generator_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.charger_block.get(), 1)
+                .pattern("III")
+                .pattern("RGR")
+                .pattern("III")
+                .define('I', Items.IRON_INGOT)
+                .define('R', Items.REDSTONE)
+                .define('G', ModBlocks.generator_block.get())
+                .unlockedBy("has_generator_block", has(ModBlocks.generator_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/charger_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.cable_block.get(), 8)
+                .pattern("III")
+                .pattern("RRR")
+                .pattern("III")
+                .define('I', Items.IRON_INGOT)
+                .define('R', Items.REDSTONE)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/cable_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.facade_block.get(), 1)
+                .pattern("SNS")
+                .pattern("NCN")
+                .pattern("SNS")
+                .define('S', Items.STRING)
+                .define('N', Items.IRON_NUGGET)
+                .define('C', ModBlocks.cable_block.get())
+                .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/facade_block");
     }
 
     private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed, ItemLike dust, ItemLike ingredient1, ItemLike ingredient2)

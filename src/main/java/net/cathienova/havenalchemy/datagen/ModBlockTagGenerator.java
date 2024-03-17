@@ -54,6 +54,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.basphalt_stone_fence_gate.get())
                 .add(ModBlocks.basphalt_cobblestone_fence_gate.get())
                 .add(ModBlocks.basphalt_stone_bricks_fence_gate.get())
+                .add(ModBlocks.charger_block.get())
+                .add(ModBlocks.generator_block.get())
                 ;
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -81,6 +83,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.basphalt_stone_fence_gate.get())
                 .add(ModBlocks.basphalt_cobblestone_fence_gate.get())
                 .add(ModBlocks.basphalt_stone_bricks_fence_gate.get())
+                .add(ModBlocks.charger_block.get())
+                .add(ModBlocks.generator_block.get())
                 ;
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)

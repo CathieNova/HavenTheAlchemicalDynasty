@@ -1,19 +1,22 @@
 package net.cathienova.havenalchemy.datagen;
 
+import com.google.gson.JsonObject;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.horticulture.BaseCrop;
+import net.cathienova.havenalchemy.cables.client.CableModelLoader;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider
@@ -21,6 +24,10 @@ public class ModBlockStateProvider extends BlockStateProvider
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, HavenAlchemy.MOD_ID, exFileHelper);
     }
+
+    public static final ResourceLocation BOTTOM = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_bottom");
+    public static final ResourceLocation TOP = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_top");
+    public static final ResourceLocation SIDE = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_side");
 
     @Override
     protected void registerStatesAndModels()
@@ -125,6 +132,11 @@ public class ModBlockStateProvider extends BlockStateProvider
         wallBlock((WallBlock) ModBlocks.basphalt_stone_wall.get(), blockTexture(ModBlocks.basphalt_stone.get()));
         wallBlock((WallBlock) ModBlocks.basphalt_cobblestone_wall.get(), blockTexture(ModBlocks.basphalt_cobblestone.get()));
         wallBlock((WallBlock) ModBlocks.basphalt_stone_bricks_wall.get(), blockTexture(ModBlocks.basphalt_stone_bricks.get()));
+
+        registerGenerator();
+        registerCharger();
+        registerCable();
+        registerFacade();
     }
 
     public void CropDrops(CropBlock block, String modelName, String textureName) {
@@ -172,5 +184,81 @@ public class ModBlockStateProvider extends BlockStateProvider
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
         simpleBlock(blockRegistryObject.get(),
                 models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void registerCable() {
+        BlockModelBuilder model = models().getBuilder("cable")
+                .parent(models().getExistingFile(mcLoc("cube")))
+                .customLoader((builder, helper) -> new CableLoaderBuilder(CableModelLoader.GENERATOR_LOADER, builder, helper, false))
+                .end();
+        simpleBlock(ModBlocks.cable_block.get(), model);
+    }
+
+    private void registerFacade() {
+        BlockModelBuilder model = models().getBuilder("facade")
+                .parent(models().getExistingFile(mcLoc("cube")))
+                .customLoader((builder, helper) -> new CableLoaderBuilder(CableModelLoader.GENERATOR_LOADER, builder, helper, true))
+                .end();
+        simpleBlock(ModBlocks.facade_block.get(), model);
+    }
+
+    private void registerCharger() {
+        ResourceLocation BATTERY = modLoc("block/charger_block_on");
+
+        BlockModelBuilder modelOn = models().cube(ModBlocks.charger_block.getId().getPath()+"_on", BATTERY, BATTERY, BATTERY, BATTERY, BATTERY, BATTERY).texture("particle", SIDE);
+        BlockModelBuilder modelOff = models().cube(ModBlocks.charger_block.getId().getPath()+"_off", BATTERY, BATTERY, BATTERY, BATTERY, BATTERY, BATTERY).texture("particle", SIDE);
+        getVariantBuilder(ModBlocks.charger_block.get()).forAllStates(state -> {
+            ConfiguredModel.Builder<?> bld = ConfiguredModel.builder();
+            bld.modelFile(state.getValue(BlockStateProperties.POWERED) ? modelOn : modelOff);
+            return bld.build();
+        });
+    }
+
+    private void registerGenerator() {
+        BlockModelBuilder modelOn = models().cube(ModBlocks.generator_block.getId().getPath()+"_on", BOTTOM, TOP, modLoc("block/generator_block_on"), SIDE, SIDE, SIDE).texture("particle", SIDE);
+        BlockModelBuilder modelOff = models().cube(ModBlocks.generator_block.getId().getPath()+"_off", BOTTOM, TOP, modLoc("block/generator_block"), SIDE, SIDE, SIDE).texture("particle", SIDE);
+        directionBlock(ModBlocks.generator_block.get(), (state, builder) -> {
+            builder.modelFile(state.getValue(BlockStateProperties.POWERED) ? modelOn : modelOff);
+        });
+    }
+
+    private VariantBlockStateBuilder directionBlock(Block block, BiConsumer<BlockState, ConfiguredModel.Builder<?>> model) {
+        VariantBlockStateBuilder builder = getVariantBuilder(block);
+        builder.forAllStates(state -> {
+            ConfiguredModel.Builder<?> bld = ConfiguredModel.builder();
+            model.accept(state, bld);
+            applyRotationBld(bld, state.getValue(BlockStateProperties.FACING));
+            return bld.build();
+        });
+        return builder;
+    }
+
+    private void applyRotationBld(ConfiguredModel.Builder<?> builder, Direction direction) {
+        switch (direction) {
+            case DOWN -> builder.rotationX(90);
+            case UP -> builder.rotationX(-90);
+            case NORTH -> { }
+            case SOUTH -> builder.rotationY(180);
+            case WEST -> builder.rotationY(270);
+            case EAST -> builder.rotationY(90);
+        }
+    }
+
+    public static class CableLoaderBuilder extends CustomLoaderBuilder<BlockModelBuilder> {
+
+        private final boolean facade;
+
+        public CableLoaderBuilder(ResourceLocation loader, BlockModelBuilder parent, ExistingFileHelper existingFileHelper,
+                                  boolean facade) {
+            super(loader, parent, existingFileHelper);
+            this.facade = facade;
+        }
+
+        @Override
+        public JsonObject toJson(JsonObject json) {
+            JsonObject obj = super.toJson(json);
+            obj.addProperty("facade", facade);
+            return obj;
+        }
     }
 }

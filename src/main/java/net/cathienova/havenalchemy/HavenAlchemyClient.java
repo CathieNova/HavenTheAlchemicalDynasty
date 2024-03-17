@@ -1,5 +1,8 @@
 package net.cathienova.havenalchemy;
 
+import net.cathienova.havenalchemy.block.ModBlocks;
+import net.cathienova.havenalchemy.cables.client.CableModelLoader;
+import net.cathienova.havenalchemy.cables.client.FacadeBlockColor;
 import net.cathienova.havenalchemy.util.EMCSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -9,6 +12,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ModelEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,6 +48,16 @@ public class HavenAlchemyClient
     private void clientSetup(final FMLClientSetupEvent event)
     {
 
+    }
+
+    @SubscribeEvent
+    public static void modelInit(ModelEvent.RegisterGeometryLoaders event) {
+        CableModelLoader.register(event);
+    }
+
+    @SubscribeEvent
+    public static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
+        event.register(new FacadeBlockColor(), ModBlocks.facade_block.get());
     }
 
     @SubscribeEvent

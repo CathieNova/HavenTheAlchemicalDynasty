@@ -30,6 +30,11 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.red_matter.get()));
                         add.accept(new ItemStack(ModItems.void_matter.get()));
 
+                        add.accept(new ItemStack(ModBlocks.generator_block.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.charger_block.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.cable_block.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.facade_block.get().asItem()));
+
                         add.accept(new ItemStack(ModBlocks.charmel_sapling.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.catacombs_portal.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.alchemical_chamber.get()));

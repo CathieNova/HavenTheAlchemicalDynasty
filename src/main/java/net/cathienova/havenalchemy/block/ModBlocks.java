@@ -1,11 +1,11 @@
 package net.cathienova.havenalchemy.block;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
-import net.cathienova.havenalchemy.block.custom.AlchemicalChamberBlock;
-import net.cathienova.havenalchemy.block.custom.Asphalt;
-import net.cathienova.havenalchemy.block.custom.AsphaltBricks;
-import net.cathienova.havenalchemy.block.custom.ModPortalBlock;
+import net.cathienova.havenalchemy.block.custom.*;
 import net.cathienova.havenalchemy.block.horticulture.*;
+import net.cathienova.havenalchemy.cables.blocks.CableBlock;
+import net.cathienova.havenalchemy.cables.blocks.FacadeBlock;
+import net.cathienova.havenalchemy.cables.blocks.FacadeBlockItem;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.worldgen.tree.CharmelTreeGrower;
 import net.minecraft.core.BlockPos;
@@ -419,6 +419,18 @@ public class ModBlocks {
     public static final RegistryObject<Block> alchemical_chamber = registerBlock("alchemical_chamber",
             () -> new AlchemicalChamberBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
+    public static final RegistryObject<Block> generator_block = registerBlock("generator_block",
+            GeneratorBlock::new);
+
+    public static final RegistryObject<Block> charger_block = registerBlock("charger_block",
+            ChargerBlock::new);
+
+    public static final RegistryObject<Block> cable_block = registerBlock("cable",
+            CableBlock::new);
+
+    public static final RegistryObject<FacadeBlock> facade_block = registerFacade("facade",
+            FacadeBlock::new);
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
@@ -427,6 +439,12 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block> RegistryObject<T> registerFacade(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        ModItems.ITEMS.register(name, () -> new FacadeBlockItem(facade_block.get(), new Item.Properties()));
+        return toReturn;
     }
 
     public static void register(IEventBus eventBus) {

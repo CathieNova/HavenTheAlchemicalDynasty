@@ -1,14 +1,20 @@
 package net.cathienova.havenalchemy.datagen;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
+import net.cathienova.havenalchemy.datagen.loot.ModBlockLootTables;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class DataGenerators
@@ -24,7 +30,11 @@ public class DataGenerators
             CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
             generator.addProvider(event.includeServer(), new net.cathienova.havenalchemy.datagen.ModRecipeProvider(packOutput));
-            generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
+
+            LootTableProvider provider = new LootTableProvider(packOutput, Set.of(),
+                    List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK)));
+
+            event.getGenerator().addProvider(event.includeServer(), provider);
 
             generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
             generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
@@ -36,6 +46,7 @@ public class DataGenerators
             generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
 
             generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(packOutput));
+
         }
     }
 }

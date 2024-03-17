@@ -1,6 +1,7 @@
 package net.cathienova.havenalchemy.screen;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
+import net.cathienova.havenalchemy.block.custom.GeneratorContainer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -17,6 +18,9 @@ public class ModMenuTypes
 
     public static final RegistryObject<MenuType<AlchemicalChamberMenu>> ALCHEMICAL_CHAMBER_MENU =
             registerMenuType("alchemical_chamber_menu", AlchemicalChamberMenu::new);
+
+    public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_CONTAINER =
+            registerMenuType("generator_block_menu", (windowId, inv, data) -> new GeneratorContainer(windowId, inv.player, data.readBlockPos()));
 
 
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {

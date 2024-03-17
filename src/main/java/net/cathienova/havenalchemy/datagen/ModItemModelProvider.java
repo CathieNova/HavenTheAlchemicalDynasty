@@ -240,6 +240,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.cherry_bark);
         simpleItem(ModItems.mangrove_bark);
         simpleItem(ModItems.charmel_bark);
+
+        withExistingParent(ModBlocks.generator_block.getId().getPath(), modLoc("block/generator_block_off"));
+        withExistingParent(ModBlocks.charger_block.getId().getPath(), modLoc("block/charger_block_on"));
+        withExistingParent(ModBlocks.cable_block.getId().getPath(), modLoc("block/cable"));
+        withExistingParent(ModBlocks.facade_block.getId().getPath(), modLoc("block/facade"));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

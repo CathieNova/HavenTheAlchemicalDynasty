@@ -43,6 +43,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.vitalium_spirit_block.get());
         this.dropSelf(ModBlocks.celestium_spirit_block.get());
         this.dropSelf(ModBlocks.eternium_spirit_block.get());
+        this.dropSelf(ModBlocks.generator_block.get());
+        this.dropSelf(ModBlocks.charger_block.get());
+        this.dropSelf(ModBlocks.cable_block.get());
+        this.dropSelf(ModBlocks.facade_block.get());
 
         this.dropSelf(ModBlocks.alchemical_chamber.get());
 
