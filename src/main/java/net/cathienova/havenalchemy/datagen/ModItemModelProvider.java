@@ -60,6 +60,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.essence_apple);
         simpleItem(ModItems.dark_matter_apple);
         simpleItem(ModItems.red_matter_apple);
+        handHeldItem(ModItems.trowel);
 
         trimmedArmorItem(ModItems.dark_matter_helmet);
         trimmedArmorItem(ModItems.dark_matter_chestplate);

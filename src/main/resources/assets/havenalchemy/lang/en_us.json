@@ -94,6 +94,8 @@
     "item.havenalchemy.dark_matter_apple": "Dark Matter Apple",
     "item.havenalchemy.red_matter_apple": "Red Matter Apple",
     "item.havenalchemy.essence_apple": "Essence Apple",
+    "item.havenalchemy.trowel": "Trowel",
+    "item.havenalchemy.trowel.tooltip": "§6Right click to place random blocks from the hotbar.",
 
     "item.havenalchemy.gloves_of_rawr": "Gloves of Rawr",
     "tooltip.havenalchemy.gloves_of_rawr": "Increases the wearer's attack damage.",
@@ -250,7 +252,6 @@
 
     "item.havenalchemy.deepslate_seeds": "Deepslate Seeds",
     "item.havenalchemy.deepslate_spirit": "Deepslate Spirit",
-
 
     "effect.havenalchemy.echolocate": "Echolocation",
     "item.havenalchemy.sculk_ingot": "Sculk Ingot",

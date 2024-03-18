@@ -29,6 +29,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.dark_matter.get()));
                         add.accept(new ItemStack(ModItems.red_matter.get()));
                         add.accept(new ItemStack(ModItems.void_matter.get()));
+                        add.accept(new ItemStack(ModItems.trowel.get()));
 
                         add.accept(new ItemStack(ModBlocks.generator_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charger_block.get().asItem()));

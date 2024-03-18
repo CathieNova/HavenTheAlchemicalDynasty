@@ -105,6 +105,8 @@
 ### ![Essence Apple](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/essence_apple.png) Essence Apple
 ### ![Dark Matter Apple](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/dark_matter_apple.png) Dark Matter Apple
 ### ![Red Matter Apple](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/red_matter_apple.png) Red Matter Apple
+### ![Trowel](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/trowel.png) Trowel
+- Right click to place random blocks from the hotbar.
 ### ![Acacia Bark](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/acacia_bark.png) Acacia Bark
 ### ![Birch Bark](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/birch_bark.png) Birch Bark
 ### ![Dark Oak Bark](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/dark_oak_bark.png) Dark Oak Bark

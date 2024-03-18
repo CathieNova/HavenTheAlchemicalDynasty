@@ -31,6 +31,9 @@ public class ModItems {
     public static final RegistryObject<Item> alchemy_stone_fractured = ITEMS.register("alchemy_stone_fractured",
             () -> new Alchemy_Stone_Fractured(new Item.Properties()));
 
+    public static final RegistryObject<Item> trowel = ITEMS.register("trowel",
+            () -> new TrowelItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(512)));
+
 // Alchemy Dusts & Materials
     public static final RegistryObject<Item> alchemy_dust = ITEMS.register("alchemy_dust",
             () -> new Item(new Item.Properties()));

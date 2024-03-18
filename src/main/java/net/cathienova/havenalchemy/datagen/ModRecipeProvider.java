@@ -42,6 +42,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer)
     {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.trowel.get(), 1)
+                .pattern(" II")
+                .pattern(" SI")
+                .pattern("S  ")
+                .define('I', Items.IRON_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/trowel");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_stone_fractured.get(), 1)
                 .pattern("LML")
                 .pattern("HEH")
