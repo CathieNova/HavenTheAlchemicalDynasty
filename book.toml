@@ -2,5 +2,5 @@
 authors = ["CathieNova"]
 language = "en"
 multilingual = false
-src = "src"
+src = "wiki"
 title = "Haven: The Alchemical Dynasty - Wiki"
