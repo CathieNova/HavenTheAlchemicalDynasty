@@ -68,15 +68,25 @@
 ### ![Neosphore Smithing Template](/src/Images/item/neosphore_smithing_template.png) Neosphore Smithing Template
 - Used to upgrade Red Matter to Neosphore.
 ### ![Neosphore Axe](/src/Images/item/neosphore_axe.png) Neosphore Axe
+- A more superior tool than Red Matter.
 ### ![Neosphore Pickaxe](/src/Images/item/neosphore_pickaxe.png) Neosphore Pickaxe
+- A more superior tool than Red Matter.
 ### ![Neosphore Sword](/src/Images/item/neosphore_sword.png) Neosphore Sword
+- A more superior weapon than Red Matter.
 ### ![Neosphore Shovel](/src/Images/item/neosphore_shovel.png) Neosphore Shovel
+- A more superior tool than Red Matter.
 ### ![Neosphore Hoe](/src/Images/item/neosphore_hoe.png) Neosphore Hoe
+- A more superior tool than Red Matter.
 ### ![Neosphore Shears](/src/Images/item/neosphore_shears.png) Neosphore Shears
+- A more superior tool than Red Matter.
 ### ![Neosphore Helmet](/src/Images/item/neosphore_helmet.png) Neosphore Helmet
+- A more superior armor than Red Matter.
 ### ![Neosphore Chestplate](/src/Images/item/neosphore_chestplate.png) Neosphore Chestplate
+- A more superior armor than Red Matter.
 ### ![Neosphore Leggings](/src/Images/item/neosphore_leggings.png) Neosphore Leggings
+- A more superior armor than Red Matter.
 ### ![Neosphore Boots](/src/Images/item/neosphore_boots.png) Neosphore Boots
+- A more superior armor than Red Matter.
 ### ![Sculk Ingot](/src/Images/item/sculk_ingot.png) Sculk Ingot
 ### ![Sculk Soul](/src/Images/item/sculk_soul.png) Sculk Soul
 - Can be obtained from Sculk and Warden.
