@@ -19,9 +19,8 @@ public class ModMenuTypes
     public static final RegistryObject<MenuType<AlchemicalChamberMenu>> ALCHEMICAL_CHAMBER_MENU =
             registerMenuType("alchemical_chamber_menu", AlchemicalChamberMenu::new);
 
-    public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_CONTAINER =
+    public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_BLOCK_MENU =
             registerMenuType("generator_block_menu", (windowId, inv, data) -> new GeneratorContainer(windowId, inv.player, data.readBlockPos()));
-
 
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

@@ -3,9 +3,15 @@ package net.cathienova.havenalchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.cables.client.CableModelLoader;
 import net.cathienova.havenalchemy.cables.client.FacadeBlockColor;
+import net.cathienova.havenalchemy.item.ModItems;
+import net.cathienova.havenalchemy.item.ModTrinketRenders;
+import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
+import net.cathienova.havenalchemy.screen.GeneratorScreen;
+import net.cathienova.havenalchemy.screen.ModMenuTypes;
 import net.cathienova.havenalchemy.util.EMCSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -21,6 +27,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -47,7 +54,9 @@ public class HavenAlchemyClient
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-
+        MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
+        MenuScreens.register(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), GeneratorScreen::new);
+        CuriosRendererRegistry.register(ModItems.warden_ears.get(), ModTrinketRenders::new);
     }
 
     @SubscribeEvent
@@ -57,7 +66,7 @@ public class HavenAlchemyClient
 
     @SubscribeEvent
     public static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
-        event.register(new FacadeBlockColor(), ModBlocks.facade_block.get());
+        //event.register(new FacadeBlockColor(), ModBlocks.facade_block.get());
     }
 
     @SubscribeEvent

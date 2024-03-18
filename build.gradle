@@ -10,7 +10,7 @@ version = minecraft_version + '-' + mod_version
 group = 'net.cathienova.havenalchemy'
 
 base {
-    archivesName = 'Haven Alchemy'
+    archivesName = 'HavenAlchemy'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)

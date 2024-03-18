@@ -2,7 +2,6 @@ package net.cathienova.havenalchemy;
 
 import com.mojang.logging.LogUtils;
 import net.cathienova.havenalchemy.block.ModBlocks;
-import net.cathienova.havenalchemy.block.custom.GeneratorContainer;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
 import net.cathienova.havenalchemy.handler.BootsofMeowHandler;
 import net.cathienova.havenalchemy.handler.*;
@@ -47,23 +46,17 @@ public class HavenAlchemy
         ModCreativeModTabs.register(modEventBus);
         ModLootModifier.register(modEventBus);
         ModBlockEntities.register(modEventBus);
-        ModMenuTypes.register(modEventBus);
         ModMessages.register();
         ModEffects.register(modEventBus);
         ModEnchants.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(new MobDropHandler());
         MinecraftForge.EVENT_BUS.register(new DeathHandler());
         MinecraftForge.EVENT_BUS.register(BootsofMeowHandler.class);
         ModRecipes.register(modEventBus);
-        modEventBus.addListener(this::addCreative);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
-    {
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
     }
 
@@ -73,7 +66,7 @@ public class HavenAlchemy
     }
 
     public static void registerRenders(final FMLClientSetupEvent event) {
-        CuriosRendererRegistry.register(ModItems.warden_ears.get(), () -> new ModTrinketRenders());
+
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -82,8 +75,6 @@ public class HavenAlchemy
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
-            MenuScreens.register(ModMenuTypes.GENERATOR_CONTAINER.get(), GeneratorScreen::new);
             registerRenders(event);
         }
     }

@@ -23,7 +23,7 @@ public class GeneratorContainer extends AbstractContainerMenu {
     private int power;
 
     public GeneratorContainer(int windowId, Player player, BlockPos pos) {
-        super(ModMenuTypes.GENERATOR_CONTAINER.get(), windowId);
+        super(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), windowId);
         this.pos = pos;
         if (player.level().getBlockEntity(pos) instanceof GeneratorBlockEntity generator) {
             addSlot(new SlotItemHandler(generator.getItems(), SLOT, 80, 23));
