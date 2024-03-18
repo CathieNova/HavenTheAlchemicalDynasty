@@ -79,6 +79,7 @@
 ### ![Neosphore Boots](/src/Images/item/neosphore_boots.png) Neosphore Boots
 ### ![Sculk Ingot](/src/Images/item/sculk_ingot.png) Sculk Ingot
 ### ![Sculk Soul](/src/Images/item/sculk_soul.png) Sculk Soul
+- Can be obtained from Sculk and Warden.
 ### ![Warden Heart](/src/Images/item/warden_heart.png) Warden Heart
 ### ![Warden Blood](/src/Images/item/warden_blood.png) Warden Blood
 ### ![Sculkerite Axe](/src/Images/item/sculkerite_axe.png) Sculkerite Axe
