@@ -1,5 +1,6 @@
 package net.cathienova.havenalchemy.block.custom;
 
+import net.cathienova.havenalchemy.block.entity.AlchemicalChamberBlockEntity;
 import net.cathienova.havenalchemy.block.entity.GeneratorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -78,6 +79,21 @@ public class GeneratorBlock extends Block implements EntityBlock {
             }
         }
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston)
+    {
+        if (pState.getBlock() != pNewState.getBlock())
+        {
+            BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+            if (blockEntity instanceof GeneratorBlockEntity)
+            {
+                ((GeneratorBlockEntity) blockEntity).drops();
+            }
+        }
+
+        super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }
 
     @Nullable

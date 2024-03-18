@@ -21,14 +21,15 @@ public class ChargerBlockEntity extends BlockEntity {
 
     public static final String ENERGY_TAG = "Energy";
 
-    public static final int MAXTRANSFER = 100;
-    public static final int CAPACITY = 100000;
+    public static final int MAXTRANSFER = 64;
+    public static final int CAPACITY = 64000;
 
     private final EnergyStorage energy = createEnergyStorage();
     private final LazyOptional<IEnergyStorage> energyHandler = LazyOptional.of(() -> new AdaptedEnergyStorage(energy) {
         @Override
         public int extractEnergy(int maxExtract, boolean simulate) {
-            return 0;
+            setChanged();
+            return super.extractEnergy(maxExtract, simulate);
         }
 
         @Override
@@ -53,9 +54,30 @@ public class ChargerBlockEntity extends BlockEntity {
     }
 
     public void tickServer() {
-        boolean powered = energy.getEnergyStored() > 0;
-        if (powered != getBlockState().getValue(BlockStateProperties.POWERED)) {
-            level.setBlockAndUpdate(worldPosition, getBlockState().setValue(BlockStateProperties.POWERED, powered));
+        if (level != null && !level.isClientSide && energy.getEnergyStored() > 0) {
+            for (Direction direction : Direction.values()) {
+                BlockPos adjacentPos = worldPosition.relative(direction);
+                BlockEntity adjacentEntity = level.getBlockEntity(adjacentPos);
+
+                if (adjacentEntity != null) {
+                    adjacentEntity.getCapability(ForgeCapabilities.ENERGY, direction.getOpposite()).ifPresent(energyStorage -> {
+                        if (energyStorage.canReceive()) {
+                            int energyExtracted = energy.extractEnergy(MAXTRANSFER, true); // Simulate
+                            if (energyExtracted > 0) {
+                                int energyAccepted = energyStorage.receiveEnergy(energyExtracted, false);
+                                energy.extractEnergy(energyAccepted, false); // Actually extract
+                                setChanged();
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Update block state logic remains unchanged
+            boolean powered = energy.getEnergyStored() > 0;
+            if (powered != getBlockState().getValue(BlockStateProperties.POWERED)) {
+                level.setBlockAndUpdate(worldPosition, getBlockState().setValue(BlockStateProperties.POWERED, powered));
+            }
         }
     }
 

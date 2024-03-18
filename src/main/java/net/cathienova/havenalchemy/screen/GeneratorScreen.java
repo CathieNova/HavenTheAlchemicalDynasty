@@ -6,22 +6,27 @@ import net.cathienova.havenalchemy.block.entity.GeneratorBlockEntity;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+
+import java.awt.*;
 
 public class GeneratorScreen extends AbstractContainerScreen<GeneratorContainer>
 {
 
-    private static final int ENERGY_LEFT = 96;
-    private static final int ENERGY_WIDTH = 72;
-    private static final int ENERGY_TOP = 8;
-    private static final int ENERGY_HEIGHT = 8;
+    private static final int ENERGY_LEFT = 108;
+    private static final int ENERGY_WIDTH = 58;
+    private static final int ENERGY_TOP = 10;
+    private static final int ENERGY_HEIGHT = 6;
 
     private final ResourceLocation GUI = new ResourceLocation(HavenAlchemy.MOD_ID, "textures/gui/generator.png");
 
     public GeneratorScreen(GeneratorContainer container, Inventory inventory, Component title) {
         super(container, inventory, title);
-        this.inventoryLabelY = this.imageHeight - 110;
+        this.titleLabelY = 11;
+        this.titleLabelX = 11;
+        this.inventoryLabelY = this.imageHeight - 106;
     }
 
     @Override
@@ -39,7 +44,7 @@ public class GeneratorScreen extends AbstractContainerScreen<GeneratorContainer>
         // Render tooltip with power if in the energy box
         if (mousex >= leftPos + ENERGY_LEFT && mousex < leftPos + ENERGY_LEFT + ENERGY_WIDTH && mousey >= topPos + ENERGY_TOP && mousey < topPos + ENERGY_TOP + ENERGY_HEIGHT) {
             int power = menu.getPower();
-            graphics.renderTooltip(this.font, Component.literal(power + " RF"), mousex, mousey);
+            graphics.renderTooltip(this.font, Component.literal(power + " FE"), mousex, mousey);
         }
     }
 }

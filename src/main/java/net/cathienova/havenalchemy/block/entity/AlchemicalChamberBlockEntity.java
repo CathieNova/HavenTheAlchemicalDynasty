@@ -1,5 +1,6 @@
 package net.cathienova.havenalchemy.block.entity;
 
+import net.cathienova.havenalchemy.handler.OutputSlotHandler;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
 import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
@@ -70,7 +71,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
     private int progress = 0;
     private int maxProgress = 100;
 
-    private final ModEnergyStorage energyStorage = new ModEnergyStorage(100000, 256)
+    private final ModEnergyStorage energyStorage = new ModEnergyStorage(50000, 128)
     {
         @Override
         public void onEnergyChanged()
@@ -124,13 +125,16 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             return energy.cast();
         }
 
-        if (cap == ForgeCapabilities.ITEM_HANDLER)
-        {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
+            if (side == Direction.DOWN) {
+                return LazyOptional.of(() -> new OutputSlotHandler(stackHandler, OUTPUT_SLOT)).cast();
+            }
             return handler.cast();
         }
-
         return super.getCapability(cap, side);
     }
+
+
 
     @Override
     public void onLoad()

@@ -4,6 +4,8 @@ import net.cathienova.havenalchemy.util.AdaptedEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.Containers;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -27,9 +29,9 @@ public class GeneratorBlockEntity extends BlockEntity {
     public static final String ITEMS_TAG = "Inventory";
     public static final String ENERGY_TAG = "Energy";
 
-    public static final int GENERATE = 50;
+    public static final int GENERATE = 64;
     public static final int MAXTRANSFER = 1000;
-    public static final int CAPACITY = 100000;
+    public static final int CAPACITY = 64000;
 
     public static int SLOT_COUNT = 1;
     public static int SLOT = 0;
@@ -92,6 +94,17 @@ public class GeneratorBlockEntity extends BlockEntity {
             }
             setChanged();
         }
+    }
+
+    public void drops()
+    {
+        SimpleContainer inventory = new SimpleContainer(items.getSlots());
+        for (int i = 0; i < items.getSlots(); i++)
+        {
+            inventory.setItem(i, items.getStackInSlot(i));
+        }
+
+        Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
     private void setBurnTime(int bt) {
