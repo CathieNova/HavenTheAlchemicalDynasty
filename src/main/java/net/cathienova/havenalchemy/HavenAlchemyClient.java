@@ -1,27 +1,23 @@
 package net.cathienova.havenalchemy;
 
+import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.cables.client.CableModelLoader;
-import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
-import net.cathienova.havenalchemy.screen.GeneratorScreen;
-import net.cathienova.havenalchemy.screen.ModMenuTypes;
+import net.cathienova.havenalchemy.cables.client.FacadeBlockColor;
 import net.cathienova.havenalchemy.util.EMCSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.simple.SimpleChannel;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -31,13 +27,6 @@ import java.util.List;
 public class HavenAlchemyClient
 {
     private static final Minecraft CLIENT = Minecraft.getInstance();
-    private static final String PROTOCOL_VERSION = "1";
-    public static SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            new ResourceLocation("havenalchemy", "main_channel"),
-            () -> PROTOCOL_VERSION,
-            PROTOCOL_VERSION::equals,
-            PROTOCOL_VERSION::equals
-    );
 
     private static CompoundTag havenAlchemyNbt;
 
@@ -48,6 +37,11 @@ public class HavenAlchemyClient
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+    }
+
+    @SubscribeEvent
+    public static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
+        event.register(new FacadeBlockColor(), ModBlocks.facade_block.get());
     }
 
     @SubscribeEvent

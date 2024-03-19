@@ -19,7 +19,7 @@ public class ModMessages {
 
     public static void register() {
         SimpleChannel net = NetworkRegistry.ChannelBuilder
-                .named(new ResourceLocation(HavenAlchemy.MOD_ID, "messages"))
+                .named(new ResourceLocation(HavenAlchemy.MOD_ID, "main"))
                 .networkProtocolVersion(() -> "1.0")
                 .clientAcceptedVersions(s -> true)
                 .serverAcceptedVersions(s -> true)

@@ -61,11 +61,6 @@ public class HavenAlchemy
     {
     }
 
-    @SubscribeEvent
-    public static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
-        event.register(new FacadeBlockColor(), ModBlocks.facade_block.get());
-    }
-
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {

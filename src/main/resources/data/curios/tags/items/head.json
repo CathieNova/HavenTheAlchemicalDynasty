@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "havenalchemy:nightvision_goggles",
-    "havenalchemy:warden_ears"
+    "havenalchemy:nightvision_goggles"
   ]
 }
