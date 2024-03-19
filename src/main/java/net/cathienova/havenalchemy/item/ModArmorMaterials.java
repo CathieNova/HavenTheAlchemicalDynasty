@@ -16,9 +16,7 @@ public enum ModArmorMaterials implements ArmorMaterial
     red_matter("red_matter", 33, new int[] {6, 8, 10, 6}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
             2.0F, 0.0F, () -> Ingredient.of(ModItems.red_matter.get())),
     neosphore("neosphore", 33, new int[] {8, 10, 12, 8}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
-            2.0F, 0.1F, () -> Ingredient.of(ModItems.neosphore_ingot.get())),
-    sculkerite("sculkerite", 43 , new int[] {11, 15, 16, 13}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
-            4.0F, 0.15F, () -> Ingredient.of(ModItems.sculk_ingot.get()))
+            2.0F, 0.1F, () -> Ingredient.of(ModItems.neosphore_ingot.get()))
     ;
 
     private final String name;

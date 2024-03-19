@@ -74,11 +74,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.neosphore_chestplate);
         trimmedArmorItem(ModItems.neosphore_leggings);
         trimmedArmorItem(ModItems.neosphore_boots);
-        trimmedArmorItem(ModItems.sculkerite_helmet);
-        trimmedArmorItem(ModItems.sculkerite_chestplate);
-        trimmedArmorItem(ModItems.sculkerite_chestplate_uncharged);
-        trimmedArmorItem(ModItems.sculkerite_leggings);
-        trimmedArmorItem(ModItems.sculkerite_boots);
 
         handHeldItem(ModItems.dark_matter_hoe);
         handHeldItem(ModItems.dark_matter_pickaxe);
@@ -102,18 +97,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.neosphore_hoe);
         handHeldItem(ModItems.neosphore_shovel);
         ShearsItem(ModItems.neosphore_shears);
-
-        simpleItem(ModItems.sculk_ingot);
-        simpleItem(ModItems.sculk_soul);
-        simpleItem(ModItems.warden_blood);
-        simpleItem(ModItems.warden_heart);
-        simpleItem(ModItems.warden_ears);
-
-        handHeldItem(ModItems.sculkerite_axe);
-        handHeldItem(ModItems.sculkerite_pickaxe);
-        handHeldItem(ModItems.sculkerite_sword);
-        handHeldItem(ModItems.sculkerite_hoe);
-        handHeldItem(ModItems.sculkerite_shovel);
 
         simpleItem(ModItems.essentia_seeds);
         simpleItem(ModItems.coal_seeds);

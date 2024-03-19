@@ -27,7 +27,9 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.alchemy_dust_high.get()));
                         add.accept(new ItemStack(ModItems.essence_shard.get()));
                         add.accept(new ItemStack(ModItems.dark_matter.get()));
+                        add.accept(new ItemStack(ModBlocks.dark_matter_block.get()));
                         add.accept(new ItemStack(ModItems.red_matter.get()));
+                        add.accept(new ItemStack(ModBlocks.red_matter_block.get()));
                         add.accept(new ItemStack(ModItems.void_matter.get()));
                         add.accept(new ItemStack(ModItems.trowel.get()));
 
@@ -43,9 +45,9 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.alchemical_coal.get()));
                         add.accept(new ItemStack(ModItems.ethern_coal.get()));
                         add.accept(new ItemStack(ModItems.aether_fuel.get()));
-                        add.accept(new ItemStack(ModBlocks.alchemical_coal_block.get()));
-                        add.accept(new ItemStack(ModBlocks.ethern_coal_block.get()));
-                        add.accept(new ItemStack(ModBlocks.aether_fuel_block.get()));
+                        add.accept(new ItemStack(ModBlocks.alchemical_coal_block_item.get()));
+                        add.accept(new ItemStack(ModBlocks.ethern_coal_block_item.get()));
+                        add.accept(new ItemStack(ModBlocks.aether_fuel_block_item.get()));
 
                         //Tools
                         add.accept(new ItemStack(ModItems.dark_matter_pickaxe.get()));
@@ -71,37 +73,22 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.red_matter_boots.get()));
 
                         add.accept(new ItemStack(ModItems.raw_neosphore.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_ingot.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_nugget.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_axe.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_pickaxe.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_sword.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_shovel.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_hoe.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_shears.get()));
-                        add.accept(new ItemStack(ModBlocks.neosphore_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.raw_neosphore_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.neosphore_ore.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.neosphore_block.get().asItem()));
                         add.accept(new ItemStack(ModItems.neosphore_smithing_template.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_ingot.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_nugget.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_pickaxe.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_axe.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_shovel.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_hoe.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_sword.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_shears.get()));
                         add.accept(new ItemStack(ModItems.neosphore_helmet.get()));
                         add.accept(new ItemStack(ModItems.neosphore_chestplate.get()));
                         add.accept(new ItemStack(ModItems.neosphore_leggings.get()));
                         add.accept(new ItemStack(ModItems.neosphore_boots.get()));
-
-                        add.accept(new ItemStack(ModItems.sculk_ingot.get()));
-                        add.accept(new ItemStack(ModItems.sculk_soul.get()));
-                        add.accept(new ItemStack(ModItems.warden_heart.get()));
-                        add.accept(new ItemStack(ModItems.warden_blood.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_axe.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_pickaxe.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_sword.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_shovel.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_hoe.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_helmet.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_chestplate_uncharged.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_chestplate.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_leggings.get()));
-                        add.accept(new ItemStack(ModItems.sculkerite_boots.get()));
 
                         //Foods
                         add.accept(new ItemStack(ModItems.essence_apple.get()));
@@ -120,36 +107,36 @@ public class ModCreativeModTabs {
 
                         //Seeds
                         add.accept(new ItemStack(ModItems.essentia_seeds.get()));
-                        add.accept(new ItemStack(ModItems.stone_seeds.get()));
                         add.accept(new ItemStack(ModItems.coal_seeds.get()));
                         add.accept(new ItemStack(ModItems.coral_seeds.get()));
-                        add.accept(new ItemStack(ModItems.deepslate_seeds.get()));
-                        add.accept(new ItemStack(ModItems.diamond_seeds.get()));
                         add.accept(new ItemStack(ModItems.dirt_seeds.get()));
                         add.accept(new ItemStack(ModItems.dye_seeds.get()));
-                        add.accept(new ItemStack(ModItems.emerald_seeds.get()));
-                        add.accept(new ItemStack(ModItems.end_seeds.get()));
-                        add.accept(new ItemStack(ModItems.experience_seeds.get()));
+                        add.accept(new ItemStack(ModItems.deepslate_seeds.get()));
+                        add.accept(new ItemStack(ModItems.stone_seeds.get()));
                         add.accept(new ItemStack(ModItems.fire_seeds.get()));
                         add.accept(new ItemStack(ModItems.glowstone_seeds.get()));
-                        add.accept(new ItemStack(ModItems.gold_seeds.get()));
-                        add.accept(new ItemStack(ModItems.ice_seeds.get()));
-                        add.accept(new ItemStack(ModItems.iron_seeds.get()));
-                        add.accept(new ItemStack(ModItems.lapis_seeds.get()));
-                        add.accept(new ItemStack(ModItems.nature_seeds.get()));
-                        add.accept(new ItemStack(ModItems.nether_seeds.get()));
-                        add.accept(new ItemStack(ModItems.nether_quartz_seeds.get()));
-                        add.accept(new ItemStack(ModItems.obsidian_seeds.get()));
-                        add.accept(new ItemStack(ModItems.redstone_seeds.get()));
-                        add.accept(new ItemStack(ModItems.water_seeds.get()));
-                        add.accept(new ItemStack(ModItems.wood_seeds.get()));
-                        add.accept(new ItemStack(ModItems.amethyst_seeds.get()));
-                        add.accept(new ItemStack(ModItems.copper_seeds.get()));
-                        add.accept(new ItemStack(ModItems.honey_seeds.get()));
-                        add.accept(new ItemStack(ModItems.prismarine_seeds.get()));
-                        add.accept(new ItemStack(ModItems.netherite_seeds.get()));
                         add.accept(new ItemStack(ModItems.air_seeds.get()));
                         add.accept(new ItemStack(ModItems.earth_seeds.get()));
+                        add.accept(new ItemStack(ModItems.water_seeds.get()));
+                        add.accept(new ItemStack(ModItems.wood_seeds.get()));
+                        add.accept(new ItemStack(ModItems.ice_seeds.get()));
+                        add.accept(new ItemStack(ModItems.nature_seeds.get()));
+                        add.accept(new ItemStack(ModItems.end_seeds.get()));
+                        add.accept(new ItemStack(ModItems.prismarine_seeds.get()));
+                        add.accept(new ItemStack(ModItems.gold_seeds.get()));
+                        add.accept(new ItemStack(ModItems.iron_seeds.get()));
+                        add.accept(new ItemStack(ModItems.lapis_seeds.get()));
+                        add.accept(new ItemStack(ModItems.nether_quartz_seeds.get()));
+                        add.accept(new ItemStack(ModItems.redstone_seeds.get()));
+                        add.accept(new ItemStack(ModItems.copper_seeds.get()));
+                        add.accept(new ItemStack(ModItems.diamond_seeds.get()));
+                        add.accept(new ItemStack(ModItems.emerald_seeds.get()));
+                        add.accept(new ItemStack(ModItems.experience_seeds.get()));
+                        add.accept(new ItemStack(ModItems.nether_seeds.get()));
+                        add.accept(new ItemStack(ModItems.obsidian_seeds.get()));
+                        add.accept(new ItemStack(ModItems.honey_seeds.get()));
+                        add.accept(new ItemStack(ModItems.amethyst_seeds.get()));
+                        add.accept(new ItemStack(ModItems.netherite_seeds.get()));
 
                         //Spirits
                         add.accept(new ItemStack(ModItems.essentia_spirit.get()));
@@ -205,15 +192,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.fire_pendant.get()));
                         add.accept(new ItemStack(ModItems.water_pendant.get()));
                         add.accept(new ItemStack(ModItems.nightvision_goggles.get()));
-                        add.accept(new ItemStack(ModItems.warden_ears.get()));
 
-                    }).build());
-
-    public static final RegistryObject<CreativeModeTab> HAVENALCHEMY_BLOCKS_TAB = CREATIVE_MODE_TABS.register("havenalchemy_blocks_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.asphalt_bricks.get()))
-                    .title(Component.translatable("itemGroup.havenalchemy.havenalchemy_blocks_tab"))
-                    .displayItems((pParameters, add) ->
-                    {
                         add.accept(new ItemStack(ModBlocks.charmel_leaves.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charmel_log.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charmel_wood.get().asItem()));
@@ -253,8 +232,8 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.basphalt_stone_bricks_stairs.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.basphalt_stone_bricks_slabs.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.basphalt_stone_bricks_wall.get().asItem()));
-                    })
-                    .build());
+
+                    }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);

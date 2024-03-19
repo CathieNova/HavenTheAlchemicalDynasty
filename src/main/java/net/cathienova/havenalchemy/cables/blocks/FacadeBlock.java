@@ -2,8 +2,10 @@ package net.cathienova.havenalchemy.cables.blocks;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -18,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class FacadeBlock extends CableBlock implements EntityBlock {
 
@@ -29,6 +32,15 @@ public class FacadeBlock extends CableBlock implements EntityBlock {
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return new FacadeBlockEntity(pos, state);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> tooltip, TooltipFlag pFlag)
+    {
+        super.appendHoverText(stack, pLevel, tooltip, pFlag);
+        if (stack.hasTag()) {
+            tooltip.add(Component.translatable("tooltip.havenalchemy.facade"));
+        }
     }
 
     @NotNull

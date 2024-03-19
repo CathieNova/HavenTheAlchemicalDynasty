@@ -7,7 +7,10 @@ import net.cathienova.havenalchemy.cables.blocks.CableBlock;
 import net.cathienova.havenalchemy.cables.blocks.FacadeBlock;
 import net.cathienova.havenalchemy.cables.blocks.FacadeBlockItem;
 import net.cathienova.havenalchemy.item.ModItems;
+import net.cathienova.havenalchemy.item.fuel.FuelBlockItem;
+import net.cathienova.havenalchemy.item.fuel.FuelItem;
 import net.cathienova.havenalchemy.worldgen.tree.CharmelTreeGrower;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -36,14 +39,26 @@ public class ModBlocks {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, HavenAlchemy.MOD_ID);
 
-    public static final RegistryObject<Block> alchemical_coal_block = registerBlock("alchemical_coal_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> alchemical_coal_block = registerFuelBlockBlock("alchemical_coal_block",
+            () -> new FuelBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> ethern_coal_block = registerBlock("ethern_coal_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ethern_coal_block = registerFuelBlockBlock("ethern_coal_block",
+            () -> new FuelBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> aether_fuel_block = registerBlock("aether_fuel_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> aether_fuel_block = registerFuelBlockBlock("aether_fuel_block",
+            () -> new FuelBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Item> alchemical_coal_block_item = ModItems.ITEMS.register("alchemical_coal_block",
+            () -> new FuelBlockItem(ModBlocks.alchemical_coal_block.get(),
+                    new Item.Properties(), 28800));
+
+    public static final RegistryObject<Item> ethern_coal_block_item = ModItems.ITEMS.register("ethern_coal_block",
+            () -> new FuelBlockItem(ethern_coal_block.get(),
+                    new Item.Properties(), 57600));
+
+    public static final RegistryObject<Item> aether_fuel_block_item = ModItems.ITEMS.register("aether_fuel_block",
+            () -> new FuelBlockItem(aether_fuel_block.get(),
+                    new Item.Properties(), 115200));
 
     public static final RegistryObject<Block> asphalt = registerBlock("asphalt",
             () -> new Asphalt(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE).requiresCorrectToolForDrops()));
@@ -434,6 +449,11 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerFuelBlockBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
         return toReturn;
     }
 

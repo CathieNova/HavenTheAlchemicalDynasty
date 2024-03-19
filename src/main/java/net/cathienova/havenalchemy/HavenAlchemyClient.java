@@ -1,10 +1,6 @@
 package net.cathienova.havenalchemy;
 
-import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.cables.client.CableModelLoader;
-import net.cathienova.havenalchemy.cables.client.FacadeBlockColor;
-import net.cathienova.havenalchemy.item.ModItems;
-import net.cathienova.havenalchemy.item.ModTrinketRenders;
 import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
 import net.cathienova.havenalchemy.screen.GeneratorScreen;
 import net.cathienova.havenalchemy.screen.ModMenuTypes;
@@ -19,7 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ModelEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,7 +22,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -54,9 +48,6 @@ public class HavenAlchemyClient
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
-        MenuScreens.register(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), GeneratorScreen::new);
-        CuriosRendererRegistry.register(ModItems.warden_ears.get(), ModTrinketRenders::new);
     }
 
     @SubscribeEvent
@@ -65,14 +56,8 @@ public class HavenAlchemyClient
     }
 
     @SubscribeEvent
-    public static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
-        //event.register(new FacadeBlockColor(), ModBlocks.facade_block.get());
-    }
-
-    @SubscribeEvent
     public void onRenderGameOverlay(RenderGuiOverlayEvent event)
     {
-
         Level level = CLIENT.level;
         assert level != null;
         int x = 0;
@@ -91,11 +76,6 @@ public class HavenAlchemyClient
         }
         Font font = CLIENT.font;
         event.getGuiGraphics().drawString(font, textComponent, x, y, color.getRGB());
-    }
-
-    private static void registerNetworkHandlers() {
-        //CHANNEL.registerMessage(0, SomePacket.class, SomePacket::encode, SomePacket::decode, SomePacket::handle);
-        // Implement packet registration as needed
     }
 
     public static long getClientPlayerEMC() {

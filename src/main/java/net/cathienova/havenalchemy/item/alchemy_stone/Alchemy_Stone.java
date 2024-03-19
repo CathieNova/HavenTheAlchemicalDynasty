@@ -35,8 +35,8 @@ public class Alchemy_Stone extends Item
 
         if (Screen.hasShiftDown())
         {
-            tooltip.add(Component.translatable("tooltip.havenalchemy.alchemystone.1").withStyle(ChatFormatting.AQUA));
-            tooltip.add(Component.translatable("tooltip.havenalchemy.alchemystone.2").withStyle(ChatFormatting.AQUA));
+            tooltip.add(Component.translatable("tooltip.havenalchemy.alchemystone.1").withStyle(ChatFormatting.GOLD));
+            tooltip.add(Component.translatable("tooltip.havenalchemy.alchemystone.2"));
             tooltip.add(Component.translatable("tooltip.havenalchemy.alchemystone.3").withStyle(ChatFormatting.AQUA));
         }
         else

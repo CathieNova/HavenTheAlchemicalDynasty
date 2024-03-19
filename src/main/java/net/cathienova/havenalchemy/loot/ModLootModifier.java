@@ -13,9 +13,6 @@ public class ModLootModifier
     public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER_SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, HavenAlchemy.MOD_ID);
 
-    /*public static final RegistryObject<Codec<? extends IGlobalLootModifier>> smithing_template_from_suspicious_basphalt =
-            LOOT_MODIFIER_SERIALIZERS.register("smithing_template_from_suspicious_basphalt", AddItemModifier.CODEC);*/
-
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> add_item =
             LOOT_MODIFIER_SERIALIZERS.register("add_item", AddItemModifier.CODEC);
 

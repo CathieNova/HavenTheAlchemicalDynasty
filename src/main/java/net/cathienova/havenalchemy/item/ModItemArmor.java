@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
@@ -29,11 +30,6 @@ public class ModItemArmor extends ArmorItem {
                             new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0, false, false, false),
                             new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false, false)
                     ))
-                    .put(ModArmorMaterials.sculkerite, ImmutableList.of(
-                            new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, false, false),
-                            new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0, false, false, false)
-                    ))
-
 
                     .build();
 

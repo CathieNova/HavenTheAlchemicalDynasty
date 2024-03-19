@@ -63,14 +63,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemy_stone_fractured");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_stone.get(), 1)
-                .pattern("HMH")
-                .pattern("DED")
-                .pattern("HMH")
-                .define('H', ModItems.alchemy_dust_high.get())
-                .define('M', ModItems.alchemy_dust_medium.get())
+                .pattern("EDE")
+                .pattern("RVR")
+                .pattern("EDE")
+                .define('E', ModItems.ethern_coal.get())
                 .define('D', ModItems.alchemy_dust.get())
-                .define('E', ModItems.essence_shard.get())
-                .unlockedBy("has_essence_shard", has(ModItems.essence_shard.get()))
+                .define('R', ModItems.red_matter.get())
+                .define('V', ModItems.void_matter.get())
+                .unlockedBy("has_void_matter", has(ModItems.void_matter.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemy_stone");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chamber.get(), 1)
@@ -288,19 +288,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         LeggingsCraft(consumer, ModItems.neosphore_leggings.get(), ModItems.neosphore_ingot.get());
         BootsCraft(consumer, ModItems.neosphore_boots.get(), ModItems.neosphore_ingot.get());*/
 
-        PickaxeCraft(consumer, ModItems.dark_matter_pickaxe.get(), ModItems.dark_matter.get());
-        AxeCraft(consumer, ModItems.dark_matter_axe.get(), ModItems.dark_matter.get());
-        ShovelCraft(consumer, ModItems.dark_matter_shovel.get(), ModItems.dark_matter.get());
-        HoeCraft(consumer, ModItems.dark_matter_hoe.get(), ModItems.dark_matter.get());
-        SwordCraft(consumer, ModItems.dark_matter_sword.get(), ModItems.dark_matter.get());
+        PickaxeCraft(consumer, ModItems.dark_matter_pickaxe.get(), ModItems.dark_matter.get(), Items.DIAMOND);
+        AxeCraft(consumer, ModItems.dark_matter_axe.get(), ModItems.dark_matter.get(), Items.DIAMOND);
+        ShovelCraft(consumer, ModItems.dark_matter_shovel.get(), ModItems.dark_matter.get(), Items.DIAMOND);
+        HoeCraft(consumer, ModItems.dark_matter_hoe.get(), ModItems.dark_matter.get(), Items.DIAMOND);
+        SwordCraft(consumer, ModItems.dark_matter_sword.get(), ModItems.dark_matter.get(), Items.DIAMOND);
         ShearsCraft(consumer, ModItems.dark_matter_shears.get(), ModItems.dark_matter.get());
         //HammerCraft(consumer, ModItems.dark_matter_hammer.get(), ModItems.dark_matter.get());
 
-        PickaxeCraft(consumer, ModItems.red_matter_pickaxe.get(), ModItems.red_matter.get());
-        AxeCraft(consumer, ModItems.red_matter_axe.get(), ModItems.red_matter.get());
-        ShovelCraft(consumer, ModItems.red_matter_shovel.get(), ModItems.red_matter.get());
-        HoeCraft(consumer, ModItems.red_matter_hoe.get(), ModItems.red_matter.get());
-        SwordCraft(consumer, ModItems.red_matter_sword.get(), ModItems.red_matter.get());
+        PickaxeCraft(consumer, ModItems.red_matter_pickaxe.get(), ModItems.red_matter.get(), ModItems.dark_matter.get());
+        AxeCraft(consumer, ModItems.red_matter_axe.get(), ModItems.red_matter.get(), ModItems.dark_matter.get());
+        ShovelCraft(consumer, ModItems.red_matter_shovel.get(), ModItems.red_matter.get(), ModItems.dark_matter.get());
+        HoeCraft(consumer, ModItems.red_matter_hoe.get(), ModItems.red_matter.get(), ModItems.dark_matter.get());
+        SwordCraft(consumer, ModItems.red_matter_sword.get(), ModItems.red_matter.get(), ModItems.dark_matter.get());
         ShearsCraft(consumer, ModItems.red_matter_shears.get(), ModItems.red_matter.get());
         //HammerCraft(consumer, ModItems.red_matter_hammer.get(), ModItems.red_matter.get());
 
@@ -324,18 +324,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_leggings.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_leggings.get());
         upgradeSmithing(consumer, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_boots.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_boots.get());
 
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_AXE, ModItems.sculk_ingot.get(), ModItems.sculkerite_axe.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_PICKAXE, ModItems.sculk_ingot.get(), ModItems.sculkerite_pickaxe.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_SHOVEL, ModItems.sculk_ingot.get(), ModItems.sculkerite_shovel.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_HOE, ModItems.sculk_ingot.get(), ModItems.sculkerite_hoe.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_SWORD, ModItems.sculk_ingot.get(), ModItems.sculkerite_sword.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_HELMET, ModItems.sculk_ingot.get(), ModItems.sculkerite_helmet.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_CHESTPLATE, ModItems.sculk_ingot.get(), ModItems.sculkerite_chestplate_uncharged.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), ModItems.sculkerite_chestplate_uncharged.get(), ModItems.sculk_ingot.get(), ModItems.sculkerite_chestplate.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_LEGGINGS, ModItems.sculk_ingot.get(), ModItems.sculkerite_leggings.get());
-        upgradeSmithing(consumer, ModItems.warden_blood.get(), Items.NETHERITE_BOOTS, ModItems.sculk_ingot.get(), ModItems.sculkerite_boots.get());
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.neosphore_smithing_template.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.neosphore_smithing_template.get(), 2)
                 .pattern("SIS")
                 .pattern("SNS")
                 .pattern("SSS")
@@ -344,36 +333,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('N', ModItems.neosphore_smithing_template.get())
                 .unlockedBy("has_neosphore_smithing_template", has(ModItems.neosphore_smithing_template.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/neosphore_smithing_template");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.sculk_ingot.get(), 1)
-                .pattern("DSD")
-                .pattern("SIS")
-                .pattern("DSD")
-                .define('S', ModItems.sculk_soul.get())
-                .define('D', ModItems.alchemy_dust.get())
-                .define('I', Items.IRON_INGOT)
-                .unlockedBy("has_sculk_soul", has(ModItems.sculk_soul.get()))
-                .save(consumer, HavenAlchemy.MOD_ID + ":craft/sculk_ingot");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.warden_blood.get(), 4)
-                .pattern("DGD")
-                .pattern("GHG")
-                .pattern("DGD")
-                .define('D', ModItems.alchemy_dust.get())
-                .define('G', Items.GLASS_BOTTLE)
-                .define('H', ModItems.warden_heart.get())
-                .unlockedBy("has_warden_heart", has(ModItems.warden_heart.get()))
-                .save(consumer, HavenAlchemy.MOD_ID + ":craft/warden_blood");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.warden_heart.get(), 1)
-                .pattern("ESE")
-                .pattern("SDS")
-                .pattern("ESE")
-                .define('E', Items.ECHO_SHARD)
-                .define('S', ModItems.sculk_ingot.get())
-                .define('D', Items.DIAMOND)
-                .unlockedBy("has_echo_shard", has(Items.ECHO_SHARD))
-                .save(consumer, HavenAlchemy.MOD_ID + ":craft/warden_heart");
 
         oreSmelting(consumer, NEOSPHORE_SMELTABLES, RecipeCategory.MISC, ModItems.neosphore_ingot.get(), 0.25f, 200, "neosphore_ingot");
         oreBlasting(consumer, NEOSPHORE_SMELTABLES, RecipeCategory.MISC, ModItems.neosphore_ingot.get(), 0.25f, 100, "neosphore_ingot");
@@ -422,6 +381,82 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         stickRecipe(consumer, Items.STICK, ModBlocks.charmel_planks.get());
 
         spiritCirclePlusCrafting(consumer, ModItems.essentia_seeds.get(), ModItems.essence_shard.get(), Items.WHEAT_SEEDS, 1);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.mysterium_spirit.get(), 1)
+                .pattern(" S ")
+                .pattern("SNS")
+                .pattern(" S ")
+                .define('S', ModItems.essentia_spirit.get())
+                .define('N', ModItems.essence_shard.get())
+                .unlockedBy("has_essentia_spirit", has(ModItems.essentia_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/essentia_spirit_to_mysterium_spirit");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.vitalium_spirit.get(), 1)
+                .pattern(" S ")
+                .pattern("SNS")
+                .pattern(" S ")
+                .define('S', ModItems.mysterium_spirit.get())
+                .define('N', ModItems.essence_shard.get())
+                .unlockedBy("has_mysterium_spirit", has(ModItems.mysterium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/mysterium_spirit_to_vitalium_spirit");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.celestium_spirit.get(), 1)
+                .pattern(" S ")
+                .pattern("SNS")
+                .pattern(" S ")
+                .define('S', ModItems.vitalium_spirit.get())
+                .define('N', ModItems.essence_shard.get())
+                .unlockedBy("has_vitalium_spirit", has(ModItems.vitalium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/vitalium_spirit_to_celestium_spirit");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.eternium_spirit.get(), 1)
+                .pattern(" S ")
+                .pattern("SNS")
+                .pattern(" S ")
+                .define('S', ModItems.celestium_spirit.get())
+                .define('N', ModItems.essence_shard.get())
+                .unlockedBy("has_celestium_spirit", has(ModItems.celestium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/celestium_spirit_to_eternium_spirit");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.essentia_spirit.get(), 4)
+                .requires(ModItems.mysterium_spirit.get())
+                .unlockedBy("has_mysterium_spirit", has(ModItems.mysterium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/essentia_spirit_from_mysterium_spirit");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.mysterium_spirit.get(), 4)
+                .requires(ModItems.vitalium_spirit.get())
+                .unlockedBy("has_vitalium_spirit", has(ModItems.vitalium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/mysterium_spirit_from_vitalium_spirit");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.vitalium_spirit.get(), 4)
+                .requires(ModItems.celestium_spirit.get())
+                .unlockedBy("has_celestium_spirit", has(ModItems.celestium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/vitalium_spirit_from_celestium_spirit");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.celestium_spirit.get(), 4)
+                .requires(ModItems.eternium_spirit.get())
+                .unlockedBy("has_eternium_spirit", has(ModItems.eternium_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/celestium_spirit_from_eternium_spirit");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.essentia_spirit_block.get(), 4)
+                .requires(ModBlocks.mysterium_spirit_block.get())
+                .unlockedBy("has_mysterium_spirit_block", has(ModBlocks.mysterium_spirit_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/essentia_spirit_block_from_mysterium_spirit_block");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.mysterium_spirit_block.get(), 4)
+                .requires(ModBlocks.vitalium_spirit_block.get())
+                .unlockedBy("has_vitalium_spirit_block", has(ModBlocks.vitalium_spirit_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/mysterium_spirit_block_from_vitalium_spirit_block");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.vitalium_spirit_block.get(), 4)
+                .requires(ModBlocks.celestium_spirit_block.get())
+                .unlockedBy("has_celestium_spirit_block", has(ModBlocks.celestium_spirit_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/vitalium_spirit_block_from_celestium_spirit_block");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.celestium_spirit_block.get(), 4)
+                .requires(ModBlocks.eternium_spirit_block.get())
+                .unlockedBy("has_eternium_spirit_block", has(ModBlocks.eternium_spirit_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/spirit/celestium_spirit_block_from_eternium_spirit_block");
 
         // Spirit Crafting
         coralFanCrafting(consumer, Items.BUBBLE_CORAL_FAN, ModItems.coral_spirit.get(), Items.MAGENTA_DYE);
@@ -1246,10 +1281,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 Items.HONEY_BLOCK, ModBlocks.essentia_spirit_block.get());
 
         createAlchemicalChamberRecipe(consumer, ModItems.prismarine_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
-                Items.PRISMARINE_BRICKS, ModBlocks.essentia_spirit_block.get());
-
-        createAlchemicalChamberRecipe(consumer, ModItems.netherite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
-                Items.NETHERITE_BLOCK, ModBlocks.celestium_spirit_block.get());
+                Items.PRISMARINE_BRICKS, ModBlocks.mysterium_spirit_block.get());
 
         createAlchemicalChamberRecipe(consumer, ModItems.air_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.FEATHER, ModBlocks.essentia_spirit_block.get());
@@ -1262,6 +1294,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         createAlchemicalChamberRecipe(consumer, ModItems.deepslate_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.DEEPSLATE, ModBlocks.essentia_spirit_block.get());
+
+        createAlchemicalChamberRecipe(consumer, ModItems.netherite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.NETHERITE_BLOCK, ModBlocks.eternium_spirit_block.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.generator_block.get(), 1)
                 .pattern("III")
@@ -1491,62 +1526,62 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
 
-    protected static void ShovelCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    protected static void ShovelCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2)
     {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
                 .pattern("L")
                 .pattern("S")
                 .pattern("S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', ingredient2)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
 
-    protected static void PickaxeCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    protected static void PickaxeCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2)
     {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
                 .pattern("LLL")
                 .pattern(" S ")
                 .pattern(" S ")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', ingredient2)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
 
-    protected static void AxeCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    protected static void AxeCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2)
     {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
                 .pattern("LL")
                 .pattern("LS")
                 .pattern(" S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', ingredient2)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
 
-    protected static void HoeCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    protected static void HoeCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2)
     {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
                 .pattern("LL")
                 .pattern(" S")
                 .pattern(" S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', ingredient2)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
 
-    protected static void SwordCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    protected static void SwordCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2)
     {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
                 .pattern("L")
                 .pattern("L")
                 .pattern("S")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', ingredient2)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
@@ -1561,14 +1596,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }
 
-    protected static void HammerCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    protected static void HammerCraft(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2)
     {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
                 .pattern("LLL")
                 .pattern("LSL")
                 .pattern(" S ")
                 .define('L', ingredient)
-                .define('S', Items.STICK)
+                .define('S', ingredient2)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result));
     }

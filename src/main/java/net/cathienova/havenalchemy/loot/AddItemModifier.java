@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -16,14 +17,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 public class AddItemModifier extends LootModifier {
-    public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(()
-            -> RecordCodecBuilder.create(inst -> codecStart(inst).and(ForgeRegistries.ITEMS.getCodec()
-            .fieldOf("item").forGetter(m -> m.item)).apply(inst, AddItemModifier::new)));
+    public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(() ->
+            RecordCodecBuilder.create(instance -> codecStart(instance).and(
+                    ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(modifier -> modifier.item)
+            ).and(
+                    Codec.FLOAT.fieldOf("chance").forGetter(modifier -> modifier.chance) // Add chance field
+            ).apply(instance, AddItemModifier::new)));
     private final Item item;
+    private final float chance;
 
-    public AddItemModifier(LootItemCondition[] conditionsIn, Item item) {
+    public AddItemModifier(LootItemCondition[] conditionsIn, Item item, float chance) {
         super(conditionsIn);
         this.item = item;
+        this.chance = chance;
     }
 
     @Override
@@ -34,7 +40,9 @@ public class AddItemModifier extends LootModifier {
             }
         }
 
-        generatedLoot.add(new ItemStack(item));
+        if (context.getRandom().nextFloat() < this.chance) {
+            generatedLoot.add(new ItemStack(item));
+        }
 
         return generatedLoot;
     }

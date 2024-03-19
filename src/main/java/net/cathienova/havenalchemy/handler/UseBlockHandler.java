@@ -76,39 +76,6 @@ public class UseBlockHandler {
         }
     }
 
-    @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
-        Player player = event.getPlayer();
-        if (player.isCreative()) return;
-        Level level = (Level) event.getLevel();
-        BlockPos blockPos = event.getPos();
-        Block block = event.getState().getBlock();
-
-        int sculkSoulDropChance = 25; // Out of 1000
-        Random random = new Random();
-
-        if (block.equals(Blocks.SCULK) && random.nextInt(0, 800) < sculkSoulDropChance)
-        {
-            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
-        }
-        else if (block.equals(Blocks.SCULK_CATALYST) && random.nextInt(0, 250) < sculkSoulDropChance)
-        {
-            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
-        }
-        else if (block.equals(Blocks.SCULK_VEIN) && random.nextInt(0, 800) < sculkSoulDropChance)
-        {
-            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
-        }
-        else if (block.equals(Blocks.SCULK_SHRIEKER) && random.nextInt(0, 250) < sculkSoulDropChance)
-        {
-            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
-        }
-        else if (block.equals(Blocks.SCULK_SENSOR) && random.nextInt(0, 500) < sculkSoulDropChance)
-        {
-            spawnItem(level, player, blockPos, new ItemStack(ModItems.sculk_soul.get()));
-        }
-    }
-
     private static void spawnItem(Level level, Player player, BlockPos blockPos, ItemStack item) {
         if (!level.isClientSide()) {
             level.addFreshEntity(new ItemEntity(level, blockPos.getX() + 0.5, blockPos.getY() + 0.5, blockPos.getZ() + 0.5, item));

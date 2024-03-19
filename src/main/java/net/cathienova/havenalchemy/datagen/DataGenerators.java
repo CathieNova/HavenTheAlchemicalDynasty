@@ -20,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 public class DataGenerators
 {
     @Mod.EventBusSubscriber(modid = HavenAlchemy.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public class ModRecipeProvider
+    public static class ModRecipeProvider
     {
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event) {
@@ -31,10 +31,7 @@ public class DataGenerators
 
             generator.addProvider(event.includeServer(), new net.cathienova.havenalchemy.datagen.ModRecipeProvider(packOutput));
 
-            LootTableProvider provider = new LootTableProvider(packOutput, Set.of(),
-                    List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK)));
-
-            event.getGenerator().addProvider(event.includeServer(), provider);
+            generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
 
             generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
             generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
