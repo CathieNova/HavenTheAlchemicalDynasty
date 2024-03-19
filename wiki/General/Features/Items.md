@@ -87,24 +87,6 @@
 - A more superior armor than Red Matter.
 ### ![Neosphore Boots](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/neosphore_boots.png) Neosphore Boots
 - A more superior armor than Red Matter.
-### ![Sculk Ingot](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculk_ingot.png) Sculk Ingot
-### ![Sculk Soul](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculk_soul.png) Sculk Soul
-- Can be obtained from Sculk and Warden.
-### ![Warden Heart](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/warden_heart.png) Warden Heart
-### ![Warden Blood](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/warden_blood.png) Warden Blood
-### ![Sculkerite Axe](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_axe.png) Sculkerite Axe
-### ![Sculkerite Pickaxe](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_pickaxe.png) Sculkerite Pickaxe
-### ![Sculkerite Sword](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_sword.png) Sculkerite Sword
-### ![Sculkerite Shovel](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_shovel.png) Sculkerite Shovel
-### ![Sculkerite Hoe](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_hoe.png) Sculkerite Hoe
-### ![Sculkerite Helmet](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_helmet.png) Sculkerite Helmet
-### ![Sculkerite Chestplate Uncharged](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_chestplate_uncharged.png) Sculkerite Chestplate Uncharged
-### ![Sculkerite Chestplate](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_chestplate.png) Sculkerite Chestplate
-### ![Sculkerite Leggings](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_leggings.png) Sculkerite Leggings
-### ![Sculkerite Boots](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/sculkerite_boots.png) Sculkerite Boots
-### ![Essence Apple](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/essence_apple.png) Essence Apple
-### ![Dark Matter Apple](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/dark_matter_apple.png) Dark Matter Apple
-### ![Red Matter Apple](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/red_matter_apple.png) Red Matter Apple
 ### ![Trowel](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/trowel.png) Trowel
 - Right click to place random blocks from the hotbar.
 ### ![Acacia Bark](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/acacia_bark.png) Acacia Bark
@@ -192,4 +174,3 @@
 ### ![Fire Pendant](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/fire_pendant.png) Fire Pendant
 ### ![Water Pendant](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/water_pendant.png) Water Pendant
 ### ![Nightvision Goggles](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/nightvision_goggles.png) Nightvision Goggles
-### ![Warden Ears](https://raw.githubusercontent.com/CathieNova/HavenTheAlchemicalDynasty/master/wiki/Images/item/warden_ears.png) Warden Ears
