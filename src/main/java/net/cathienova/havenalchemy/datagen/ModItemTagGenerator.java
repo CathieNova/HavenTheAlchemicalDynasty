@@ -7,7 +7,9 @@ import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -194,5 +196,34 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.alchemy_stone.get())
                 .add(ModItems.alchemy_stone_fractured.get())
                 ;
+
+        this.tag(ModTags.Items.forgeCopperDust).add(ModItems.copper_dust.get());
+        this.tag(ModTags.Items.forgeGoldDust).add(ModItems.gold_dust.get());
+        this.tag(ModTags.Items.forgeIronDust).add(ModItems.iron_dust.get());
+        this.tag(ModTags.Items.forgeLeadDust).add(ModItems.lead_dust.get());
+        this.tag(ModTags.Items.forgeNickelDust).add(ModItems.nickel_dust.get());
+        this.tag(ModTags.Items.forgeOsmiumDust).add(ModItems.osmium_dust.get());
+        this.tag(ModTags.Items.forgeSilverDust).add(ModItems.silver_dust.get());
+        this.tag(ModTags.Items.forgeTinDust).add(ModItems.tin_dust.get());
+        this.tag(ModTags.Items.forgeUraniumDust).add(ModItems.uranium_dust.get());
+        this.tag(ModTags.Items.forgeZincDust).add(ModItems.zinc_dust.get());
+        this.tag(ModTags.Items.forgeNetheriteDust).add(ModItems.netherite_dust.get());
+
+        this.tag(ModTags.Items.oreHammers)
+                .add(ModItems.copper_ore_hammer.get())
+                .add(ModItems.iron_ore_hammer.get())
+                .add(ModItems.gold_ore_hammer.get())
+                .add(ModItems.diamond_ore_hammer.get())
+                .add(ModItems.neosphore_ore_hammer.get())
+                ;
+
+        this.tag(ModTags.Items.forgeLeadIngot).add(ModItems.lead_ingot.get());
+        this.tag(ModTags.Items.forgeNickelIngot).add(ModItems.nickel_ingot.get());
+        this.tag(ModTags.Items.forgeOsmiumIngot).add(ModItems.osmium_ingot.get());
+        this.tag(ModTags.Items.forgeSilverIngot).add(ModItems.silver_ingot.get());
+        this.tag(ModTags.Items.forgeTinIngot).add(ModItems.tin_ingot.get());
+        this.tag(ModTags.Items.forgeUraniumIngot).add(ModItems.uranium_ingot.get());
+        this.tag(ModTags.Items.forgeZincIngot).add(ModItems.zinc_ingot.get());
+
     }
 }

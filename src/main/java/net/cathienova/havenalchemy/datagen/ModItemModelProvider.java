@@ -98,6 +98,31 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.neosphore_shovel);
         ShearsItem(ModItems.neosphore_shears);
 
+        simpleItem(ModItems.copper_dust);
+        simpleItem(ModItems.tin_dust);
+        simpleItem(ModItems.tin_ingot);
+        simpleItem(ModItems.netherite_dust);
+        simpleItem(ModItems.iron_dust);
+        simpleItem(ModItems.gold_dust);
+        simpleItem(ModItems.lead_dust);
+        simpleItem(ModItems.lead_ingot);
+        simpleItem(ModItems.silver_dust);
+        simpleItem(ModItems.silver_ingot);
+        simpleItem(ModItems.nickel_dust);
+        simpleItem(ModItems.nickel_ingot);
+        simpleItem(ModItems.uranium_dust);
+        simpleItem(ModItems.uranium_ingot);
+        simpleItem(ModItems.osmium_dust);
+        simpleItem(ModItems.osmium_ingot);
+        simpleItem(ModItems.zinc_dust);
+        simpleItem(ModItems.zinc_ingot);
+
+        handHeldItem(ModItems.copper_ore_hammer);
+        handHeldItem(ModItems.iron_ore_hammer);
+        handHeldItem(ModItems.gold_ore_hammer);
+        handHeldItem(ModItems.diamond_ore_hammer);
+        handHeldItem(ModItems.neosphore_ore_hammer);
+
         simpleItem(ModItems.essentia_seeds);
         simpleItem(ModItems.coal_seeds);
         simpleItem(ModItems.coral_seeds);

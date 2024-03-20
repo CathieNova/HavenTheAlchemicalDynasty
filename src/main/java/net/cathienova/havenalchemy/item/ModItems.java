@@ -7,13 +7,12 @@ import net.cathienova.havenalchemy.item.alchemy_stone.Alchemy_Stone_Fractured;
 import net.cathienova.havenalchemy.item.artifacts.*;
 import net.cathienova.havenalchemy.item.bark.*;
 import net.cathienova.havenalchemy.item.fuel.FuelItem;
+import net.cathienova.havenalchemy.item.orehammers.*;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -469,4 +468,73 @@ public class ModItems {
 
     public static final RegistryObject<Item> nightvision_goggles = ITEMS.register("nightvision_goggles",
             () -> new NightvisionGoggles(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> copper_dust = ITEMS.register("copper_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> iron_dust = ITEMS.register("iron_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> gold_dust = ITEMS.register("gold_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> tin_dust = ITEMS.register("tin_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> netherite_dust = ITEMS.register("netherite_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> lead_dust = ITEMS.register("lead_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> silver_dust = ITEMS.register("silver_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> nickel_dust = ITEMS.register("nickel_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> uranium_dust = ITEMS.register("uranium_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> osmium_dust = ITEMS.register("osmium_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> zinc_dust = ITEMS.register("zinc_dust",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> tin_ingot = ITEMS.register("tin_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> lead_ingot = ITEMS.register("lead_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> silver_ingot = ITEMS.register("silver_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> nickel_ingot = ITEMS.register("nickel_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> uranium_ingot = ITEMS.register("uranium_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> osmium_ingot = ITEMS.register("osmium_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> zinc_ingot = ITEMS.register("zinc_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> copper_ore_hammer = ITEMS.register("copper_ore_hammer",
+            () -> new CopperOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).defaultDurability(64)));
+
+    public static final RegistryObject<Item> iron_ore_hammer = ITEMS.register("iron_ore_hammer",
+            () -> new IronOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).defaultDurability(128)));
+
+    public static final RegistryObject<Item> gold_ore_hammer = ITEMS.register("gold_ore_hammer",
+            () -> new GoldOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).defaultDurability(256)));
+
+    public static final RegistryObject<Item> diamond_ore_hammer = ITEMS.register("diamond_ore_hammer",
+            () -> new DiamondOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).defaultDurability(512)));
+
+    public static final RegistryObject<Item> neosphore_ore_hammer = ITEMS.register("neosphore_ore_hammer",
+            () -> new NeosphoreOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).defaultDurability(-1)));
 }

@@ -6,17 +6,15 @@ import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
 import net.cathienova.havenalchemy.util.AlchemicalChamberRecipeBuilder;
 import net.cathienova.havenalchemy.util.ModTags;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -1336,6 +1334,285 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', ModBlocks.cable_block.get())
                 .unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/facade_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeCopperIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/copper_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawCopper)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/copper_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.tin_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeTinIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/tin_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.tin_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawTin)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/tin_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.netherite_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeNetheriteIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/netherite_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.NETHERITE_SCRAP, 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', Items.ANCIENT_DEBRIS)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/netherite_scrap_from_debris");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.silver_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeSilverIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/silver_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.silver_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawSilver)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/silver_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.lead_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeLeadIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/lead_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.lead_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawLead)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/lead_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeGoldIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/gold_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawGold)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/gold_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.iron_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeIronIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/iron_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.iron_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawIron)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/iron_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.nickel_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeNickelIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/nickel_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.nickel_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawNickel)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/nickel_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.uranium_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeUraniumIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/uranium_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.uranium_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawUranium)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/uranium_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.osmium_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeOsmiumIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/osmium_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.osmium_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawOsmium)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/osmium_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.zinc_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeZincIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/zinc_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.zinc_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawZinc)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/zinc_dust_from_raw");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.copper_dust.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.25f, 200)
+                .unlockedBy("has_copper_dust", has(ModItems.copper_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/copper_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.tin_dust.get()), RecipeCategory.MISC, ModItems.tin_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_tin_dust", has(ModItems.tin_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/tin_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.silver_dust.get()), RecipeCategory.MISC, ModItems.silver_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_silver_dust", has(ModItems.silver_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/silver_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.lead_dust.get()), RecipeCategory.MISC, ModItems.lead_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_lead_dust", has(ModItems.lead_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/lead_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.iron_dust.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.25f, 200)
+                .unlockedBy("has_iron_dust", has(ModItems.iron_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/iron_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.gold_dust.get()), RecipeCategory.MISC, Items.GOLD_INGOT, 0.25f, 200)
+                .unlockedBy("has_gold_dust", has(ModItems.gold_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/gold_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.nickel_dust.get()), RecipeCategory.MISC, ModItems.nickel_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_nickel_dust", has(ModItems.nickel_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/nickel_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.uranium_dust.get()), RecipeCategory.MISC, ModItems.uranium_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_uranium_dust", has(ModItems.uranium_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/uranium_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.osmium_dust.get()), RecipeCategory.MISC, ModItems.osmium_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_osmium_dust", has(ModItems.osmium_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/osmium_dust");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.zinc_dust.get()), RecipeCategory.MISC, ModItems.zinc_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_zinc_dust", has(ModItems.zinc_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/zinc_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.copper_dust.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.25f, 100)
+                .unlockedBy("has_copper_dust", has(ModItems.copper_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/copper_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.tin_dust.get()), RecipeCategory.MISC, ModItems.tin_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_tin_dust", has(ModItems.tin_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/tin_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.silver_dust.get()), RecipeCategory.MISC, ModItems.silver_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_silver_dust", has(ModItems.silver_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/silver_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.lead_dust.get()), RecipeCategory.MISC, ModItems.lead_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_lead_dust", has(ModItems.lead_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/lead_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.iron_dust.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.25f, 100)
+                .unlockedBy("has_iron_dust", has(ModItems.iron_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/iron_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.gold_dust.get()), RecipeCategory.MISC, Items.GOLD_INGOT, 0.25f, 100)
+                .unlockedBy("has_gold_dust", has(ModItems.gold_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/gold_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.nickel_dust.get()), RecipeCategory.MISC, ModItems.nickel_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_nickel_dust", has(ModItems.nickel_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/nickel_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.uranium_dust.get()), RecipeCategory.MISC, ModItems.uranium_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_uranium_dust", has(ModItems.uranium_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/uranium_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.osmium_dust.get()), RecipeCategory.MISC, ModItems.osmium_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_osmium_dust", has(ModItems.osmium_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/osmium_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.zinc_dust.get()), RecipeCategory.MISC, ModItems.zinc_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_zinc_dust", has(ModItems.zinc_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":blasting/zinc_dust");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_ore_hammer.get(), 1)
+                .pattern(" BS")
+                .pattern(" SB")
+                .pattern("S  ")
+                .define('B', ModTags.Items.forgeCopperBlocks)
+                .define('S', Items.STICK)
+                .unlockedBy("has_copper_block", has(ModTags.Items.forgeCopperBlocks))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/copper_ore_hammer");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.iron_ore_hammer.get(), 1)
+                .pattern(" BS")
+                .pattern(" SB")
+                .pattern("S  ")
+                .define('B', ModTags.Items.forgeIronBlocks)
+                .define('S', Items.STICK)
+                .unlockedBy("has_iron_block", has(ModTags.Items.forgeIronBlocks))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/iron_ore_hammer");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_ore_hammer.get(), 1)
+                .pattern(" BS")
+                .pattern(" SB")
+                .pattern("S  ")
+                .define('B', ModTags.Items.forgeGoldBlocks)
+                .define('S', Items.STICK)
+                .unlockedBy("has_gold_block", has(ModTags.Items.forgeGoldBlocks))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/gold_ore_hammer");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.diamond_ore_hammer.get(), 1)
+                .pattern(" BS")
+                .pattern(" SB")
+                .pattern("S  ")
+                .define('B', ModTags.Items.forgeDiamondBlocks)
+                .define('S', Items.STICK)
+                .unlockedBy("has_diamond_block", has(ModTags.Items.forgeDiamondBlocks))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/diamond_ore_hammer");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.neosphore_ore_hammer.get(), 1)
+                .pattern(" BS")
+                .pattern(" SB")
+                .pattern("S  ")
+                .define('B', ModBlocks.neosphore_block.get())
+                .define('S', Items.STICK)
+                .unlockedBy("has_neosphore_block", has(ModBlocks.neosphore_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/neosphore_ore_hammer");
     }
 
     private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed, ItemLike dust, ItemLike ingredient1, ItemLike ingredient2)
@@ -1630,7 +1907,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(pFinishedRecipeConsumer,  HavenAlchemy.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
     }
-
 
     protected static void stoneCutterRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pResult, ItemLike pIngredient) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(pIngredient), RecipeCategory.MISC, pResult)

@@ -105,6 +105,31 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.crimson_bark.get()));
                         add.accept(new ItemStack(ModItems.charmel_bark.get()));
 
+                        //Ore Processing
+                        add.accept(new ItemStack(ModItems.copper_ore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.iron_ore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.gold_ore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.diamond_ore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_ore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.copper_dust.get()));
+                        add.accept(new ItemStack(ModItems.tin_dust.get()));
+                        add.accept(new ItemStack(ModItems.tin_ingot.get()));
+                        add.accept(new ItemStack(ModItems.netherite_dust.get()));
+                        add.accept(new ItemStack(ModItems.iron_dust.get()));
+                        add.accept(new ItemStack(ModItems.gold_dust.get()));
+                        add.accept(new ItemStack(ModItems.lead_dust.get()));
+                        add.accept(new ItemStack(ModItems.lead_ingot.get()));
+                        add.accept(new ItemStack(ModItems.silver_dust.get()));
+                        add.accept(new ItemStack(ModItems.silver_ingot.get()));
+                        add.accept(new ItemStack(ModItems.nickel_dust.get()));
+                        add.accept(new ItemStack(ModItems.nickel_ingot.get()));
+                        add.accept(new ItemStack(ModItems.uranium_dust.get()));
+                        add.accept(new ItemStack(ModItems.uranium_ingot.get()));
+                        add.accept(new ItemStack(ModItems.osmium_dust.get()));
+                        add.accept(new ItemStack(ModItems.osmium_ingot.get()));
+                        add.accept(new ItemStack(ModItems.zinc_dust.get()));
+                        add.accept(new ItemStack(ModItems.zinc_ingot.get()));
+
                         //Seeds
                         add.accept(new ItemStack(ModItems.essentia_seeds.get()));
                         add.accept(new ItemStack(ModItems.coal_seeds.get()));
