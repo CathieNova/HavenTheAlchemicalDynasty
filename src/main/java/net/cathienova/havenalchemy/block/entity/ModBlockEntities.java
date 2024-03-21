@@ -20,6 +20,9 @@ public class ModBlockEntities
     public static final RegistryObject<BlockEntityType<AlchemicalChamberBlockEntity>> alchemical_chamber = BLOCK_ENTITIES.register("alchemical_chamber",
             () -> BlockEntityType.Builder.of(AlchemicalChamberBlockEntity::new, ModBlocks.alchemical_chamber.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<AlchemicalCondenserBlockEntity>> alchemical_condenser = BLOCK_ENTITIES.register("alchemical_condenser",
+            () -> BlockEntityType.Builder.of(AlchemicalCondenserBlockEntity::new, ModBlocks.alchemical_condenser.get()).build(null));
+
     public static final RegistryObject<BlockEntityType<GeneratorBlockEntity>> generator_block_entity = BLOCK_ENTITIES.register("generator_block",
             () -> BlockEntityType.Builder.of(GeneratorBlockEntity::new, ModBlocks.generator_block.get()).build(null));
 

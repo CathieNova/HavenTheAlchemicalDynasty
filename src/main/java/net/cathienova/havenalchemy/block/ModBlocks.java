@@ -36,9 +36,6 @@ public class ModBlocks {
     public static final DeferredRegister<BlockEntityType<?>> ENTITY = DeferredRegister
             .create(ForgeRegistries.BLOCK_ENTITY_TYPES, HavenAlchemy.MOD_ID);
 
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-            DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, HavenAlchemy.MOD_ID);
-
     public static final RegistryObject<Block> alchemical_coal_block = registerFuelBlockBlock("alchemical_coal_block",
             () -> new FuelBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
 
@@ -433,6 +430,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> alchemical_chamber = registerBlock("alchemical_chamber",
             () -> new AlchemicalChamberBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
+
+    public static final RegistryObject<Block> alchemical_condenser = registerBlock("alchemical_condenser",
+            () -> new AlchemicalCondenserBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
     public static final RegistryObject<Block> generator_block = registerBlock("generator_block",
             GeneratorBlock::new);

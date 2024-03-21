@@ -319,6 +319,7 @@
     "block.havenalchemy.cable": "Energy Cable",
     "block.havenalchemy.facade": "Energy Cable Facade",
     "havenalchemy.screen.generator": "Generator",
+    "block.havenalchemy.alchemical_condenser": "Alchemical Condenser",
 
     "item.havenalchemy.smithing_template.neosphore_upgrade.applies_to": "Red Matter Equipment",
     "item.havenalchemy.smithing_template.neosphore_upgrade.ingredients": "Neosphore Ingot",

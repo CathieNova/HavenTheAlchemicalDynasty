@@ -13,8 +13,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.awt.*;
-
 @Mod.EventBusSubscriber(bus = Bus.FORGE)
 public class TooltipEventHandler {
 
@@ -24,9 +22,9 @@ public class TooltipEventHandler {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
 
-        /*if (EMCSystem.contains(item))
+        if (EMCSystem.contains(item))
         {
-            long emcValue = EMCSystem.getEmc(item);
+            long emcValue = EMCSystem.GetEmc(item);
             boolean isShiftDown = Screen.hasShiftDown();
 
             String formattedEmcValue;
@@ -52,7 +50,7 @@ public class TooltipEventHandler {
         else
         {
             //System.out.println("[HavenAlchemy]: No EMC value found for: " + item);
-        }*/
+        }
 
         if (event.getItemStack().getItem() == ModItems.neosphore_helmet.get() ||
                 event.getItemStack().getItem() == ModItems.neosphore_chestplate.get() ||

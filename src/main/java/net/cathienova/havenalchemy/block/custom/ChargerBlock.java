@@ -20,13 +20,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class ChargerBlock extends Block implements EntityBlock {
 
-    private static final VoxelShape AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+    private static final VoxelShape AABB = Block.box(1,0,1,15,14,15);
 
     public ChargerBlock() {
         super(Properties.of()
                 .strength(3.5F)
                 .requiresCorrectToolForDrops()
-                .sound(SoundType.METAL));
+                .sound(SoundType.WOOD));
     }
 
     @Override

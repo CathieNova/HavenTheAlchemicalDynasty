@@ -57,12 +57,12 @@ public class EMCSystem
         map.remove(itemToId(item));
     }
 
-    public static long getEmc(Item item) {
+    public static long GetEmc(Item item) {
         return contains(item) ? map.get(itemToId(item)) : 0;
     }
 
-    public static long getEmc(ItemStack stack) {
-        return contains(stack.getItem()) ? getEmc(stack.getItem()) * stack.getCount() : 0;
+    public static long GetEmc(ItemStack stack) {
+        return contains(stack.getItem()) ? GetEmc(stack.getItem()) * stack.getCount() : 0;
     }
 
     public static boolean contains(Item item) {
@@ -119,7 +119,7 @@ public class EMCSystem
     }
 
     public static void writeEmcToPlayer(Player player, ItemStack stack) {
-        IncrementEmc(player, EMCSystem.getEmc(stack));
+        IncrementEmc(player, EMCSystem.GetEmc(stack));
     }
 
     public static void decrementEmc(Player player, long amount) {
@@ -196,7 +196,7 @@ public class EMCSystem
                 if (matchingStacks.length > 0) {
                     ItemStack stack = matchingStacks[0];
                     if (contains(stack.getItem())) {
-                        long emcValue = getEmc(stack.getItem());
+                        long emcValue = GetEmc(stack.getItem());
                         if (outStack.getCount() > 0) {
                             totalEmc += emcValue / outStack.getCount();
                         } else {

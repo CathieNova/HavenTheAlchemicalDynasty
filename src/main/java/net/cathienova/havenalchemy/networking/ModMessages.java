@@ -1,6 +1,7 @@
 package net.cathienova.havenalchemy.networking;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
+import net.cathienova.havenalchemy.networking.packet.EMCSyncS2CPacket;
 import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -10,7 +11,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
-    private static SimpleChannel INSTANCE;
+    public static SimpleChannel INSTANCE;
 
     private static int packetId = 0;
     private static int id() {
@@ -31,6 +32,12 @@ public class ModMessages {
                 .decoder(EnergySyncS2CPacket::new)
                 .encoder(EnergySyncS2CPacket::toBytes)
                 .consumerMainThread(EnergySyncS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(EMCSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(EMCSyncS2CPacket::new)
+                .encoder(EMCSyncS2CPacket::toBytes)
+                .consumerMainThread(EMCSyncS2CPacket::handle)
                 .add();
     }
 

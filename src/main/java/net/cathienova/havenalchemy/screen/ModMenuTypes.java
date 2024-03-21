@@ -19,6 +19,9 @@ public class ModMenuTypes
     public static final RegistryObject<MenuType<AlchemicalChamberMenu>> ALCHEMICAL_CHAMBER_MENU =
             registerMenuType("alchemical_chamber_menu", AlchemicalChamberMenu::new);
 
+    public static final RegistryObject<MenuType<AlchemicalCondenserMenu>> ALCHEMICAL_CONDENSER_MENU =
+            registerMenuType("alchemical_condenser_menu", AlchemicalCondenserMenu::new);
+
     public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_BLOCK_MENU =
             registerMenuType("generator_block_menu", (windowId, inv, data) -> new GeneratorContainer(windowId, inv.player, data.readBlockPos()));
 

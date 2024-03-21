@@ -49,6 +49,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.facade_block.get());
 
         this.dropSelf(ModBlocks.alchemical_chamber.get());
+        this.dropSelf(ModBlocks.alchemical_condenser.get());
 
         this.add(ModBlocks.neosphore_ore.get(),
                 block -> createOreLikeOreDrops(ModBlocks.neosphore_ore.get(), ModItems.raw_neosphore.get()));

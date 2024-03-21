@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "havenalchemy:block/alchemical_condenser"
+    },
+    "facing=east": {
+      "model": "havenalchemy:block/alchemical_condenser",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "havenalchemy:block/alchemical_condenser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "havenalchemy:block/alchemical_condenser",
+      "y": 270
+    }
+  }
+}
