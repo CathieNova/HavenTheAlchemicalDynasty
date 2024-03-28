@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "havenalchemy:block/gold_chest"
+    },
+    "facing=east": {
+      "model": "havenalchemy:block/gold_chest",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "havenalchemy:block/gold_chest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "havenalchemy:block/gold_chest",
+      "y": 270
+    }
+  }
+}

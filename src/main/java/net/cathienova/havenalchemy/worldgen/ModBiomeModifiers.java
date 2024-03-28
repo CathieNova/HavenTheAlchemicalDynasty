@@ -32,10 +32,10 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.neosphore_ore_placed_key)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(add_charmel_tree, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+        /*context.register(add_charmel_tree, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.charmel_placed_key)),
-                GenerationStep.Decoration.VEGETAL_DECORATION));
+                GenerationStep.Decoration.VEGETAL_DECORATION));*/
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {

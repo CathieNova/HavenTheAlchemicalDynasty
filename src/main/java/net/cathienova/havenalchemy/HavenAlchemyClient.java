@@ -37,6 +37,7 @@ public class HavenAlchemyClient
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+
     }
 
     @SubscribeEvent

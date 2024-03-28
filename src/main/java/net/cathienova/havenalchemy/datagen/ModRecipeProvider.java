@@ -40,6 +40,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer)
     {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.speed_plate_i.get(), 6)
+                .pattern("AAA")
+                .pattern("DED")
+                .pattern("AAA")
+                .define('A', ModBlocks.asphalt.get())
+                .define('D', ModItems.alchemy_dust_low.get())
+                .define('E', ModItems.essence_shard.get())
+                .unlockedBy("has_asphalt", has(ModBlocks.asphalt.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/speed_plate_i");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.speed_plate_ii.get(), 6)
+                .pattern("AAA")
+                .pattern("DED")
+                .pattern("AAA")
+                .define('A', ModBlocks.speed_plate_i.get())
+                .define('D', ModItems.alchemy_dust_medium.get())
+                .define('E', ModItems.essence_shard.get())
+                .unlockedBy("has_speed_plate_i", has(ModBlocks.speed_plate_i.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/speed_plate_ii");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.speed_plate_iii.get(), 6)
+                .pattern("AAA")
+                .pattern("DED")
+                .pattern("AAA")
+                .define('A', ModBlocks.speed_plate_ii.get())
+                .define('D', ModItems.alchemy_dust_high.get())
+                .define('E', ModItems.essence_shard.get())
+                .unlockedBy("has_speed_plate_ii", has(ModBlocks.speed_plate_ii.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/speed_plate_iii");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.trowel.get(), 1)
                 .pattern(" II")
                 .pattern(" SI")
@@ -80,6 +110,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ModBlocks.basphalt_stone.get())
                 .unlockedBy("has_alchemy_dust", has(ModItems.alchemy_dust.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chamber");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chest.get(), 1)
+                .pattern("SDS")
+                .pattern("DCD")
+                .pattern("SDS")
+                .define('D', ModItems.alchemy_dust.get())
+                .define('S', ModBlocks.basphalt_stone.get())
+                .define('C', Items.CHEST)
+                .unlockedBy("has_basphalt_stone", has(ModBlocks.basphalt_stone.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_condenser.get(), 1)
+                .pattern("RDR")
+                .pattern("DCD")
+                .pattern("RDR")
+                .define('R', ModItems.red_matter.get())
+                .define('D', ModItems.dark_matter.get())
+                .define('C', ModBlocks.alchemical_chest.get())
+                .unlockedBy("has_alchemical_chest", has(ModBlocks.alchemical_chest.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_condenser");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_dust.get(), 1)
                 .pattern("LLL")
@@ -1497,6 +1547,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_tin_dust", has(ModItems.tin_dust.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":smelting/tin_dust");
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.netherite_dust.get()), RecipeCategory.MISC, Items.NETHERITE_SCRAP, 0.25f, 200)
+                .unlockedBy("has_netherite_dust", has(ModItems.netherite_dust.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":smelting/netherite_dust");
+
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.silver_dust.get()), RecipeCategory.MISC, ModItems.silver_ingot.get(), 0.25f, 200)
                 .unlockedBy("has_silver_dust", has(ModItems.silver_dust.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":smelting/silver_dust");
@@ -1536,6 +1590,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.tin_dust.get()), RecipeCategory.MISC, ModItems.tin_ingot.get(), 0.25f, 100)
                 .unlockedBy("has_tin_dust", has(ModItems.tin_dust.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":blasting/tin_dust");
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.netherite_dust.get()), RecipeCategory.MISC, Items.NETHERITE_SCRAP, 0.25f, 100)
+            .unlockedBy("has_netherite_dust", has(ModItems.netherite_dust.get()))
+            .save(consumer, HavenAlchemy.MOD_ID + ":blasting/netherite_dust");
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.silver_dust.get()), RecipeCategory.MISC, ModItems.silver_ingot.get(), 0.25f, 100)
                 .unlockedBy("has_silver_dust", has(ModItems.silver_dust.get()))

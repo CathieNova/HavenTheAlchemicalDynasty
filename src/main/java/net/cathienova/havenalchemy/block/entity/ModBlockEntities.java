@@ -34,4 +34,7 @@ public class ModBlockEntities
 
     public static final RegistryObject<BlockEntityType<FacadeBlockEntity>> facade_block_entity = BLOCK_ENTITIES.register("facade",
             () -> BlockEntityType.Builder.of(FacadeBlockEntity::new, ModBlocks.facade_block.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<AlchemicalChestBlockEntity>> alchemical_chest = BLOCK_ENTITIES.register("alchemical_chest",
+            () -> BlockEntityType.Builder.of(AlchemicalChestBlockEntity::new, ModBlocks.alchemical_chest.get()).build(null));
 }

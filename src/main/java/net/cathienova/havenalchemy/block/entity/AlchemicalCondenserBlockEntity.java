@@ -19,6 +19,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -30,7 +31,7 @@ import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class AlchemicalCondenserBlockEntity extends BlockEntity implements MenuProvider
+public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements MenuProvider
 {
     public final ItemStackHandler stackHandler = new ItemStackHandler(92)
     {
@@ -104,8 +105,6 @@ public class AlchemicalCondenserBlockEntity extends BlockEntity implements MenuP
         }
         return super.getCapability(cap, side);
     }
-
-
 
     @Override
     public void onLoad()
@@ -205,7 +204,10 @@ public class AlchemicalCondenserBlockEntity extends BlockEntity implements MenuP
             ItemStack newStack = targetStack.copy();
             newStack.setCount(1);
             if (insertItem(newStack)) {
-                this.storedEMC -= useEMC; // Only reduce stored EMC if insertion is successful.
+                this.storedEMC -= useEMC;
+                if (this.storedEMC < 0) {
+                    this.storedEMC = 0;
+                }
             }
         }
 

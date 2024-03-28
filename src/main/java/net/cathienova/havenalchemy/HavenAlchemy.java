@@ -11,10 +11,8 @@ import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.loot.ModLootModifier;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.recipe.ModRecipes;
-import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
-import net.cathienova.havenalchemy.screen.AlchemicalCondenserScreen;
-import net.cathienova.havenalchemy.screen.GeneratorScreen;
-import net.cathienova.havenalchemy.screen.ModMenuTypes;
+import net.cathienova.havenalchemy.screen.*;
+import net.cathienova.havenalchemy.util.EMCSystem;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -71,7 +69,9 @@ public class HavenAlchemy
             event.enqueueWork(() -> {
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_CONDENSER_MENU.get(), AlchemicalCondenserScreen::new);
+                MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHEST_MENU.get(), AlchemicalChestScreen::new);
                 MenuScreens.register(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), GeneratorScreen::new);
+                EMCSystem.loadEmcValues();
             });
         }
     }

@@ -223,7 +223,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         evenSimplerBlockItem(ModBlocks.charmel_slab);
         evenSimplerBlockItem(ModBlocks.charmel_stairs);
-        saplingItem(ModBlocks.charmel_sapling);
+        //saplingItem(ModBlocks.charmel_sapling);
         simpleItem(ModItems.neosphore_smithing_template);
 
         //Artifacts

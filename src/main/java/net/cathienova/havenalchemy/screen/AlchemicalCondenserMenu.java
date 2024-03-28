@@ -15,7 +15,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class AlchemicalCondenserMenu  extends AbstractContainerMenu
+public class AlchemicalCondenserMenu extends AbstractContainerMenu
 {
     public final AlchemicalCondenserBlockEntity blockEntity;
     private final Level level;

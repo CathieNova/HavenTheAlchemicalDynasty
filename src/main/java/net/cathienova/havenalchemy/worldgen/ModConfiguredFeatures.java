@@ -44,12 +44,12 @@ public class ModConfiguredFeatures {
         register(context, overworld_basphalt_stone_key, Feature.ORE, new OreConfiguration(overworldbasphalt_stone, 45));
         register(context, overworld_neosphore_ore_key, Feature.ORE, new OreConfiguration(overworldneosphoreOres, 8));
 
-        register(context, charmel_key, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        /*register(context, charmel_key, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.charmel_log.get()),
                 new StraightTrunkPlacer(1, 2, 1),
                 BlockStateProvider.simple(ModBlocks.charmel_leaves.get()),
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2),
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 2)).build());*/
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

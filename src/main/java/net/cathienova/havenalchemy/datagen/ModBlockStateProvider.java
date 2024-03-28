@@ -97,8 +97,8 @@ public class ModBlockStateProvider extends BlockStateProvider
 
         blockWithItem(ModBlocks.charmel_planks);
 
-        leavesBlock(ModBlocks.charmel_leaves);
-        saplingBlock(ModBlocks.charmel_sapling);
+        //leavesBlock(ModBlocks.charmel_leaves);
+        //saplingBlock(ModBlocks.charmel_sapling);
 
         blockWithItem(ModBlocks.catacombs_portal);
 

@@ -8,9 +8,6 @@ import net.cathienova.havenalchemy.cables.blocks.FacadeBlock;
 import net.cathienova.havenalchemy.cables.blocks.FacadeBlockItem;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.item.fuel.FuelBlockItem;
-import net.cathienova.havenalchemy.item.fuel.FuelItem;
-import net.cathienova.havenalchemy.worldgen.tree.CharmelTreeGrower;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -256,11 +253,11 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE)
                     .sound(SoundType.WOOD), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
 
-    public static final RegistryObject<Block> charmel_sapling = registerBlock("charmel_sapling",
-            () -> new SaplingBlock(new CharmelTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+    /*public static final RegistryObject<Block> charmel_sapling = registerBlock("charmel_sapling",
+            () -> new SaplingBlock(new CharmelTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));*/
 
 
-    public static final RegistryObject<Block> charmel_leaves = registerBlock("charmel_leaves",
+    /*public static final RegistryObject<Block> charmel_leaves = registerBlock("charmel_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).sound(SoundType.CHERRY_LEAVES))
             {
                 @Override
@@ -280,7 +277,7 @@ public class ModBlocks {
                 {
                     return 5;
                 }
-            });
+            });*/
 
     public static final RegistryObject<Block> catacombs_portal = registerBlock("catacombs_portal",
             () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
@@ -434,6 +431,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> alchemical_condenser = registerBlock("alchemical_condenser",
             () -> new AlchemicalCondenserBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
+    public static final RegistryObject<Block> alchemical_chest = registerBlock("alchemical_chest",
+            () -> new AlchemicalChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion()));
+
     public static final RegistryObject<Block> generator_block = registerBlock("generator_block",
             GeneratorBlock::new);
 
@@ -445,6 +445,15 @@ public class ModBlocks {
 
     public static final RegistryObject<FacadeBlock> facade_block = registerFacade("facade",
             FacadeBlock::new);
+
+    public static final RegistryObject<Block> speed_plate_i = registerBlock("speed_plate_i",
+            () -> new SpeedPlate1(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().strength(0.5f)));
+
+    public static final RegistryObject<Block> speed_plate_ii = registerBlock("speed_plate_ii",
+            () -> new SpeedPlate2(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().strength(0.5f)));
+
+    public static final RegistryObject<Block> speed_plate_iii = registerBlock("speed_plate_iii",
+            () -> new SpeedPlate3(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().strength(0.5f)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

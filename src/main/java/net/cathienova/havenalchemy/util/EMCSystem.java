@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import net.cathienova.havenalchemy.HavenAlchemy;
+import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -22,6 +24,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.server.ServerLifecycleHooks;
 
 import java.io.FileReader;
@@ -86,7 +89,7 @@ public class EMCSystem
         loadEmcValues();
     }
 
-    private static void loadEmcValues() {
+    public static void loadEmcValues() {
         try {
             HavenAlchemy.LOGGER.info("[HavenAlchemy]: Loading EMC values...");
             if (!java.nio.file.Files.exists(CONFIG_PATH)) {
@@ -94,8 +97,10 @@ public class EMCSystem
             }
             if (java.nio.file.Files.exists(EMC_FILE)) {
                 Map<String, Long> fileMap = gson.fromJson(new FileReader(EMC_FILE.toFile()), new TypeToken<Map<String, Long>>() {}.getType());
-                map.clear();
-                map.putAll(fileMap);
+                for (Map.Entry<String, Long> entry : fileMap.entrySet()) {
+                    if (entry.getValue() > 0)
+                        map.put(entry.getKey(), entry.getValue());
+                }
                 HavenAlchemy.LOGGER.info("[HavenAlchemy]: EMC file loaded successfully with " + map.size() + " entries.");
             } else {
                 HavenAlchemy.LOGGER.info("[HavenAlchemy]: EMC file does not exist, creating with default values...");
@@ -187,29 +192,48 @@ public class EMCSystem
         }
     }
 
-    public static void addEmcFromRecipe(ItemStack outStack, Recipe<?> recipe, List<Recipe<?>> unsetRecipes, boolean last)
-    {
+    public static void addEmcFromRecipe(ItemStack outStack, Recipe<?> recipe, List<Recipe<?>> unsetRecipes, boolean last) {
         if (!contains(outStack.getItem())) {
             long totalEmc = 0;
+            boolean allIngredientsResolved = true;
+
             for (Ingredient ingredient : recipe.getIngredients()) {
                 ItemStack[] matchingStacks = ingredient.getItems();
-                if (matchingStacks.length > 0) {
-                    ItemStack stack = matchingStacks[0];
+                long ingredientLowestEmc = Long.MAX_VALUE;
+
+                if (matchingStacks.length == 0) continue;
+
+                for (ItemStack stack : matchingStacks) {
                     if (contains(stack.getItem())) {
                         long emcValue = GetEmc(stack.getItem());
-                        if (outStack.getCount() > 0) {
-                            totalEmc += emcValue / outStack.getCount();
-                        } else {
-                            totalEmc += emcValue;
+                        if (emcValue < ingredientLowestEmc) {
+                            ingredientLowestEmc = emcValue;
                         }
-                    } else if (!last && !unsetRecipes.contains(recipe)) {
-                        unsetRecipes.add(recipe);
-                        return;
+                    } else {
+                        allIngredientsResolved = false;
+                        break;
                     }
                 }
+
+                if (ingredientLowestEmc != Long.MAX_VALUE) {
+                    totalEmc += ingredientLowestEmc;
+                }
             }
-            if (totalEmc > 0) {
-                addEmc(outStack.getItem(), totalEmc);
+
+            if (!allIngredientsResolved) {
+                if (!last && !unsetRecipes.contains(recipe)) {
+                    unsetRecipes.add(recipe);
+                }
+                return;
+            }
+
+            // Calculate the EMC value per item produced by the recipe.
+            // This division should happen regardless of the output count to ensure the EMC value is properly normalized.
+            long emcPerItem = totalEmc / Math.max(1, outStack.getCount());
+
+            // Assign the calculated EMC value if it's positive.
+            if (emcPerItem > 0) {
+                addEmc(outStack.getItem(), emcPerItem);
             }
         }
     }
@@ -230,14 +254,12 @@ public class EMCSystem
         addEmc(Items.BEETROOT_SEEDS, 16);
         addEmc(Items.BLACK_CONCRETE, 4);
         addEmc(Items.BLACK_CONCRETE_POWDER, 4);
-        addEmc(Items.BLACK_DYE, 16);
         addEmc(Items.BLACK_SHULKER_BOX, 4176);
         addEmc(Items.BLACKSTONE, 1);
         addEmc(Items.BLAZE_POWDER, 768);
         addEmc(Items.BLAZE_ROD, 1536);
         addEmc(Items.BLUE_CONCRETE, 4);
         addEmc(Items.BLUE_CONCRETE_POWDER, 4);
-        addEmc(Items.BLUE_DYE, 16);
         addEmc(Items.BLUE_SHULKER_BOX, 4176);
         addEmc(Items.BONE, 144);
         addEmc(Items.BONE_MEAL, 48);
@@ -248,7 +270,6 @@ public class EMCSystem
         addEmc(Items.BRICK, 16);
         addEmc(Items.BROWN_CONCRETE, 4);
         addEmc(Items.BROWN_CONCRETE_POWDER, 4);
-        addEmc(Items.BROWN_DYE, 16);
         addEmc(Items.BROWN_MUSHROOM, 32);
         addEmc(Items.BROWN_SHULKER_BOX, 4176);
         addEmc(Items.BUBBLE_CORAL, 16);
@@ -259,7 +280,7 @@ public class EMCSystem
         addEmc(Items.CALCITE, 32);
         addEmc(Items.CARROT, 64);
         addEmc(Items.CHARCOAL, 32);
-        addEmc(Items.CHEST, 832);
+        addEmc(Items.CHEST, 64);
         addEmc(Items.CHERRY_LOG, 32);
         addEmc(Items.CHICKEN, 64);
         addEmc(Items.CHORUS_FLOWER, 96);
@@ -285,7 +306,6 @@ public class EMCSystem
         addEmc(Items.CRYING_OBSIDIAN, 768);
         addEmc(Items.CYAN_CONCRETE, 4);
         addEmc(Items.CYAN_CONCRETE_POWDER, 4);
-        addEmc(Items.CYAN_DYE, 16);
         addEmc(Items.CYAN_SHULKER_BOX, 4176);
         addEmc(Items.DEAD_BRAIN_CORAL, 1);
         addEmc(Items.DEAD_BRAIN_CORAL_BLOCK, 4);
@@ -347,11 +367,9 @@ public class EMCSystem
         addEmc(Items.GRAVEL, 4);
         addEmc(Items.GRAY_CONCRETE, 4);
         addEmc(Items.GRAY_CONCRETE_POWDER, 4);
-        addEmc(Items.GRAY_DYE, 16);
         addEmc(Items.GRAY_SHULKER_BOX, 4176);
         addEmc(Items.GREEN_CONCRETE, 4);
         addEmc(Items.GREEN_CONCRETE_POWDER, 4);
-        addEmc(Items.GREEN_DYE, 16);
         addEmc(Items.GREEN_SHULKER_BOX, 4176);
         addEmc(Items.GUNPOWDER, 192);
         addEmc(Items.HANGING_ROOTS, 4);
@@ -377,19 +395,15 @@ public class EMCSystem
         addEmc(Items.LEVER, 5);
         addEmc(Items.LIGHT_BLUE_CONCRETE, 4);
         addEmc(Items.LIGHT_BLUE_CONCRETE_POWDER, 4);
-        addEmc(Items.LIGHT_BLUE_DYE, 16);
         addEmc(Items.LIGHT_BLUE_SHULKER_BOX, 4176);
         addEmc(Items.LIGHT_GRAY_CONCRETE, 4);
         addEmc(Items.LIGHT_GRAY_CONCRETE_POWDER, 4);
-        addEmc(Items.LIGHT_GRAY_DYE, 16);
         addEmc(Items.LIGHT_GRAY_SHULKER_BOX, 4176);
         addEmc(Items.LILY_PAD, 16);
         addEmc(Items.LIME_CONCRETE, 4);
         addEmc(Items.LIME_CONCRETE_POWDER, 4);
-        addEmc(Items.LIME_DYE, 16);
         addEmc(Items.MAGENTA_CONCRETE, 4);
         addEmc(Items.MAGENTA_CONCRETE_POWDER, 4);
-        addEmc(Items.MAGENTA_DYE, 16);
         addEmc(Items.MAGENTA_SHULKER_BOX, 4176);
         addEmc(Items.MAGMA_BLOCK, 128);
         addEmc(Items.MANGROVE_ROOTS, 2);
@@ -413,7 +427,6 @@ public class EMCSystem
         addEmc(Items.OBSIDIAN, 64);
         addEmc(Items.ORANGE_CONCRETE, 4);
         addEmc(Items.ORANGE_CONCRETE_POWDER, 4);
-        addEmc(Items.ORANGE_DYE, 16);
         addEmc(Items.ORANGE_SHULKER_BOX, 4176);
         addEmc(Items.OXIDIZED_COPPER, 1152);
         addEmc(Items.PAINTING, 80);
@@ -422,7 +435,6 @@ public class EMCSystem
         addEmc(Items.PHANTOM_MEMBRANE, 192);
         addEmc(Items.PINK_CONCRETE, 4);
         addEmc(Items.PINK_CONCRETE_POWDER, 4);
-        addEmc(Items.PINK_DYE, 16);
         addEmc(Items.PINK_SHULKER_BOX, 4176);
         addEmc(Items.PODZOL, 2);
         addEmc(Items.POINTED_DRIPSTONE, 16);
@@ -440,7 +452,6 @@ public class EMCSystem
         addEmc(Items.PUMPKIN_SEEDS, 36);
         addEmc(Items.PURPLE_CONCRETE, 4);
         addEmc(Items.PURPLE_CONCRETE_POWDER, 4);
-        addEmc(Items.PURPLE_DYE, 16);
         addEmc(Items.PURPLE_SHULKER_BOX, 4176);
         addEmc(Items.QUARTZ, 256);
         addEmc(Items.QUARTZ_BLOCK, 2304);
@@ -451,7 +462,6 @@ public class EMCSystem
         addEmc(Items.REDSTONE_BLOCK, 576);
         addEmc(Items.RED_CONCRETE, 4);
         addEmc(Items.RED_CONCRETE_POWDER, 4);
-        addEmc(Items.RED_DYE, 16);
         addEmc(Items.RED_MUSHROOM, 32);
         addEmc(Items.RED_SHULKER_BOX, 4176);
         addEmc(Items.ROOTED_DIRT, 5);
@@ -504,12 +514,10 @@ public class EMCSystem
         addEmc(Items.WHEAT_SEEDS, 16);
         addEmc(Items.WHITE_CONCRETE, 4);
         addEmc(Items.WHITE_CONCRETE_POWDER, 4);
-        addEmc(Items.WHITE_DYE, 16);
         addEmc(Items.WHITE_SHULKER_BOX, 4176);
         addEmc(Items.WRITABLE_BOOK, 224);
         addEmc(Items.YELLOW_CONCRETE, 4);
         addEmc(Items.YELLOW_CONCRETE_POWDER, 4);
-        addEmc(Items.YELLOW_DYE, 16);
         addEmc(Items.YELLOW_SHULKER_BOX, 4176);
         addEmc(Items.ZOMBIE_HEAD, 256);
 
@@ -528,64 +536,61 @@ public class EMCSystem
         addEmcTags(ItemTags.WOODEN_PRESSURE_PLATES, 16);
         addEmcTags(ItemTags.WOODEN_SLABS, 8);
         addEmcTags(ItemTags.WOODEN_STAIRS, 12);
-        addEmcTags(ItemTags.WOOL, 48);
+        addEmcTags(ItemTags.WOOL, 48);;
+        addEmcTags(ModTags.Items.bark, 8);
+        addEmcTags(ModTags.Items.dyes, 16);
+
+        for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
+            if (item instanceof SpawnEggItem) {
+                addEmc(item, 128);
+            }
+        }
+
         addEmc(Items.LIME_SHULKER_BOX, 4176);
 
-        addEmc(Items.SPIDER_SPAWN_EGG, 128);
-        addEmc(Items.CREEPER_SPAWN_EGG, 128);
-        addEmc(Items.SKELETON_SPAWN_EGG, 128);
-        addEmc(Items.WITHER_SKELETON_SPAWN_EGG, 128);
-        addEmc(Items.ZOMBIE_SPAWN_EGG, 128);
-        addEmc(Items.SLIME_SPAWN_EGG, 128);
-        addEmc(Items.GHAST_SPAWN_EGG, 128);
-        addEmc(Items.ZOMBIFIED_PIGLIN_SPAWN_EGG, 128);
-        addEmc(Items.ENDERMAN_SPAWN_EGG, 128);
-        addEmc(Items.CAVE_SPIDER_SPAWN_EGG, 128);
-        addEmc(Items.SILVERFISH_SPAWN_EGG, 128);
-        addEmc(Items.BLAZE_SPAWN_EGG, 128);
-        addEmc(Items.MAGMA_CUBE_SPAWN_EGG, 128);
-        addEmc(Items.BAT_SPAWN_EGG, 128);
-        addEmc(Items.WITCH_SPAWN_EGG, 128);
-        addEmc(Items.ENDERMITE_SPAWN_EGG, 128);
-        addEmc(Items.GUARDIAN_SPAWN_EGG, 128);
-        addEmc(Items.SHULKER_SPAWN_EGG, 128);
-        addEmc(Items.PIG_SPAWN_EGG, 128);
-        addEmc(Items.SHEEP_SPAWN_EGG, 128);
-        addEmc(Items.COW_SPAWN_EGG, 128);
-        addEmc(Items.CHICKEN_SPAWN_EGG, 128);
-        addEmc(Items.SQUID_SPAWN_EGG, 128);
-        addEmc(Items.WOLF_SPAWN_EGG, 128);
-        addEmc(Items.MOOSHROOM_SPAWN_EGG, 128);
-        addEmc(Items.OCELOT_SPAWN_EGG, 128);
-        addEmc(Items.HORSE_SPAWN_EGG, 128);
-        addEmc(Items.RABBIT_SPAWN_EGG, 128);
-        addEmc(Items.POLAR_BEAR_SPAWN_EGG, 128);
-        addEmc(Items.LLAMA_SPAWN_EGG, 128);
-        addEmc(Items.PARROT_SPAWN_EGG, 128);
-        addEmc(Items.VILLAGER_SPAWN_EGG, 128);
-        addEmc(Items.TURTLE_SPAWN_EGG, 128);
-        addEmc(Items.PUFFERFISH_SPAWN_EGG, 128);
-        addEmc(Items.DOLPHIN_SPAWN_EGG, 128);
-        addEmc(Items.CAT_SPAWN_EGG, 128);
-        addEmc(Items.PANDA_SPAWN_EGG, 128);
-        addEmc(Items.FOX_SPAWN_EGG, 128);
-        addEmc(Items.BEE_SPAWN_EGG, 128);
-        addEmc(Items.PIGLIN_SPAWN_EGG, 128);
-        addEmc(Items.HOGLIN_SPAWN_EGG, 128);
-        addEmc(Items.STRIDER_SPAWN_EGG, 128);
-        addEmc(Items.ZOGLIN_SPAWN_EGG, 128);
-        addEmc(Items.PIGLIN_BRUTE_SPAWN_EGG, 128);
-        addEmc(Items.AXOLOTL_SPAWN_EGG, 128);
-        addEmc(Items.GLOW_SQUID_SPAWN_EGG, 128);
-        addEmc(Items.GOAT_SPAWN_EGG, 128);
-        addEmc(Items.WANDERING_TRADER_SPAWN_EGG, 128);
-        addEmc(Items.PHANTOM_SPAWN_EGG, 128);
-        addEmc(Items.RAVAGER_SPAWN_EGG, 128);
-        
         addEmc(ModItems.alchemical_coal.get(), 512);
         addEmc(ModItems.ethern_coal.get(), 2048);
         addEmc(ModItems.aether_fuel.get(), 8192);
+        addEmc(ModBlocks.red_matter_block.get().asItem(), 4202496);
+        addEmc(ModItems.red_matter_pickaxe.get(), 1548288);
+        addEmc(ModItems.red_matter_axe.get(), 1548288);
+        addEmc(ModItems.red_matter_shovel.get(), 614400);
+        addEmc(ModItems.red_matter_hoe.get(), 1081344);
+        addEmc(ModItems.red_matter_sword.get(), 1081344);
+        addEmc(ModItems.red_matter_shears.get(), 933888);
+        addEmc(ModItems.red_matter_helmet.get(), 2334720);
+        addEmc(ModItems.red_matter_chestplate.get(), 3735552);
+        addEmc(ModItems.red_matter_leggings.get(), 3268608);
+        addEmc(ModItems.red_matter_boots.get(), 1867776);
+        addEmc(ModBlocks.dark_matter_block.get().asItem(), 663552);
+        addEmc(ModBlocks.cable_block.get().asItem(), 216);
+        addEmc(ModItems.neosphore_ingot.get(), 114688);
+        addEmc(ModBlocks.neosphore_block.get().asItem(), 917504);
+        addEmc(ModItems.acacia_bark.get(), 8);
+        addEmc(ModItems.birch_bark.get(), 8);
+        addEmc(ModItems.dark_oak_bark.get(), 8);
+        addEmc(ModItems.jungle_bark.get(), 8);
+        addEmc(ModItems.oak_bark.get(), 8);
+        addEmc(ModItems.spruce_bark.get(), 8);
+        addEmc(ModItems.warped_bark.get(), 8);
+        addEmc(ModItems.crimson_bark.get(), 8);
+        addEmc(ModItems.charmel_bark.get(), 8);
+        //addEmc(ModBlocks.charmel_leaves.get().asItem(), 1);
+        addEmc(ModBlocks.basphalt_stone.get().asItem(), 1);
+        addEmc(ModBlocks.basphalt_cobblestone.get().asItem(), 1);
+        //addEmc(ModBlocks.charmel_sapling.get().asItem(), 32);
+        addEmc(ModItems.copper_dust.get(), 64);
+        addEmc(ModItems.tin_dust.get(), 128);
+        addEmc(ModItems.netherite_dust.get(), 57344);
+        addEmc(ModItems.iron_dust.get(), 256);
+        addEmc(ModItems.gold_dust.get(), 2048);
+        addEmc(ModItems.lead_dust.get(), 256);
+        addEmc(ModItems.silver_dust.get(), 512);
+        addEmc(ModItems.nickel_dust.get(), 256);
+        addEmc(ModItems.uranium_dust.get(), 512);
+        addEmc(ModItems.osmium_dust.get(), 512);
+        addEmc(ModItems.zinc_dust.get(), 256);
+        addEmc(ModBlocks.alchemical_condenser.get().asItem(), 2162688);
+        addEmc(ModBlocks.alchemical_chest.get().asItem(), 7076);
     }
-
-
 }

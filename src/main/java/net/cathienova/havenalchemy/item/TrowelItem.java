@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class TrowelItem extends Item {
         }
 
         ArrayList<ItemStack> blockItems = new ArrayList<>();
-        for (int i = 0; i < 9; i++) { // Hotbar slots are from 0 to 8
+        for (int i = 0; i < 9; i++) {
             ItemStack itemStack = player.getInventory().getItem(i);
             if (itemStack.getItem() instanceof net.minecraft.world.item.BlockItem) {
                 blockItems.add(itemStack);
@@ -50,15 +51,23 @@ public class TrowelItem extends Item {
         ItemStack randomBlockItem = blockItems.get(new Random().nextInt(blockItems.size()));
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace());
 
+        // Create a bounding box at the target position to check for entities
+        AABB targetBlockArea = new AABB(pos, pos.offset(1, 1, 1));
+        // Ensure no entities are present in the target block space before placing
+        if (!context.getLevel().getEntities(null, targetBlockArea).isEmpty() || !context.getLevel().getBlockState(pos).isAir()) {
+            return InteractionResult.FAIL; // Fail if there are entities
+        }
+
         // Try to place the block
         BlockState blockState = ((net.minecraft.world.item.BlockItem) randomBlockItem.getItem()).getBlock().defaultBlockState();
         context.getLevel().setBlock(pos, blockState, 3);
         context.getLevel().gameEvent(GameEvent.BLOCK_PLACE, pos, GameEvent.Context.of(player, blockState));
 
         // Decrease the stack size by one
-        randomBlockItem.shrink(1);
+        if (!player.isCreative())
+            randomBlockItem.shrink(1);
         context.getLevel().playSound(player, pos, blockState.getSoundType().getPlaceSound(), net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
-        context.getItemInHand().hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(context.getHand()));
+        //context.getItemInHand().hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(context.getHand()));
 
         return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
     }
@@ -68,6 +77,6 @@ public class TrowelItem extends Item {
     {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
 
-        pTooltipComponents.add(Component.translatable("item.havenalchemy.trowel.tooltip"));
+        pTooltipComponents.add(Component.translatable("item.havenalchemy.trowel.tooltip").withStyle(net.minecraft.ChatFormatting.GOLD));
     }
 }

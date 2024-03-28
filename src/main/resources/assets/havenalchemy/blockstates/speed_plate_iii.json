@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "havenalchemy:block/speed_plate_iii"
+    },
+    "facing=east": {
+      "model": "havenalchemy:block/speed_plate_iii",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "havenalchemy:block/speed_plate_iii",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "havenalchemy:block/speed_plate_iii",
+      "y": 270
+    }
+  }
+}

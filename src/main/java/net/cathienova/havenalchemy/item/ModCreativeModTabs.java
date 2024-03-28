@@ -33,14 +33,20 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.void_matter.get()));
                         add.accept(new ItemStack(ModItems.trowel.get()));
 
+                        add.accept(new ItemStack(ModBlocks.speed_plate_i.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.speed_plate_ii.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.speed_plate_iii.get().asItem()));
+
                         add.accept(new ItemStack(ModBlocks.generator_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charger_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.cable_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.facade_block.get().asItem()));
 
-                        add.accept(new ItemStack(ModBlocks.charmel_sapling.get().asItem()));
+                        //add.accept(new ItemStack(ModBlocks.charmel_sapling.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.catacombs_portal.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.alchemical_chamber.get()));
+                        add.accept(new ItemStack(ModBlocks.alchemical_chest.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.alchemical_condenser.get().asItem()));
 
                         add.accept(new ItemStack(ModItems.alchemical_coal.get()));
                         add.accept(new ItemStack(ModItems.ethern_coal.get()));
@@ -218,7 +224,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.water_pendant.get()));
                         add.accept(new ItemStack(ModItems.nightvision_goggles.get()));
 
-                        add.accept(new ItemStack(ModBlocks.charmel_leaves.get().asItem()));
+                        //add.accept(new ItemStack(ModBlocks.charmel_leaves.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charmel_log.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charmel_wood.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.stripped_charmel_log.get().asItem()));

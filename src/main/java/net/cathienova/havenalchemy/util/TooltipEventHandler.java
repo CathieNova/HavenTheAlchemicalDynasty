@@ -33,7 +33,10 @@ public class TooltipEventHandler {
             } else {
                 formattedEmcValue = emcValue >= 1_000_000 ? String.format("%.1fM", emcValue / 1_000_000.0) : String.format("%,d", emcValue);
             }
-            event.getToolTip().add(Component.literal("§3EMC: §d" + formattedEmcValue));
+            if (emcValue >= 1_000_000 && !isShiftDown)
+                event.getToolTip().add(Component.literal("§3EMC: §d" + formattedEmcValue + " §8(shift)"));
+            else
+                event.getToolTip().add(Component.literal("§3EMC: §d" + formattedEmcValue));
 
             if (stack.getCount() > 1) {
                 long totalEmcValue = emcValue * stack.getCount();
@@ -43,13 +46,12 @@ public class TooltipEventHandler {
                 } else {
                     formattedTotalEmcValue = totalEmcValue >= 1_000_000 ? String.format("%.1fM", totalEmcValue / 1_000_000.0) : String.format("%,d", totalEmcValue);
                 }
-                event.getToolTip().add(Component.literal("§3Total: §d" + formattedTotalEmcValue));
+                if (totalEmcValue >= 1_000_000 && !isShiftDown)
+                    event.getToolTip().add(Component.literal("§3Total: §d" + formattedTotalEmcValue + " §8(shift)"));
+                else
+                    event.getToolTip().add(Component.literal("§3Total: §d" + formattedTotalEmcValue));
             }
 
-        }
-        else
-        {
-            //System.out.println("[HavenAlchemy]: No EMC value found for: " + item);
         }
 
         if (event.getItemStack().getItem() == ModItems.neosphore_helmet.get() ||
@@ -63,7 +65,7 @@ public class TooltipEventHandler {
                 event.getItemStack().getItem() == ModItems.neosphore_hoe.get() ||
                 event.getItemStack().getItem() == ModItems.neosphore_shears.get())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.indestructable"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.indestructable").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModItems.acacia_bark.get() ||
                 event.getItemStack().getItem() == ModItems.birch_bark.get() ||
@@ -77,27 +79,27 @@ public class TooltipEventHandler {
                 event.getItemStack().getItem() == ModItems.cherry_bark.get() ||
                 event.getItemStack().getItem() == ModItems.charmel_bark.get())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.bark"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.bark").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModBlocks.cable_block.get().asItem())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.cable"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.cable").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModBlocks.charger_block.get().asItem())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.battery"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.battery").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModBlocks.generator_block.get().asItem())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.generator"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.generator").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModBlocks.asphalt.get().asItem())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.asphalt"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.asphalt").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModBlocks.asphalt_bricks.get().asItem())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.asphalt_bricks"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.asphalt_bricks").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
         if (event.getItemStack().getItem() == ModItems.essentia_seeds.get() ||
                 event.getItemStack().getItem() == ModItems.essentia_spirit.get() ||
@@ -193,7 +195,12 @@ public class TooltipEventHandler {
 
         if (event.getItemStack().getItem() == ModItems.essence_shard.get())
         {
-            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.essence_shard"));
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.essence_shard").withStyle(net.minecraft.ChatFormatting.GOLD));
+        }
+
+        if (event.getItemStack().getItem() == ModBlocks.alchemical_condenser.get().asItem())
+        {
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.alchemical_condenser").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
     }
 }

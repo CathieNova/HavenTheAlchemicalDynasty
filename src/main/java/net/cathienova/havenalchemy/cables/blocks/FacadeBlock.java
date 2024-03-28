@@ -1,6 +1,7 @@
 package net.cathienova.havenalchemy.cables.blocks;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -39,7 +40,7 @@ public class FacadeBlock extends CableBlock implements EntityBlock {
     {
         super.appendHoverText(stack, pLevel, tooltip, pFlag);
         if (stack.hasTag()) {
-            tooltip.add(Component.translatable("tooltip.havenalchemy.facade"));
+            tooltip.add(Component.translatable("tooltip.havenalchemy.facade").withStyle(ChatFormatting.DARK_AQUA));
         }
     }
 

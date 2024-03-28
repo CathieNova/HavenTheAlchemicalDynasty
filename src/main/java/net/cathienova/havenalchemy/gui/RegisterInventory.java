@@ -1,7 +1,6 @@
 package net.cathienova.havenalchemy.gui;
 
 import net.cathienova.havenalchemy.util.EMCSystem;
-import net.cathienova.havenalchemy.util.ItemUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -35,7 +34,7 @@ public class RegisterInventory extends Inventory
 
             /*if (!items.contains(ItemUtil.toID(stack.getItem()).toString())) {
                 items.putBoolean(ItemUtil.toID(stack.getItem()).toString(), true);
-                if (player.getCurrentScreenHandler() instanceof AlchemyTableScreenHandler screenHandler) {
+                if (player. instanceof AlchemicalTableScreen screenHandler) {
                     screenHandler.extractInventory.placeExtractSlots();
                 }
             }*/
