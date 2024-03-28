@@ -71,7 +71,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
     private int progress = 0;
     private int maxProgress = 100;
 
-    private final ModEnergyStorage energyStorage = new ModEnergyStorage(100000, 128)
+    private final ModEnergyStorage energyStorage = new ModEnergyStorage(640000, 128)
     {
         @Override
         public void onEnergyChanged()
