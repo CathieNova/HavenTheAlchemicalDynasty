@@ -1,7 +1,8 @@
-package net.cathienova.havenalchemy.screen;
+package net.cathienova.havenalchemy.screen.chests;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
-import net.cathienova.havenalchemy.block.entity.AlchemicalChestBlockEntity;
+import net.cathienova.havenalchemy.block.chests.EmeraldChestBlockEntity;
+import net.cathienova.havenalchemy.screen.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,32 +11,31 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class AlchemicalChestMenu extends AbstractContainerMenu
+public class EmeraldChestMenu extends AbstractContainerMenu
 {
-    public final AlchemicalChestBlockEntity blockEntity;
+    public final EmeraldChestBlockEntity blockEntity;
     private final Level level;
     private ContainerData data;
-    private static final int SLOTS = 91;
-    private static final int ROWS = 7;
+    private static final int SLOTS = 117;
+    private static final int ROWS = 9;
     private static final int COLS = 13;
     private static final int START_X = -28;
-    private static final int START_Y = -17;
+    private static final int START_Y = -32;
     private static final int START_PLAYER_INV_X = 8;
-    private static final int START_PLAYER_INV_Y = 120;
+    private static final int START_PLAYER_INV_Y = 131;
     private static final int START_PLAYER_HOTBAR_X = 8;
-    private static final int START_PLAYER_HOTBAR_Y = 178;
+    private static final int START_PLAYER_HOTBAR_Y = 189;
 
-    public AlchemicalChestMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+    public EmeraldChestMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(SLOTS));
     }
 
-    public AlchemicalChestMenu(int pContainerId, Inventory playerInventory, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.ALCHEMICAL_CHEST_MENU.get(), pContainerId);
+    public EmeraldChestMenu(int pContainerId, Inventory playerInventory, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.EMERALD_CHEST_MENU.get(), pContainerId);
         checkContainerSize(playerInventory, 36);
-        blockEntity = ((AlchemicalChestBlockEntity) entity);
+        blockEntity = ((EmeraldChestBlockEntity) entity);
 
         this.level = playerInventory.player.level();
         this.data = data;
@@ -89,7 +89,7 @@ public class AlchemicalChestMenu extends AbstractContainerMenu
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.alchemical_chest.get());
+                pPlayer, ModBlocks.emerald_chest.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory)
@@ -109,7 +109,7 @@ public class AlchemicalChestMenu extends AbstractContainerMenu
         }
     }
 
-    public AlchemicalChestBlockEntity getBlockEntity() {
+    public EmeraldChestBlockEntity getBlockEntity() {
         return this.blockEntity;
     }
 

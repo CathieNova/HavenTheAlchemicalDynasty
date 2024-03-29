@@ -1,4 +1,4 @@
-package net.cathienova.havenalchemy.screen;
+package net.cathienova.havenalchemy.screen.chests;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.cathienova.havenalchemy.HavenAlchemy;
@@ -9,11 +9,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class AlchemicalChestScreen extends AbstractContainerScreen<AlchemicalChestMenu>
+public class ObsidianChestScreen extends AbstractContainerScreen<ObsidianChestMenu>
 {
-    private static final ResourceLocation BACKGROUND = new ResourceLocation(HavenAlchemy.MOD_ID, "textures/gui/alchemical_chest.png");
+    private static final ResourceLocation BACKGROUND = new ResourceLocation(HavenAlchemy.MOD_ID, "textures/gui/diamond_chest.png");
 
-    public AlchemicalChestScreen(AlchemicalChestMenu pMenu, Inventory pPlayerInventory, Component pTitle)
+    public ObsidianChestScreen(ObsidianChestMenu pMenu, Inventory pPlayerInventory, Component pTitle)
     {
         super(pMenu, pPlayerInventory, pTitle);
     }
@@ -22,9 +22,9 @@ public class AlchemicalChestScreen extends AbstractContainerScreen<AlchemicalChe
     protected void init()
     {
         super.init();
-        this.inventoryLabelX = -28;
+        this.inventoryLabelX = -18;
         this.inventoryLabelY = 110;
-        this.titleLabelX = -28;
+        this.titleLabelX = -18;
         this.titleLabelY = -28;
     }
 

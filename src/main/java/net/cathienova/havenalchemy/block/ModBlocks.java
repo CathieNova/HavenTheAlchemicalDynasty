@@ -1,6 +1,7 @@
 package net.cathienova.havenalchemy.block;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
+import net.cathienova.havenalchemy.block.chests.*;
 import net.cathienova.havenalchemy.block.custom.*;
 import net.cathienova.havenalchemy.block.horticulture.*;
 import net.cathienova.havenalchemy.cables.blocks.CableBlock;
@@ -431,8 +432,35 @@ public class ModBlocks {
     public static final RegistryObject<Block> alchemical_condenser = registerBlock("alchemical_condenser",
             () -> new AlchemicalCondenserBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
+    public static final RegistryObject<Block> dirt_chest = registerBlock("dirt_chest",
+            () -> new DirtChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.DIRT));
+
+    public static final RegistryObject<Block> stone_chest = registerBlock("stone_chest",
+            () -> new StoneChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.STONE));
+
+    public static final RegistryObject<Block> copper_chest = registerBlock("copper_chest",
+            () -> new CopperChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.COPPER));
+
+    public static final RegistryObject<Block> iron_chest = registerBlock("iron_chest",
+            () -> new IronChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.IRON));
+
+    public static final RegistryObject<Block> gold_chest = registerBlock("gold_chest",
+            () -> new GoldChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.GOLD));
+
+    public static final RegistryObject<Block> diamond_chest = registerBlock("diamond_chest",
+            () -> new DiamondChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.DIAMOND));
+
+    public static final RegistryObject<Block> obsidian_chest = registerBlock("obsidian_chest",
+            () -> new ObsidianChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.OBSIDIAN));
+
     public static final RegistryObject<Block> alchemical_chest = registerBlock("alchemical_chest",
-            () -> new AlchemicalChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion()));
+            () -> new AlchemicalChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.ALCHEMICAL));
+
+    public static final RegistryObject<Block> emerald_chest = registerBlock("emerald_chest",
+            () -> new EmeraldChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.EMERALD));
+
+    public static final RegistryObject<Block> netherite_chest = registerBlock("netherite_chest",
+            () -> new NetheriteChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.NETHERITE));
 
     public static final RegistryObject<Block> generator_block = registerBlock("generator_block",
             GeneratorBlock::new);

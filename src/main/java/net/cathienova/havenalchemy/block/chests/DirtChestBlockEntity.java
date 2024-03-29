@@ -1,11 +1,7 @@
-package net.cathienova.havenalchemy.block.entity;
+package net.cathienova.havenalchemy.block.chests;
 
-import net.cathienova.havenalchemy.handler.InputSlotHandler;
-import net.cathienova.havenalchemy.networking.ModMessages;
-import net.cathienova.havenalchemy.networking.packet.EMCSyncS2CPacket;
-import net.cathienova.havenalchemy.screen.AlchemicalChestMenu;
-import net.cathienova.havenalchemy.screen.AlchemicalCondenserMenu;
-import net.cathienova.havenalchemy.util.EMCSystem;
+import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
+import net.cathienova.havenalchemy.screen.chests.DirtChestMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -17,23 +13,20 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class AlchemicalChestBlockEntity extends ChestBlockEntity implements MenuProvider
+public class DirtChestBlockEntity extends ChestBlockEntity implements MenuProvider
 {
-    public final ItemStackHandler stackHandler = new ItemStackHandler(92)
+    public final ChestTypes type = ChestTypes.DIRT;
+    public final ItemStackHandler stackHandler = new ItemStackHandler(type.size)
     {
         @Override
         protected void onContentsChanged(int slot)
@@ -51,9 +44,9 @@ public class AlchemicalChestBlockEntity extends ChestBlockEntity implements Menu
 
     protected final ContainerData data;
 
-    public AlchemicalChestBlockEntity(BlockPos pPos, BlockState pBlockState)
+    public DirtChestBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
-        super(ModBlockEntities.alchemical_chest.get(), pPos, pBlockState);
+        super(ModBlockEntities.dirt_chest.get(), pPos, pBlockState);
         this.data = new ContainerData()
         {
             @Override
@@ -70,7 +63,7 @@ public class AlchemicalChestBlockEntity extends ChestBlockEntity implements Menu
             @Override
             public int getCount()
             {
-                return 92;
+                return type.size;
             }
         };
     }
@@ -111,14 +104,14 @@ public class AlchemicalChestBlockEntity extends ChestBlockEntity implements Menu
     @Override
     public Component getDisplayName()
     {
-        return Component.translatable("block.havenalchemy.alchemical_condenser");
+        return Component.translatable(type.getTranslationKey());
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer)
     {
-        return new AlchemicalChestMenu(pContainerId, pPlayerInventory, this, this.data);
+        return new DirtChestMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 
     @Override

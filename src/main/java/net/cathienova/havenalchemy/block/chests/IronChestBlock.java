@@ -1,8 +1,5 @@
-package net.cathienova.havenalchemy.block.custom;
+package net.cathienova.havenalchemy.block.chests;
 
-import net.cathienova.havenalchemy.block.entity.AlchemicalChestBlockEntity;
-import net.cathienova.havenalchemy.block.entity.AlchemicalCondenserBlockEntity;
-import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,8 +15,6 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -31,12 +26,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class AlchemicalChestBlock extends BaseEntityBlock
+public class IronChestBlock extends BaseEntityBlock
 {
+    private final ChestTypes type;
     public static final VoxelShape SHAPE = Block.box(1,0,1,15,14,15);
-    public AlchemicalChestBlock(Properties pProperties)
+    public IronChestBlock(Properties pProperties, ChestTypes type)
     {
         super(pProperties);
+        this.type = type;
     }
 
     @Override
@@ -57,9 +54,9 @@ public class AlchemicalChestBlock extends BaseEntityBlock
         if (pState.getBlock() != pNewState.getBlock())
         {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof AlchemicalChestBlockEntity)
+            if (blockEntity instanceof IronChestBlockEntity)
             {
-                ((AlchemicalChestBlockEntity) blockEntity).drops();
+                ((IronChestBlockEntity) blockEntity).drops();
             }
         }
 
@@ -72,9 +69,9 @@ public class AlchemicalChestBlock extends BaseEntityBlock
         if (!pLevel.isClientSide)
         {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof AlchemicalChestBlockEntity)
+            if (blockEntity instanceof IronChestBlockEntity)
             {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, (AlchemicalChestBlockEntity) blockEntity, pPos);
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, (IronChestBlockEntity) blockEntity, pPos);
             }
             else
             {
@@ -89,19 +86,7 @@ public class AlchemicalChestBlock extends BaseEntityBlock
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
     {
-        return new AlchemicalChestBlockEntity(pos, state);
-    }
-
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
-    {
-        if(pLevel.isClientSide()) {
-            return null;
-        }
-
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.alchemical_condenser.get(),
-                (pLevel1, pPos, pState1, pBlockEntity) -> pBlockEntity.tick());
+        return new IronChestBlockEntity(pos, state);
     }
 
     @Override

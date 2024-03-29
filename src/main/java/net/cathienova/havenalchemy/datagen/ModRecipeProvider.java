@@ -9,6 +9,7 @@ import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -40,6 +41,107 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer)
     {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.dirt_chest.get(), 1)
+                .pattern("DDD")
+                .pattern("DLD")
+                .pattern("DDD")
+                .define('D', Blocks.DIRT)
+                .define('L', ItemTags.LOGS)
+                .unlockedBy("has_dirt", has(Blocks.DIRT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/dirt_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.stone_chest.get(), 1)
+                .pattern("SSS")
+                .pattern("SLS")
+                .pattern("SSS")
+                .define('S', Blocks.STONE)
+                .define('L', ItemTags.LOGS)
+                .unlockedBy("has_stone", has(Blocks.STONE))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/stone_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.copper_chest.get(), 1)
+                .pattern("CCC")
+                .pattern("CLC")
+                .pattern("CCC")
+                .define('C', Items.COPPER_INGOT)
+                .define('L', Items.CHEST)
+                .unlockedBy("has_copper_ingot", has(Items.COPPER_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/copper_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.iron_chest.get(), 1)
+                .pattern("III")
+                .pattern("ICI")
+                .pattern("III")
+                .define('I', Items.IRON_INGOT)
+                .define('C', ModBlocks.copper_chest.get())
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/iron_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.gold_chest.get(), 1)
+                .pattern("GGG")
+                .pattern("GCG")
+                .pattern("GGG")
+                .define('G', Items.GOLD_INGOT)
+                .define('C', ModBlocks.iron_chest.get())
+                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/gold_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.diamond_chest.get(), 1)
+                .pattern("DDD")
+                .pattern("DCD")
+                .pattern("DDD")
+                .define('D', Items.DIAMOND)
+                .define('C', ModBlocks.gold_chest.get())
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/diamond_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.obsidian_chest.get(), 1)
+                .pattern("OOO")
+                .pattern("OCO")
+                .pattern("OOO")
+                .define('O', Blocks.OBSIDIAN)
+                .define('C', ModBlocks.diamond_chest.get())
+                .unlockedBy("has_obsidian", has(Blocks.OBSIDIAN))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/obsidian_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.emerald_chest.get(), 1)
+                .pattern("EEE")
+                .pattern("ECE")
+                .pattern("EEE")
+                .define('E', Items.EMERALD)
+                .define('C', ModBlocks.diamond_chest.get())
+                .unlockedBy("has_emerald", has(Items.EMERALD))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/emerald_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.netherite_chest.get(), 1)
+                .pattern("NNN")
+                .pattern("NCN")
+                .pattern("NNN")
+                .define('N', Items.NETHERITE_INGOT)
+                .define('C', ModBlocks.emerald_chest.get())
+                .unlockedBy("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/netherite_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chest.get(), 1)
+                .pattern("SDS")
+                .pattern("DCD")
+                .pattern("SDS")
+                .define('D', ModItems.alchemy_dust.get())
+                .define('S', ModBlocks.basphalt_stone.get())
+                .define('C', ModBlocks.diamond_chest.get())
+                .unlockedBy("has_basphalt_stone", has(ModBlocks.basphalt_stone.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chest");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_condenser.get(), 1)
+                .pattern("RDR")
+                .pattern("DCD")
+                .pattern("RDR")
+                .define('R', ModItems.red_matter.get())
+                .define('D', ModItems.dark_matter.get())
+                .define('C', ModBlocks.alchemical_chest.get())
+                .unlockedBy("has_alchemical_chest", has(ModBlocks.alchemical_chest.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_condenser");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.speed_plate_i.get(), 6)
                 .pattern("AAA")
                 .pattern("DED")
@@ -110,26 +212,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', ModBlocks.basphalt_stone.get())
                 .unlockedBy("has_alchemy_dust", has(ModItems.alchemy_dust.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chamber");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chest.get(), 1)
-                .pattern("SDS")
-                .pattern("DCD")
-                .pattern("SDS")
-                .define('D', ModItems.alchemy_dust.get())
-                .define('S', ModBlocks.basphalt_stone.get())
-                .define('C', Items.CHEST)
-                .unlockedBy("has_basphalt_stone", has(ModBlocks.basphalt_stone.get()))
-                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chest");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_condenser.get(), 1)
-                .pattern("RDR")
-                .pattern("DCD")
-                .pattern("RDR")
-                .define('R', ModItems.red_matter.get())
-                .define('D', ModItems.dark_matter.get())
-                .define('C', ModBlocks.alchemical_chest.get())
-                .unlockedBy("has_alchemical_chest", has(ModBlocks.alchemical_chest.get()))
-                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_condenser");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_dust.get(), 1)
                 .pattern("LLL")

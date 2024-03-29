@@ -102,6 +102,19 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
                 ;
 
+        this.tag(Tags.Blocks.CHESTS)
+                .add(ModBlocks.alchemical_chest.get())
+                .add(ModBlocks.dirt_chest.get())
+                .add(ModBlocks.stone_chest.get())
+                .add(ModBlocks.copper_chest.get())
+                .add(ModBlocks.iron_chest.get())
+                .add(ModBlocks.gold_chest.get())
+                .add(ModBlocks.obsidian_chest.get())
+                .add(ModBlocks.diamond_chest.get())
+                .add(ModBlocks.emerald_chest.get())
+                .add(ModBlocks.netherite_chest.get())
+                ;
+
         this.tag(ModTags.Blocks.needs_dark_matter_tool)
         ;
 
