@@ -1,5 +1,6 @@
 package net.cathienova.havenalchemy.block.entity;
 
+import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.handler.OutputSlotHandler;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
@@ -61,7 +62,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
     private static final int INPUT_SLOT_8 = 7;
     private static final int INPUT_SLOT_9 = 8;
     private static final int INPUT_SLOT_10 = 9;
-    private boolean isCrafting = false;
+    public static boolean isCrafting = false;
     private static final int OUTPUT_SLOT = 10;
 
     private LazyOptional<IItemHandler> handler = LazyOptional.empty();
@@ -209,6 +210,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             if (!isCrafting) {
                 if (hasEnoughEnergy(ENERGY_REQUIRED * maxProgress, entity)) {
                     isCrafting = true;
+                    setChanged();
                 }
             }
 
@@ -220,6 +222,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
                 if (hasProgressFinished()) {
                     craft();
                     resetProgress();
+                    setChanged();
                     isCrafting = false;
                 }
             }

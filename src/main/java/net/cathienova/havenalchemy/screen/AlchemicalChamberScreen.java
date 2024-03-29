@@ -78,13 +78,13 @@ public class AlchemicalChamberScreen extends AbstractContainerScreen<AlchemicalC
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, BACKGROUND);
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int x = (width - 176) / 2;
+        int y = (height - 166) / 2;
 
-        guiGraphics.blit(BACKGROUND, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(BACKGROUND, x, y, 0, 0, 176, 166);
 
-        renderProgressArrow(guiGraphics, x, y);
         energyInfoArea.draw(guiGraphics);
+        renderProgressArrow(guiGraphics, x, y);
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
