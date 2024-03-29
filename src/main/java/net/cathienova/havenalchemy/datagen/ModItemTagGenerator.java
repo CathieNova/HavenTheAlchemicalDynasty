@@ -172,6 +172,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.crimson_bark.get())
                 .add(ModItems.warped_bark.get())
                 .add(ModItems.charmel_bark.get())
+                .add(ModItems.cherry_bark.get())
+                .add(ModItems.mangrove_bark.get())
                 ;
 
         this.tag(ModTags.Items.coral)

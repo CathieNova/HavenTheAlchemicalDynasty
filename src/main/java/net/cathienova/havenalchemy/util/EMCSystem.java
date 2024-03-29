@@ -281,7 +281,6 @@ public class EMCSystem
         addEmc(Items.CARROT, 64);
         addEmc(Items.CHARCOAL, 32);
         addEmc(Items.CHEST, 64);
-        addEmc(Items.CHERRY_LOG, 32);
         addEmc(Items.CHICKEN, 64);
         addEmc(Items.CHORUS_FLOWER, 96);
         addEmc(Items.CHORUS_FRUIT, 192);
@@ -324,8 +323,7 @@ public class EMCSystem
         addEmc(Items.DEAD_TUBE_CORAL_BLOCK, 4);
         addEmc(Items.DEAD_TUBE_CORAL_FAN, 1);
         addEmc(Items.DEEPSLATE, 2);
-        addEmc(Items.DIAMOND_HORSE_ARMOR, 2048);
-        addEmc(Items.DIAMOND_ORE, 8192);
+        addEmc(Items.DIAMOND, 8192);
         addEmc(Items.DIORITE, 16);
         addEmc(Items.DIRT, 1);
         addEmc(Items.DRIPSTONE_BLOCK, 64);
@@ -521,13 +519,13 @@ public class EMCSystem
         addEmc(Items.YELLOW_SHULKER_BOX, 4176);
         addEmc(Items.ZOMBIE_HEAD, 256);
 
-        addEmcTags(ItemTags.BUTTONS, 2);
+        addEmcTags(ItemTags.BUTTONS, 1);
         addEmcTags(ItemTags.FENCES, 12);
-        addEmcTags(ItemTags.FENCES, 32);
         addEmcTags(ItemTags.FISHES, 64);
         addEmcTags(ItemTags.FLOWERS, 16);
         addEmcTags(ItemTags.LEAVES, 1);
         addEmcTags(ItemTags.LOGS, 32);
+        addEmcTags(ItemTags.DIRT, 1);
         addEmcTags(ItemTags.MUSIC_DISCS, 2048);
         addEmcTags(ItemTags.PLANKS, 8);
         addEmcTags(ItemTags.SAND, 1);
@@ -547,7 +545,16 @@ public class EMCSystem
         }
 
         addEmc(Items.LIME_SHULKER_BOX, 4176);
-
+        addEmc(ModBlocks.dirt_chest.get().asItem(), 40);
+        addEmc(ModBlocks.stone_chest.get().asItem(), 40);
+        addEmc(ModBlocks.copper_chest.get().asItem(), 576);
+        addEmc(ModBlocks.iron_chest.get().asItem(), 2624);
+        addEmc(ModBlocks.gold_chest.get().asItem(), 19008);
+        addEmc(ModBlocks.diamond_chest.get().asItem(), 84544);
+        addEmc(ModBlocks.alchemical_chest.get().asItem(), 91556);
+        addEmc(ModBlocks.emerald_chest.get().asItem(), 150080);
+        addEmc(ModBlocks.obsidian_chest.get().asItem(), 85056);
+        addEmc(ModBlocks.netherite_chest.get().asItem(), 608832);
         addEmc(ModItems.alchemical_coal.get(), 512);
         addEmc(ModItems.ethern_coal.get(), 2048);
         addEmc(ModItems.aether_fuel.get(), 8192);
@@ -565,32 +572,46 @@ public class EMCSystem
         addEmc(ModBlocks.dark_matter_block.get().asItem(), 663552);
         addEmc(ModBlocks.cable_block.get().asItem(), 216);
         addEmc(ModItems.neosphore_ingot.get(), 114688);
+        addEmc(ModItems.neosphore_nugget.get(), 12743);
         addEmc(ModBlocks.neosphore_block.get().asItem(), 917504);
-        addEmc(ModItems.acacia_bark.get(), 8);
-        addEmc(ModItems.birch_bark.get(), 8);
-        addEmc(ModItems.dark_oak_bark.get(), 8);
-        addEmc(ModItems.jungle_bark.get(), 8);
+        addEmc(ModBlocks.basphalt_cobblestone.get().asItem(), 1);
+        addEmc(ModBlocks.basphalt_stone.get().asItem(), 1);
+
         addEmc(ModItems.oak_bark.get(), 8);
         addEmc(ModItems.spruce_bark.get(), 8);
-        addEmc(ModItems.warped_bark.get(), 8);
+        addEmc(ModItems.birch_bark.get(), 8);
+        addEmc(ModItems.jungle_bark.get(), 8);
+        addEmc(ModItems.acacia_bark.get(), 8);
+        addEmc(ModItems.dark_oak_bark.get(), 8);
         addEmc(ModItems.crimson_bark.get(), 8);
-        addEmc(ModItems.charmel_bark.get(), 8);
+        addEmc(ModItems.warped_bark.get(), 8);
+        addEmc(ModItems.cherry_bark.get(), 8);
+        addEmc(ModItems.mangrove_bark.get(), 8);
+
         //addEmc(ModBlocks.charmel_leaves.get().asItem(), 1);
         addEmc(ModBlocks.basphalt_stone.get().asItem(), 1);
         addEmc(ModBlocks.basphalt_cobblestone.get().asItem(), 1);
+        addEmc(ModBlocks.asphalt.get().asItem(), 40);
+        addEmc(ModBlocks.asphalt_bricks.get().asItem(), 518);
         //addEmc(ModBlocks.charmel_sapling.get().asItem(), 32);
         addEmc(ModItems.copper_dust.get(), 64);
         addEmc(ModItems.tin_dust.get(), 128);
+        addEmcTags(ModTags.Items.forgeTinIngot, 128);
         addEmc(ModItems.netherite_dust.get(), 57344);
         addEmc(ModItems.iron_dust.get(), 256);
         addEmc(ModItems.gold_dust.get(), 2048);
+        addEmcTags(ModTags.Items.forgeLeadIngot, 256);
         addEmc(ModItems.lead_dust.get(), 256);
+        addEmcTags(ModTags.Items.forgeSilverIngot, 512);
         addEmc(ModItems.silver_dust.get(), 512);
+        addEmcTags(ModTags.Items.forgeNickelIngot, 256);
         addEmc(ModItems.nickel_dust.get(), 256);
+        addEmcTags(ModTags.Items.forgeUraniumIngot, 512);
         addEmc(ModItems.uranium_dust.get(), 512);
+        addEmcTags(ModTags.Items.forgeOsmiumIngot, 512);
         addEmc(ModItems.osmium_dust.get(), 512);
+        addEmcTags(ModTags.Items.forgeZincIngot, 256);
         addEmc(ModItems.zinc_dust.get(), 256);
         addEmc(ModBlocks.alchemical_condenser.get().asItem(), 2162688);
-        addEmc(ModBlocks.alchemical_chest.get().asItem(), 7076);
     }
 }
