@@ -61,7 +61,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
     private static final int INPUT_SLOT_8 = 7;
     private static final int INPUT_SLOT_9 = 8;
     private static final int INPUT_SLOT_10 = 9;
-
+    private boolean isCrafting = false;
     private static final int OUTPUT_SLOT = 10;
 
     private LazyOptional<IItemHandler> handler = LazyOptional.empty();
@@ -71,7 +71,7 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
     private int progress = 0;
     private int maxProgress = 100;
 
-    private final ModEnergyStorage energyStorage = new ModEnergyStorage(640000, 128)
+    private final ModEnergyStorage energyStorage = new ModEnergyStorage(100000, 256)
     {
         @Override
         public void onEnergyChanged()
@@ -205,17 +205,27 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             return;
         }
 
-        if(hasRecipe() && hasEnoughEnergy(ENERGY_REQUIRED, entity)) {
-            increaseCraftingProgress();
-            extractEnergy(ENERGY_REQUIRED, entity);
-            setChanged(pLevel, pPos, pState);
+        if (hasRecipe()) {
+            if (!isCrafting) {
+                if (hasEnoughEnergy(ENERGY_REQUIRED * maxProgress, entity)) {
+                    isCrafting = true;
+                }
+            }
 
-            if(hasProgressFinished()) {
-                craft();
-                resetProgress();
+            if (isCrafting) {
+                increaseCraftingProgress();
+                extractEnergy(ENERGY_REQUIRED, entity);
+                setChanged();
+
+                if (hasProgressFinished()) {
+                    craft();
+                    resetProgress();
+                    isCrafting = false;
+                }
             }
         } else {
             resetProgress();
+            isCrafting = false;
         }
     }
 
@@ -224,9 +234,8 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
         entity.energyStorage.extractEnergy(energyRequired, false);
     }
 
-    private boolean hasEnoughEnergy(int energyRequired, AlchemicalChamberBlockEntity entity)
-    {
-        return energyStorage.getEnergyStored() >= energyRequired * entity.maxProgress;
+    private boolean hasEnoughEnergy(int energyRequired, AlchemicalChamberBlockEntity entity) {
+        return entity.energyStorage.getEnergyStored() >= energyRequired;
     }
 
     public IEnergyStorage getEnergyStorage()
