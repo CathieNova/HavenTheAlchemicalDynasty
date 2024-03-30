@@ -1,7 +1,9 @@
 package net.cathienova.havenalchemy.handler;
 
 import net.cathienova.havenalchemy.item.ModItems;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.warden.Warden;
@@ -25,10 +27,13 @@ public class MobDropHandler
         if(!level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) return;
 
         var drops = event.getDrops();
-        int balanceShardDropChance = 4; // Out of 100
+        int balanceShardDropChance = 8; // Out of 100
         Random random = new Random();
 
-        if (entity instanceof Monster && random.nextInt(0, 100) < balanceShardDropChance)
-            drops.add(new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), new ItemStack(ModItems.essence_shard.get())));
+        if (entity != null && random.nextInt(0, 100) < balanceShardDropChance)
+        {
+            if (entity instanceof Monster || entity instanceof Animal)
+                drops.add(new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), new ItemStack(ModItems.essence_shard.get())));
+        }
     }
 }

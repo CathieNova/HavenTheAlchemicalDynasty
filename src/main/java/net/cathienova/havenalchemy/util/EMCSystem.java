@@ -39,70 +39,83 @@ public class EMCSystem
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve("havenalchemy");
     private static final Path EMC_FILE = CONFIG_PATH.resolve("emc_list.json");
-    public static Map<String, Long> getMap() {
+
+    public static Map<String, Long> getMap()
+    {
         return map;
     }
 
-    public static void addEmc(Item item, long emc) {
+    public static void addEmc(Item item, long emc)
+    {
         addEmc(itemToId(item), emc);
     }
 
-    public static void addEmc(String item, long emc) {
+    public static void addEmc(String item, long emc)
+    {
         if (contains(item)) return;
         map.put(item, emc);
     }
 
-    public static String itemToId(Item item) {
+    public static String itemToId(Item item)
+    {
         return ItemUtil.toID(item).toString();
     }
 
-    public static void remove(Item item) {
+    public static void remove(Item item)
+    {
         map.remove(itemToId(item));
     }
 
-    public static long GetEmc(Item item) {
+    public static long GetEmc(Item item)
+    {
         return contains(item) ? map.get(itemToId(item)) : 0;
     }
 
-    public static long GetEmc(ItemStack stack) {
+    public static long GetEmc(ItemStack stack)
+    {
         return contains(stack.getItem()) ? GetEmc(stack.getItem()) * stack.getCount() : 0;
     }
 
-    public static boolean contains(Item item) {
+    public static boolean contains(Item item)
+    {
         return contains(itemToId(item));
     }
 
-    public static boolean contains(String item) {
+    public static boolean contains(String item)
+    {
         return map.containsKey(item);
     }
 
-    public static void addEmcTags(TagKey<Item> tagKey, long emc) {
-        for (Item item : ForgeRegistries.ITEMS.getValues()) {
-            if (item.builtInRegistryHolder().is(tagKey)) {
-                addEmc(item, emc);
-            }
-        }
+    public static void addEmcTags(TagKey<Item> tagKey, long emc)
+    {
+        ForgeRegistries.ITEMS.getValues().stream()
+                .filter(item -> item.builtInRegistryHolder().tags().anyMatch(tag -> tag.equals(tagKey)))
+                .forEach(item -> addEmc(item, emc));
     }
 
-    @SubscribeEvent
-    public static void onServerStarting(ServerStartingEvent event) {
-        loadEmcValues();
-    }
-
-    public static void loadEmcValues() {
-        try {
+    public static void loadEmcValues()
+    {
+        try
+        {
             HavenAlchemy.LOGGER.info("[HavenAlchemy]: Loading EMC values...");
-            if (!java.nio.file.Files.exists(CONFIG_PATH)) {
+            if (!java.nio.file.Files.exists(CONFIG_PATH))
+            {
                 java.nio.file.Files.createDirectories(CONFIG_PATH);
             }
-            if (java.nio.file.Files.exists(EMC_FILE)) {
-                Map<String, Long> fileMap = gson.fromJson(new FileReader(EMC_FILE.toFile()), new TypeToken<Map<String, Long>>() {}.getType());
-                for (Map.Entry<String, Long> entry : fileMap.entrySet()) {
+            if (java.nio.file.Files.exists(EMC_FILE))
+            {
+                Map<String, Long> fileMap = gson.fromJson(new FileReader(EMC_FILE.toFile()), new TypeToken<Map<String, Long>>()
+                {
+                }.getType());
+                for (Map.Entry<String, Long> entry : fileMap.entrySet())
+                {
                     if (entry.getValue() > 0)
                         map.put(entry.getKey(), entry.getValue());
                 }
                 HavenAlchemy.LOGGER.info("[HavenAlchemy]: EMC file loaded successfully with " + map.size() + " entries.");
-            } else {
+            }
+            else
+            {
                 HavenAlchemy.LOGGER.info("[HavenAlchemy]: EMC file does not exist, creating with default values...");
                 defaultMap();
                 saveEmcValues();
@@ -110,39 +123,51 @@ public class EMCSystem
 
             HavenAlchemy.LOGGER.info("[HavenAlchemy]: Setting EMC values from recipes...");
             setEmcFromRecipes();
-        } catch (Exception e) {
+            saveEmcValues();
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
-    private static void saveEmcValues() {
-        try (FileWriter writer = new FileWriter(EMC_FILE.toFile())) {
+    private static void saveEmcValues()
+    {
+        try (FileWriter writer = new FileWriter(EMC_FILE.toFile()))
+        {
             gson.toJson(map, writer);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
 
-    public static void writeEmcToPlayer(Player player, ItemStack stack) {
+    public static void writeEmcToPlayer(Player player, ItemStack stack)
+    {
         IncrementEmc(player, EMCSystem.GetEmc(stack));
     }
 
-    public static void decrementEmc(Player player, long amount) {
+    public static void decrementEmc(Player player, long amount)
+    {
         CompoundTag playerNbt = new CompoundTag();
         player.deserializeNBT(playerNbt);
         long emc = 0;
-        if (playerNbt.contains("havenalchemy")) {
+        if (playerNbt.contains("havenalchemy"))
+        {
             CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-            if (havenAlchemyTag.contains("emc")) {
+            if (havenAlchemyTag.contains("emc"))
+            {
                 emc += havenAlchemyTag.getLong("emc");
             }
         }
         emc -= amount;
 
-        if (playerNbt.contains("havenalchemy")) {
+        if (playerNbt.contains("havenalchemy"))
+        {
             CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
             havenAlchemyTag.putLong("emc", emc);
-        } else {
+        }
+        else
+        {
             CompoundTag havenAlchemyTag = new CompoundTag();
             havenAlchemyTag.putLong("emc", emc);
             playerNbt.put("havenalchemy", havenAlchemyTag);
@@ -150,22 +175,28 @@ public class EMCSystem
         player.serializeNBT();
     }
 
-    public static void IncrementEmc(Player player, long amount) {
+    public static void IncrementEmc(Player player, long amount)
+    {
         CompoundTag playerNbt = new CompoundTag();
         player.deserializeNBT(playerNbt);
         long emc = 0;
-        if (playerNbt.contains("havenalchemy")) {
+        if (playerNbt.contains("havenalchemy"))
+        {
             CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-            if (havenAlchemyTag.contains("emc")) {
+            if (havenAlchemyTag.contains("emc"))
+            {
                 emc += havenAlchemyTag.getLong("emc");
             }
         }
         emc += amount;
 
-        if (playerNbt.contains("havenalchemy")) {
+        if (playerNbt.contains("havenalchemy"))
+        {
             CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
             havenAlchemyTag.putLong("emc", emc);
-        } else {
+        }
+        else
+        {
             CompoundTag havenAlchemyTag = new CompoundTag();
             havenAlchemyTag.putLong("emc", emc);
             playerNbt.put("havenalchemy", havenAlchemyTag);
@@ -180,15 +211,22 @@ public class EMCSystem
         List<Recipe<?>> unsetRecipes = new ArrayList<>();
         Collection<Recipe<?>> recipes = recipeManager.getRecipes();
 
-        for (Recipe<?> recipe : recipes) {
-            ItemStack outputStack = recipe.getResultItem(registryAccess);
-            addEmcFromRecipe(outputStack, recipe, unsetRecipes, false);
-        }
+        int iterations = 5;
 
-        List<Recipe<?>> dummyList = new ArrayList<>();
-        for (Recipe<?> recipe : unsetRecipes) {
-            ItemStack outputStack = recipe.getResultItem(registryAccess);
-            addEmcFromRecipe(outputStack, recipe, dummyList, true);
+        for(int i = 0; i < iterations; i++)
+        {
+            for (Recipe<?> recipe : recipes)
+            {
+                ItemStack outputStack = recipe.getResultItem(registryAccess);
+                addEmcFromRecipe(outputStack, recipe, unsetRecipes, false);
+            }
+
+            List<Recipe<?>> dummyList = new ArrayList<>();
+            for (Recipe<?> recipe : unsetRecipes)
+            {
+                ItemStack outputStack = recipe.getResultItem(registryAccess);
+                addEmcFromRecipe(outputStack, recipe, dummyList, true);
+            }
         }
     }
 
@@ -228,7 +266,6 @@ public class EMCSystem
             }
 
             // Calculate the EMC value per item produced by the recipe.
-            // This division should happen regardless of the output count to ensure the EMC value is properly normalized.
             long emcPerItem = totalEmc / Math.max(1, outStack.getCount());
 
             // Assign the calculated EMC value if it's positive.
@@ -263,6 +300,7 @@ public class EMCSystem
         addEmc(Items.BLUE_SHULKER_BOX, 4176);
         addEmc(Items.BONE, 144);
         addEmc(Items.BONE_MEAL, 48);
+        addEmc(Items.BOWL, 6);
         addEmc(Items.BRAIN_CORAL, 16);
         addEmc(Items.BRAIN_CORAL_BLOCK, 64);
         addEmc(Items.BRAIN_CORAL_FAN, 16);
@@ -275,12 +313,12 @@ public class EMCSystem
         addEmc(Items.BUBBLE_CORAL, 16);
         addEmc(Items.BUBBLE_CORAL_BLOCK, 64);
         addEmc(Items.BUBBLE_CORAL_FAN, 16);
+        addEmc(Items.BUCKET, 768);
         addEmc(Items.BUDDING_AMETHYST, 512);
         addEmc(Items.CACTUS, 8);
         addEmc(Items.CALCITE, 32);
         addEmc(Items.CARROT, 64);
         addEmc(Items.CHARCOAL, 32);
-        addEmc(Items.CHEST, 64);
         addEmc(Items.CHICKEN, 64);
         addEmc(Items.CHORUS_FLOWER, 96);
         addEmc(Items.CHORUS_FRUIT, 192);
@@ -350,7 +388,6 @@ public class EMCSystem
         addEmc(Items.FISHING_ROD, 36);
         addEmc(Items.FLINT, 4);
         addEmc(Items.GHAST_TEAR, 4096);
-        addEmc(Items.GLASS, 1);
         addEmc(Items.GLOWSTONE_DUST, 384);
         addEmc(Items.GLOW_BERRIES, 16);
         addEmc(Items.GLOW_INK_SAC, 400);
@@ -389,7 +426,6 @@ public class EMCSystem
         addEmc(Items.LAPIS_LAZULI, 256);
         addEmc(Items.LAPIS_BLOCK, 2304);
         addEmc(Items.LAVA_BUCKET, 832);
-        addEmc(Items.LEATHER, 64);
         addEmc(Items.LEVER, 5);
         addEmc(Items.LIGHT_BLUE_CONCRETE, 4);
         addEmc(Items.LIGHT_BLUE_CONCRETE_POWDER, 4);
@@ -519,24 +555,7 @@ public class EMCSystem
         addEmc(Items.YELLOW_SHULKER_BOX, 4176);
         addEmc(Items.ZOMBIE_HEAD, 256);
 
-        addEmcTags(ItemTags.BUTTONS, 1);
-        addEmcTags(ItemTags.FENCES, 12);
-        addEmcTags(ItemTags.FISHES, 64);
-        addEmcTags(ItemTags.FLOWERS, 16);
-        addEmcTags(ItemTags.LEAVES, 1);
-        addEmcTags(ItemTags.LOGS, 32);
-        addEmcTags(ItemTags.DIRT, 1);
-        addEmcTags(ItemTags.MUSIC_DISCS, 2048);
-        addEmcTags(ItemTags.PLANKS, 8);
-        addEmcTags(ItemTags.SAND, 1);
-        addEmcTags(ItemTags.SAPLINGS, 32);
-        addEmcTags(ItemTags.TRAPDOORS, 24);
-        addEmcTags(ItemTags.WOODEN_PRESSURE_PLATES, 16);
-        addEmcTags(ItemTags.WOODEN_SLABS, 8);
-        addEmcTags(ItemTags.WOODEN_STAIRS, 12);
-        addEmcTags(ItemTags.WOOL, 48);;
-        addEmcTags(ModTags.Items.bark, 8);
-        addEmcTags(ModTags.Items.dyes, 16);
+
 
         for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
             if (item instanceof SpawnEggItem) {
@@ -576,6 +595,7 @@ public class EMCSystem
         addEmc(ModBlocks.neosphore_block.get().asItem(), 917504);
         addEmc(ModBlocks.basphalt_cobblestone.get().asItem(), 1);
         addEmc(ModBlocks.basphalt_stone.get().asItem(), 1);
+        addEmc(Items.SOUL_TORCH, 21);
 
         addEmc(ModItems.oak_bark.get(), 8);
         addEmc(ModItems.spruce_bark.get(), 8);
@@ -613,5 +633,35 @@ public class EMCSystem
         addEmcTags(ModTags.Items.forgeZincIngot, 256);
         addEmc(ModItems.zinc_dust.get(), 256);
         addEmc(ModBlocks.alchemical_condenser.get().asItem(), 2162688);
+        addEmc(Items.CAMPFIRE, 140);
+        addEmc(Items.FURNACE, 8);
+        addEmc(Items.CRAFTING_TABLE, 32);
+        addEmc("industrialforegoing:pink_slime", 32);
+        addEmc("create:andesite_casing", 76);
+        addEmc("create:cogwheel", 19);
+        addEmc("create:large_cogwheel", 27);
+
+        addEmcTags(ModTags.Items.glass, 2);
+        addEmcTags(ModTags.Items.bricks, 16);
+        addEmcTags(ModTags.Items.leather, 64);
+        addEmcTags(ItemTags.BUTTONS, 1);
+        addEmcTags(ItemTags.FENCES, 12);
+        addEmcTags(ItemTags.FISHES, 64);
+        addEmcTags(ItemTags.FLOWERS, 16);
+        addEmcTags(ItemTags.LEAVES, 1);
+        addEmcTags(ItemTags.LOGS, 32);
+        addEmcTags(ItemTags.DIRT, 1);
+        addEmcTags(ItemTags.MUSIC_DISCS, 2048);
+        addEmcTags(ItemTags.PLANKS, 8);
+        addEmcTags(ItemTags.SAND, 1);
+        addEmcTags(ItemTags.SAPLINGS, 32);
+        addEmcTags(ItemTags.TRAPDOORS, 24);
+        addEmcTags(ItemTags.WOODEN_PRESSURE_PLATES, 16);
+        addEmcTags(ItemTags.WOODEN_SLABS, 8);
+        addEmcTags(ItemTags.WOODEN_STAIRS, 12);
+        addEmcTags(ItemTags.WOOL, 48);;
+        addEmcTags(ModTags.Items.bark, 8);
+        addEmcTags(ModTags.Items.dyes, 16);
+        addEmcTags(ModTags.Items.chests, 64);
     }
 }

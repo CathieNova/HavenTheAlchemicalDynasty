@@ -76,6 +76,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         CropDrops((CropBlock) ModBlocks.netherite_crop.get(), "netherite_crop", "netherite_crop");
         CropDrops((CropBlock) ModBlocks.air_crop.get(), "air_crop", "air_crop");
         CropDrops((CropBlock) ModBlocks.earth_crop.get(), "earth_crop", "earth_crop");
+        CropDrops((CropBlock) ModBlocks.wood_crop.get(), "wood_crop", "wood_crop");
 
         blockWithItem(ModBlocks.neosphore_block);
         blockWithItem(ModBlocks.neosphore_ore);

@@ -25,6 +25,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import static net.cathienova.havenalchemy.util.EMCSystem.loadEmcValues;
+
 @Mod(HavenAlchemy.MOD_ID)
 public class HavenAlchemy
 {
@@ -55,6 +57,13 @@ public class HavenAlchemy
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
+        loadEmcValues();
+    }
+
+    @SubscribeEvent
+    public void onServerJoin(ServerStartingEvent event)
+    {
+        loadEmcValues();
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -77,7 +86,7 @@ public class HavenAlchemy
                 MenuScreens.register(ModMenuTypes.EMERALD_CHEST_MENU.get(), EmeraldChestScreen::new);
                 MenuScreens.register(ModMenuTypes.NETHERITE_CHEST_MENU.get(), NetheriteChestScreen::new);
                 MenuScreens.register(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), GeneratorScreen::new);
-                EMCSystem.loadEmcValues();
+                //loadEmcValues();
             });
         }
     }

@@ -194,22 +194,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_stone.get(), 1)
                 .pattern("EDE")
-                .pattern("RVR")
+                .pattern("DRD")
                 .pattern("EDE")
                 .define('E', ModItems.ethern_coal.get())
                 .define('D', ModItems.alchemy_dust.get())
                 .define('R', ModItems.red_matter.get())
-                .define('V', ModItems.void_matter.get())
-                .unlockedBy("has_void_matter", has(ModItems.void_matter.get()))
+                .unlockedBy("has_red_matter", has(ModItems.red_matter.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemy_stone");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chamber.get(), 1)
                 .pattern("BDB")
                 .pattern("SSS")
                 .pattern("B B")
-                .define('B', ModBlocks.basphalt_stone_bricks.get())
-                .define('D', ModItems.alchemy_dust.get())
-                .define('S', ModBlocks.basphalt_stone.get())
+                .define('B', ModBlocks.asphalt_bricks.get())
+                .define('D', ModItems.alchemy_stone_fractured.get())
+                .define('S', ModBlocks.asphalt.get())
                 .unlockedBy("has_alchemy_dust", has(ModItems.alchemy_dust.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_chamber");
 

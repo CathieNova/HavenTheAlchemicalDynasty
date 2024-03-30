@@ -76,6 +76,10 @@ public class ModTags
         public static final TagKey<Item> forgeOsmiumBlocks = forgeTag("storage_blocks/osmium");
         public static final TagKey<Item> forgeZincBlocks = forgeTag("storage_blocks/zinc");
         public static final TagKey<Item> forgeDiamondBlocks = forgeTag("storage_blocks/diamond");
+        public static final TagKey<Item> leather = forgeTag("leather");
+        public static final TagKey<Item> chests = forgeTag("chests");
+        public static final TagKey<Item> bricks = forgeTag("ingots/bricks");
+        public static final TagKey<Item> glass = forgeTag("glass");
 
         private static TagKey<Item> tag(String name)
         {
