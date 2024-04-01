@@ -27,7 +27,7 @@ public class MobDropHandler
         if(!level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) return;
 
         var drops = event.getDrops();
-        int balanceShardDropChance = 8; // Out of 100
+        int balanceShardDropChance = 20; // Out of 100
         Random random = new Random();
 
         if (entity != null && random.nextInt(0, 100) < balanceShardDropChance)

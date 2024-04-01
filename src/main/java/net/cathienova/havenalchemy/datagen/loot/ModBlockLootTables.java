@@ -247,7 +247,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         .lootPool()
                         .add(LootItem
                                 .lootTableItem(pSeedsItem)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 1.5F))))));
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 1.0F))))));
     }
 
     protected LootItemCondition.Builder cropDrops(Block block, IntegerProperty ageProperty, int age)

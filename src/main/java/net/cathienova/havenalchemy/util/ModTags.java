@@ -80,6 +80,7 @@ public class ModTags
         public static final TagKey<Item> chests = forgeTag("chests");
         public static final TagKey<Item> bricks = forgeTag("ingots/bricks");
         public static final TagKey<Item> glass = forgeTag("glass");
+        public static final TagKey<Item> aiots = forgeTag("tools/aiots");
 
         private static TagKey<Item> tag(String name)
         {

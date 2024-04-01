@@ -2,6 +2,7 @@ package net.cathienova.havenalchemy.handler;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
+import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -27,52 +28,59 @@ public class UseBlockHandler {
         BlockPos blockPos = event.getPos();
         InteractionHand hand = event.getHand();
 
-        if (!player.isSpectator() && hand == InteractionHand.MAIN_HAND && player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof AxeItem) {
-            Block block = level.getBlockState(blockPos).getBlock();
-            if (Blocks.ACACIA_LOG.equals(block) || Blocks.ACACIA_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.acacia_bark.get()));
-            }
-            else if (Blocks.BIRCH_LOG.equals(block) || Blocks.BIRCH_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.birch_bark.get()));
-            }
-            else if (ModBlocks.charmel_log.get().equals(block) || ModBlocks.charmel_wood.get().equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.charmel_bark.get()));
-            }
-            else if (Blocks.CHERRY_LOG.equals(block) || Blocks.CHERRY_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.cherry_bark.get()));
-            }
-            else if (Blocks.CRIMSON_STEM.equals(block) || Blocks.CRIMSON_HYPHAE.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.crimson_bark.get()));
-            }
-            else if (Blocks.DARK_OAK_LOG.equals(block) || Blocks.DARK_OAK_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.dark_oak_bark.get()));
-            }
-            else if (Blocks.JUNGLE_LOG.equals(block) || Blocks.JUNGLE_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.jungle_bark.get()));
-            }
-            else if (Blocks.MANGROVE_LOG.equals(block) || Blocks.MANGROVE_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.mangrove_bark.get()));
-            }
-            else if (Blocks.OAK_LOG.equals(block) || Blocks.OAK_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.oak_bark.get()));
-            }
-            else if (Blocks.SPRUCE_LOG.equals(block) || Blocks.SPRUCE_WOOD.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.spruce_bark.get()));
-            }
-            else if (Blocks.WARPED_STEM.equals(block) || Blocks.WARPED_HYPHAE.equals(block))
-            {
-                spawnItem(level, player, blockPos, new ItemStack(ModItems.warped_bark.get()));
-            }
+        if (!player.isSpectator() && hand == InteractionHand.MAIN_HAND && player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof AxeItem)
+            StripBark(player, level, blockPos);
+
+        if (!player.isSpectator() && hand == InteractionHand.MAIN_HAND && player.getItemInHand(InteractionHand.MAIN_HAND).is(ModTags.Items.aiots))
+            StripBark(player, level, blockPos);
+    }
+
+    private static void StripBark(Player player, Level level, BlockPos blockPos)
+    {
+        Block block = level.getBlockState(blockPos).getBlock();
+        if (Blocks.ACACIA_LOG.equals(block) || Blocks.ACACIA_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.acacia_bark.get()));
+        }
+        else if (Blocks.BIRCH_LOG.equals(block) || Blocks.BIRCH_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.birch_bark.get()));
+        }
+        else if (ModBlocks.charmel_log.get().equals(block) || ModBlocks.charmel_wood.get().equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.charmel_bark.get()));
+        }
+        else if (Blocks.CHERRY_LOG.equals(block) || Blocks.CHERRY_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.cherry_bark.get()));
+        }
+        else if (Blocks.CRIMSON_STEM.equals(block) || Blocks.CRIMSON_HYPHAE.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.crimson_bark.get()));
+        }
+        else if (Blocks.DARK_OAK_LOG.equals(block) || Blocks.DARK_OAK_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.dark_oak_bark.get()));
+        }
+        else if (Blocks.JUNGLE_LOG.equals(block) || Blocks.JUNGLE_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.jungle_bark.get()));
+        }
+        else if (Blocks.MANGROVE_LOG.equals(block) || Blocks.MANGROVE_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.mangrove_bark.get()));
+        }
+        else if (Blocks.OAK_LOG.equals(block) || Blocks.OAK_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.oak_bark.get()));
+        }
+        else if (Blocks.SPRUCE_LOG.equals(block) || Blocks.SPRUCE_WOOD.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.spruce_bark.get()));
+        }
+        else if (Blocks.WARPED_STEM.equals(block) || Blocks.WARPED_HYPHAE.equals(block))
+        {
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.warped_bark.get()));
         }
     }
 
