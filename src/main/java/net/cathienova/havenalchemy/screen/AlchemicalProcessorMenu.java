@@ -1,8 +1,7 @@
 package net.cathienova.havenalchemy.screen;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
-import net.cathienova.havenalchemy.block.entity.AlchemicalChamberBlockEntity;
-import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
+import net.cathienova.havenalchemy.block.entity.AlchemicalProcessorBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -11,22 +10,25 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class AlchemicalChamberMenu extends AbstractContainerMenu
+public class AlchemicalProcessorMenu extends AbstractContainerMenu
 {
-    public final AlchemicalChamberBlockEntity blockEntity;
+    public final AlchemicalProcessorBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public AlchemicalChamberMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(11));
+    public IEnergyStorage energy;
+
+    public AlchemicalProcessorMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public AlchemicalChamberMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), pContainerId);
-        checkContainerSize(inv, 11);
-        blockEntity = ((AlchemicalChamberBlockEntity) entity);
+    public AlchemicalProcessorMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.ALCHEMICAL_PROCESSOR_MENU.get(), pContainerId);
+        checkContainerSize(inv, 36);
+        blockEntity = ((AlchemicalProcessorBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
 
@@ -34,17 +36,8 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler, 0, 67, 47));
-            this.addSlot(new SlotItemHandler(iItemHandler, 1, 93, 47));
-            this.addSlot(new SlotItemHandler(iItemHandler, 2, 17, 22));
-            this.addSlot(new SlotItemHandler(iItemHandler, 3, 42, 22));
-            this.addSlot(new SlotItemHandler(iItemHandler, 4, 17, 47));
-            this.addSlot(new SlotItemHandler(iItemHandler, 5, 42, 47));
-            this.addSlot(new SlotItemHandler(iItemHandler, 6, 118, 22));
-            this.addSlot(new SlotItemHandler(iItemHandler, 7, 143, 22));
-            this.addSlot(new SlotItemHandler(iItemHandler, 8, 118, 47));
-            this.addSlot(new SlotItemHandler(iItemHandler, 9, 143, 47));
-            this.addSlot(new SlotItemHandler(iItemHandler, 10, 80, 13));
+            this.addSlot(new SlotItemHandler(iItemHandler, 0, 41, 30));
+            this.addSlot(new SlotItemHandler(iItemHandler, 1, 119, 30));
         });
 
         addDataSlots(data);
@@ -52,6 +45,10 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
 
     public boolean isCrafting() {
         return data.get(0) > 0;
+    }
+
+    public IEnergyStorage getEnergy() {
+        return energy;
     }
 
     public int getScaledProgress() {
@@ -75,9 +72,7 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
     private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-
-    // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 11;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
@@ -114,7 +109,7 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.alchemical_chamber.get());
+                pPlayer, ModBlocks.alchemical_processor.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
@@ -131,7 +126,7 @@ public class AlchemicalChamberMenu extends AbstractContainerMenu
         }
     }
 
-    public AlchemicalChamberBlockEntity getBlockEntity() {
+    public AlchemicalProcessorBlockEntity getBlockEntity() {
         return this.blockEntity;
     }
 }

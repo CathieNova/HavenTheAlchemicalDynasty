@@ -9,6 +9,7 @@ import net.cathienova.havenalchemy.item.ModCreativeModTabs;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.loot.ModLootModifier;
 import net.cathienova.havenalchemy.networking.ModMessages;
+import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
 import net.cathienova.havenalchemy.recipe.ModRecipes;
 import net.cathienova.havenalchemy.screen.*;
 import net.cathienova.havenalchemy.screen.chests.*;
@@ -74,6 +75,7 @@ public class HavenAlchemy
         {
             event.enqueueWork(() -> {
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
+                MenuScreens.register(ModMenuTypes.ALCHEMICAL_PROCESSOR_MENU.get(), AlchemicalProcessorScreen::new);
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_CONDENSER_MENU.get(), AlchemicalCondenserScreen::new);
                 MenuScreens.register(ModMenuTypes.DIRT_CHEST_MENU.get(), DirtChestScreen::new);
                 MenuScreens.register(ModMenuTypes.STONE_CHEST_MENU.get(), StoneChestScreen::new);

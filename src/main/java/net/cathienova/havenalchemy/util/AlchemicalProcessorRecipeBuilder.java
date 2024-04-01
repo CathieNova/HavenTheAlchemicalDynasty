@@ -12,25 +12,25 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class AlchemicalChamberRecipeBuilder
+public class AlchemicalProcessorRecipeBuilder
 {
     private final ResourceLocation recipeType;
     private final JsonArray ingredients = new JsonArray();
     private final JsonObject result = new JsonObject();
     private final RecipeSerializer<?> serializer;
 
-    private AlchemicalChamberRecipeBuilder(ResourceLocation recipeType, RecipeSerializer<?> serializer)
+    private AlchemicalProcessorRecipeBuilder(ResourceLocation recipeType, RecipeSerializer<?> serializer)
     {
         this.recipeType = recipeType;
         this.serializer = serializer;
     }
 
-    public static AlchemicalChamberRecipeBuilder customRecipe(ResourceLocation recipeType, RecipeSerializer<?> serializer)
+    public static AlchemicalProcessorRecipeBuilder customRecipe(ResourceLocation recipeType, RecipeSerializer<?> serializer)
     {
-        return new AlchemicalChamberRecipeBuilder(recipeType, serializer);
+        return new AlchemicalProcessorRecipeBuilder(recipeType, serializer);
     }
 
-    public AlchemicalChamberRecipeBuilder ingredient(ItemLike item)
+    public AlchemicalProcessorRecipeBuilder ingredient(ItemLike item)
     {
         ResourceLocation itemRegistryName = ForgeRegistries.ITEMS.getKey(item.asItem());
         if (itemRegistryName == null)
@@ -43,7 +43,7 @@ public class AlchemicalChamberRecipeBuilder
         return this;
     }
 
-    public AlchemicalChamberRecipeBuilder result(ItemLike resultItem)
+    public AlchemicalProcessorRecipeBuilder result(ItemLike resultItem)
     {
         ResourceLocation resultRegistryName = ForgeRegistries.ITEMS.getKey(resultItem.asItem());
         if (resultRegistryName == null)
@@ -56,6 +56,10 @@ public class AlchemicalChamberRecipeBuilder
 
     public void save(Consumer<FinishedRecipe> consumer, ResourceLocation id)
     {
+        ResourceLocation serializerKey = BuiltInRegistries.RECIPE_SERIALIZER.getKey(serializer);
+        if (serializerKey == null) {
+            throw new IllegalStateException("Serializer for " + serializer + " is not registered. Cannot save recipe " + id);
+        }
         consumer.accept(new FinishedRecipe()
         {
             @Override

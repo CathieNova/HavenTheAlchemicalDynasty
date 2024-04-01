@@ -1,7 +1,7 @@
 package net.cathienova.havenalchemy.block.custom;
 
-import net.cathienova.havenalchemy.block.entity.AlchemicalChamberBlockEntity;
 import net.cathienova.havenalchemy.block.entity.GeneratorBlockEntity;
+import net.cathienova.havenalchemy.screen.GeneratorMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -70,7 +70,7 @@ public class GeneratorBlock extends Block implements EntityBlock {
 
                     @Override
                     public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        return new GeneratorContainer(windowId, playerEntity, pos);
+                        return new GeneratorMenu(windowId, playerEntity, pos);
                     }
                 };
                 NetworkHooks.openScreen((ServerPlayer) player, containerProvider, be.getBlockPos());

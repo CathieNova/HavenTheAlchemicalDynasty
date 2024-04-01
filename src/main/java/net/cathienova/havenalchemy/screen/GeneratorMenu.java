@@ -1,8 +1,7 @@
-package net.cathienova.havenalchemy.block.custom;
+package net.cathienova.havenalchemy.screen;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.GeneratorBlockEntity;
-import net.cathienova.havenalchemy.screen.ModMenuTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,12 +16,12 @@ import net.minecraftforge.items.SlotItemHandler;
 import static net.cathienova.havenalchemy.block.entity.GeneratorBlockEntity.SLOT;
 import static net.cathienova.havenalchemy.block.entity.GeneratorBlockEntity.SLOT_COUNT;
 
-public class GeneratorContainer extends AbstractContainerMenu {
+public class GeneratorMenu extends AbstractContainerMenu {
 
     private final BlockPos pos;
     private int power;
 
-    public GeneratorContainer(int windowId, Player player, BlockPos pos) {
+    public GeneratorMenu(int windowId, Player player, BlockPos pos) {
         super(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), windowId);
         this.pos = pos;
         if (player.level().getBlockEntity(pos) instanceof GeneratorBlockEntity generator) {
@@ -35,7 +34,7 @@ public class GeneratorContainer extends AbstractContainerMenu {
 
                 @Override
                 public void set(int pValue) {
-                    GeneratorContainer.this.power = (GeneratorContainer.this.power & 0xffff0000) | (pValue & 0xffff);
+                    GeneratorMenu.this.power = (GeneratorMenu.this.power & 0xffff0000) | (pValue & 0xffff);
                 }
             });
             addDataSlot(new DataSlot() {
@@ -46,7 +45,7 @@ public class GeneratorContainer extends AbstractContainerMenu {
 
                 @Override
                 public void set(int pValue) {
-                    GeneratorContainer.this.power = (GeneratorContainer.this.power & 0xffff) | ((pValue & 0xffff) << 16);
+                    GeneratorMenu.this.power = (GeneratorMenu.this.power & 0xffff) | ((pValue & 0xffff) << 16);
                 }
             });
         }

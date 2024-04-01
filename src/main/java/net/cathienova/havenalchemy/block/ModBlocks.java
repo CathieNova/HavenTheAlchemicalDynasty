@@ -415,6 +415,174 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.DEEPSLATE)));
 
+    public static final RegistryObject<Block> basphalt_stone_bricks_1 = registerBlock("basphalt_stone_bricks_1",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_2 = registerBlock("basphalt_stone_bricks_2",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_3 = registerBlock("basphalt_stone_bricks_3",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_4 = registerBlock("basphalt_stone_bricks_4",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_5 = registerBlock("basphalt_stone_bricks_5",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_6 = registerBlock("basphalt_stone_bricks_6",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_7 = registerBlock("basphalt_stone_bricks_7",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_8 = registerBlock("basphalt_stone_bricks_8",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_9 = registerBlock("basphalt_stone_bricks_9",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_10 = registerBlock("basphalt_stone_bricks_10",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_11 = registerBlock("basphalt_stone_bricks_11",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_12 = registerBlock("basphalt_stone_bricks_12",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_13 = registerBlock("basphalt_stone_bricks_13",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_14 = registerBlock("basphalt_stone_bricks_14",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_15 = registerBlock("basphalt_stone_bricks_15",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_16 = registerBlock("basphalt_stone_bricks_16",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_17 = registerBlock("basphalt_stone_bricks_17",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_18 = registerBlock("basphalt_stone_bricks_18",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_19 = registerBlock("basphalt_stone_bricks_19",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_20 = registerBlock("basphalt_stone_bricks_20",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_21 = registerBlock("basphalt_stone_bricks_21",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_22 = registerBlock("basphalt_stone_bricks_22",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_23 = registerBlock("basphalt_stone_bricks_23",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_24 = registerBlock("basphalt_stone_bricks_24",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_25 = registerBlock("basphalt_stone_bricks_25",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_26 = registerBlock("basphalt_stone_bricks_26",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_27 = registerBlock("basphalt_stone_bricks_27",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> basphalt_stone_bricks_28 = registerBlock("basphalt_stone_bricks_28",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(2f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE)));
+
     /*public static final RegistryObject<Block> suspicious_basphalt = registerBlock("suspicious_basphalt",
             () -> new ModBrushableBlock(basphalt_stone.get(), BlockBehaviour.Properties.of().mapColor(MapColor.SAND)
                     .instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.SUSPICIOUS_SAND)
@@ -428,6 +596,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> alchemical_chamber = registerBlock("alchemical_chamber",
             () -> new AlchemicalChamberBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
+
+    public static final RegistryObject<Block> alchemical_processor = registerBlock("alchemical_processor",
+            () -> new AlchemicalProcessorBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
     public static final RegistryObject<Block> alchemical_condenser = registerBlock("alchemical_condenser",
             () -> new AlchemicalCondenserBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));

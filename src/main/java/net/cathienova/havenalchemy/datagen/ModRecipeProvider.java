@@ -4,7 +4,9 @@ import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
+import net.cathienova.havenalchemy.recipe.AlchemicalProcessorRecipe;
 import net.cathienova.havenalchemy.util.AlchemicalChamberRecipeBuilder;
+import net.cathienova.havenalchemy.util.AlchemicalProcessorRecipeBuilder;
 import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -489,6 +491,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         fenceRecipe(consumer, ModBlocks.basphalt_stone_bricks_fence.get(), ModBlocks.basphalt_stone_bricks.get());
         wallRecipe(consumer, ModBlocks.basphalt_stone_bricks_wall.get(), ModBlocks.basphalt_stone_bricks.get());
         SmallBlockRecipe(consumer, ModBlocks.basphalt_stone_bricks.get(), ModBlocks.basphalt_stone.get());
+
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_1.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_2.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_3.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_4.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_5.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_6.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_7.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_8.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_9.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_10.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_11.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_12.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_13.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_14.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_15.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_16.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_17.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_18.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_19.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_20.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_21.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_22.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_23.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_24.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_25.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_26.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_27.get(), ModBlocks.basphalt_stone.get());
+        stoneCutterRecipe(consumer, ModBlocks.basphalt_stone_bricks_28.get(), ModBlocks.basphalt_stone.get());
         
         BlockRecipe(consumer, ModBlocks.neosphore_block.get(), ModItems.neosphore_ingot.get());
         UnBlockRecipe(consumer, ModItems.neosphore_ingot.get(), ModBlocks.neosphore_block.get());
@@ -1427,6 +1459,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         createAlchemicalChamberRecipe(consumer, ModItems.netherite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.NETHERITE_BLOCK, ModBlocks.eternium_spirit_block.get());
 
+        createAlchemicalProcessorRecipe(consumer, ModItems.essentia_spirit.get(), ModItems.essentia_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.coal_spirit.get(), ModItems.coal_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.coral_spirit.get(), ModItems.coral_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.diamond_spirit.get(), ModItems.diamond_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.dirt_spirit.get(), ModItems.dirt_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.dye_spirit.get(), ModItems.dye_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.emerald_spirit.get(), ModItems.emerald_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.end_spirit.get(), ModItems.end_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.experience_spirit.get(), ModItems.experience_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.fire_spirit.get(), ModItems.fire_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.glowstone_spirit.get(), ModItems.glowstone_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.gold_spirit.get(), ModItems.gold_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.ice_spirit.get(), ModItems.ice_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.iron_spirit.get(), ModItems.iron_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.lapis_spirit.get(), ModItems.lapis_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.nature_spirit.get(), ModItems.nature_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.nether_spirit.get(), ModItems.nether_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.nether_quartz_spirit.get(), ModItems.nether_quartz_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.obsidian_spirit.get(), ModItems.obsidian_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.redstone_spirit.get(), ModItems.redstone_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.water_spirit.get(), ModItems.water_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.wood_spirit.get(), ModItems.wood_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.amethyst_spirit.get(), ModItems.amethyst_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.copper_spirit.get(), ModItems.copper_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.honey_spirit.get(), ModItems.honey_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.prismarine_spirit.get(), ModItems.prismarine_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.air_spirit.get(), ModItems.air_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.earth_spirit.get(), ModItems.earth_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.stone_spirit.get(), ModItems.stone_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.deepslate_spirit.get(), ModItems.deepslate_seeds.get());
+        createAlchemicalProcessorRecipe(consumer, ModItems.netherite_spirit.get(), ModItems.netherite_seeds.get());
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.generator_block.get(), 1)
                 .pattern("III")
                 .pattern("RFR")
@@ -1769,6 +1833,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .ingredient(ingredient2)
                 .result(result)
                 .save(consumer, new ResourceLocation(HavenAlchemy.MOD_ID + ":alchemical_chamber/" + getItemName(result)));
+    }
+
+    private void createAlchemicalProcessorRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed)
+    {
+        AlchemicalProcessorRecipeBuilder.customRecipe(new ResourceLocation(HavenAlchemy.MOD_ID + "alchemical_processor"), AlchemicalProcessorRecipe.Serializer.INSTANCE)
+                .ingredient(seed)
+                .result(result)
+                .save(consumer, new ResourceLocation(HavenAlchemy.MOD_ID + ":alchemical_processor/" + getItemName(result)));
     }
 
     protected static void spiritCirclePlusCrafting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2, int amount)

@@ -7,13 +7,13 @@ import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.List;
 
-public class EnergyInfoArea extends InfoArea
+public class EnergyInfoAreaVertical extends InfoArea
 {
     private final IEnergyStorage energy;
 
-    public EnergyInfoArea(int xMin, int yMin, IEnergyStorage energy)
+    public EnergyInfoAreaVertical(int xMin, int yMin, IEnergyStorage energy)
     {
-        super(new Rect2i(xMin, yMin, 45, 6));
+        super(new Rect2i(xMin, yMin, 11, 56));
         this.energy = energy;
     }
 
@@ -29,10 +29,10 @@ public class EnergyInfoArea extends InfoArea
 
     @Override
     public void draw(GuiGraphics graphics) {
-        final int width = area.getWidth();
-        // Calculate the width of the filled part based on the energy stored.
-        int filledWidth = (int) (width * (energy.getEnergyStored() / (float) energy.getMaxEnergyStored()));
+        final int height = area.getHeight();
+        // Calculate the height of the filled part based on the energy stored.
+        int filledHeight = (int) (height * (energy.getEnergyStored() / (float) energy.getMaxEnergyStored()));
         graphics.fill(area.getX(), area.getY(), area.getX() + area.getWidth(), area.getY() + area.getHeight(), 0xff330000);
-        graphics.fillGradient(area.getX(), area.getY(), area.getX() + filledWidth, area.getY() + area.getHeight(),0xffb51500, 0xff600b00);
+        graphics.fillGradient(area.getX(), area.getY(), area.getX() + area.getWidth(), area.getY() + filledHeight,0xff600b00, 0xffb51500);
     }
 }

@@ -3,6 +3,7 @@ package net.cathienova.havenalchemy.compat;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
@@ -11,9 +12,14 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+
+import java.util.List;
+import java.util.Optional;
 
 public class AlchemicalChamberCategory implements IRecipeCategory<AlchemicalChamberRecipe>
 {
@@ -70,5 +76,18 @@ public class AlchemicalChamberCategory implements IRecipeCategory<AlchemicalCham
         builder.addSlot(RecipeIngredientRole.INPUT, 140, 43).addIngredients(recipe.getIngredients().get(9));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 77, 9).addItemStack(recipe.getResultItem(null));
+    }
+
+    @Override
+    public void draw(AlchemicalChamberRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY)
+    {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, graphics, mouseX, mouseY);
+
+        Rect2i area = new Rect2i(113, 5, 45, 6);
+        final int width = area.getWidth();
+
+        int filledWidth = (int) (width * (25000 / (float) 100000));
+        graphics.fill(area.getX(), area.getY(), area.getX() + area.getWidth(), area.getY() + area.getHeight(), 0xff330000);
+        graphics.fillGradient(area.getX(), area.getY(), area.getX() + filledWidth, area.getY() + area.getHeight(),0xffb51500, 0xff600b00);
     }
 }

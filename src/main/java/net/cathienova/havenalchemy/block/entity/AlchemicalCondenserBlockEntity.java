@@ -1,6 +1,7 @@
 package net.cathienova.havenalchemy.block.entity;
 
 import net.cathienova.havenalchemy.handler.InputSlotHandler;
+import net.cathienova.havenalchemy.handler.OutputSlotHandler;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.networking.packet.EMCSyncS2CPacket;
 import net.cathienova.havenalchemy.screen.AlchemicalCondenserMenu;
@@ -96,13 +97,9 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            if (!handler.isPresent()) {
-                // Use InputSlotHandler for all sides, excluding slot 0 for both input and output.
-                this.handler = LazyOptional.of(() -> new InputSlotHandler(stackHandler));
+            if (cap == ForgeCapabilities.ITEM_HANDLER) {
+                return handler.cast();
             }
-            return handler.cast();
-        }
         return super.getCapability(cap, side);
     }
 

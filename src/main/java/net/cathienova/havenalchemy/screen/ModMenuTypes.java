@@ -1,7 +1,6 @@
 package net.cathienova.havenalchemy.screen;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
-import net.cathienova.havenalchemy.block.custom.GeneratorContainer;
 import net.cathienova.havenalchemy.screen.chests.*;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -20,11 +19,14 @@ public class ModMenuTypes
     public static final RegistryObject<MenuType<AlchemicalChamberMenu>> ALCHEMICAL_CHAMBER_MENU =
             registerMenuType("alchemical_chamber_menu", AlchemicalChamberMenu::new);
 
+    public static final RegistryObject<MenuType<AlchemicalProcessorMenu>> ALCHEMICAL_PROCESSOR_MENU =
+            registerMenuType("alchemical_processor_menu", AlchemicalProcessorMenu::new);
+
     public static final RegistryObject<MenuType<AlchemicalCondenserMenu>> ALCHEMICAL_CONDENSER_MENU =
             registerMenuType("alchemical_condenser_menu", AlchemicalCondenserMenu::new);
 
-    public static final RegistryObject<MenuType<GeneratorContainer>> GENERATOR_BLOCK_MENU =
-            registerMenuType("generator_block_menu", (windowId, inv, data) -> new GeneratorContainer(windowId, inv.player, data.readBlockPos()));
+    public static final RegistryObject<MenuType<GeneratorMenu>> GENERATOR_BLOCK_MENU =
+            registerMenuType("generator_block_menu", (windowId, inv, data) -> new GeneratorMenu(windowId, inv.player, data.readBlockPos()));
 
     public static final RegistryObject<MenuType<AlchemicalChestMenu>> ALCHEMICAL_CHEST_MENU =
             registerMenuType("alchemical_chest_menu", AlchemicalChestMenu::new);

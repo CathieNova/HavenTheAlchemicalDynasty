@@ -6,8 +6,8 @@ import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.cathienova.havenalchemy.HavenAlchemy;
-import net.cathienova.havenalchemy.recipe.AlchemicalChamberRecipe;
-import net.cathienova.havenalchemy.screen.AlchemicalChamberScreen;
+import net.cathienova.havenalchemy.recipe.*;
+import net.cathienova.havenalchemy.screen.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -28,6 +28,7 @@ public class JEIHavenAlchemyPlugin implements IModPlugin
     public void registerCategories(IRecipeCategoryRegistration registration)
     {
         registration.addRecipeCategories(new AlchemicalChamberCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new AlchemicalProcessorCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -35,8 +36,11 @@ public class JEIHavenAlchemyPlugin implements IModPlugin
     {
         RecipeManager recipeManager = Minecraft.getInstance().getConnection().getRecipeManager();
 
-        List<AlchemicalChamberRecipe> recipes = recipeManager.getAllRecipesFor(AlchemicalChamberRecipe.Type.INSTANCE);
-        registration.addRecipes(AlchemicalChamberCategory.ALCHEMICAL_CHAMBER_RECIPE_RECIPE_TYPE, recipes);
+        List<AlchemicalChamberRecipe> chamberRecipes = recipeManager.getAllRecipesFor(AlchemicalChamberRecipe.Type.INSTANCE);
+        registration.addRecipes(AlchemicalChamberCategory.ALCHEMICAL_CHAMBER_RECIPE_RECIPE_TYPE, chamberRecipes);
+
+        List<AlchemicalProcessorRecipe> processorRecipes = recipeManager.getAllRecipesFor(AlchemicalProcessorRecipe.Type.INSTANCE);
+        registration.addRecipes(AlchemicalProcessorCategory.ALCHEMICAL_PROCESSOR_RECIPE_RECIPE_TYPE, processorRecipes);
     }
 
     @Override
@@ -44,5 +48,8 @@ public class JEIHavenAlchemyPlugin implements IModPlugin
     {
         registration.addRecipeClickArea(AlchemicalChamberScreen.class, 65, 34, 48, 8,
                 AlchemicalChamberCategory.ALCHEMICAL_CHAMBER_RECIPE_RECIPE_TYPE);
+
+        registration.addRecipeClickArea(AlchemicalProcessorScreen.class, 65, 34, 48, 8,
+                AlchemicalProcessorCategory.ALCHEMICAL_PROCESSOR_RECIPE_RECIPE_TYPE);
     }
 }
