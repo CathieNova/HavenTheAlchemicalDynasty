@@ -575,8 +575,11 @@ public class EMCSystem
         addEmc(ModBlocks.obsidian_chest.get().asItem(), 85056);
         addEmc(ModBlocks.netherite_chest.get().asItem(), 608832);
         addEmc(ModItems.alchemical_coal.get(), 512);
+        addEmc(ModBlocks.alchemical_coal_block.get().asItem(), 4608);
         addEmc(ModItems.ethern_coal.get(), 2048);
+        addEmc(ModBlocks.ethern_coal_block.get().asItem(), 18432);
         addEmc(ModItems.aether_fuel.get(), 8192);
+        addEmc(ModBlocks.aether_fuel_block.get().asItem(), 73728);
         addEmc(ModBlocks.red_matter_block.get().asItem(), 4202496);
         addEmc(ModItems.red_matter_pickaxe.get(), 1548288);
         addEmc(ModItems.red_matter_axe.get(), 1548288);

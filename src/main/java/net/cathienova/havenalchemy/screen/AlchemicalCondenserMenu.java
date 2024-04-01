@@ -3,6 +3,7 @@ package net.cathienova.havenalchemy.screen;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.AlchemicalCondenserBlockEntity;
+import net.cathienova.havenalchemy.util.EMCSystem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -23,6 +24,9 @@ public class AlchemicalCondenserMenu extends AbstractContainerMenu
     public long storedEMC = 0;
     public long maxEMC = 10000000;
     private static final int SLOTS = 92;
+    public long getTargetEMC() {
+        return EMCSystem.GetEmc(getBlockEntity().getTargetStack());
+    }
 
     public AlchemicalCondenserMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(SLOTS));
@@ -40,17 +44,16 @@ public class AlchemicalCondenserMenu extends AbstractContainerMenu
         addPlayerHotbar(playerInventory);
 
         blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            addTargetSlot(iItemHandler, 0, -28, -28);
-
-            int index = 1; // Start from index 1 for storage slots
+            int index = 0; // Start from index 1 for storage slots
             for (int y = 0; y < 7; ++y) { // 7 rows
                 for (int x = 0; x < 13; ++x) { // 13 columns per row
-                    if (index < 92) { // Ensure we do not exceed slot 91 (92 slots total)
+                    if (index < 91) { // Ensure we do not exceed slot 90 (91 slots total)
                         this.addSlot(new SlotItemHandler(iItemHandler, index, -28 + x * 18, -8 + y * 18));
                         index++;
                     }
                 }
             }
+            addTargetSlot(iItemHandler, 91, -28, -28);
         });
 
         addDataSlots(data);
@@ -65,12 +68,12 @@ public class AlchemicalCondenserMenu extends AbstractContainerMenu
             // If the item is in one of the player's inventory slots (including hotbar)
             if (index < 35) {
                 // Try to move it to one of the custom slots.
-                if (!this.moveItemStackTo(originalStack, 37, 127, false)) {
+                if (!this.moveItemStackTo(originalStack, 36, 127, false)) {
                     return ItemStack.EMPTY;
                 }
             } else if (index >= 36 && index < 127) { // If the item is in one of the custom slots
                 // Try to move it to the player's inventory.
-                if (!this.moveItemStackTo(originalStack, 0, 35, false)) {
+                if (!this.moveItemStackTo(originalStack, 0, 36, false)) {
                     return ItemStack.EMPTY;
                 }
             }
@@ -127,7 +130,7 @@ public class AlchemicalCondenserMenu extends AbstractContainerMenu
     @Override
     public void clicked(int slotIndex, int button, ClickType actionType, Player player)
     {
-        if (slotIndex == 36) { // Target Slot
+        if (slotIndex == 91) { // Target Slot
             ItemStack oldStack = getCarried();
             super.clicked(slotIndex, button, actionType, player);
             if (!oldStack.isEmpty()) {

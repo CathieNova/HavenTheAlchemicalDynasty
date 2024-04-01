@@ -71,8 +71,8 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
             public int get(int pIndex) {
                 return switch (pIndex)
                         {
-                            case 0 -> (int) (AlchemicalCondenserBlockEntity.this.storedEMC); // Low int of storedEMC
-                            case 1 -> (int) (AlchemicalCondenserBlockEntity.this.maxEMC); // Low int of maxEMC
+                            case 0 -> (int) (AlchemicalCondenserBlockEntity.this.storedEMC);
+                            case 1 -> (int) (AlchemicalCondenserBlockEntity.this.maxEMC);
                             default -> 0;
                         };
             }
@@ -160,7 +160,7 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
     }
 
     public ItemStack getTargetStack() {
-        return stackHandler.getStackInSlot(0);
+        return stackHandler.getStackInSlot(91);
     }
 
     public void tick() {
@@ -169,7 +169,7 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
         long oldStoredEMC = this.storedEMC;
         long oldMaxEMC = this.maxEMC;
 
-        ItemStack targetStack = this.stackHandler.getStackInSlot(0);
+        ItemStack targetStack = this.stackHandler.getStackInSlot(91);
         if (EMCSystem.GetEmc(targetStack.getItem()) <= 0) return;
 
         // Correctly handle EMC not increasing past maxEMC.
@@ -179,7 +179,7 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
 
         // Consuming items for EMC, but ensuring it doesn't exceed maxEMC.
         if (!targetStack.isEmpty() && this.coolDown == 0) {
-            for (int i = 1; i < this.stackHandler.getSlots(); ++i) {
+            for (int i = 0; i < this.stackHandler.getSlots() - 1; ++i) {
                 ItemStack stack = this.stackHandler.getStackInSlot(i);
                 if (stack.isEmpty() || stack.getItem() == targetStack.getItem()) continue;
 
@@ -222,7 +222,7 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
 
     public boolean insertItem(ItemStack insertStack) {
         if (insertStack.isEmpty()) return false;
-        for (int i = 1; i < this.stackHandler.getSlots(); ++i) { // Start from 1 to skip the target slot
+        for (int i = 0; i < this.stackHandler.getSlots() - 1; ++i) {
             ItemStack stackInSlot = this.stackHandler.getStackInSlot(i);
             if (stackInSlot.isEmpty()) {
                 this.stackHandler.insertItem(i, insertStack, false);

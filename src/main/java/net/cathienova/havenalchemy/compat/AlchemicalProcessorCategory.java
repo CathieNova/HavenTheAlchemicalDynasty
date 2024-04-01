@@ -74,6 +74,7 @@ public class AlchemicalProcessorCategory implements IRecipeCategory<AlchemicalPr
         // Calculate the height of the filled part based on the energy stored.
         int filledHeight = (int) (area.getHeight() * (10000 / (float) 42000));
         graphics.fill(area.getX(), area.getY(), area.getX() + area.getWidth(), area.getY() + area.getHeight(), 0xff330000);
-        graphics.fillGradient(area.getX(), area.getY(), area.getX() + area.getWidth(), area.getY() + filledHeight,0xff600b00, 0xffb51500);
+        int startY = area.getY() + area.getHeight() - filledHeight;
+        graphics.fillGradient(area.getX(), startY, area.getX() + area.getWidth(), area.getY() + area.getHeight(), 0xffb51500, 0xff600b00);
     }
 }

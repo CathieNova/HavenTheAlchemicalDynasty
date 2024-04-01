@@ -72,7 +72,7 @@ public class AlchemicalChestMenu extends AbstractContainerMenu
                 }
             } else if (index >= 36 && index < 127) { // If the item is in one of the custom slots
                 // Try to move it to the player's inventory.
-                if (!this.moveItemStackTo(originalStack, 0, 35, false)) {
+                if (!this.moveItemStackTo(originalStack, 0, 36, false)) {
                     return ItemStack.EMPTY;
                 }
             }

@@ -47,9 +47,21 @@ public class AlchemicalCondenserScreen extends AbstractContainerScreen<Alchemica
         long emc = menu.getStoredEMC();
         if (emc > menu.maxEMC) emc = menu.maxEMC;
 
-        if (emc > 0)
-        {
-            guiGraphics.blit(BACKGROUND, x + 31, y + 7, 0, 240, (int) Math.round((double) emc / menu.maxEMC * 107), 14);
+        if (emc > 0) {
+            int width = 107;
+
+            if (emc > menu.getTargetEMC() || emc > menu.maxEMC) {
+                width = 107;
+            } else {
+                double ratio = (double) emc / Math.min(menu.getTargetEMC(), menu.maxEMC);
+                width = (int) Math.round(ratio * 107);
+
+                if (!(menu.getTargetEMC() < menu.maxEMC && menu.slots.get(91).hasItem())) {
+                    width = (int) Math.round((double) emc / menu.maxEMC * 107);
+                }
+            }
+
+            guiGraphics.blit(BACKGROUND, x + 31, y + 7, 0, 240, width, 14);
         }
         guiGraphics.drawString(font, "" + String.format("%,d", emc), x + 140, y + 10, 65535);
     }
