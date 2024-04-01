@@ -144,6 +144,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_alchemical_chest", has(ModBlocks.alchemical_chest.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_condenser");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_processor.get(), 1)
+                .pattern("AAA")
+                .pattern("DGD")
+                .pattern("AAA")
+                .define('A', ModBlocks.asphalt.get())
+                .define('D', ModItems.alchemy_dust.get())
+                .define('G', ModBlocks.generator_block.get())
+                .unlockedBy("has_generator_block", has(ModBlocks.generator_block.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/alchemical_processor");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.speed_plate_i.get(), 6)
                 .pattern("AAA")
                 .pattern("DED")
