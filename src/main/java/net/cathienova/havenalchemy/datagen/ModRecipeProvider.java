@@ -358,7 +358,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         TransmuteUp(consumer, ModItems.alchemical_coal.get(), Items.COAL);
         TransmuteUp(consumer, ModItems.ethern_coal.get(), ModItems.alchemical_coal.get());
         TransmuteUp(consumer, ModItems.aether_fuel.get(), ModItems.ethern_coal.get());
-        TransmuteUp(consumer, Items.IRON_INGOT, Items.ENDER_PEARL);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ENDER_PEARL, 1)
+                .pattern("III")
+                .pattern("IA ")
+                .pattern("   ")
+                .define('I', Items.IRON_INGOT)
+                .define('A', ModTags.Items.alchemy_stones)
+                .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":transmute/ender_pearl_from_iron_ingot");
         TransmuteUp(consumer, Items.IRON_INGOT, Items.COPPER_INGOT);
         TransmuteUp(consumer, Items.GOLD_INGOT, Items.IRON_INGOT);
         TransmuteUp(consumer, Items.DIAMOND, Items.GOLD_INGOT);
@@ -376,7 +383,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         TransmuteDown(consumer, Items.COAL, ModItems.alchemical_coal.get());
         TransmuteDown(consumer, ModItems.alchemical_coal.get(), ModItems.ethern_coal.get());
         TransmuteDown(consumer, ModItems.ethern_coal.get(), ModItems.aether_fuel.get());
-        TransmuteDown(consumer, Items.ENDER_PEARL, Items.IRON_INGOT);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.IRON_INGOT, 4)
+                .pattern("AE")
+                .define('A', ModTags.Items.alchemy_stones)
+                .define('E', Items.ENDER_PEARL)
+                .unlockedBy("has_ender_pearl", has(Items.ENDER_PEARL))
+                .save(consumer, HavenAlchemy.MOD_ID + ":transmute/iron_ingot_from_ender_pearl");
         TransmuteDown(consumer, Items.COPPER_INGOT, Items.IRON_INGOT);
         TransmuteDown(consumer, Items.IRON_INGOT, Items.GOLD_INGOT);
         TransmuteDown(consumer, Items.GOLD_INGOT, Items.DIAMOND);
