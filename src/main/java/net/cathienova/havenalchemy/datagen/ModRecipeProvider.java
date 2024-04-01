@@ -1970,10 +1970,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     protected static void UnBlockRecipe(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
     {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ingredient, 9)
-                .requires(result, 1)
-                .unlockedBy("has_" + getItemName(result), has(result))
-                .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(ingredient) + "_from_" + getItemName(result));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, 9)
+                .requires(ingredient, 1)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result) + "_from_" + getItemName(ingredient));
     }
     
     protected static void SmallBlockRecipe(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
