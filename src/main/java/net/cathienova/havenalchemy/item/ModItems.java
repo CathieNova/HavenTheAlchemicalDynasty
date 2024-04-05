@@ -537,4 +537,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> neosphore_ore_hammer = ITEMS.register("neosphore_ore_hammer",
             () -> new NeosphoreOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).defaultDurability(-1)));
+
+    public static final RegistryObject<Item> experience_orb = ITEMS.register("experience_orb",
+            () -> new ExperienceOrb(new Item.Properties().stacksTo(16).rarity(Rarity.RARE)));
 }

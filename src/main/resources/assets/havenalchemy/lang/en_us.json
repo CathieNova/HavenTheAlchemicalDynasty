@@ -132,6 +132,8 @@
     "item.havenalchemy.essence_apple": "Essence Apple",
     "item.havenalchemy.trowel": "Trowel",
     "item.havenalchemy.trowel.tooltip": "Right click to place random blocks from the hotbar.",
+    "item.havenalchemy.experience_orb": "Experience Orb",
+    "item.havenalchemy.experience_orb.tooltip": "Grants 10% experience when used.",
 
     "item.havenalchemy.gloves_of_rawr": "Gloves of Rawr",
     "tooltip.havenalchemy.gloves_of_rawr": "Increases the wearer's attack damage.",

@@ -17,12 +17,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder
@@ -43,6 +46,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer)
     {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.experience_orb.get(), 1)
+                .pattern("SSS")
+                .pattern("SSS")
+                .pattern("SSS")
+                .define('S', ModItems.experience_spirit.get())
+                .unlockedBy("has_experience_spirit", has(ModItems.experience_spirit.get()))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/experience_orb");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.dirt_chest.get(), 1)
                 .pattern("DDD")
                 .pattern("DLD")
@@ -1838,6 +1849,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .unlockedBy("has_neosphore_block", has(ModBlocks.neosphore_block.get()))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/neosphore_ore_hammer");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FARMLAND, 1)
+                .requires(Items.DIRT)
+                .requires(ItemTags.HOES)
+                .unlockedBy("has_dirt", has(Items.DIRT))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/farmland");
     }
 
     private void createAlchemicalChamberRecipe(Consumer<FinishedRecipe> consumer, Item result, ItemLike seed, ItemLike dust, ItemLike ingredient1, ItemLike ingredient2)

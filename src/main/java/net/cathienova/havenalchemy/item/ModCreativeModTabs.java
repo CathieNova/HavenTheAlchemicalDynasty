@@ -32,6 +32,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.red_matter_block.get()));
                         add.accept(new ItemStack(ModItems.void_matter.get()));
                         add.accept(new ItemStack(ModItems.trowel.get()));
+                        add.accept(new ItemStack(ModItems.experience_orb.get()));
 
                         add.accept(new ItemStack(ModBlocks.speed_plate_i.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.speed_plate_ii.get().asItem()));
@@ -42,8 +43,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.cable_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.facade_block.get().asItem()));
 
-                        //add.accept(new ItemStack(ModBlocks.charmel_sapling.get().asItem()));
-                        add.accept(new ItemStack(ModBlocks.catacombs_portal.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.charmel_sapling.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.alchemical_chamber.get()));
                         add.accept(new ItemStack(ModBlocks.alchemical_processor.get()));
                         add.accept(new ItemStack(ModBlocks.alchemical_condenser.get().asItem()));
@@ -234,7 +234,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.water_pendant.get()));
                         add.accept(new ItemStack(ModItems.nightvision_goggles.get()));
 
-                        //add.accept(new ItemStack(ModBlocks.charmel_leaves.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.charmel_leaves.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charmel_log.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charmel_wood.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.stripped_charmel_log.get().asItem()));
