@@ -21,7 +21,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> neosphore_ore_placed_key = registerKey("neosphore_ore_placed");
     public static final ResourceKey<PlacedFeature> basphalt_stone_placed_key = registerKey("basphalt_stone_placed");
-    //public static final ResourceKey<PlacedFeature> charmel_placed_key = registerKey("charmel_placed_key");
+    public static final ResourceKey<PlacedFeature> charmel_placed_key = registerKey("charmel_placed_key");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -35,8 +35,8 @@ public class ModPlacedFeatures {
                 ModOrePlacement.commonOrePlacement(50,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-5))));
 
-        /*register(context, charmel_placed_key, configuredFeatures.getOrThrow(ModConfiguredFeatures.charmel_key),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(0,0.1f,2), ModBlocks.charmel_sapling.get()));*/
+        register(context, charmel_placed_key, configuredFeatures.getOrThrow(ModConfiguredFeatures.charmel_key),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.075f, 2), ModBlocks.charmel_sapling.get()));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

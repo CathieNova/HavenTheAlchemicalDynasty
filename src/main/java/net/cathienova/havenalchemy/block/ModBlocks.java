@@ -9,6 +9,7 @@ import net.cathienova.havenalchemy.cables.blocks.FacadeBlock;
 import net.cathienova.havenalchemy.cables.blocks.FacadeBlockItem;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.cathienova.havenalchemy.item.fuel.FuelBlockItem;
+import net.cathienova.havenalchemy.worldgen.tree.CharmelTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -254,11 +255,11 @@ public class ModBlocks {
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE)
                     .sound(SoundType.WOOD), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
 
-    /*public static final RegistryObject<Block> charmel_sapling = registerBlock("charmel_sapling",
-            () -> new SaplingBlock(new CharmelTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));*/
+    public static final RegistryObject<Block> charmel_sapling = registerBlock("charmel_sapling",
+            () -> new SaplingBlock(new CharmelTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 
-    /*public static final RegistryObject<Block> charmel_leaves = registerBlock("charmel_leaves",
+    public static final RegistryObject<Block> charmel_leaves = registerBlock("charmel_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).sound(SoundType.CHERRY_LEAVES))
             {
                 @Override
@@ -278,15 +279,7 @@ public class ModBlocks {
                 {
                     return 5;
                 }
-            });*/
-
-    public static final RegistryObject<Block> catacombs_portal = registerBlock("catacombs_portal",
-            () -> new ModPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-                    .sound(SoundType.STONE)
-                    .noOcclusion()
-                    .noLootTable()
-                    .noCollission()
-            ));
+            });
 
     // BASPHALT STONE AND MORE
     public static final RegistryObject<Block> basphalt_stone = registerBlock("basphalt_stone",

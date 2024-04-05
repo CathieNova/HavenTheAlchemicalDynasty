@@ -3,6 +3,8 @@ package net.cathienova.havenalchemy.worldgen;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.util.ModTags;
+import net.cathienova.havenalchemy.worldgen.tree.custom.CharmelFoliagePlacer;
+import net.cathienova.havenalchemy.worldgen.tree.custom.CharmelTrunkPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -44,12 +46,15 @@ public class ModConfiguredFeatures {
         register(context, overworld_basphalt_stone_key, Feature.ORE, new OreConfiguration(overworldbasphalt_stone, 45));
         register(context, overworld_neosphore_ore_key, Feature.ORE, new OreConfiguration(overworldneosphoreOres, 8));
 
-        /*register(context, charmel_key, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+        register(context, charmel_key, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.charmel_log.get()),
-                new StraightTrunkPlacer(1, 2, 1),
+                new CharmelTrunkPlacer(3, 1, 3),
                 BlockStateProvider.simple(ModBlocks.charmel_leaves.get()),
-                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2),
-                new TwoLayersFeatureSize(1, 0, 2)).build());*/
+                new CharmelFoliagePlacer(ConstantInt.of(0), ConstantInt.of(1), 4),
+                new TwoLayersFeatureSize(1, 0, 2))
+                .ignoreVines()
+                .build());
+
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

@@ -61,6 +61,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.dark_matter_apple);
         simpleItem(ModItems.red_matter_apple);
         handHeldItem(ModItems.trowel);
+        simpleItem(ModItems.experience_orb);
 
         trimmedArmorItem(ModItems.dark_matter_helmet);
         trimmedArmorItem(ModItems.dark_matter_chestplate);
@@ -223,7 +224,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         evenSimplerBlockItem(ModBlocks.charmel_slab);
         evenSimplerBlockItem(ModBlocks.charmel_stairs);
-        //saplingItem(ModBlocks.charmel_sapling);
+        saplingItem(ModBlocks.charmel_sapling);
         simpleItem(ModItems.neosphore_smithing_template);
 
         //Artifacts

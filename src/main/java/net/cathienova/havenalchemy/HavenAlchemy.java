@@ -14,6 +14,8 @@ import net.cathienova.havenalchemy.recipe.ModRecipes;
 import net.cathienova.havenalchemy.screen.*;
 import net.cathienova.havenalchemy.screen.chests.*;
 import net.cathienova.havenalchemy.util.EMCSystem;
+import net.cathienova.havenalchemy.worldgen.tree.ModFoliagePlacers;
+import net.cathienova.havenalchemy.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,6 +46,8 @@ public class HavenAlchemy
         ModCreativeModTabs.register(modEventBus);
         ModLootModifier.register(modEventBus);
         ModBlockEntities.register(modEventBus);
+        ModTrunkPlacerTypes.register(modEventBus);
+        ModFoliagePlacers.register(modEventBus);
         ModMessages.register();
         ModMenuTypes.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(new MobDropHandler());

@@ -263,6 +263,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.stripped_charmel_wood.get())
         ;
 
+        this.tag(BlockTags.LOGS)
+                .add(ModBlocks.charmel_log.get())
+                .add(ModBlocks.charmel_wood.get())
+                .add(ModBlocks.stripped_charmel_log.get())
+                .add(ModBlocks.stripped_charmel_wood.get())
+        ;
+
         this.tag(BlockTags.PLANKS)
                 .add(ModBlocks.charmel_planks.get())
         ;

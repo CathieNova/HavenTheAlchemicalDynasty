@@ -75,7 +75,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.charmel_wood.get());
         this.dropSelf(ModBlocks.stripped_charmel_log.get());
         this.dropSelf(ModBlocks.stripped_charmel_wood.get());
-        //this.add(ModBlocks.charmel_leaves.get(), block -> createLeavesDrops(ModBlocks.charmel_sapling.get(), ModBlocks.charmel_leaves.get()));
+        this.add(ModBlocks.charmel_leaves.get(), block -> createLeavesDrops(block, ModBlocks.charmel_sapling.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         this.dropSelf(ModBlocks.charmel_planks.get());
         this.dropSelf(ModBlocks.charmel_stairs.get());
         this.dropSelf(ModBlocks.charmel_slab.get());
@@ -83,7 +83,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.charmel_fence_gate.get());
         this.dropSelf(ModBlocks.charmel_button.get());
         this.dropSelf(ModBlocks.charmel_pressure_plate.get());
-        //this.dropSelf(ModBlocks.charmel_sapling.get());
+        this.dropSelf(ModBlocks.charmel_sapling.get());
 
         this.dropSelf(ModBlocks.neosphore_block.get());
         this.dropSelf(ModBlocks.raw_neosphore_block.get());
