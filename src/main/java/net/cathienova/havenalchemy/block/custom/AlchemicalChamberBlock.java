@@ -2,6 +2,8 @@ package net.cathienova.havenalchemy.block.custom;
 
 import net.cathienova.havenalchemy.block.entity.AlchemicalChamberBlockEntity;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
+import net.cathienova.havenalchemy.networking.ModMessages;
+import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -63,12 +65,12 @@ public class AlchemicalChamberBlock extends BaseEntityBlock
         if (!pLevel.isClientSide)
         {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof AlchemicalChamberBlockEntity)
-            {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, (AlchemicalChamberBlockEntity) blockEntity, pPos);
-            }
-            else
-            {
+            if (blockEntity instanceof AlchemicalChamberBlockEntity) {
+                AlchemicalChamberBlockEntity chamber = (AlchemicalChamberBlockEntity) blockEntity;
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, chamber, pPos);
+                ModMessages.sendToClients(new EnergySyncS2CPacket(chamber.getEnergyStorage().getEnergyStored(), pPos));
+
+            } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
         }

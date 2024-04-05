@@ -1,7 +1,10 @@
 package net.cathienova.havenalchemy.block.custom;
 
+import net.cathienova.havenalchemy.block.entity.AlchemicalCondenserBlockEntity;
 import net.cathienova.havenalchemy.block.entity.AlchemicalProcessorBlockEntity;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
+import net.cathienova.havenalchemy.networking.ModMessages;
+import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -65,7 +68,9 @@ public class AlchemicalProcessorBlock extends BaseEntityBlock
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
             if (blockEntity instanceof AlchemicalProcessorBlockEntity)
             {
+                AlchemicalProcessorBlockEntity processor = (AlchemicalProcessorBlockEntity) blockEntity;
                 NetworkHooks.openScreen((ServerPlayer) pPlayer, (AlchemicalProcessorBlockEntity) blockEntity, pPos);
+                ModMessages.sendToClients(new EnergySyncS2CPacket(processor.getEnergyStorage().getEnergyStored(), pPos));
             }
             else
             {
