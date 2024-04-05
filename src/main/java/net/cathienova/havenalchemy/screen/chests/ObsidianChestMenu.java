@@ -112,18 +112,4 @@ public class ObsidianChestMenu extends AbstractContainerMenu
     public ObsidianChestBlockEntity getBlockEntity() {
         return this.blockEntity;
     }
-
-    @Override
-    public void clicked(int slotIndex, int button, ClickType actionType, Player player)
-    {
-        if (slotIndex == 36) { // Target Slot
-            ItemStack oldStack = getCarried();
-            super.clicked(slotIndex, button, actionType, player);
-            if (!oldStack.isEmpty()) {
-                setCarried(oldStack);
-            }
-            return;
-        }
-        super.clicked(slotIndex, button, actionType, player);
-    }
 }
