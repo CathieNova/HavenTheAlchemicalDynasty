@@ -52,16 +52,6 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
         }
     };
 
-    private static final int INPUT_SLOT_1 = 0;
-    private static final int INPUT_SLOT_2 = 1;
-    private static final int INPUT_SLOT_3 = 2;
-    private static final int INPUT_SLOT_4 = 3;
-    private static final int INPUT_SLOT_5 = 4;
-    private static final int INPUT_SLOT_6 = 5;
-    private static final int INPUT_SLOT_7 = 6;
-    private static final int INPUT_SLOT_8 = 7;
-    private static final int INPUT_SLOT_9 = 8;
-    private static final int INPUT_SLOT_10 = 9;
     public static boolean isCrafting = false;
     private static final int OUTPUT_SLOT = 10;
 
@@ -381,8 +371,6 @@ public class AlchemicalChamberBlockEntity extends BlockEntity implements MenuPro
             }
         }
     }
-
-
 
     private void resetProgress()
     {

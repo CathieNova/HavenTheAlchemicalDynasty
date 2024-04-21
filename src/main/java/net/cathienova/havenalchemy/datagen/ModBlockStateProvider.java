@@ -82,6 +82,13 @@ public class ModBlockStateProvider extends BlockStateProvider
         blockWithItem(ModBlocks.neosphore_block);
         blockWithItem(ModBlocks.neosphore_ore);
         blockWithItem(ModBlocks.raw_neosphore_block);
+        blockWithItem(ModBlocks.havenite_block);
+        blockWithItem(ModBlocks.havenite_ore);
+        blockWithItem(ModBlocks.andesite_havenite_ore);
+        blockWithItem(ModBlocks.diorite_havenite_ore);
+        blockWithItem(ModBlocks.granite_havenite_ore);
+        blockWithItem(ModBlocks.raw_havenite_block);
+        blockWithItem(ModBlocks.deepslate_havenite_ore);
 
         logBlock(((RotatedPillarBlock) ModBlocks.charmel_log.get()));
         axisBlock(((RotatedPillarBlock) ModBlocks.charmel_wood.get()), blockTexture(ModBlocks.charmel_log.get()), blockTexture(ModBlocks.charmel_log.get()));

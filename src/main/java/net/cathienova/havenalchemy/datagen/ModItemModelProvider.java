@@ -57,11 +57,28 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.dark_matter);
         simpleItem(ModItems.red_matter);
         simpleItem(ModItems.void_matter);
+        simpleItem(ModItems.raw_havenite);
+        simpleItem(ModItems.havenite_ingot);
+        simpleItem(ModItems.havenite_nugget);
+        simpleItem(ModItems.havenite_dust);
+        simpleItem(ModItems.research_tier_basic);
+        simpleItem(ModItems.research_tier_intermediate);
+        simpleItem(ModItems.research_tier_advanced);
+        simpleItem(ModItems.research_tier_elite);
+        simpleItem(ModItems.research_tier_ultimate);
+        simpleItem(ModItems.mini_coal);
+        simpleItem(ModItems.mini_charcoal);
         simpleItem(ModItems.essence_apple);
         simpleItem(ModItems.dark_matter_apple);
         simpleItem(ModItems.red_matter_apple);
         handHeldItem(ModItems.trowel);
         simpleItem(ModItems.experience_orb);
+        ShearsItem(ModItems.wooden_shears);
+        handHeldItem(ModItems.stone_hammer);
+        handHeldItem(ModItems.iron_hammer);
+        handHeldItem(ModItems.golden_hammer);
+        handHeldItem(ModItems.diamond_hammer);
+        handHeldItem(ModItems.netherite_hammer);
 
         trimmedArmorItem(ModItems.dark_matter_helmet);
         trimmedArmorItem(ModItems.dark_matter_chestplate);
@@ -78,22 +95,25 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         handHeldItem(ModItems.dark_matter_hoe);
         handHeldItem(ModItems.dark_matter_pickaxe);
+        handHeldItem(ModItems.dark_matter_hammer);
         handHeldItem(ModItems.dark_matter_axe);
         handHeldItem(ModItems.dark_matter_shovel);
         handHeldItem(ModItems.dark_matter_sword);
-        handHeldItem(ModItems.dark_matter_shears);
+        ShearsItem(ModItems.dark_matter_shears);
         handHeldItem(ModItems.red_matter_hoe);
         handHeldItem(ModItems.red_matter_pickaxe);
+        handHeldItem(ModItems.red_matter_hammer);
         handHeldItem(ModItems.red_matter_axe);
         handHeldItem(ModItems.red_matter_shovel);
         handHeldItem(ModItems.red_matter_sword);
-        handHeldItem(ModItems.red_matter_shears);
+        ShearsItem(ModItems.red_matter_shears);
 
         simpleItem(ModItems.neosphore_ingot);
         simpleItem(ModItems.neosphore_nugget);
         simpleItem(ModItems.raw_neosphore);
         handHeldItem(ModItems.neosphore_axe);
         handHeldItem(ModItems.neosphore_pickaxe);
+        handHeldItem(ModItems.neosphore_hammer);
         handHeldItem(ModItems.neosphore_sword);
         handHeldItem(ModItems.neosphore_hoe);
         handHeldItem(ModItems.neosphore_shovel);
@@ -122,6 +142,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.iron_ore_hammer);
         handHeldItem(ModItems.gold_ore_hammer);
         handHeldItem(ModItems.diamond_ore_hammer);
+        handHeldItem(ModItems.havenite_ore_hammer);
         handHeldItem(ModItems.neosphore_ore_hammer);
 
         simpleItem(ModItems.essentia_seeds);

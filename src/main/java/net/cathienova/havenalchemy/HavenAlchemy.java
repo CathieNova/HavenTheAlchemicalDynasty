@@ -3,6 +3,8 @@ package net.cathienova.havenalchemy;
 import com.mojang.logging.LogUtils;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
+import net.cathienova.havenalchemy.config.CommonConfig;
+import net.cathienova.havenalchemy.events.FluidInit;
 import net.cathienova.havenalchemy.handler.BootsofMeowHandler;
 import net.cathienova.havenalchemy.handler.MobDropHandler;
 import net.cathienova.havenalchemy.item.ModCreativeModTabs;
@@ -18,14 +20,18 @@ import net.cathienova.havenalchemy.worldgen.tree.ModFoliagePlacers;
 import net.cathienova.havenalchemy.worldgen.tree.ModTrunkPlacerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 
 import static net.cathienova.havenalchemy.util.EMCSystem.loadEmcValues;
@@ -35,24 +41,35 @@ public class HavenAlchemy
 {
     public static final String MOD_ID = "havenalchemy";
     public static final Logger LOGGER = LogUtils.getLogger();
+    static final ForgeConfigSpec commonSpec;
+    public static final CommonConfig c_config;
+
+    static {
+        final Pair<CommonConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(CommonConfig::new);
+        commonSpec = specPair.getRight();
+        c_config = specPair.getLeft();
+    }
 
     public HavenAlchemy()
     {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::commonSetup);
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, commonSpec, HavenAlchemy.MOD_ID + "/HavenAlchemy-Config.toml");
+        bus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
-        ModBlocks.register(modEventBus);
-        ModItems.register(modEventBus);
-        ModCreativeModTabs.register(modEventBus);
-        ModLootModifier.register(modEventBus);
-        ModBlockEntities.register(modEventBus);
-        ModTrunkPlacerTypes.register(modEventBus);
-        ModFoliagePlacers.register(modEventBus);
+        ModBlocks.register(bus);
+        ModItems.register(bus);
+        ModCreativeModTabs.register(bus);
+        ModLootModifier.register(bus);
+        ModBlockEntities.register(bus);
+        ModTrunkPlacerTypes.register(bus);
+        ModFoliagePlacers.register(bus);
         ModMessages.register();
-        ModMenuTypes.register(modEventBus);
+        ModMenuTypes.register(bus);
+        FluidInit.FLUID_TYPES.register(bus);
+        FluidInit.FLUIDS.register(bus);
         MinecraftForge.EVENT_BUS.register(new MobDropHandler());
         MinecraftForge.EVENT_BUS.register(BootsofMeowHandler.class);
-        ModRecipes.register(modEventBus);
+        ModRecipes.register(bus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

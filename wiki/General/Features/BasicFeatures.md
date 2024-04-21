@@ -1,3 +1,0 @@
-# 📃 Basic Features
-
-### Coming soon

@@ -1,11 +1,13 @@
 package net.cathienova.havenalchemy.datagen.loot;
 
+import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.horticulture.EssentiaCrop;
 import net.cathienova.havenalchemy.block.horticulture.StoneCrop;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -21,6 +23,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -68,6 +71,24 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.neosphore_ore.get(),
                 block -> createOreLikeOreDrops(ModBlocks.neosphore_ore.get(), ModItems.raw_neosphore.get()));
 
+        this.add(ModBlocks.havenite_ore.get(),
+                block -> createOreLikeOreDrops(ModBlocks.havenite_ore.get(), ModItems.raw_havenite.get()));
+
+        this.add(ModBlocks.andesite_havenite_ore.get(),
+                block -> createOreLikeOreDrops(ModBlocks.andesite_havenite_ore.get(), ModItems.raw_havenite.get()));
+
+        this.add(ModBlocks.diorite_havenite_ore.get(),
+                block -> createOreLikeOreDrops(ModBlocks.diorite_havenite_ore.get(), ModItems.raw_havenite.get()));
+
+        this.add(ModBlocks.granite_havenite_ore.get(),
+                block -> createOreLikeOreDrops(ModBlocks.granite_havenite_ore.get(), ModItems.raw_havenite.get()));
+
+        this.add(ModBlocks.deepslate_havenite_ore.get(),
+                block -> createOreLikeOreDrops(ModBlocks.deepslate_havenite_ore.get(), ModItems.raw_havenite.get()));
+
+        this.dropSelf(ModBlocks.havenite_block.get());
+        this.dropSelf(ModBlocks.raw_havenite_block.get());
+
         this.add(ModBlocks.basphalt_stone.get(),
                 block -> createSilkDrop(ModBlocks.basphalt_stone.get(), ModBlocks.basphalt_cobblestone.get().asItem()));
 
@@ -84,6 +105,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.charmel_button.get());
         this.dropSelf(ModBlocks.charmel_pressure_plate.get());
         this.dropSelf(ModBlocks.charmel_sapling.get());
+
+        this.dropSelf(Objects.requireNonNull(ModBlocks.BLOCKS.getEntries().stream().filter(block -> block.getId().getPath().contains("acid_fluid")).findFirst().get().get()));
 
         this.dropSelf(ModBlocks.neosphore_block.get());
         this.dropSelf(ModBlocks.raw_neosphore_block.get());

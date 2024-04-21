@@ -65,7 +65,7 @@ public class NetheriteChestMenu extends AbstractContainerMenu
             ItemStack originalStack = slot.getItem();
 
             // If the item is in one of the player's inventory slots (including hotbar)
-            if (index < 35) {
+            if (index < 36) {
                 // Try to move it to one of the custom slots.
                 if (!this.moveItemStackTo(originalStack, 36, 127, false)) {
                     return ItemStack.EMPTY;

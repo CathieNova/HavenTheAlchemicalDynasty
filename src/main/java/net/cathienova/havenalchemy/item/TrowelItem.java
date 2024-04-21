@@ -75,12 +75,14 @@ public class TrowelItem extends Item {
         BlockState blockState = ((net.minecraft.world.item.BlockItem) randomBlockItem.getItem()).getBlock().defaultBlockState();
         context.getLevel().setBlock(pos, blockState, 3);
         context.getLevel().gameEvent(GameEvent.BLOCK_PLACE, pos, GameEvent.Context.of(player, blockState));
+        context.getLevel().playSound(player, pos, blockState.getSoundType().getPlaceSound(), net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
 
         // Decrease the stack size by one
         if (!player.isCreative())
+        {
             randomBlockItem.shrink(1);
-        context.getLevel().playSound(player, pos, blockState.getSoundType().getPlaceSound(), net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
-        //context.getItemInHand().hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(context.getHand()));
+            context.getItemInHand().hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(context.getHand()));
+        }
 
         return InteractionResult.sidedSuccess(context.getLevel().isClientSide());
     }

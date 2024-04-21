@@ -2,17 +2,22 @@ package net.cathienova.havenalchemy.item;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
+import net.cathienova.havenalchemy.config.HavenConfig;
 import net.cathienova.havenalchemy.item.alchemy_stone.Alchemy_Stone;
 import net.cathienova.havenalchemy.item.alchemy_stone.Alchemy_Stone_Fractured;
 import net.cathienova.havenalchemy.item.artifacts.*;
 import net.cathienova.havenalchemy.item.bark.*;
+import net.cathienova.havenalchemy.item.equipment.NeosphoreArmor;
 import net.cathienova.havenalchemy.item.fuel.FuelItem;
+import net.cathienova.havenalchemy.item.hammers.HammerBase;
 import net.cathienova.havenalchemy.item.orehammers.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -31,6 +36,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> trowel = ITEMS.register("trowel",
             () -> new TrowelItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(512)));
+
+    public static final RegistryObject<ShearsItem> wooden_shears = ITEMS.register("wooden_shears",
+            () -> new ShearsItem(new Item.Properties().stacksTo(1).durability(32)));
 
 // Alchemy Dusts & Materials
     public static final RegistryObject<Item> alchemy_dust = ITEMS.register("alchemy_dust",
@@ -66,6 +74,65 @@ public class ModItems {
     public static final RegistryObject<Item> essence_shard = ITEMS.register("essence_shard",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
 
+    public static final RegistryObject<Item> research_tier_basic = ITEMS.register("research_tier_basic",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> research_tier_intermediate = ITEMS.register("research_tier_intermediate",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> research_tier_advanced = ITEMS.register("research_tier_advanced",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> research_tier_elite = ITEMS.register("research_tier_elite",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> research_tier_ultimate = ITEMS.register("research_tier_ultimate",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<Item> raw_havenite = ITEMS.register("raw_havenite",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> havenite_ingot = ITEMS.register("havenite_ingot",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> havenite_nugget = ITEMS.register("havenite_nugget",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> havenite_dust = ITEMS.register("havenite_dust",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> mini_coal = ITEMS.register("mini_coal",
+            () -> new Item(new Item.Properties()) {
+                @Override
+                public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                    return HavenConfig.miniCoalBurnTime;
+                }
+            });
+
+    public static final RegistryObject<Item> mini_charcoal = ITEMS.register("mini_charcoal",
+            () -> new Item(new Item.Properties()) {
+                @Override
+                public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+                    return HavenConfig.miniCharcoalBurnTime;
+                }
+            });
+
+    public static final RegistryObject<Item> stone_hammer = ITEMS.register("stone_hammer",
+            () -> new HammerBase(ModToolTiers.stone, 1, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(131)));
+
+    public static final RegistryObject<Item> iron_hammer = ITEMS.register("iron_hammer",
+            () -> new HammerBase(ModToolTiers.iron, 2, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(250)));
+
+    public static final RegistryObject<Item> golden_hammer = ITEMS.register("golden_hammer",
+            () -> new HammerBase(ModToolTiers.gold, 3, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(169)));
+
+    public static final RegistryObject<Item> diamond_hammer = ITEMS.register("diamond_hammer",
+            () -> new HammerBase(ModToolTiers.diamond, 4, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(1561)));
+
+    public static final RegistryObject<Item> netherite_hammer = ITEMS.register("netherite_hammer",
+            () -> new HammerBase(ModToolTiers.netherite, 5, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(2031)));
+
     // Dark Matter Armor
     public static final RegistryObject<Item> dark_matter_helmet = ITEMS.register("dark_matter_helmet",
             () -> new ModItemArmor(ModArmorMaterials.dark_matter, ArmorItem.Type.HELMET,
@@ -83,7 +150,7 @@ public class ModItems {
             () -> new ModItemArmor(ModArmorMaterials.dark_matter, ArmorItem.Type.BOOTS,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
-// Dark Matter Tools
+    // Dark Matter Tools
     public static final RegistryObject<Item> dark_matter_sword = ITEMS.register("dark_matter_sword",
             () -> new SwordItem(ModToolTiers.dark_matter, 3, -3.2F,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
@@ -104,10 +171,17 @@ public class ModItems {
             () -> new HoeItem(ModToolTiers.dark_matter, 0, 0F,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
-    public static final RegistryObject<Item> dark_matter_shears = ITEMS.register("dark_matter_shears",
+    public static final RegistryObject<ShearsItem> dark_matter_shears = ITEMS.register("dark_matter_shears",
             () -> new ShearsItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
-// Red Matter Armor
+    public static final RegistryObject<Item> dark_matter_shield = ITEMS.register("dark_matter_shield",
+            () -> new ShieldItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(610)));
+
+    public static final RegistryObject<Item> dark_matter_hammer = ITEMS.register("dark_matter_hammer",
+            () -> new HammerBase(ModToolTiers.dark_matter, 1, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(4062).rarity(Rarity.RARE)));
+
+    // Red Matter Armor
     public static final RegistryObject<Item> red_matter_helmet = ITEMS.register("red_matter_helmet",
             () -> new ModItemArmor(ModArmorMaterials.red_matter, ArmorItem.Type.HELMET,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
@@ -124,7 +198,7 @@ public class ModItems {
             () -> new ModItemArmor(ModArmorMaterials.red_matter, ArmorItem.Type.BOOTS,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
-// Red Matter Tools
+    // Red Matter Tools
     public static final RegistryObject<Item> red_matter_sword = ITEMS.register("red_matter_sword",
             () -> new SwordItem(ModToolTiers.red_matter, 3, -3.2F,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
@@ -145,46 +219,61 @@ public class ModItems {
             () -> new HoeItem(ModToolTiers.red_matter, 0, 0F,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
-    public static final RegistryObject<Item> red_matter_shears = ITEMS.register("red_matter_shears",
+    public static final RegistryObject<ShearsItem> red_matter_shears = ITEMS.register("red_matter_shears",
             () -> new ShearsItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
+    public static final RegistryObject<ShieldItem> red_matter_shield = ITEMS.register("red_matter_shield",
+            () -> new ShieldItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(860)));
+
+    public static final RegistryObject<Item> red_matter_hammer = ITEMS.register("red_matter_hammer",
+            () -> new HammerBase(ModToolTiers.red_matter, 1, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(8124).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> neosphore_helmet = ITEMS.register("neosphore_helmet",
-            () -> new ModItemArmor(ModArmorMaterials.neosphore, ArmorItem.Type.HELMET,
+            () -> new NeosphoreArmor(ModArmorMaterials.neosphore, ArmorItem.Type.HELMET,
                     new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_chestplate = ITEMS.register("neosphore_chestplate",
-            () -> new ModItemArmor(ModArmorMaterials.neosphore, ArmorItem.Type.CHESTPLATE,
+            () -> new NeosphoreArmor(ModArmorMaterials.neosphore, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_leggings = ITEMS.register("neosphore_leggings",
-            () -> new ModItemArmor(ModArmorMaterials.neosphore, ArmorItem.Type.LEGGINGS,
+            () -> new NeosphoreArmor(ModArmorMaterials.neosphore, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_boots = ITEMS.register("neosphore_boots",
-            () -> new ModItemArmor(ModArmorMaterials.neosphore, ArmorItem.Type.BOOTS,
+            () -> new NeosphoreArmor(ModArmorMaterials.neosphore, ArmorItem.Type.BOOTS,
                     new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_axe = ITEMS.register("neosphore_axe",
-            () -> new AxeItem(ModToolTiers.NEOSPHERE, 4.0F, -3.0F,
+            () -> new AxeItem(ModToolTiers.neosphore, 4.0F, -3.0F,
                     new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_pickaxe = ITEMS.register("neosphore_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.NEOSPHERE, 2, -2.8F,
+            () -> new PickaxeItem(ModToolTiers.neosphore, 2, -2.8F,
                     new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_sword = ITEMS.register("neosphore_sword",
-            () -> new SwordItem(ModToolTiers.NEOSPHERE, 3, -2.4F,
+            () -> new SwordItem(ModToolTiers.neosphore, 3, -2.4F,
                     new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_shovel = ITEMS.register("neosphore_shovel",
-            () -> new ShovelItem(ModToolTiers.NEOSPHERE, 0, 0,
+            () -> new ShovelItem(ModToolTiers.neosphore, 0, 0,
                     new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_hoe = ITEMS.register("neosphore_hoe",
-            () -> new HoeItem(ModToolTiers.NEOSPHERE, 0, 0,
+            () -> new HoeItem(ModToolTiers.neosphore, 0, 0,
                     new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
+
     public static final RegistryObject<ShearsItem> neosphore_shears = ITEMS.register("neosphore_shears",
             () -> new ShearsItem(new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<ShieldItem> neosphore_shield = ITEMS.register("neosphore_shield",
+            () -> new ShieldItem(new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> neosphore_hammer = ITEMS.register("neosphore_hammer",
+            () -> new HammerBase(ModToolTiers.neosphore, 2, -2.8F,
+                    new Item.Properties().stacksTo(1).durability(-1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> neosphore_smithing_template = ITEMS.register("neosphore_smithing_template",
             HavenSmithingItem::createNeosphoreUpgradeTemplate);
@@ -534,6 +623,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> diamond_ore_hammer = ITEMS.register("diamond_ore_hammer",
             () -> new DiamondOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).defaultDurability(512)));
+
+    public static final RegistryObject<Item> havenite_ore_hammer = ITEMS.register("havenite_ore_hammer",
+            () -> new HaveniteOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(1024)));
 
     public static final RegistryObject<Item> neosphore_ore_hammer = ITEMS.register("neosphore_ore_hammer",
             () -> new NeosphoreOreHammer(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).defaultDurability(-1)));

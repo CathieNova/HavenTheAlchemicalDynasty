@@ -18,6 +18,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+import java.util.Optional;
+
 public class AlchemicalProcessorCategory implements IRecipeCategory<AlchemicalProcessorRecipe>
 {
     public static final ResourceLocation UID = new ResourceLocation(HavenAlchemy.MOD_ID, "alchemical_processor");
@@ -76,5 +79,10 @@ public class AlchemicalProcessorCategory implements IRecipeCategory<AlchemicalPr
         graphics.fill(area.getX(), area.getY(), area.getX() + area.getWidth(), area.getY() + area.getHeight(), 0xff330000);
         int startY = area.getY() + area.getHeight() - filledHeight;
         graphics.fillGradient(area.getX(), startY, area.getX() + area.getWidth(), area.getY() + area.getHeight(), 0xffb51500, 0xff600b00);
+
+
+        // ADD ENERGY TOOLTIP HERE
     }
+
+
 }

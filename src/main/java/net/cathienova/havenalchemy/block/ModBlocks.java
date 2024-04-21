@@ -187,11 +187,54 @@ public class ModBlocks {
                     .strength(3f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.METAL)));
+
     public static final RegistryObject<Block> neosphore_ore = registerBlock("neosphore_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(3f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.DEEPSLATE), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> havenite_ore = registerBlock("havenite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> andesite_havenite_ore = registerBlock("andesite_havenite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.ANDESITE)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> diorite_havenite_ore = registerBlock("diorite_havenite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DIORITE)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> granite_havenite_ore = registerBlock("granite_havenite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.GRANITE)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> deepslate_havenite_ore = registerBlock("deepslate_havenite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.DEEPSLATE), UniformInt.of(3, 7)));
+
+    public static final RegistryObject<Block> raw_havenite_block = registerBlock("raw_havenite_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> havenite_block = registerBlock("havenite_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)
+                    .strength(3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> charmel_log = registerBlock("charmel_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)

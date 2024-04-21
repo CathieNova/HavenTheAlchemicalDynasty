@@ -10,7 +10,16 @@ import net.minecraft.world.level.block.Block;
 
 public class ModTags
 {
-    public static class Blocks{
+    public static class Blocks
+    {
+        public static final TagKey<Block> andesite = tag("andesite");
+        public static final TagKey<Block> diorite = tag("diorite");
+        public static final TagKey<Block> granite = tag("granite");
+        public static final TagKey<Block> needs_stone_tool = tag("needs_stone_tool");
+        public static final TagKey<Block> needs_iron_tool = tag("needs_iron_tool");
+        public static final TagKey<Block> needs_gold_tool = tag("needs_gold_tool");
+        public static final TagKey<Block> needs_diamond_tool = tag("needs_diamond_tool");
+        public static final TagKey<Block> needs_netherite_tool = tag("needs_netherite_tool");
         public static final TagKey<Block> needs_dark_matter_tool = tag("needs_dark_matter_tool");
         public static final TagKey<Block> needs_red_matter_tool = tag("needs_red_matter_tool");
         public static final TagKey<Block> needs_neosphore_tool = tag("needs_neosphore_tool");
@@ -23,14 +32,16 @@ public class ModTags
         }
     }
 
-    public static class Items {
-
+    public static class Items
+    {
         public static final TagKey<Item> spirits = tag("spirits");
         public static final TagKey<Item> seeds = tag("seeds");
         public static final TagKey<Item> bark = tag("bark");
         public static final TagKey<Item> dyes = tag("dyes");
         public static final TagKey<Item> coral = tag("coral");
         public static final TagKey<Item> alchemy_stones = tag("alchemy_stones");
+
+        public static final TagKey<Item> haveniteIngot = forgeTag("ingots/havenite");
         public static final TagKey<Item> forgeCopperDust = forgeTag("dusts/copper");
         public static final TagKey<Item> forgeTinDust = forgeTag("dusts/tin");
         public static final TagKey<Item> forgeNetheriteDust = forgeTag("dusts/netherite");
@@ -81,6 +92,7 @@ public class ModTags
         public static final TagKey<Item> bricks = forgeTag("ingots/bricks");
         public static final TagKey<Item> glass = forgeTag("glass");
         public static final TagKey<Item> aiots = forgeTag("tools/aiots");
+        public static final TagKey<Item> mini_coals = forgeTag("mini_coals");
 
         private static TagKey<Item> tag(String name)
         {

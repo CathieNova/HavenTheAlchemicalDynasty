@@ -37,7 +37,7 @@ public class EMCSystem
 {
     private static final Map<String, Long> map = new LinkedHashMap<>();
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve("havenalchemy");
+    private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve(HavenAlchemy.MOD_ID);
     private static final Path EMC_FILE = CONFIG_PATH.resolve("emc_list.json");
 
     public static Map<String, Long> getMap()
@@ -204,7 +204,8 @@ public class EMCSystem
         player.serializeNBT();
     }
 
-    public static void setEmcFromRecipes() {
+    public static void setEmcFromRecipes()
+    {
         MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
         RegistryAccess registryAccess = server.registryAccess();
         RecipeManager recipeManager = server.getRecipeManager();
@@ -213,7 +214,7 @@ public class EMCSystem
 
         int iterations = 5;
 
-        for(int i = 0; i < iterations; i++)
+        for (int i = 0; i < iterations; i++)
         {
             for (Recipe<?> recipe : recipes)
             {
@@ -230,36 +231,47 @@ public class EMCSystem
         }
     }
 
-    public static void addEmcFromRecipe(ItemStack outStack, Recipe<?> recipe, List<Recipe<?>> unsetRecipes, boolean last) {
-        if (!contains(outStack.getItem())) {
+    public static void addEmcFromRecipe(ItemStack outStack, Recipe<?> recipe, List<Recipe<?>> unsetRecipes, boolean last)
+    {
+        if (!contains(outStack.getItem()))
+        {
             long totalEmc = 0;
             boolean allIngredientsResolved = true;
 
-            for (Ingredient ingredient : recipe.getIngredients()) {
+            for (Ingredient ingredient : recipe.getIngredients())
+            {
                 ItemStack[] matchingStacks = ingredient.getItems();
                 long ingredientLowestEmc = Long.MAX_VALUE;
 
                 if (matchingStacks.length == 0) continue;
 
-                for (ItemStack stack : matchingStacks) {
-                    if (contains(stack.getItem())) {
+                for (ItemStack stack : matchingStacks)
+                {
+                    if (contains(stack.getItem()))
+                    {
                         long emcValue = GetEmc(stack.getItem());
-                        if (emcValue < ingredientLowestEmc) {
+                        if (emcValue < ingredientLowestEmc)
+                        {
                             ingredientLowestEmc = emcValue;
                         }
-                    } else {
+                    }
+                    else
+                    {
                         allIngredientsResolved = false;
                         break;
                     }
                 }
 
-                if (ingredientLowestEmc != Long.MAX_VALUE) {
+                if (ingredientLowestEmc != Long.MAX_VALUE)
+                {
                     totalEmc += ingredientLowestEmc;
                 }
             }
 
-            if (!allIngredientsResolved) {
-                if (!last && !unsetRecipes.contains(recipe)) {
+            if (!allIngredientsResolved)
+            {
+                if (!last && !unsetRecipes.contains(recipe))
+                {
                     unsetRecipes.add(recipe);
                 }
                 return;
@@ -269,13 +281,15 @@ public class EMCSystem
             long emcPerItem = totalEmc / Math.max(1, outStack.getCount());
 
             // Assign the calculated EMC value if it's positive.
-            if (emcPerItem > 0) {
+            if (emcPerItem > 0)
+            {
                 addEmc(outStack.getItem(), emcPerItem);
             }
         }
     }
 
-    public static void defaultMap() {
+    public static void defaultMap()
+    {
         addEmc(Items.AMETHYST_SHARD, 32);
         addEmc(Items.AMETHYST_BLOCK, 288);
         addEmc(Items.ANCIENT_DEBRIS, 12288);
@@ -555,10 +569,10 @@ public class EMCSystem
         addEmc(Items.YELLOW_SHULKER_BOX, 4176);
         addEmc(Items.ZOMBIE_HEAD, 256);
 
-
-
-        for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList()) {
-            if (item instanceof SpawnEggItem) {
+        for (Item item : ModItems.ITEMS.getEntries().stream().map(RegistryObject::get).toList())
+        {
+            if (item instanceof SpawnEggItem)
+            {
                 addEmc(item, 128);
             }
         }
@@ -581,16 +595,6 @@ public class EMCSystem
         addEmc(ModItems.aether_fuel.get(), 8192);
         addEmc(ModBlocks.aether_fuel_block.get().asItem(), 73728);
         addEmc(ModBlocks.red_matter_block.get().asItem(), 4202496);
-        addEmc(ModItems.red_matter_pickaxe.get(), 1548288);
-        addEmc(ModItems.red_matter_axe.get(), 1548288);
-        addEmc(ModItems.red_matter_shovel.get(), 614400);
-        addEmc(ModItems.red_matter_hoe.get(), 1081344);
-        addEmc(ModItems.red_matter_sword.get(), 1081344);
-        addEmc(ModItems.red_matter_shears.get(), 933888);
-        addEmc(ModItems.red_matter_helmet.get(), 2334720);
-        addEmc(ModItems.red_matter_chestplate.get(), 3735552);
-        addEmc(ModItems.red_matter_leggings.get(), 3268608);
-        addEmc(ModItems.red_matter_boots.get(), 1867776);
         addEmc(ModBlocks.dark_matter_block.get().asItem(), 663552);
         addEmc(ModBlocks.cable_block.get().asItem(), 216);
         addEmc(ModItems.neosphore_ingot.get(), 114688);
@@ -598,6 +602,8 @@ public class EMCSystem
         addEmc(ModBlocks.neosphore_block.get().asItem(), 917504);
         addEmc(ModBlocks.basphalt_cobblestone.get().asItem(), 1);
         addEmc(ModBlocks.basphalt_stone.get().asItem(), 1);
+        addEmc(ModItems.havenite_dust.get(), 8192);
+        addEmc(ModItems.havenite_ingot.get(), 8192);
         addEmc(Items.SOUL_TORCH, 21);
 
         addEmc(ModItems.oak_bark.get(), 8);
@@ -611,12 +617,12 @@ public class EMCSystem
         addEmc(ModItems.cherry_bark.get(), 8);
         addEmc(ModItems.mangrove_bark.get(), 8);
 
-        //addEmc(ModBlocks.charmel_leaves.get().asItem(), 1);
+        addEmc(ModBlocks.charmel_leaves.get().asItem(), 1);
         addEmc(ModBlocks.basphalt_stone.get().asItem(), 1);
         addEmc(ModBlocks.basphalt_cobblestone.get().asItem(), 1);
         addEmc(ModBlocks.asphalt.get().asItem(), 40);
         addEmc(ModBlocks.asphalt_bricks.get().asItem(), 518);
-        //addEmc(ModBlocks.charmel_sapling.get().asItem(), 32);
+        addEmc(ModBlocks.charmel_sapling.get().asItem(), 32);
         addEmc(ModItems.copper_dust.get(), 64);
         addEmc(ModItems.tin_dust.get(), 128);
         addEmcTags(ModTags.Items.forgeTinIngot, 128);
@@ -662,7 +668,7 @@ public class EMCSystem
         addEmcTags(ItemTags.WOODEN_PRESSURE_PLATES, 16);
         addEmcTags(ItemTags.WOODEN_SLABS, 8);
         addEmcTags(ItemTags.WOODEN_STAIRS, 12);
-        addEmcTags(ItemTags.WOOL, 48);;
+        addEmcTags(ItemTags.WOOL, 48);
         addEmcTags(ModTags.Items.bark, 8);
         addEmcTags(ModTags.Items.dyes, 16);
         addEmcTags(ModTags.Items.chests, 64);

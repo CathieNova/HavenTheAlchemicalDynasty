@@ -2,6 +2,7 @@ package net.cathienova.havenalchemy.item;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
+import net.cathienova.havenalchemy.events.FluidInit;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -10,10 +11,12 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModCreativeModTabs {
+public class ModCreativeModTabs
+{
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, HavenAlchemy.MOD_ID);
 
+    public static String havenalchemy_tab_title = "itemGroup.havenalchemy.havenalchemy_tab";
     public static final RegistryObject<CreativeModeTab> HAVENALCHEMY_TAB = CREATIVE_MODE_TABS.register("havenalchemy_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.alchemy_stone_fractured.get()))
                     .title(Component.translatable("itemGroup.havenalchemy.havenalchemy_tab"))
@@ -33,10 +36,34 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.void_matter.get()));
                         add.accept(new ItemStack(ModItems.trowel.get()));
                         add.accept(new ItemStack(ModItems.experience_orb.get()));
+                        add.accept(new ItemStack(ModItems.stone_hammer.get()));
+                        add.accept(new ItemStack(ModItems.iron_hammer.get()));
+                        add.accept(new ItemStack(ModItems.golden_hammer.get()));
+                        add.accept(new ItemStack(ModItems.diamond_hammer.get()));
+                        add.accept(new ItemStack(ModItems.netherite_hammer.get()));
+
+                        add.accept(new ItemStack(ModItems.research_tier_basic.get()));
+                        add.accept(new ItemStack(ModItems.research_tier_intermediate.get()));
+                        add.accept(new ItemStack(ModItems.research_tier_advanced.get()));
+                        add.accept(new ItemStack(ModItems.research_tier_elite.get()));
+                        add.accept(new ItemStack(ModItems.research_tier_ultimate.get()));
+
+                        add.accept(new ItemStack(ModBlocks.havenite_ore.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.andesite_havenite_ore.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.diorite_havenite_ore.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.granite_havenite_ore.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.deepslate_havenite_ore.get().asItem()));
+                        add.accept(new ItemStack(ModItems.raw_havenite.get()));
+                        add.accept(new ItemStack(ModBlocks.raw_havenite_block.get().asItem()));
+                        add.accept(new ItemStack(ModItems.havenite_dust.get()));
+                        add.accept(new ItemStack(ModItems.havenite_nugget.get()));
+                        add.accept(new ItemStack(ModItems.havenite_ingot.get()));
+                        add.accept(new ItemStack(ModBlocks.havenite_block.get().asItem()));
 
                         add.accept(new ItemStack(ModBlocks.speed_plate_i.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.speed_plate_ii.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.speed_plate_iii.get().asItem()));
+                        add.accept(new ItemStack(FluidInit.acid_fluid.bucket.get().asItem()));
 
                         add.accept(new ItemStack(ModBlocks.generator_block.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.charger_block.get().asItem()));
@@ -58,6 +85,9 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModBlocks.emerald_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.netherite_chest.get().asItem()));
 
+                        add.accept(new ItemStack(ModItems.mini_coal.get()));
+                        add.accept(new ItemStack(ModItems.mini_charcoal.get()));
+
                         add.accept(new ItemStack(ModItems.alchemical_coal.get()));
                         add.accept(new ItemStack(ModItems.ethern_coal.get()));
                         add.accept(new ItemStack(ModItems.aether_fuel.get()));
@@ -70,8 +100,10 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.dark_matter_axe.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_shovel.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_hoe.get()));
-                        add.accept(new ItemStack(ModItems.dark_matter_sword.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_shears.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_hammer.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_sword.get()));
+                        add.accept(new ItemStack(ModItems.dark_matter_shield.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_helmet.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_chestplate.get()));
                         add.accept(new ItemStack(ModItems.dark_matter_leggings.get()));
@@ -81,8 +113,10 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.red_matter_axe.get()));
                         add.accept(new ItemStack(ModItems.red_matter_shovel.get()));
                         add.accept(new ItemStack(ModItems.red_matter_hoe.get()));
-                        add.accept(new ItemStack(ModItems.red_matter_sword.get()));
                         add.accept(new ItemStack(ModItems.red_matter_shears.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_hammer.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_sword.get()));
+                        add.accept(new ItemStack(ModItems.red_matter_shield.get()));
                         add.accept(new ItemStack(ModItems.red_matter_helmet.get()));
                         add.accept(new ItemStack(ModItems.red_matter_chestplate.get()));
                         add.accept(new ItemStack(ModItems.red_matter_leggings.get()));
@@ -99,8 +133,10 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.neosphore_axe.get()));
                         add.accept(new ItemStack(ModItems.neosphore_shovel.get()));
                         add.accept(new ItemStack(ModItems.neosphore_hoe.get()));
-                        add.accept(new ItemStack(ModItems.neosphore_sword.get()));
                         add.accept(new ItemStack(ModItems.neosphore_shears.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_sword.get()));
+                        add.accept(new ItemStack(ModItems.neosphore_shield.get()));
                         add.accept(new ItemStack(ModItems.neosphore_helmet.get()));
                         add.accept(new ItemStack(ModItems.neosphore_chestplate.get()));
                         add.accept(new ItemStack(ModItems.neosphore_leggings.get()));
@@ -126,6 +162,7 @@ public class ModCreativeModTabs {
                         add.accept(new ItemStack(ModItems.iron_ore_hammer.get()));
                         add.accept(new ItemStack(ModItems.gold_ore_hammer.get()));
                         add.accept(new ItemStack(ModItems.diamond_ore_hammer.get()));
+                        add.accept(new ItemStack(ModItems.havenite_ore_hammer.get()));
                         add.accept(new ItemStack(ModItems.neosphore_ore_hammer.get()));
                         add.accept(new ItemStack(ModItems.copper_dust.get()));
                         add.accept(new ItemStack(ModItems.tin_dust.get()));

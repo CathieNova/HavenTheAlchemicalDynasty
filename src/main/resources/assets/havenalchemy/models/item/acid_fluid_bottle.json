@@ -1,0 +1,8 @@
+{
+  "parent": "havenalchemy:item/bottle",
+  "textures": {
+    "base": "havenalchemy:item/bottle",
+    "fluid": "havenalchemy:item/acid_bottle_overlay"
+  },
+  "fluid": "havenalchemy:acid_fluid"
+}

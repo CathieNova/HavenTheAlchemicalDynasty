@@ -11,12 +11,13 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial
 {
-    dark_matter("dark_matter", 33, new int[] {4, 7, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
+    dark_matter("dark_matter", 33, new int[] {5, 8, 10, 5}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
             2.0F, 0.0F, () -> Ingredient.of(ModItems.dark_matter.get())),
-    red_matter("red_matter", 33, new int[] {6, 8, 10, 6}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
+    red_matter("red_matter", 33, new int[] {7, 9, 11, 7}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
             2.0F, 0.0F, () -> Ingredient.of(ModItems.red_matter.get())),
-    neosphore("neosphore", 33, new int[] {8, 10, 12, 8}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
+    neosphore("neosphore", 0, new int[] {9, 11, 13, 9}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
             2.0F, 0.1F, () -> Ingredient.of(ModItems.neosphore_ingot.get()))
+
     ;
 
     private final String name;

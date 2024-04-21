@@ -7,9 +7,7 @@ import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -31,7 +29,16 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.alchemical_coal.get())
                 .add(ModItems.ethern_coal.get())
                 .add(ModItems.aether_fuel.get())
-            ;
+                ;
+
+        this.tag(ModTags.Items.mini_coals)
+                .add(ModItems.mini_coal.get())
+                .add(ModItems.mini_charcoal.get())
+                ;
+
+        this.tag(ModTags.Items.haveniteIngot)
+                .add(ModItems.havenite_ingot.get())
+                ;
 
         this.tag(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.dark_matter_helmet.get())
@@ -216,6 +223,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.iron_ore_hammer.get())
                 .add(ModItems.gold_ore_hammer.get())
                 .add(ModItems.diamond_ore_hammer.get())
+                .add(ModItems.havenite_ore_hammer.get())
                 .add(ModItems.neosphore_ore_hammer.get())
                 ;
 

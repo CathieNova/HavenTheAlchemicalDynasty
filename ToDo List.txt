@@ -1,0 +1,21 @@
+Add Stuff:
+> Add mineral chance when using Dark Matter Pickaxe maybe? https://github.com/Serilum/Mineral-Chance
+> Add tree harvest to dark matter axe maybe? https://github.com/Serilum/Tree-Harvester
+> Add a first join message maybe? https://github.com/Serilum/First-Join-Message
+> Possibly learn how to use "Nearby blocks" https://github.com/Serilum/Rain-Be-Gone-Ritual
+> Perhaps add Harvest right click? https://github.com/Serilum/Replanting-Crops/tree/1.20.4
+
+
+> Add Havenite into recipes
+> Add Research Tiers into something?
+
+> Add havenite spirit
+> Add havenite seeds
+> Add havenite recipes
+> Add spirits for all ores
+> Add seeds for all ores
+> Add recipes for all ores
+> Add Charmel trees
+> Add Havenite Ore in the world
+> Add Basphalt generation
+> Add Acid Puddles

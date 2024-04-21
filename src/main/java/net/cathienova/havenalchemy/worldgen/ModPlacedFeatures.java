@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import java.util.List;
 
 public class ModPlacedFeatures {
+    public static final ResourceKey<PlacedFeature> havenite_ore_placed_key = registerKey("havenite_ore_placed");
     public static final ResourceKey<PlacedFeature> neosphore_ore_placed_key = registerKey("neosphore_ore_placed");
     public static final ResourceKey<PlacedFeature> basphalt_stone_placed_key = registerKey("basphalt_stone_placed");
     public static final ResourceKey<PlacedFeature> charmel_placed_key = registerKey("charmel_placed_key");
@@ -27,6 +28,10 @@ public class ModPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         //pCount = veins amount per chunk
+        register(context, havenite_ore_placed_key, configuredFeatures.getOrThrow(ModConfiguredFeatures.overworld_havenite_ore_key),
+                ModOrePlacement.commonOrePlacement(3,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(60))));
+
         register(context, basphalt_stone_placed_key, configuredFeatures.getOrThrow(ModConfiguredFeatures.overworld_basphalt_stone_key),
                 ModOrePlacement.commonOrePlacement(8,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-5))));
@@ -36,7 +41,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-5))));
 
         register(context, charmel_placed_key, configuredFeatures.getOrThrow(ModConfiguredFeatures.charmel_key),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.075f, 2), ModBlocks.charmel_sapling.get()));
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.1f, 2), ModBlocks.charmel_sapling.get()));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

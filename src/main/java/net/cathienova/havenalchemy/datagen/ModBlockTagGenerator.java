@@ -6,6 +6,9 @@ import net.cathienova.havenalchemy.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -97,6 +100,10 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.alchemical_chamber.get())
                 .add(ModBlocks.alchemical_condenser.get())
                 .add(ModBlocks.alchemical_processor.get())
+                .add(ModBlocks.havenite_ore.get())
+                .add(ModBlocks.havenite_block.get())
+                .add(ModBlocks.deepslate_havenite_ore.get())
+                .add(ModBlocks.raw_havenite_block.get())
                 ;
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -182,7 +189,31 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ;
 
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
+                .add(ModBlocks.havenite_ore.get())
+                .add(ModBlocks.andesite_havenite_ore.get())
+                .add(ModBlocks.diorite_havenite_ore.get())
+                .add(ModBlocks.granite_havenite_ore.get())
+                .add(ModBlocks.deepslate_havenite_ore.get())
+                .add(ModBlocks.havenite_block.get())
+                .add(ModBlocks.raw_havenite_block.get())
                 ;
+
+        this.tag(ModTags.Blocks.needs_dark_matter_tool)
+        ;
+
+        this.tag(ModTags.Blocks.needs_red_matter_tool)
+                .add(ModBlocks.neosphore_ore.get())
+        ;
+
+        this.tag(ModTags.Blocks.needs_neosphore_tool)
+        ;
+
+        this.tag(ModTags.Blocks.andesite)
+                .add(Blocks.ANDESITE);
+        this.tag(ModTags.Blocks.diorite)
+                .add(Blocks.DIORITE);
+        this.tag(ModTags.Blocks.granite)
+                .add(Blocks.GRANITE);
 
         this.tag(Tags.Blocks.CHESTS)
                 .add(ModBlocks.alchemical_chest.get())
@@ -195,16 +226,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.diamond_chest.get())
                 .add(ModBlocks.emerald_chest.get())
                 .add(ModBlocks.netherite_chest.get())
-                ;
-
-        this.tag(ModTags.Blocks.needs_dark_matter_tool)
-        ;
-
-        this.tag(ModTags.Blocks.needs_red_matter_tool)
-                .add(ModBlocks.neosphore_ore.get())
-        ;
-
-        this.tag(ModTags.Blocks.needs_neosphore_tool)
         ;
 
         this.tag(BlockTags.FENCES)
@@ -264,10 +285,50 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         ;
 
         this.tag(BlockTags.LOGS)
+                .add(Blocks.ACACIA_LOG)
+                .add(Blocks.ACACIA_WOOD)
+                .add(Blocks.STRIPPED_ACACIA_LOG)
+                .add(Blocks.STRIPPED_ACACIA_WOOD)
+                .add(Blocks.BIRCH_LOG)
+                .add(Blocks.BIRCH_WOOD)
+                .add(Blocks.STRIPPED_BIRCH_LOG)
+                .add(Blocks.STRIPPED_BIRCH_WOOD)
                 .add(ModBlocks.charmel_log.get())
                 .add(ModBlocks.charmel_wood.get())
                 .add(ModBlocks.stripped_charmel_log.get())
                 .add(ModBlocks.stripped_charmel_wood.get())
+                .add(Blocks.CHERRY_LOG)
+                .add(Blocks.CHERRY_WOOD)
+                .add(Blocks.STRIPPED_CHERRY_LOG)
+                .add(Blocks.STRIPPED_CHERRY_WOOD)
+                .add(Blocks.CRIMSON_STEM)
+                .add(Blocks.CRIMSON_HYPHAE)
+                .add(Blocks.STRIPPED_CRIMSON_STEM)
+                .add(Blocks.STRIPPED_CRIMSON_HYPHAE)
+                .add(Blocks.DARK_OAK_LOG)
+                .add(Blocks.DARK_OAK_WOOD)
+                .add(Blocks.STRIPPED_DARK_OAK_LOG)
+                .add(Blocks.STRIPPED_DARK_OAK_WOOD)
+                .add(Blocks.JUNGLE_LOG)
+                .add(Blocks.JUNGLE_WOOD)
+                .add(Blocks.STRIPPED_JUNGLE_LOG)
+                .add(Blocks.STRIPPED_JUNGLE_WOOD)
+                .add(Blocks.MANGROVE_LOG)
+                .add(Blocks.MANGROVE_WOOD)
+                .add(Blocks.STRIPPED_MANGROVE_LOG)
+                .add(Blocks.STRIPPED_MANGROVE_WOOD)
+                .add(Blocks.OAK_LOG)
+                .add(Blocks.OAK_WOOD)
+                .add(Blocks.STRIPPED_OAK_LOG)
+                .add(Blocks.STRIPPED_OAK_WOOD)
+                .add(Blocks.SPRUCE_LOG)
+                .add(Blocks.SPRUCE_WOOD)
+                .add(Blocks.STRIPPED_SPRUCE_LOG)
+                .add(Blocks.STRIPPED_SPRUCE_WOOD)
+                .add(Blocks.WARPED_STEM)
+                .add(Blocks.WARPED_HYPHAE)
+                .add(Blocks.STRIPPED_WARPED_STEM)
+                .add(Blocks.STRIPPED_WARPED_HYPHAE)
         ;
 
         this.tag(BlockTags.PLANKS)
