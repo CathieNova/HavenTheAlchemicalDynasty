@@ -35,6 +35,15 @@ public class ModBlocks {
     public static final DeferredRegister<BlockEntityType<?>> ENTITY = DeferredRegister
             .create(ForgeRegistries.BLOCK_ENTITY_TYPES, HavenAlchemy.MOD_ID);
 
+    public static final RegistryObject<Block> dust = registerBlock("dust",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
+
+    public static final RegistryObject<Block> crushed_netherrack = registerBlock("crushed_netherrack",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRAVEL)));
+
+    public static final RegistryObject<Block> crushed_end_stone = registerBlock("crushed_end_stone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRAVEL)));
+
     public static final RegistryObject<Block> alchemical_coal_block = registerFuelBlockBlock("alchemical_coal_block",
             () -> new FuelBlock(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
 
@@ -82,6 +91,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> eternium_spirit_block = registerBlock("eternium_spirit_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> havenite_crop = registerBlock("havenite_crop",
+            () -> new HaveniteCrop(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> essentia_crop = registerBlock("essentia_crop",
             () -> new EssentiaCrop(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));

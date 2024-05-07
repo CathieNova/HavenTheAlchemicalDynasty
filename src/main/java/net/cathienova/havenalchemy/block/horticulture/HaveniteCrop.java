@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.NotNull;
 
-public class CoalCrop extends BaseCrop
+public class HaveniteCrop extends BaseCrop
 {
-    public CoalCrop(Properties properties)
+    public HaveniteCrop(Properties properties)
     {
         super(properties);
     }
@@ -40,8 +40,6 @@ public class CoalCrop extends BaseCrop
     @Override
     protected @NotNull ItemLike getBaseSeedId()
     {
-        return ModItems.coal_seeds.get();
+        return ModItems.havenite_seeds.get();
     }
-
-
 }

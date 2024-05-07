@@ -381,6 +381,12 @@ public class ModItems {
     public static final RegistryObject<Item> earth_seeds = ITEMS.register("earth_seeds",
             () -> new ItemNameBlockItem(ModBlocks.earth_crop.get(), new Item.Properties().stacksTo(64).rarity(Rarity.EPIC)));
 
+    public static final RegistryObject<Item> havenite_seeds = ITEMS.register("havenite_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.havenite_crop.get(), new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> havenite_spirit = ITEMS.register("havenite_spirit",
+            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> essentia_spirit = ITEMS.register("essentia_spirit",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
 
@@ -632,4 +638,42 @@ public class ModItems {
 
     public static final RegistryObject<Item> experience_orb = ITEMS.register("experience_orb",
             () -> new ExperienceOrb(new Item.Properties().stacksTo(16).rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> stone_crusher = ITEMS.register("stone_crusher",
+            () -> new CrusherBase(ModToolTiers.stone, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(131)));
+
+    public static final RegistryObject<Item> iron_crusher = ITEMS.register("iron_crusher",
+            () -> new CrusherBase(ModToolTiers.iron, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(250)));
+
+    public static final RegistryObject<Item> golden_crusher = ITEMS.register("golden_crusher",
+            () -> new CrusherBase(ModToolTiers.gold, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(169)));
+
+    public static final RegistryObject<Item> diamond_crusher = ITEMS.register("diamond_crusher",
+            () -> new CrusherBase(ModToolTiers.diamond, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(1561)));
+
+    public static final RegistryObject<Item> netherite_crusher = ITEMS.register("netherite_crusher",
+            () -> new CrusherBase(ModToolTiers.netherite, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(2031)));
+
+    public static final RegistryObject<Item> havenite_crusher = ITEMS.register("havenite_crusher",
+            () -> new CrusherBase(ModToolTiers.havenite, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(4062)));
+
+    public static final RegistryObject<Item> dark_matter_crusher = ITEMS.register("dark_matter_crusher",
+            () -> new CrusherBase(ModToolTiers.dark_matter, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(-1)));
+
+    public static final RegistryObject<Item> red_matter_crusher = ITEMS.register("red_matter_crusher",
+            () -> new CrusherBase(ModToolTiers.red_matter, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(-1)));
+
+    public static final RegistryObject<Item> neosphore_crusher = ITEMS.register("neosphore_crusher",
+            () -> new CrusherBase(ModToolTiers.neosphore, 1, -1.8F,
+                    new Item.Properties().stacksTo(1).durability(-1)));
+
+
 }

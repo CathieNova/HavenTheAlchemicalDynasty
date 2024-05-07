@@ -40,6 +40,18 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.havenite_ingot.get())
                 ;
 
+        this.tag(ModTags.Items.crushers)
+                .add(ModItems.stone_crusher.get())
+                .add(ModItems.iron_crusher.get())
+                .add(ModItems.golden_crusher.get())
+                .add(ModItems.diamond_crusher.get())
+                .add(ModItems.netherite_crusher.get())
+                .add(ModItems.havenite_crusher.get())
+                .add(ModItems.dark_matter_crusher.get())
+                .add(ModItems.red_matter_crusher.get())
+                .add(ModItems.neosphore_crusher.get())
+                ;
+
         this.tag(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.dark_matter_helmet.get())
                 .add(ModItems.dark_matter_chestplate.get())
@@ -133,6 +145,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.netherite_spirit.get())
                 .add(ModItems.air_spirit.get())
                 .add(ModItems.earth_spirit.get())
+                .add(ModItems.havenite_spirit.get())
             ;
 
         this.tag(ModTags.Items.seeds)
@@ -167,6 +180,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.netherite_seeds.get())
                 .add(ModItems.air_seeds.get())
                 .add(ModItems.earth_seeds.get())
+                .add(ModItems.havenite_seeds.get())
                 ;
 
         this.tag(ModTags.Items.bark)

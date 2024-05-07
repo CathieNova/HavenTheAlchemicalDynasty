@@ -371,6 +371,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.redstone_crop.get())
                 .add(ModBlocks.stone_crop.get())
                 .add(ModBlocks.wood_crop.get())
+                .add(ModBlocks.havenite_crop.get())
                 ;
     }
 }

@@ -12,9 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 
 import java.util.List;
 
@@ -41,7 +39,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-5))));
 
         register(context, charmel_placed_key, configuredFeatures.getOrThrow(ModConfiguredFeatures.charmel_key),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(2, 0.1f, 2), ModBlocks.charmel_sapling.get()));
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.01f, 1), ModBlocks.charmel_sapling.get()));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

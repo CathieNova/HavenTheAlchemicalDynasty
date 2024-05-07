@@ -5,6 +5,8 @@ import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.horticulture.EssentiaCrop;
 import net.cathienova.havenalchemy.block.horticulture.StoneCrop;
 import net.cathienova.havenalchemy.item.ModItems;
+import net.cathienova.havenalchemy.util.ModTags;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -12,14 +14,19 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.predicates.InvertedLootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -255,6 +262,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.earth_crop.get(), createLowCropDrops(ModBlocks.earth_crop.get(), ModItems.earth_spirit.get(),
                 ModItems.earth_seeds.get(), cropDrops(ModBlocks.earth_crop.get(), EssentiaCrop.AGE, 7)));
+
+        this.add(ModBlocks.havenite_crop.get(), createLowCropDrops(ModBlocks.havenite_crop.get(), ModItems.havenite_spirit.get(),
+                ModItems.havenite_seeds.get(), cropDrops(ModBlocks.havenite_crop.get(), EssentiaCrop.AGE, 7)));
+
+        this.dropSelf(ModBlocks.dust.get());
+        this.dropSelf(ModBlocks.crushed_netherrack.get());
+        this.dropSelf(ModBlocks.crushed_end_stone.get());
     }
 
     protected LootTable.Builder createLowCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {

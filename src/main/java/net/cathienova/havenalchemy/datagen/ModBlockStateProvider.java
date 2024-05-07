@@ -32,6 +32,9 @@ public class ModBlockStateProvider extends BlockStateProvider
     @Override
     protected void registerStatesAndModels()
     {
+        blockWithItem(ModBlocks.dust);
+        blockWithItem(ModBlocks.crushed_netherrack);
+        blockWithItem(ModBlocks.crushed_end_stone);
         blockWithItem(ModBlocks.alchemical_coal_block);
         blockWithItem(ModBlocks.ethern_coal_block);
         blockWithItem(ModBlocks.aether_fuel_block);
@@ -78,6 +81,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         CropDrops((CropBlock) ModBlocks.air_crop.get(), "air_crop", "air_crop");
         CropDrops((CropBlock) ModBlocks.earth_crop.get(), "earth_crop", "earth_crop");
         CropDrops((CropBlock) ModBlocks.wood_crop.get(), "wood_crop", "wood_crop");
+        CropDrops((CropBlock) ModBlocks.havenite_crop.get(), "havenite_crop", "havenite_crop");
 
         blockWithItem(ModBlocks.neosphore_block);
         blockWithItem(ModBlocks.neosphore_ore);

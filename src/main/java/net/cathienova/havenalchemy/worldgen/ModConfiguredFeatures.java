@@ -11,19 +11,24 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.LakeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ModConfiguredFeatures
 {
@@ -31,6 +36,7 @@ public class ModConfiguredFeatures
     public static final ResourceKey<ConfiguredFeature<?, ?>> overworld_basphalt_stone_key = registerKey("basphalt_stone");
     public static final ResourceKey<ConfiguredFeature<?, ?>> overworld_neosphore_ore_key = registerKey("neosphore_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> charmel_key = registerKey("charmel");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> acid_puddle_key = registerKey("acid_puddle");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context)
     {

@@ -27,6 +27,14 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider
                 new LootTableIdCondition.Builder(new ResourceLocation("minecraft", "chests/simple_dungeon"))
                         .build()}, ModItems.boots_of_meow.get(), 0.2f));
 
+        add("mending_necklace_from_dungeon", new AddItemModifier(new LootItemCondition[]{
+                new LootTableIdCondition.Builder(new ResourceLocation("minecraft", "chests/simple_dungeon"))
+                        .build()}, ModItems.mending_necklace.get(), 0.2f));
+
+        add("mending_necklace_from_buried_treasure", new AddItemModifier(new LootItemCondition[]{
+                new LootTableIdCondition.Builder(new ResourceLocation("minecraft", "chests/buried_treasure"))
+                        .build()}, ModItems.mending_necklace.get(), 0.2f));
+
         add("boots_of_meow_from_buried_treasure", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("minecraft", "chests/buried_treasure"))
                         .build()}, ModItems.boots_of_meow.get(), 0.2f));

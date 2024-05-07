@@ -8,14 +8,9 @@ Add Stuff:
 
 > Add Havenite into recipes
 > Add Research Tiers into something?
-
 > Add havenite spirit
 > Add havenite seeds
-> Add havenite recipes
 > Add spirits for all ores
 > Add seeds for all ores
 > Add recipes for all ores
-> Add Charmel trees
-> Add Havenite Ore in the world
-> Add Basphalt generation
 > Add Acid Puddles

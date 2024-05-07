@@ -145,6 +145,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         handHeldItem(ModItems.havenite_ore_hammer);
         handHeldItem(ModItems.neosphore_ore_hammer);
 
+        handHeldItem(ModItems.stone_crusher);
+        handHeldItem(ModItems.iron_crusher);
+        handHeldItem(ModItems.golden_crusher);
+        handHeldItem(ModItems.diamond_crusher);
+        handHeldItem(ModItems.netherite_crusher);
+        handHeldItem(ModItems.havenite_crusher);
+        handHeldItem(ModItems.dark_matter_crusher);
+        handHeldItem(ModItems.red_matter_crusher);
+        handHeldItem(ModItems.neosphore_crusher);
+
         simpleItem(ModItems.essentia_seeds);
         simpleItem(ModItems.coal_seeds);
         simpleItem(ModItems.coral_seeds);
@@ -176,6 +186,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.netherite_seeds);
         simpleItem(ModItems.air_seeds);
         simpleItem(ModItems.earth_seeds);
+        simpleItem(ModItems.havenite_seeds);
 
         simpleItem(ModItems.essentia_spirit);
         simpleItem(ModItems.mysterium_spirit);
@@ -212,6 +223,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.netherite_spirit);
         simpleItem(ModItems.air_spirit);
         simpleItem(ModItems.earth_spirit);
+        simpleItem(ModItems.havenite_spirit);
 
         evenSimplerBlockItem(ModBlocks.basphalt_stone_fence_gate);
         evenSimplerBlockItem(ModBlocks.basphalt_cobblestone_fence_gate);

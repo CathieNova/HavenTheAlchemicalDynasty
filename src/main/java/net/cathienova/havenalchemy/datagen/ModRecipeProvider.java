@@ -232,21 +232,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(output, HavenAlchemy.MOD_ID + ":craft/alchemy_stone_fractured");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.alchemy_stone.get(), 1)
-                .pattern("EDE")
+                .pattern("IDI")
                 .pattern("DRD")
-                .pattern("EDE")
-                .define('E', ModItems.ethern_coal.get())
+                .pattern("IDI")
+                .define('I', ModItems.havenite_ingot.get())
                 .define('D', ModItems.alchemy_dust.get())
                 .define('R', ModItems.red_matter.get())
                 .unlockedBy("has_red_matter", has(ModItems.red_matter.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/alchemy_stone");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chamber.get(), 1)
-                .pattern("BDB")
+                .pattern("BHB")
                 .pattern("SSS")
                 .pattern("B B")
                 .define('B', ModBlocks.asphalt_bricks.get())
-                .define('D', ModItems.alchemy_stone_fractured.get())
+                .define('H', ModItems.havenite_ingot.get())
                 .define('S', ModBlocks.asphalt.get())
                 .unlockedBy("has_alchemy_dust", has(ModItems.alchemy_dust.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/alchemical_chamber");
@@ -297,16 +297,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('A', ModTags.Items.alchemy_stones)
                 .unlockedBy("has_ender_pearl", has(Items.ENDER_PEARL))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/magnet");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.mending_necklace.get(), 1)
-                .pattern("D D")
-                .pattern("GAG")
-                .pattern("DGD")
-                .define('D', Items.DIAMOND)
-                .define('A', ModTags.Items.alchemy_stones)
-                .define('G', Items.GOLD_INGOT)
-                .unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/mending_necklace");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.asphalt.get(), 4)
                 .pattern("GSG")
@@ -469,7 +459,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         HammerCraft(output, ModItems.iron_hammer.get(), Items.IRON_INGOT, Items.STICK);
         HammerCraft(output, ModItems.golden_hammer.get(), Items.GOLD_INGOT, Items.STICK);
         HammerCraft(output, ModItems.diamond_hammer.get(), Items.DIAMOND, Items.STICK);
-        HammerCraft(output, ModItems.netherite_hammer.get(), Items.NETHERITE_INGOT, Items.STICK);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.dark_matter_hammer.get(), 1)
                 .pattern("PSP")
@@ -479,6 +468,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('S', Items.STICK)
                 .unlockedBy("has_dark_matter_pickaxe", has(ModItems.dark_matter_pickaxe.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/dark_matter_hammer");
+
+        upgradeSmithing(output, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.diamond_hammer.get(), Items.NETHERITE_INGOT, ModItems.netherite_hammer.get());
 
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_PICKAXE, ModItems.dark_matter.get(), ModItems.dark_matter_pickaxe.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_AXE, ModItems.dark_matter.get(), ModItems.dark_matter_axe.get());
@@ -710,6 +701,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         spiritCirclePlusCrafting(output, Items.CHARCOAL, ModItems.wood_spirit.get(), ModItems.coal_spirit.get(), 12);
         spiritCirclePlusCrafting(output, Items.STONE, ModItems.stone_spirit.get(), ModItems.coal_spirit.get(), 20);
         spiritCirclePlusCrafting(output, Items.DEEPSLATE, ModItems.deepslate_spirit.get(), ModItems.coal_spirit.get(), 20);
+
+        BlockRecipe(output, ModItems.havenite_ingot.get(), ModItems.havenite_spirit.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PODZOL, 12)
                 .pattern(" D ")
@@ -1529,6 +1522,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         createAlchemicalChamberRecipe(output, ModItems.netherite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.NETHERITE_BLOCK, ModBlocks.eternium_spirit_block.get());
 
+        createAlchemicalChamberRecipe(output, ModItems.havenite_spirit.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                Items.DIAMOND, ModBlocks.eternium_spirit_block.get());
+
         createAlchemicalProcessorRecipe(output, ModItems.essentia_spirit.get(), ModItems.essentia_seeds.get());
         createAlchemicalProcessorRecipe(output, ModItems.coal_spirit.get(), ModItems.coal_seeds.get());
         createAlchemicalProcessorRecipe(output, ModItems.coral_spirit.get(), ModItems.coral_seeds.get());
@@ -1560,6 +1556,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         createAlchemicalProcessorRecipe(output, ModItems.stone_spirit.get(), ModItems.stone_seeds.get());
         createAlchemicalProcessorRecipe(output, ModItems.deepslate_spirit.get(), ModItems.deepslate_seeds.get());
         createAlchemicalProcessorRecipe(output, ModItems.netherite_spirit.get(), ModItems.netherite_seeds.get());
+        createAlchemicalProcessorRecipe(output, ModItems.havenite_spirit.get(), ModItems.havenite_seeds.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.generator_block.get(), 1)
                 .pattern("III")
@@ -1850,6 +1847,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_neosphore_block", has(ModBlocks.neosphore_block.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/neosphore_ore_hammer");
 
+        crusherRecipe(output, ModItems.stone_crusher.get(), Items.STONE);
+        crusherRecipe(output, ModItems.stone_crusher.get(), Items.COBBLESTONE);
+        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.stone_crusher.get(), Items.IRON_INGOT, ModItems.iron_crusher.get());
+        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.iron_crusher.get(), Items.GOLD_INGOT, ModItems.golden_crusher.get());
+        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.golden_crusher.get(), Items.DIAMOND, ModItems.diamond_crusher.get());
+        upgradeSmithing(output, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.diamond_crusher.get(), Items.NETHERITE_INGOT, ModItems.netherite_crusher.get());
+        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.netherite_crusher.get(), ModItems.havenite_ingot.get(), ModItems.havenite_crusher.get());
+        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.havenite_crusher.get(), ModItems.dark_matter.get(), ModItems.dark_matter_crusher.get());
+        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_crusher.get(), ModItems.red_matter.get(), ModItems.red_matter_crusher.get());
+        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_crusher.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_crusher.get());
+
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.copper_dust.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.25f, 200)
                 .unlockedBy("has_copper_dust", has(ModItems.copper_dust.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":smelting/copper_dust");
@@ -1968,6 +1976,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .ingredient(seed)
                 .result(result)
                 .save(consumer, new ResourceLocation(HavenAlchemy.MOD_ID + ":alchemical_processor/" + getItemName(result)));
+    }
+
+    protected static void crusherRecipe(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
+                .pattern(" IS")
+                .pattern(" SI")
+                .pattern("S  ")
+                .define('S', Items.STICK)
+                .define('I', ingredient)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result) + "_from_" + getItemName(ingredient));
     }
 
     protected static void spiritCirclePlusCrafting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2, int amount)

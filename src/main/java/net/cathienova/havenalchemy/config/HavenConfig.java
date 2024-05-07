@@ -9,6 +9,7 @@ public class HavenConfig
     public static int miniCoalBurnTime;
     public static int miniCharcoalBurnTime;
     public static boolean easyHammerDurability;
+    public static int essenceShardDropChance;
 
 
     public static void bake(ModConfig config) {
@@ -16,5 +17,6 @@ public class HavenConfig
         miniCoalBurnTime = HavenAlchemy.c_config.miniCoalBurnTime.get();
         miniCharcoalBurnTime = HavenAlchemy.c_config.miniCharcoalBurnTime.get();
         easyHammerDurability = HavenAlchemy.c_config.easyHammerDurability.get();
+        essenceShardDropChance = HavenAlchemy.c_config.essenceShardDropChance.get();
     }
 }

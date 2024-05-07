@@ -232,6 +232,20 @@ public class ModEngLangProvider extends LanguageProvider
         add("item.havenalchemy.acid_fluid_bucket", "Acid Bucket");
         add("block.havenalchemy.acid_fluid", "Acid");
 
+        addItem(ModItems.stone_crusher, "Stone Crusher");
+        addItem(ModItems.iron_crusher, "Iron Crusher");
+        addItem(ModItems.golden_crusher, "Golden Crusher");
+        addItem(ModItems.diamond_crusher, "Diamond Crusher");
+        addItem(ModItems.netherite_crusher, "Netherite Crusher");
+        addItem(ModItems.havenite_crusher, "Havenite Crusher");
+        addItem(ModItems.dark_matter_crusher, "Dark Matter Crusher");
+        addItem(ModItems.red_matter_crusher, "Red Matter Crusher");
+        addItem(ModItems.neosphore_crusher, "Neosphore Crusher");
+
+        addBlock(ModBlocks.dust, "Dust");
+        addBlock(ModBlocks.crushed_netherrack, "Crushed Netherrack");
+        addBlock(ModBlocks.crushed_end_stone, "Crushed End Stone");
+
         addItem(ModItems.research_tier_basic, "Basic Research Tier");
         addItem(ModItems.research_tier_intermediate, "Intermediate Research Tier");
         addItem(ModItems.research_tier_advanced, "Advanced Research Tier");
@@ -331,6 +345,7 @@ public class ModEngLangProvider extends LanguageProvider
         addItem(ModItems.air_spirit, "Air Spirit");
         addItem(ModItems.earth_spirit, "Earth Spirit");
         addItem(ModItems.deepslate_spirit, "Deepslate Spirit");
+        addItem(ModItems.havenite_spirit, "Havenite Spirit");
 
         addItem(ModItems.essentia_seeds, "Essentia Seeds");
         addItem(ModItems.coal_seeds, "Coal Seeds");
@@ -363,6 +378,7 @@ public class ModEngLangProvider extends LanguageProvider
         addItem(ModItems.air_seeds, "Air Seeds");
         addItem(ModItems.earth_seeds, "Earth Seeds");
         addItem(ModItems.deepslate_seeds, "Deepslate Seeds");
+        addItem(ModItems.havenite_seeds, "Havenite Seeds");
 
         addItem(ModItems.acacia_bark, "Acacia Bark");
         addItem(ModItems.birch_bark, "Birch Bark");

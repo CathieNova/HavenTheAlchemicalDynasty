@@ -20,6 +20,7 @@ public class ModTags
         public static final TagKey<Block> needs_gold_tool = tag("needs_gold_tool");
         public static final TagKey<Block> needs_diamond_tool = tag("needs_diamond_tool");
         public static final TagKey<Block> needs_netherite_tool = tag("needs_netherite_tool");
+        public static final TagKey<Block> needs_havenite_tool = tag("needs_havenite_tool");
         public static final TagKey<Block> needs_dark_matter_tool = tag("needs_dark_matter_tool");
         public static final TagKey<Block> needs_red_matter_tool = tag("needs_red_matter_tool");
         public static final TagKey<Block> needs_neosphore_tool = tag("needs_neosphore_tool");
@@ -93,6 +94,7 @@ public class ModTags
         public static final TagKey<Item> glass = forgeTag("glass");
         public static final TagKey<Item> aiots = forgeTag("tools/aiots");
         public static final TagKey<Item> mini_coals = forgeTag("mini_coals");
+        public static final TagKey<Item> crushers = tag("crushers");
 
         private static TagKey<Item> tag(String name)
         {

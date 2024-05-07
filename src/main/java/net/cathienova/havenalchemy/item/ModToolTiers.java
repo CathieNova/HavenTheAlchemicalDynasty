@@ -39,18 +39,23 @@ public class ModToolTiers
                     ModTags.Blocks.needs_netherite_tool, () -> Ingredient.of(Tags.Items.INGOTS_NETHERITE)),
             new ResourceLocation(HavenAlchemy.MOD_ID, "netherite"), List.of(Tiers.DIAMOND), List.of());
 
+    public static final Tier havenite = TierSortingRegistry.registerTier(
+            new ForgeTier(5, 3122, 6f, 5f, 25,
+                    ModTags.Blocks.needs_havenite_tool, () -> Ingredient.of(ModItems.havenite_ingot.get())),
+            new ResourceLocation(HavenAlchemy.MOD_ID, "havenite"), List.of(Tiers.NETHERITE), List.of());
+
     public static final Tier dark_matter = TierSortingRegistry.registerTier(
-            new ForgeTier(5, 4062, 6f, 5f, 25,
+            new ForgeTier(6, 4062, 6f, 5f, 25,
                     ModTags.Blocks.needs_dark_matter_tool, () -> Ingredient.of(ModItems.dark_matter.get())),
             new ResourceLocation(HavenAlchemy.MOD_ID, "dark_matter"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier red_matter = TierSortingRegistry.registerTier(
-            new ForgeTier(6, 8124, 8f, 6f, 25,
+            new ForgeTier(7, 8124, 8f, 6f, 25,
                     ModTags.Blocks.needs_red_matter_tool, () -> Ingredient.of(ModItems.red_matter.get())),
             new ResourceLocation(HavenAlchemy.MOD_ID, "red_matter"), List.of(dark_matter), List.of());
 
     public static final Tier neosphore = TierSortingRegistry.registerTier(
-            new ForgeTier(7, -1, 10f, 7, 25,
+            new ForgeTier(8, -1, 10f, 7f, 25,
                     ModTags.Blocks.needs_neosphore_tool, () -> Ingredient.of(ModItems.red_matter.get())),
             new ResourceLocation(HavenAlchemy.MOD_ID, "neosphere"), List.of(red_matter), List.of());
 }

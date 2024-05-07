@@ -1,5 +1,6 @@
 package net.cathienova.havenalchemy.handler;
 
+import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -27,7 +28,7 @@ public class MobDropHandler
         if(!level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) return;
 
         var drops = event.getDrops();
-        int balanceShardDropChance = 20; // Out of 100
+        int balanceShardDropChance = HavenAlchemy.c_config.essenceShardDropChance.get();
         Random random = new Random();
 
         if (entity != null && random.nextInt(0, 100) < balanceShardDropChance)
