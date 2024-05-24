@@ -3,6 +3,8 @@ package net.cathienova.havenalchemy.networking;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.networking.packet.EMCSyncS2CPacket;
 import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
+import net.cathienova.havenalchemy.networking.packet.NetworkPacket;
+import net.cathienova.havenalchemy.networking.packet.SearchPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -38,6 +40,18 @@ public class ModMessages {
                 .decoder(EMCSyncS2CPacket::new)
                 .encoder(EMCSyncS2CPacket::toBytes)
                 .consumerMainThread(EMCSyncS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(SearchPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(SearchPacket::new)
+                .encoder(SearchPacket::toBytes)
+                .consumerMainThread(SearchPacket::handle)
+                .add();
+
+        net.messageBuilder(NetworkPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(NetworkPacket::new)
+                .encoder(NetworkPacket::toBytes)
+                .consumerMainThread(NetworkPacket::handle)
                 .add();
     }
 

@@ -64,6 +64,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.alchemical_chamber.get());
         this.dropSelf(ModBlocks.alchemical_processor.get());
         this.dropSelf(ModBlocks.alchemical_condenser.get());
+        this.dropSelf(ModBlocks.alchemical_transmutation.get());
         this.dropSelf(ModBlocks.alchemical_chest.get());
         this.dropSelf(ModBlocks.dirt_chest.get());
         this.dropSelf(ModBlocks.stone_chest.get());

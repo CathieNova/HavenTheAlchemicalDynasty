@@ -651,6 +651,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> alchemical_condenser = registerBlock("alchemical_condenser",
             () -> new AlchemicalCondenserBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
+    public static final RegistryObject<Block> alchemical_transmutation = registerBlock("alchemical_transmutation",
+            () -> new AlchemicalTransmutationBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
+
     public static final RegistryObject<Block> dirt_chest = registerBlock("dirt_chest",
             () -> new DirtChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.DIRT));
 

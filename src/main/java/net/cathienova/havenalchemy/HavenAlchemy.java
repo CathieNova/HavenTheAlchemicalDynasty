@@ -98,6 +98,7 @@ public class HavenAlchemy
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_CHAMBER_MENU.get(), AlchemicalChamberScreen::new);
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_PROCESSOR_MENU.get(), AlchemicalProcessorScreen::new);
                 MenuScreens.register(ModMenuTypes.ALCHEMICAL_CONDENSER_MENU.get(), AlchemicalCondenserScreen::new);
+                MenuScreens.register(ModMenuTypes.ALCHEMICAL_TRANSMUTATION_MENU.get(), AlchemicalTransmutationScreen::new);
                 MenuScreens.register(ModMenuTypes.DIRT_CHEST_MENU.get(), DirtChestScreen::new);
                 MenuScreens.register(ModMenuTypes.STONE_CHEST_MENU.get(), StoneChestScreen::new);
                 MenuScreens.register(ModMenuTypes.COPPER_CHEST_MENU.get(), CopperChestScreen::new);

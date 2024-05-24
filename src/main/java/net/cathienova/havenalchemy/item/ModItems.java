@@ -172,7 +172,7 @@ public class ModItems {
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
     public static final RegistryObject<ShearsItem> dark_matter_shears = ITEMS.register("dark_matter_shears",
-            () -> new ShearsItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+            () -> new ShearsItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(4062)));
 
     public static final RegistryObject<Item> dark_matter_shield = ITEMS.register("dark_matter_shield",
             () -> new ShieldItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(610)));
@@ -220,7 +220,7 @@ public class ModItems {
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 
     public static final RegistryObject<ShearsItem> red_matter_shears = ITEMS.register("red_matter_shears",
-            () -> new ShearsItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
+            () -> new ShearsItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(8124)));
 
     public static final RegistryObject<ShieldItem> red_matter_shield = ITEMS.register("red_matter_shield",
             () -> new ShieldItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(860)));

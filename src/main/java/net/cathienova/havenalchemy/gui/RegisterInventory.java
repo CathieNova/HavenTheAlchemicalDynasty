@@ -1,28 +1,25 @@
 package net.cathienova.havenalchemy.gui;
 
+import net.cathienova.havenalchemy.screen.AlchemicalTransmutationMenu;
 import net.cathienova.havenalchemy.util.EMCSystem;
+import net.cathienova.havenalchemy.util.ItemUtil;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.ItemStackHandler;
 
-public class RegisterInventory extends Inventory
-{
-    public Player player;
+public class RegisterInventory extends ItemStackHandler {
+    private final Player player;
 
-    public RegisterInventory(Player player) {
-        super(player);
+    public RegisterInventory(Player player, int size) {
+        super(size);
         this.player = player;
-
     }
 
     @Override
-    public void setItem(int slot, ItemStack stack)
-    {
+    public void setStackInSlot(int slot, ItemStack stack) {
         if (!stack.isEmpty()) {
-
-            CompoundTag playerNbt = new CompoundTag();
-            player.deserializeNBT(playerNbt);
+            CompoundTag playerNbt = player.getPersistentData();
             CompoundTag items = new CompoundTag();
 
             if (playerNbt.contains("havenalchemy")) {
@@ -32,29 +29,23 @@ public class RegisterInventory extends Inventory
                 }
             }
 
-            /*if (!items.contains(ItemUtil.toID(stack.getItem()).toString())) {
-                items.putBoolean(ItemUtil.toID(stack.getItem()).toString(), true);
-                if (player. instanceof AlchemicalTableScreen screenHandler) {
-                    screenHandler.extractInventory.placeExtractSlots();
+            String itemId = ItemUtil.toID(stack.getItem()).toString();
+            if (!items.contains(itemId)) {
+                items.putBoolean(itemId, true);
+                if (player.containerMenu instanceof AlchemicalTransmutationMenu menu) {
+                    menu.updateExtractInventory();
                 }
-            }*/
-
-            if (playerNbt.contains("havenalchemy")) {
-                CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-                havenAlchemyTag.put("registered_items", items);
-            } else {
-                CompoundTag havenAlchemyTag = new CompoundTag();
-                havenAlchemyTag.put("registered_items", items);
-                playerNbt.put("havenalchemy", havenAlchemyTag);
             }
-            player.serializeNBT();
+
+            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
+            havenAlchemyTag.put("registered_items", items);
+            playerNbt.put("havenalchemy", havenAlchemyTag);
 
             if (slot == 50) {
-                EMCSystem.writeEmcToPlayer(player, stack);
+                EMCSystem.IncreaseEmcToPlayer(player, stack);
                 stack = ItemStack.EMPTY;
             }
         }
-        super.setItem(slot, stack);
+        super.setStackInSlot(slot, stack);
     }
 }
-

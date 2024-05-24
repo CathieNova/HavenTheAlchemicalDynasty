@@ -33,7 +33,7 @@ public class ModEngLangProvider extends LanguageProvider
         addBlock(ModBlocks.netherite_chest, "Netherite Chest");
         addBlock(ModBlocks.alchemical_chest, "Alchemical Chest");
         addBlock(ModBlocks.alchemical_condenser, "Alchemical Condenser");
-        //addBlock(ModBlocks.alchemical_table, "Alchemical Table");
+        addBlock(ModBlocks.alchemical_transmutation, "Alchemical Transmutation");
         //addBlock(ModBlocks.alchemical_tablet, "Alchemical Tablet");
         //addBlock(ModBlocks.pedestal, "Pedestal");
         addBlock(ModBlocks.asphalt, "Asphalt");

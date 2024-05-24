@@ -74,6 +74,8 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModItems.research_tier_elite.get()));
                         add.accept(new ItemStack(ModItems.research_tier_ultimate.get()));
 
+                        add.accept(new ItemStack(ModItems.wooden_shears.get()));
+
                         add.accept(new ItemStack(ModItems.stone_crusher.get()));
                         add.accept(new ItemStack(ModItems.iron_crusher.get()));
                         add.accept(new ItemStack(ModItems.golden_crusher.get()));
@@ -87,6 +89,8 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModBlocks.alchemical_chamber.get()));
                         add.accept(new ItemStack(ModBlocks.alchemical_processor.get()));
                         add.accept(new ItemStack(ModBlocks.alchemical_condenser.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.alchemical_transmutation.get().asItem()));
+
                         add.accept(new ItemStack(ModBlocks.dirt_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.stone_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.copper_chest.get().asItem()));

@@ -5,6 +5,7 @@ import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.horticulture.BaseCrop;
 import net.cathienova.havenalchemy.cables.client.CableModelLoader;
+import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -25,9 +26,12 @@ public class ModBlockStateProvider extends BlockStateProvider
         super(output, HavenAlchemy.MOD_ID, exFileHelper);
     }
 
-    public static final ResourceLocation BOTTOM = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_bottom");
-    public static final ResourceLocation TOP = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_top");
-    public static final ResourceLocation SIDE = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_side");
+    public static final ResourceLocation BOTTOM_MACHINE = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_bottom");
+    public static final ResourceLocation TOP_MACHINE = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_top");
+    public static final ResourceLocation SIDE_MACHINE = new ResourceLocation(HavenAlchemy.MOD_ID, "block/machine_side");
+    public static final ResourceLocation BOTTOM_ALCHEMICAL = new ResourceLocation(HavenAlchemy.MOD_ID, "block/alchemical_table/bottom");
+    public static final ResourceLocation TOP_ALCHEMICAL = new ResourceLocation(HavenAlchemy.MOD_ID, "block/alchemical_table/top");
+    public static final ResourceLocation SIDE_ALCHEMICAL = new ResourceLocation(HavenAlchemy.MOD_ID, "block/alchemical_table/side");
 
     @Override
     protected void registerStatesAndModels()
@@ -244,8 +248,8 @@ public class ModBlockStateProvider extends BlockStateProvider
     private void registerCharger() {
         ResourceLocation BATTERY = modLoc("block/charger_block_on");
 
-        BlockModelBuilder modelOn = models().cube(ModBlocks.charger_block.getId().getPath()+"_on", BATTERY, BATTERY, BATTERY, BATTERY, BATTERY, BATTERY).texture("particle", SIDE);
-        BlockModelBuilder modelOff = models().cube(ModBlocks.charger_block.getId().getPath()+"_off", BATTERY, BATTERY, BATTERY, BATTERY, BATTERY, BATTERY).texture("particle", SIDE);
+        BlockModelBuilder modelOn = models().cube(ModBlocks.charger_block.getId().getPath()+"_on", BATTERY, BATTERY, BATTERY, BATTERY, BATTERY, BATTERY).texture("particle", SIDE_MACHINE);
+        BlockModelBuilder modelOff = models().cube(ModBlocks.charger_block.getId().getPath()+"_off", BATTERY, BATTERY, BATTERY, BATTERY, BATTERY, BATTERY).texture("particle", SIDE_MACHINE);
         getVariantBuilder(ModBlocks.charger_block.get()).forAllStates(state -> {
             ConfiguredModel.Builder<?> bld = ConfiguredModel.builder();
             bld.modelFile(state.getValue(BlockStateProperties.POWERED) ? modelOn : modelOff);
@@ -254,8 +258,10 @@ public class ModBlockStateProvider extends BlockStateProvider
     }
 
     private void registerGenerator() {
-        BlockModelBuilder modelOn = models().cube(ModBlocks.generator_block.getId().getPath()+"_on", BOTTOM, TOP, modLoc("block/generator_block_on"), SIDE, SIDE, SIDE).texture("particle", SIDE);
-        BlockModelBuilder modelOff = models().cube(ModBlocks.generator_block.getId().getPath()+"_off", BOTTOM, TOP, modLoc("block/generator_block"), SIDE, SIDE, SIDE).texture("particle", SIDE);
+        BlockModelBuilder modelOn = models().cube(ModBlocks.generator_block.getId().getPath()+"_on",
+                BOTTOM_MACHINE, TOP_MACHINE, modLoc("block/generator_block_on"), SIDE_MACHINE, SIDE_MACHINE, SIDE_MACHINE).texture("particle", SIDE_MACHINE);
+        BlockModelBuilder modelOff = models().cube(ModBlocks.generator_block.getId().getPath()+"_off",
+                BOTTOM_MACHINE, TOP_MACHINE, modLoc("block/generator_block"), SIDE_MACHINE, SIDE_MACHINE, SIDE_MACHINE).texture("particle", SIDE_MACHINE);
         directionBlock(ModBlocks.generator_block.get(), (state, builder) -> {
             builder.modelFile(state.getValue(BlockStateProperties.POWERED) ? modelOn : modelOff);
         });

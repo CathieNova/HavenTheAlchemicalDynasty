@@ -19,8 +19,6 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -141,9 +139,30 @@ public class EMCSystem
         }
     }
 
-    public static void writeEmcToPlayer(Player player, ItemStack stack)
+    public static void IncreaseEmcToPlayer(Player player, ItemStack stack)
     {
         IncrementEmc(player, EMCSystem.GetEmc(stack));
+    }
+
+    public static void DecreaseEmcToPlayer(Player player, ItemStack stack)
+    {
+        decrementEmc(player, EMCSystem.GetEmc(stack));
+    }
+
+    public static long GetEMCFromPlayer(Player player)
+    {
+        CompoundTag playerNbt = new CompoundTag();
+        player.deserializeNBT(playerNbt);
+        long emc = 0;
+        if (playerNbt.contains("havenalchemy"))
+        {
+            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
+            if (havenAlchemyTag.contains("emc"))
+            {
+                emc += havenAlchemyTag.getLong("emc");
+            }
+        }
+        return emc;
     }
 
     public static void decrementEmc(Player player, long amount)

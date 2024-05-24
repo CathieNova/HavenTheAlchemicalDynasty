@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "havenalchemy:block/alchemical_transmutation" }
+  }
+}
