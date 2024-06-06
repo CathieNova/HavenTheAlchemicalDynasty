@@ -20,28 +20,28 @@ public class NeosphoreArmor extends ModItemArmor// implements IItemExtension
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected)
     {
-        if (pEntity instanceof Player player)
+        /*if (pEntity instanceof Player player)
         {
-            ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-            ItemStack leggings = player.getItemBySlot(EquipmentSlot.LEGS);
-            ItemStack chestplate = player.getItemBySlot(EquipmentSlot.CHEST);
-            ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
+            Item boots = player.getItemBySlot(EquipmentSlot.FEET).getItem();
+            Item leggings = player.getItemBySlot(EquipmentSlot.LEGS).getItem();
+            Item chestplate = player.getItemBySlot(EquipmentSlot.CHEST).getItem();
+            Item helmet = player.getItemBySlot(EquipmentSlot.HEAD).getItem();
 
             // Check if the player already has flight enabled through another means
             if (player.getAbilities().mayfly) return;
 
             if (player.isCreative() || player.isSpectator()) return;
 
-            if (boots.getItem() instanceof NeosphoreArmor && leggings.getItem() instanceof NeosphoreArmor &&
-                    chestplate.getItem() instanceof NeosphoreArmor && helmet.getItem() instanceof NeosphoreArmor)
+            if (boots instanceof NeosphoreArmor && leggings instanceof NeosphoreArmor &&
+                    chestplate instanceof NeosphoreArmor && helmet instanceof NeosphoreArmor)
             {
-                player.getAbilities().mayfly = true;
-                player.fallDistance = 0.0f;
+                //player.getAbilities().mayfly = true;
+                //player.fallDistance = 0.0f;
             }
             else
             {
-                player.getAbilities().mayfly = false;
+                //player.getAbilities().mayfly = false;
             }
-        }
+        }*/
     }
 }

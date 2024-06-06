@@ -596,6 +596,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> zinc_dust = ITEMS.register("zinc_dust",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> aluminum_dust = ITEMS.register("aluminum_dust",
+            () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> tin_ingot = ITEMS.register("tin_ingot",
             () -> new Item(new Item.Properties()));
@@ -616,6 +618,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> zinc_ingot = ITEMS.register("zinc_ingot",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> aluminum_ingot = ITEMS.register("aluminum_ingot",
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> copper_ore_hammer = ITEMS.register("copper_ore_hammer",

@@ -151,8 +151,7 @@ public class EMCSystem
 
     public static long GetEMCFromPlayer(Player player)
     {
-        CompoundTag playerNbt = new CompoundTag();
-        player.deserializeNBT(playerNbt);
+        CompoundTag playerNbt = player.getPersistentData();
         long emc = 0;
         if (playerNbt.contains("havenalchemy"))
         {
@@ -167,8 +166,7 @@ public class EMCSystem
 
     public static void decrementEmc(Player player, long amount)
     {
-        CompoundTag playerNbt = new CompoundTag();
-        player.deserializeNBT(playerNbt);
+        CompoundTag playerNbt = player.getPersistentData();
         long emc = 0;
         if (playerNbt.contains("havenalchemy"))
         {
@@ -191,13 +189,11 @@ public class EMCSystem
             havenAlchemyTag.putLong("emc", emc);
             playerNbt.put("havenalchemy", havenAlchemyTag);
         }
-        player.serializeNBT();
     }
 
     public static void IncrementEmc(Player player, long amount)
     {
-        CompoundTag playerNbt = new CompoundTag();
-        player.deserializeNBT(playerNbt);
+        CompoundTag playerNbt = player.getPersistentData();
         long emc = 0;
         if (playerNbt.contains("havenalchemy"))
         {
@@ -220,7 +216,6 @@ public class EMCSystem
             havenAlchemyTag.putLong("emc", emc);
             playerNbt.put("havenalchemy", havenAlchemyTag);
         }
-        player.serializeNBT();
     }
 
     public static void setEmcFromRecipes()

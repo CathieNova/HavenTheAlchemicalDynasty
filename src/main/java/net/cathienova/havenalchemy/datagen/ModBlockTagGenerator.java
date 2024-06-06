@@ -373,5 +373,22 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.wood_crop.get())
                 .add(ModBlocks.havenite_crop.get())
                 ;
+
+        this.tag(ModTags.Blocks.forgeOres)
+                .add(ModBlocks.havenite_ore.get())
+                .add(ModBlocks.andesite_havenite_ore.get())
+                .add(ModBlocks.diorite_havenite_ore.get())
+                .add(ModBlocks.granite_havenite_ore.get())
+                .add(ModBlocks.deepslate_havenite_ore.get())
+                .add(ModBlocks.neosphore_ore.get())
+                ;
+
+        this.tag(ModTags.Blocks.forgeHaveniteOre)
+                .add(ModBlocks.havenite_ore.get())
+                .add(ModBlocks.andesite_havenite_ore.get())
+                .add(ModBlocks.diorite_havenite_ore.get())
+                .add(ModBlocks.granite_havenite_ore.get())
+                .add(ModBlocks.deepslate_havenite_ore.get())
+                ;
     }
 }

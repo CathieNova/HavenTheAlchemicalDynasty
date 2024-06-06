@@ -1,4 +1,4 @@
-package net.cathienova.havenalchemy.datagen;
+package net.cathienova.havenalchemy.datagen.recipes;
 
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
@@ -590,10 +590,27 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         BlockRecipe(output, ModBlocks.raw_neosphore_block.get(), ModItems.raw_neosphore.get());
         UnBlockRecipe(output, ModItems.raw_neosphore.get(), ModBlocks.raw_neosphore_block.get());
         SmallBlockRecipe(output, ModBlocks.charmel_wood.get(), ModBlocks.charmel_log.get());
-        SmallBlockRecipe(output, ModBlocks.charmel_planks.get(), ModBlocks.charmel_log.get());
-        UnSmallBlockRecipe(output, ModBlocks.charmel_planks.get(), ModBlocks.charmel_wood.get());
-        UnSmallBlockRecipe(output, ModBlocks.charmel_planks.get(), ModBlocks.stripped_charmel_log.get());
-        UnSmallBlockRecipe(output, ModBlocks.charmel_planks.get(), ModBlocks.stripped_charmel_wood.get());
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.charmel_planks.get(), 4)
+                .requires(ModBlocks.charmel_log.get())
+                .unlockedBy("has_charmel_log", has(ModBlocks.charmel_log.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/charmel_planks_from_charmel_log");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.charmel_planks.get(), 4)
+                .requires(ModBlocks.charmel_wood.get())
+                .unlockedBy("has_charmel_wood", has(ModBlocks.charmel_wood.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/charmel_planks_from_charmel_wood");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.charmel_planks.get(), 4)
+                .requires(ModBlocks.stripped_charmel_wood.get())
+                .unlockedBy("has_stripped_charmel_wood", has(ModBlocks.stripped_charmel_wood.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/charmel_planks_from_stripped_charmel_wood");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.charmel_planks.get(), 4)
+                .requires(ModBlocks.stripped_charmel_log.get())
+                .unlockedBy("has_stripped_charmel_log", has(ModBlocks.stripped_charmel_log.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/charmel_planks_from_stripped_charmel_log");
+
         slabRecipe(output, ModBlocks.charmel_slab.get(), ModBlocks.charmel_planks.get());
         stairsRecipe(output, ModBlocks.charmel_stairs.get(), ModBlocks.charmel_planks.get());
         fenceRecipe(output, ModBlocks.charmel_fence.get(), ModBlocks.charmel_planks.get());
@@ -1522,8 +1539,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         createAlchemicalChamberRecipe(output, ModItems.netherite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.NETHERITE_BLOCK, ModBlocks.eternium_spirit_block.get());
 
-        createAlchemicalChamberRecipe(output, ModItems.havenite_spirit.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
-                Items.DIAMOND, ModBlocks.eternium_spirit_block.get());
+        createAlchemicalChamberRecipe(output, ModItems.havenite_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
+                ModBlocks.havenite_block.get(), ModBlocks.eternium_spirit_block.get());
 
         createAlchemicalProcessorRecipe(output, ModItems.essentia_spirit.get(), ModItems.essentia_seeds.get());
         createAlchemicalProcessorRecipe(output, ModItems.coal_spirit.get(), ModItems.coal_seeds.get());
@@ -1611,12 +1628,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/copper_dust_from_raw");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_dust.get(), 18)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_dust.get(), 9)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
                 .define('R', Items.COPPER_BLOCK)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/copper_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', Items.RAW_COPPER_BLOCK)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/copper_dust_from_raw_block");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.tin_dust.get(), 1)
                 .pattern("HR")
@@ -1631,6 +1655,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R', ModTags.Items.forgeRawTin)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/tin_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.tin_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeTinBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/tin_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.tin_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawTinBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/tin_dust_from_raw_block");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.netherite_dust.get(), 1)
                 .pattern("HR")
@@ -1660,6 +1698,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/silver_dust_from_raw");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.silver_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeSilverBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/silver_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.silver_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawSilverBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/silver_dust_from_raw_block");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.lead_dust.get(), 1)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
@@ -1673,6 +1725,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R', ModTags.Items.forgeRawLead)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/lead_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.lead_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeLeadBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/lead_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.lead_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawLeadBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/lead_dust_from_raw_block");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_dust.get(), 1)
                 .pattern("HR")
@@ -1688,12 +1754,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/gold_dust_from_raw");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_dust.get(), 18)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_dust.get(), 9)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
                 .define('R', Items.GOLD_BLOCK)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/gold_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.gold_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', Items.RAW_GOLD_BLOCK)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/gold_dust_from_raw_block");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.iron_dust.get(), 1)
                 .pattern("HR")
@@ -1709,12 +1782,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/iron_dust_from_raw");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.iron_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', Items.IRON_BLOCK)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/iron_dust_from_block");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.iron_dust.get(), 18)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
                 .define('R', Items.RAW_IRON_BLOCK)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/iron_dust_from_block");
+                .save(output, HavenAlchemy.MOD_ID + ":craft/iron_dust_from_raw_block");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.nickel_dust.get(), 1)
                 .pattern("HR")
@@ -1730,6 +1810,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/nickel_dust_from_raw");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.nickel_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeNickelBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/nickel_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.nickel_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawNickelBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/nickel_dust_from_raw_block");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.uranium_dust.get(), 1)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
@@ -1743,6 +1837,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R', ModTags.Items.forgeRawUranium)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/uranium_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.uranium_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeUraniumBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/uranium_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.uranium_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawUraniumBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/uranium_dust_from_raw_block");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.osmium_dust.get(), 1)
                 .pattern("HR")
@@ -1758,6 +1866,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/osmium_dust_from_raw");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.osmium_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeOsmiumBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/osmium_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.osmium_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawOsmiumBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/osmium_dust_from_raw_block");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.zinc_dust.get(), 1)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
@@ -1772,10 +1894,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/zinc_dust_from_raw");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.zinc_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeZincBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/zinc_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.zinc_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawZincBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/zinc_dust_from_raw_block");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.havenite_dust.get(), 1)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
-                .define('R', ModTags.Items.haveniteIngot)
+                .define('R', ModTags.Items.forgeHaveniteIngot)
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/havenite_ingot_from_dust");
 
@@ -1786,6 +1922,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/havenite_ingot_from_raw");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.havenite_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModBlocks.havenite_block.get())
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/havenite_ingot_from_block");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.havenite_dust.get(), 18)
                 .pattern("HR")
                 .define('H', ModTags.Items.oreHammers)
@@ -1793,6 +1936,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/havenite_ingot_from_raw_block");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.aluminum_dust.get(), 1)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeAluminumIngot)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/aluminum_dust_from_ingot");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.aluminum_dust.get(), 2)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawAluminum)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/aluminum_dust_from_raw");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.aluminum_dust.get(), 9)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeAluminumBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/aluminum_dust_from_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.aluminum_dust.get(), 18)
+                .pattern("HR")
+                .define('H', ModTags.Items.oreHammers)
+                .define('R', ModTags.Items.forgeRawAluminumBlocks)
+                .unlockedBy("has_ore_hammer", has(ModTags.Items.oreHammers))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/aluminum_dust_from_raw_block");
+
+
+//Ore Hammers
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.copper_ore_hammer.get(), 1)
                 .pattern(" BS")
                 .pattern(" SB")
@@ -1849,9 +2022,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         crusherRecipe(output, ModItems.stone_crusher.get(), Items.STONE);
         crusherRecipe(output, ModItems.stone_crusher.get(), Items.COBBLESTONE);
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.stone_crusher.get(), Items.IRON_INGOT, ModItems.iron_crusher.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.iron_crusher.get(), Items.GOLD_INGOT, ModItems.golden_crusher.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.golden_crusher.get(), Items.DIAMOND, ModItems.diamond_crusher.get());
+        crusherRecipe(output, ModItems.iron_crusher.get(), Items.IRON_INGOT);
+        crusherRecipe(output, ModItems.golden_crusher.get(), Items.GOLD_INGOT);
+        crusherRecipe(output, ModItems.diamond_crusher.get(), Items.DIAMOND);
         upgradeSmithing(output, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.diamond_crusher.get(), Items.NETHERITE_INGOT, ModItems.netherite_crusher.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.netherite_crusher.get(), ModItems.havenite_ingot.get(), ModItems.havenite_crusher.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.havenite_crusher.get(), ModItems.dark_matter.get(), ModItems.dark_matter_crusher.get());
@@ -1902,6 +2075,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_zinc_dust", has(ModItems.zinc_dust.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":smelting/zinc_dust");
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.aluminum_dust.get()), RecipeCategory.MISC, ModItems.aluminum_ingot.get(), 0.25f, 200)
+                .unlockedBy("has_aluminum_dust", has(ModItems.aluminum_dust.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":smelting/aluminum_dust");
+
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.copper_dust.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.25f, 100)
                 .unlockedBy("has_copper_dust", has(ModItems.copper_dust.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":blasting/copper_dust");
@@ -1946,9 +2123,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_zinc_dust", has(ModItems.zinc_dust.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":blasting/zinc_dust");
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FARMLAND, 1)
-                .requires(Items.DIRT)
-                .requires(ItemTags.HOES)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.aluminum_dust.get()), RecipeCategory.MISC, ModItems.aluminum_ingot.get(), 0.25f, 100)
+                .unlockedBy("has_aluminum_dust", has(ModItems.aluminum_dust.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":blasting/aluminum_dust");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.FARMLAND, 1)
+                .pattern("FFF")
+                .pattern("FDF")
+                .pattern("FFF")
+                .define('D', Items.DIRT)
+                .define('F', Items.FLINT)
                 .unlockedBy("has_dirt", has(Items.DIRT))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/farmland");
     }

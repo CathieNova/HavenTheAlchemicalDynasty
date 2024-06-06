@@ -3,14 +3,17 @@ package net.cathienova.havenalchemy.screen;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.AlchemicalTransmutationBlockEntity;
 import net.cathienova.havenalchemy.gui.RegisterInventory;
+import net.cathienova.havenalchemy.networking.ModMessages;
+import net.cathienova.havenalchemy.networking.packet.LearnedItemsSyncPacket;
 import net.cathienova.havenalchemy.util.EMCSystem;
 import net.cathienova.havenalchemy.util.ExtractInventory;
 import net.cathienova.havenalchemy.util.ItemUtil;
 import net.cathienova.havenalchemy.util.RemoveSlot;
-import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -20,10 +23,12 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
     private final AlchemicalTransmutationBlockEntity blockEntity;
@@ -64,12 +69,13 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
         // Register the data container
         addDataSlots(data);
         setSearchText("");
+        updateExtractInventory();
     }
 
     private void addCustomSlots(IItemHandler handler) {
-        addRegisterSlot(registerInventory, 50, 105, 120); //Add Recipe & Consume
-        addSlot(new RemoveSlot(otherInventory, 51, 87, 120, player, this)); //Recipe Removal
-        addRegisterSlot(registerInventory, 52, 41, 19); //Register Items
+        addRegisterSlot(registerInventory, 50, 105, 120); // Add Recipe & Consume
+        addSlot(new RemoveSlot(otherInventory, 51, 87, 120, player, this)); // Recipe Removal
+        addRegisterSlot(registerInventory, 52, 41, 19); // Register Items
         addRegisterSlot(registerInventory, 53, 15, 30);
         addRegisterSlot(registerInventory, 54, 66, 30);
         addRegisterSlot(registerInventory, 55, 28, 41);
@@ -81,7 +87,7 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
         addRegisterSlot(registerInventory, 61, 15, 79);
         addRegisterSlot(registerInventory, 62, 66, 79);
         addRegisterSlot(registerInventory, 63, 41, 89);
-        addExtractSlot(handler, 64, 144, 13); //Get Items
+        addExtractSlot(handler, 64, 144, 13); // Get Items
         addExtractSlot(handler, 65, 114, 25);
         addExtractSlot(handler, 66, 174, 25);
         addExtractSlot(handler, 67, 144, 33);
@@ -114,11 +120,31 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
     }
 
     private void addExtractSlot(IItemHandler handler, int index, int x, int y) {
-        this.addSlot(new SlotItemHandler(handler, index, x, y));
+        this.addSlot(new SlotItemHandler(handler, index, x, y) {
+            @Override
+            public boolean mayPickup(Player playerIn) {
+                ItemStack stack = getItem();
+                long emc = EMCSystem.GetEmc(stack.getItem()) * stack.getCount();
+                return EMCSystem.GetEMCFromPlayer(playerIn) >= emc;
+            }
+
+            @Override
+            public void onTake(@NotNull Player player, @NotNull ItemStack stack) {
+                long emc = EMCSystem.GetEmc(stack.getItem()) * stack.getCount();
+                EMCSystem.DecreaseEmcToPlayer(player, stack);
+                super.onTake(player, stack);
+                updateExtractInventory();
+            }
+
+            @Override
+            public boolean mayPlace(@NotNull ItemStack stack) {
+                return false;
+            }
+        });
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
@@ -140,7 +166,7 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
             }
 
             // Check if the item is from the extract slots
-            if (index >= 12 && index <= 23) {
+            if (index >= 64 && index <= 75) {
                 EMCSystem.DecreaseEmcToPlayer(playerIn, itemstack1);
             }
         }
@@ -149,7 +175,7 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public boolean stillValid(Player player) {
+    public boolean stillValid(@NotNull Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), player, ModBlocks.alchemical_transmutation.get());
     }
 
@@ -159,15 +185,38 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
 
     public void setSearchText(String searchText) {
         this.searchText = searchText;
+        sortBySearch();
+    }
+
+    public void sortItemsByEmc() {
+        List<ItemStack> allItems = getLearnedItems();
+
+        if (!searchText.isEmpty()) {
+            allItems = allItems.stream()
+                    .filter(itemStack -> itemStack.getHoverName().getString().toLowerCase().contains(searchText.toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+
+        // Ensure no infinite loop in sorting
+        allItems.sort((itemStack1, itemStack2) -> {
+            long emc1 = EMCSystem.GetEmc(itemStack1.getItem());
+            long emc2 = EMCSystem.GetEmc(itemStack2.getItem());
+            return Long.compare(emc2, emc1);
+        });
+
+        // Set the sorted items in the ExtractInventory
+        extractInventory.setSortedItems(allItems);
     }
 
     public void sortBySearch() {
-        if (searchText.isEmpty()) return;
+        if (searchText.isEmpty()) {
+            sortItemsByEmc();
+            return;
+        }
 
-        CompoundTag playerNbt = player.saveWithoutId(new CompoundTag());
+        CompoundTag playerNbt = player.getPersistentData();
         if (playerNbt.contains("havenalchemy")) {
-            CompoundTag copy = playerNbt.copy();
-            CompoundTag items = new CompoundTag();
+            CompoundTag items = player.getPersistentData();
             CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
             if (havenAlchemyTag.contains("registered_items")) {
                 items = havenAlchemyTag.getCompound("registered_items");
@@ -187,31 +236,63 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
             havenAlchemyTag.put("registered_items", items);
             playerNbt.put("havenalchemy", havenAlchemyTag);
 
-            player.load(playerNbt);
             updateExtractInventory(); // Ensure this method is implemented to refresh the extract slots
-            player.load(copy);
         }
+
+        sortItemsByEmc();
     }
 
     public void nextExtractSlots() {
-        if (ItemUtil.count(extractInventory.player) < 12 * (index + 1) + 1) return;
+        int totalItems = extractInventory.getSortedItems().size();
+        int itemsPerPage = 12;
+        if (totalItems <= itemsPerPage * (index + 1)) return;
         index++;
-        if (searchText.isEmpty())
-            extractInventory.placeExtractSlots();
-        else
-            sortBySearch();
+        updateExtractInventory();
     }
 
     public void prevExtractSlots() {
         if (index <= 0) return;
         index--;
-        if (searchText.isEmpty())
-            extractInventory.placeExtractSlots();
-        else
-            sortBySearch();
+        updateExtractInventory();
     }
 
     public void updateExtractInventory() {
-        extractInventory.placeExtractSlots();
+        extractInventory.setSortedItems(extractInventory.getSortedItems());
+    }
+
+    public List<ItemStack> getLearnedItems() {
+        List<ItemStack> learnedItems = new ArrayList<>();
+        CompoundTag playerNbt = player.getPersistentData();
+        if (playerNbt.contains("havenalchemy")) {
+            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
+            if (havenAlchemyTag.contains("registered_items")) {
+                CompoundTag items = havenAlchemyTag.getCompound("registered_items");
+                for (String key : items.getAllKeys()) {
+                    ResourceLocation id = new ResourceLocation(key);
+                    ItemStack stack = new ItemStack(ItemUtil.fromId(id));
+                    learnedItems.add(stack);
+                }
+            }
+        }
+        return learnedItems;
+    }
+
+    public void syncLearnedItemsToClient() {
+        if (player instanceof ServerPlayer serverPlayer) {
+            List<ItemStack> learnedItems = getLearnedItems();
+            CompoundTag tag = new CompoundTag();
+            ListTag itemsList = new ListTag();
+
+            for (ItemStack stack : learnedItems) {
+                CompoundTag itemTag = new CompoundTag();
+                stack.save(itemTag);
+                itemsList.add(itemTag);
+            }
+
+            tag.put("registered_items", itemsList);
+
+            // Send the packet to the client
+            ModMessages.sendToPlayer(new LearnedItemsSyncPacket(tag), serverPlayer);
+        }
     }
 }

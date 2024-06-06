@@ -213,6 +213,7 @@ public class ModEngLangProvider extends LanguageProvider
         addItem(ModItems.uranium_dust, "Uranium Dust");
         addItem(ModItems.osmium_dust, "Osmium Dust");
         addItem(ModItems.zinc_dust, "Zinc Dust");
+        addItem(ModItems.aluminum_dust, "Aluminum Dust");
         addItem(ModItems.tin_ingot, "Tin Ingot");
         addItem(ModItems.lead_ingot, "Lead Ingot");
         addItem(ModItems.silver_ingot, "Silver Ingot");
@@ -220,6 +221,7 @@ public class ModEngLangProvider extends LanguageProvider
         addItem(ModItems.uranium_ingot, "Uranium Ingot");
         addItem(ModItems.osmium_ingot, "Osmium Ingot");
         addItem(ModItems.zinc_ingot, "Zinc Ingot");
+        addItem(ModItems.aluminum_ingot, "Aluminum Ingot");
 
         addItem(ModItems.stone_hammer, "Stone Hammer");
         addItem(ModItems.iron_hammer, "Iron Hammer");

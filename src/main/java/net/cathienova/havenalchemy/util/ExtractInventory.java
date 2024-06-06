@@ -1,28 +1,25 @@
 package net.cathienova.havenalchemy.util;
 
-import net.cathienova.havenalchemy.networking.ModMessages;
+import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.screen.AlchemicalTransmutationMenu;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ExtractInventory extends SimpleContainer {
     public Player player;
     public boolean isSettingStack = true;
-    @Nullable
     public AlchemicalTransmutationMenu screenHandler;
+    private final List<ItemStack> sortedItems = new ArrayList<>();
 
-    public ExtractInventory(int size, Player player, @Nullable AlchemicalTransmutationMenu screenHandler) {
+    public ExtractInventory(int size, Player player, AlchemicalTransmutationMenu screenHandler) {
         super(size);
         this.screenHandler = screenHandler;
         this.player = player;
@@ -34,61 +31,83 @@ public class ExtractInventory extends SimpleContainer {
 
         isSettingStack = true;
 
-        definedStacks.clear();
-        int index = screenHandler != null ? screenHandler.index : 0;
-
-        CompoundTag nbtTag = new CompoundTag();
-        player.saveWithoutId(nbtTag);
-
-        CompoundTag items = new CompoundTag();
-
-        if (nbtTag.contains("havenalchemy")) {
-            CompoundTag havenAlchemyTag = nbtTag.getCompound("havenalchemy");
-            if (havenAlchemyTag.contains("registered_items")) {
-                items = havenAlchemyTag.getCompound("registered_items");
-            }
-        }
+        CompoundTag playerNbt = player.getPersistentData();
+        CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
+        CompoundTag items = havenAlchemyTag.getCompound("registered_items");
 
         List<String> keys = new ArrayList<>(items.getAllKeys());
 
-        if (!keys.isEmpty()) {
-            for (int i = 0; i < 12; i++) {
-                int id_index = i + (index * 12);
-                if (keys.size() < id_index + 1) {
-                    setItem(i + 64, ItemStack.EMPTY);
-                    continue;
-                }
-
-                ResourceLocation id = new ResourceLocation(keys.get(id_index));
-                if (!ForgeRegistries.ITEMS.containsKey(id)) continue;
-                ItemStack itemStack = new ItemStack(ItemUtil.fromId(id), 1);
-                setItem(i + 64, itemStack);
+        for (int i = 0; i < 12; i++) {
+            int id_index = i + (screenHandler.index * 12);
+            if (keys.size() < id_index + 1) {
+                setItem(i + 64, ItemStack.EMPTY);
+                continue;
             }
+
+            ResourceLocation id = new ResourceLocation(keys.get(id_index));
+            if (!ForgeRegistries.ITEMS.containsKey(id)) continue;
+            ItemStack itemStack = new ItemStack(ItemUtil.fromId(id), 1);
+            setItem(i + 64, itemStack);
         }
         isSettingStack = false;
-
-        // Log for debugging
-        System.out.println("Placed extract slots for player: " + player.getName().getString());
     }
 
+    public void setSortedItems(List<ItemStack> sortedItems) {
+        this.sortedItems.clear();
+        this.sortedItems.addAll(sortedItems);
+        updateExtractSlots();
 
-    public Map<Integer, ItemStack> definedStacks = new HashMap<>();
+        // Debug logging
+        System.out.println("Sorted items set in ExtractInventory: " + this.sortedItems);
+    }
 
-    @Override
-    public void setItem(int slot, ItemStack stack) {
-        ItemStack definedStack = definedStacks.get(slot);
-        if (!stack.isEmpty() && !definedStacks.containsKey(slot)) {
-            definedStack = stack.copy();
-            definedStacks.put(slot, definedStack);
+    public static void traverseNBT(CompoundTag tag, int depth) {
+        if (depth > 100) { // Arbitrary depth limit to prevent stack overflow
+            return;
         }
-
-        super.setItem(slot, stack);
-        if (!isSettingStack) {
-            super.setItem(slot, stack);
-            if (definedStack != null && stack.isEmpty()) {
-                EMCSystem.decrementEmc(player, EMCSystem.GetEmc(definedStack));
-                super.setItem(slot, definedStack.copy());
+        for (String key : tag.getAllKeys()) {
+            Tag value = tag.get(key);
+            if (value instanceof CompoundTag) {
+                traverseNBT((CompoundTag) value, depth + 1);
             }
         }
+    }
+
+    public void updateExtractSlots() {
+        isSettingStack = true;
+
+        // Clear existing items
+        for (int i = 64; i < 76; i++) {
+            this.setItem(i, ItemStack.EMPTY);
+        }
+
+        // Set sorted and paginated items
+        int start = screenHandler.index * 12;
+        for (int i = 0; i < 12; i++) {
+            int itemIndex = start + i;
+            if (itemIndex < sortedItems.size()) {
+                this.setItem(64 + i, sortedItems.get(itemIndex));
+            } else {
+                this.setItem(64 + i, ItemStack.EMPTY);
+            }
+        }
+
+        // Debug logging
+        /*for (int i = 64; i < 76; i++) {
+            System.out.println("Item in slot " + i + ": " + this.getItem(i));
+        }*/
+
+        // Traverse the NBT to ensure no cycles
+        CompoundTag playerNbt = player.getPersistentData();
+        if (playerNbt.contains("havenalchemy")) {
+            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
+            traverseNBT(havenAlchemyTag, 0);
+        }
+
+        isSettingStack = false;
+    }
+
+    public List<ItemStack> getSortedItems() {
+        return sortedItems;
     }
 }

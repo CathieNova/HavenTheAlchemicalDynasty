@@ -24,7 +24,7 @@ public class DataGenerators
             CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
             generator.addProvider(event.includeClient(), new ModEngLangProvider(output));
-            generator.addProvider(event.includeServer(), new net.cathienova.havenalchemy.datagen.ModRecipeProvider(output));
+            generator.addProvider(event.includeServer(), new net.cathienova.havenalchemy.datagen.recipes.ModRecipeProvider(output));
 
             generator.addProvider(event.includeServer(), ModLootTableProvider.create(output));
 

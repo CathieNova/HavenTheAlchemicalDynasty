@@ -89,7 +89,7 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModBlocks.alchemical_chamber.get()));
                         add.accept(new ItemStack(ModBlocks.alchemical_processor.get()));
                         add.accept(new ItemStack(ModBlocks.alchemical_condenser.get().asItem()));
-                        add.accept(new ItemStack(ModBlocks.alchemical_transmutation.get().asItem()));
+                        //add.accept(new ItemStack(ModBlocks.alchemical_transmutation.get().asItem()));
 
                         add.accept(new ItemStack(ModBlocks.dirt_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.stone_chest.get().asItem()));
@@ -199,6 +199,8 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModItems.osmium_ingot.get()));
                         add.accept(new ItemStack(ModItems.zinc_dust.get()));
                         add.accept(new ItemStack(ModItems.zinc_ingot.get()));
+                        add.accept(new ItemStack(ModItems.aluminum_dust.get()));
+                        add.accept(new ItemStack(ModItems.aluminum_ingot.get()));
 
                         //Seeds
                         add.accept(new ItemStack(ModItems.air_seeds.get()));

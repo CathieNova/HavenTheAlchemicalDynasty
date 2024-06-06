@@ -36,7 +36,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.mini_charcoal.get())
                 ;
 
-        this.tag(ModTags.Items.haveniteIngot)
+        this.tag(ModTags.Items.forgeHaveniteIngot)
                 .add(ModItems.havenite_ingot.get())
                 ;
 
@@ -231,6 +231,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.forgeUraniumDust).add(ModItems.uranium_dust.get());
         this.tag(ModTags.Items.forgeZincDust).add(ModItems.zinc_dust.get());
         this.tag(ModTags.Items.forgeNetheriteDust).add(ModItems.netherite_dust.get());
+        this.tag(ModTags.Items.forgeAluminumDust).add(ModItems.aluminum_dust.get());
 
         this.tag(ModTags.Items.oreHammers)
                 .add(ModItems.copper_ore_hammer.get())
@@ -241,6 +242,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.neosphore_ore_hammer.get())
                 ;
 
+        this.tag(ModTags.Items.forgeCopperIngot).add(Items.COPPER_INGOT);
+        this.tag(ModTags.Items.forgeGoldIngot).add(Items.GOLD_INGOT);
+        this.tag(ModTags.Items.forgeIronIngot).add(Items.IRON_INGOT);
         this.tag(ModTags.Items.forgeLeadIngot).add(ModItems.lead_ingot.get());
         this.tag(ModTags.Items.forgeNickelIngot).add(ModItems.nickel_ingot.get());
         this.tag(ModTags.Items.forgeOsmiumIngot).add(ModItems.osmium_ingot.get());
@@ -248,6 +252,25 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.forgeTinIngot).add(ModItems.tin_ingot.get());
         this.tag(ModTags.Items.forgeUraniumIngot).add(ModItems.uranium_ingot.get());
         this.tag(ModTags.Items.forgeZincIngot).add(ModItems.zinc_ingot.get());
+        this.tag(ModTags.Items.forgeNetheriteIngot).add(Items.NETHERITE_INGOT);
+        this.tag(ModTags.Items.forgeAluminumIngot).add(ModItems.aluminum_ingot.get());
 
+        this.tag(ModTags.Items.forgeOres)
+                .add(ModBlocks.havenite_ore.get().asItem())
+                .add(ModBlocks.andesite_havenite_ore.get().asItem())
+                .add(ModBlocks.diorite_havenite_ore.get().asItem())
+                .add(ModBlocks.granite_havenite_ore.get().asItem())
+                .add(ModBlocks.deepslate_havenite_ore.get().asItem())
+                .add(ModBlocks.havenite_ore.get().asItem())
+                .add(ModBlocks.neosphore_ore.get().asItem())
+                ;
+
+        this.tag(ModTags.Items.forgeHaveniteOre)
+                .add(ModBlocks.havenite_ore.get().asItem())
+                .add(ModBlocks.andesite_havenite_ore.get().asItem())
+                .add(ModBlocks.diorite_havenite_ore.get().asItem())
+                .add(ModBlocks.granite_havenite_ore.get().asItem())
+                .add(ModBlocks.deepslate_havenite_ore.get().asItem())
+                ;
     }
 }

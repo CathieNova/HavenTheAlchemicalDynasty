@@ -43,11 +43,14 @@ public class AlchemicalTransmutationBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
-        if (state.getBlock() != newState.getBlock()) {
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving)
+    {
+        if (state.getBlock() != newState.getBlock())
+        {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof AlchemicalTransmutationBlockEntity) {
-                ((AlchemicalTransmutationBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof AlchemicalTransmutationBlockEntity alchemicalTransmutationBlockEntity)
+            {
+                (alchemicalTransmutationBlockEntity).drops();
             }
         }
         super.onRemove(state, world, pos, newState, isMoving);
@@ -59,9 +62,9 @@ public class AlchemicalTransmutationBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide)
         {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof AlchemicalTransmutationBlockEntity)
+            if (blockEntity instanceof AlchemicalTransmutationBlockEntity alchemicalTransmutationBlockEntity)
             {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, (AlchemicalTransmutationBlockEntity) blockEntity, pPos);
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, alchemicalTransmutationBlockEntity, pPos);
             }
             else
             {

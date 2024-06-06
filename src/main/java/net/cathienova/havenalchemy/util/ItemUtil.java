@@ -77,8 +77,8 @@ public class ItemUtil {
     }
 
     public static void setItemsForString(Player player, List<String> list) {
-        CompoundTag playerNbt = player.saveWithoutId(new CompoundTag());
-        CompoundTag items = new CompoundTag();
+        CompoundTag playerNbt = player.getPersistentData();
+        CompoundTag items = player.getPersistentData();
         for (String id : list) {
             items.putBoolean(id, true);
         }
@@ -92,7 +92,6 @@ public class ItemUtil {
             havenAlchemyTag.put("registered_items", items);
             playerNbt.put("havenalchemy", havenAlchemyTag);
         }
-        player.load(playerNbt);
     }
 
     public static int count(Player player) {

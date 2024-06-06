@@ -1,5 +1,6 @@
 package net.cathienova.havenalchemy.item.artifacts;
 
+import net.cathienova.havenalchemy.config.HavenConfig;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -19,8 +20,6 @@ import java.util.List;
 @Mod.EventBusSubscriber
 public class MendingNecklace extends ArtifactBase
 {
-    static int repairInterval = 180;
-
     public MendingNecklace(Properties properties) {
         super(properties);
     }
@@ -37,7 +36,7 @@ public class MendingNecklace extends ArtifactBase
             {
                 ServerPlayer serverPlayer = (ServerPlayer) player;
 
-                if (serverPlayer.tickCount % repairInterval == 0)
+                if (serverPlayer.tickCount % HavenConfig.mendingNecklaceRepairInterval == 0)
                 {
                     repairItems(serverPlayer);
                 }
@@ -55,7 +54,18 @@ public class MendingNecklace extends ArtifactBase
         serverPlayer.getInventory().items.forEach(itemStack -> {
             if (!itemStack.isEmpty() && itemStack.isDamaged()) {
                 itemStack.setDamageValue(itemStack.getDamageValue() - 1);
-                return;
+            }
+        });
+
+        serverPlayer.getInventory().armor.forEach(itemStack -> {
+            if (!itemStack.isEmpty() && itemStack.isDamaged()) {
+                itemStack.setDamageValue(itemStack.getDamageValue() - 1);
+            }
+        });
+
+        serverPlayer.getInventory().offhand.forEach(itemStack -> {
+            if (!itemStack.isEmpty() && itemStack.isDamaged()) {
+                itemStack.setDamageValue(itemStack.getDamageValue() - 1);
             }
         });
     }

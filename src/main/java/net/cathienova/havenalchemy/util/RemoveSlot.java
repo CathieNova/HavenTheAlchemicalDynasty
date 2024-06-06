@@ -20,9 +20,8 @@ public class RemoveSlot extends Slot
 
     @Override
     public void set(ItemStack stack) {
-        CompoundTag playerTag = new CompoundTag();
-        player.save(playerTag);
-        CompoundTag items = new CompoundTag();
+        CompoundTag playerTag = player.getPersistentData();
+        CompoundTag items = player.getPersistentData();
 
         if (playerTag.contains("havenalchemy")) {
             CompoundTag havenAlchemyTag = playerTag.getCompound("havenalchemy");
@@ -46,9 +45,9 @@ public class RemoveSlot extends Slot
             havenAlchemyTag.put("registered_items", items);
             playerTag.put("havenalchemy", havenAlchemyTag);
         }
-        player.load(playerTag);
 
         player.addItem(stack.copy());
+
         if (player.containerMenu instanceof AlchemicalTransmutationMenu menu) {
             menu.extractInventory.removeItem(0, stack.getCount());
         }

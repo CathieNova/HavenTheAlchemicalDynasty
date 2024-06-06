@@ -137,6 +137,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.osmium_ingot);
         simpleItem(ModItems.zinc_dust);
         simpleItem(ModItems.zinc_ingot);
+        simpleItem(ModItems.aluminum_dust);
+        simpleItem(ModItems.aluminum_ingot);
 
         handHeldItem(ModItems.copper_ore_hammer);
         handHeldItem(ModItems.iron_ore_hammer);

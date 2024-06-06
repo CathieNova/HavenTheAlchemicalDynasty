@@ -29,6 +29,10 @@ public class CrusherBase extends PickaxeItem
     {
         super.appendHoverText(stack, world, tooltip, flag);
         tooltip.add(Component.literal(ChatFormatting.GRAY + "crushes various blocks."));
+        if (stack.getItem() == ModItems.neosphore_crusher.get())
+        {
+            tooltip.add(Component.translatable("tooltip.havenalchemy.ore_hammer.durability.inf").withStyle(ChatFormatting.GOLD));
+        }
     }
 
     @Override
@@ -52,18 +56,21 @@ public class CrusherBase extends PickaxeItem
             Block.popResource(player.level(), pos, new ItemStack(Blocks.GRAVEL));
             player.level().destroyBlock(pos, false);
             player.awardStat(Stats.BLOCK_MINED.get(blockState.getBlock()));
+            itemstack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(p.getUsedItemHand()));
             return true;
         }
         else if (blockState.getBlock() == Blocks.GRAVEL) {
             Block.popResource(player.level(), pos, new ItemStack(Blocks.SAND));
             player.level().destroyBlock(pos, false);
             player.awardStat(Stats.BLOCK_MINED.get(blockState.getBlock()));
+            itemstack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(p.getUsedItemHand()));
             return true;
         }
         else if (blockState.getBlock() == Blocks.SAND) {
             Block.popResource(player.level(), pos, new ItemStack(ModBlocks.dust.get()));
             player.level().destroyBlock(pos, false);
             player.awardStat(Stats.BLOCK_MINED.get(blockState.getBlock()));
+            itemstack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(p.getUsedItemHand()));
             return true;
         }
         else if (blockState.getBlock() == Blocks.END_STONE)
@@ -71,6 +78,7 @@ public class CrusherBase extends PickaxeItem
             Block.popResource(player.level(), pos, new ItemStack(ModBlocks.crushed_end_stone.get()));
             player.level().destroyBlock(pos, false);
             player.awardStat(Stats.BLOCK_MINED.get(blockState.getBlock()));
+            itemstack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(p.getUsedItemHand()));
             return true;
         }
         else if (blockState.getBlock() == Blocks.NETHERRACK)
@@ -78,6 +86,7 @@ public class CrusherBase extends PickaxeItem
             Block.popResource(player.level(), pos, new ItemStack(ModBlocks.crushed_netherrack.get()));
             player.level().destroyBlock(pos, false);
             player.awardStat(Stats.BLOCK_MINED.get(blockState.getBlock()));
+            itemstack.hurtAndBreak(1, player, (p) -> p.broadcastBreakEvent(p.getUsedItemHand()));
             return true;
         }
 

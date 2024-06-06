@@ -341,6 +341,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(2f)
                     .requiresCorrectToolForDrops()
+                    .isValidSpawn((state, world, pos, type) -> false)
                     .sound(SoundType.DEEPSLATE)));
 
     public static final RegistryObject<Block> basphalt_stone_stairs = registerBlock("basphalt_stone_stairs",

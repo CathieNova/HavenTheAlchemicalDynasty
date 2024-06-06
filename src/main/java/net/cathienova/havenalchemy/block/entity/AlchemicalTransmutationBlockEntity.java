@@ -1,6 +1,8 @@
 package net.cathienova.havenalchemy.block.entity;
 
 import net.cathienova.havenalchemy.gui.RegisterInventory;
+import net.cathienova.havenalchemy.networking.ModMessages;
+import net.cathienova.havenalchemy.networking.packet.SearchPacket;
 import net.cathienova.havenalchemy.screen.AlchemicalCondenserMenu;
 import net.cathienova.havenalchemy.screen.AlchemicalTransmutationMenu;
 import net.cathienova.havenalchemy.util.EMCSystem;
@@ -8,6 +10,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -23,6 +27,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

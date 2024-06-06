@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -87,7 +88,14 @@ public class GeneratorBlockEntity extends BlockEntity {
                     // Not a fuel
                     return;
                 }
-                items.extractItem(SLOT, 1, false);
+                if (items.getStackInSlot(SLOT).getItem() == Items.LAVA_BUCKET) {
+                    items.setStackInSlot(SLOT, new ItemStack(net.minecraft.world.item.Items.BUCKET));
+                }
+                else if (items.getStackInSlot(SLOT).getCount() > 1) {
+                    items.getStackInSlot(SLOT).shrink(1);
+                } else {
+                    items.setStackInSlot(SLOT, ItemStack.EMPTY);
+                }
             } else {
                 setBurnTime(burnTime-1);
                 energy.receiveEnergy(GENERATE, false);

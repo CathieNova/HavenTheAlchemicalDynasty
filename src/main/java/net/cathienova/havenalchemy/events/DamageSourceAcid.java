@@ -43,8 +43,12 @@ public class DamageSourceAcid extends DamageSource
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event)
     {
-        Player player = event.player;
+        /*Player player = event.player;
         BlockPos playerPos = player.blockPosition();
+        if (player != null) return;
+
+        if (player.level().isClientSide() || player.isCreative() || player.isSpectator())
+            return;
 
         if (player.level().getFluidState(playerPos).getType() == FluidInit.acid_fluid.flowing.get())
         {
@@ -68,6 +72,6 @@ public class DamageSourceAcid extends DamageSource
 
             if (player.getHealth() <= 1)
                 player.hurt(ModDamageTypes.causeAcidDamage(player.level().registryAccess()), 2f);
-        }
+        }*/
     }
 }

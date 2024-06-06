@@ -3,6 +3,7 @@ package net.cathienova.havenalchemy.networking;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.networking.packet.EMCSyncS2CPacket;
 import net.cathienova.havenalchemy.networking.packet.EnergySyncS2CPacket;
+import net.cathienova.havenalchemy.networking.packet.LearnedItemsSyncPacket;
 import net.cathienova.havenalchemy.networking.packet.NetworkPacket;
 import net.cathienova.havenalchemy.networking.packet.SearchPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -52,6 +53,12 @@ public class ModMessages {
                 .decoder(NetworkPacket::new)
                 .encoder(NetworkPacket::toBytes)
                 .consumerMainThread(NetworkPacket::handle)
+                .add();
+
+        net.messageBuilder(LearnedItemsSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(LearnedItemsSyncPacket::new)
+                .encoder(LearnedItemsSyncPacket::toBytes)
+                .consumerMainThread(LearnedItemsSyncPacket::handle)
                 .add();
     }
 

@@ -110,7 +110,7 @@ public class HavenAlchemy
                 MenuScreens.register(ModMenuTypes.EMERALD_CHEST_MENU.get(), EmeraldChestScreen::new);
                 MenuScreens.register(ModMenuTypes.NETHERITE_CHEST_MENU.get(), NetheriteChestScreen::new);
                 MenuScreens.register(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), GeneratorScreen::new);
-                //loadEmcValues();
+                loadEmcValues();
             });
         }
     }
