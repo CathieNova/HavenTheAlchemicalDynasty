@@ -663,6 +663,22 @@ public class EMCSystem
         addEmc("create:andesite_casing", 76);
         addEmc("create:cogwheel", 19);
         addEmc("create:large_cogwheel", 27);
+        addEmc("create:crushed_raw_iron", 0);
+        addEmc("create:crushed_raw_gold", 0);
+        addEmc("create:crushed_raw_copper", 0);
+        addEmc("create:crushed_raw_zinc", 0);
+        addEmc("create:crushed_raw_osmium", 0);
+        addEmc("create:crushed_raw_silver", 0);
+        addEmc("create:crushed_raw_tin", 0);
+        addEmc("create:crushed_raw_lead", 0);
+        addEmc("create:crushed_raw_aluminum", 0);
+        addEmc("create:crushed_raw_uranium", 0);
+        addEmc("create:crushed_raw_nickel", 0);
+        addEmc("create:crushed_raw_quicksilver", 0);
+        addEmc("create:crushed_raw_platinum", 0);
+        addEmc("create:crushed_raw_calorite_ore", 0);
+        addEmc("create:crushed_raw_desh_ore", 0);
+        addEmc("create:crushed_raw_ostrum_ore", 0);
 
         addEmcTags(ModTags.Items.glass, 2);
         addEmcTags(ModTags.Items.bricks, 16);
