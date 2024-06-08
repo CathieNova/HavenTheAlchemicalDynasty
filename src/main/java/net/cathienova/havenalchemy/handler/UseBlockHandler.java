@@ -46,8 +46,20 @@ public class UseBlockHandler {
         {
             spawnItem(level, player, blockPos, new ItemStack(ModItems.birch_bark.get()));
         }
-        else if (ModBlocks.charmel_log.get().equals(block) || ModBlocks.charmel_wood.get().equals(block))
+        else if (ModBlocks.charmel_log.get().equals(block))
         {
+            level.setBlock(blockPos, ModBlocks.stripped_charmel_log.get().defaultBlockState(), 3);
+            player.getItemInHand(InteractionHand.MAIN_HAND).hurtAndBreak(1, player, (p_220040_1_) -> {
+                p_220040_1_.broadcastBreakEvent(InteractionHand.MAIN_HAND);
+            });
+            spawnItem(level, player, blockPos, new ItemStack(ModItems.charmel_bark.get()));
+        }
+        else if (ModBlocks.charmel_wood.get().equals(block))
+        {
+            level.setBlock(blockPos, ModBlocks.stripped_charmel_wood.get().defaultBlockState(), 3);
+            player.getItemInHand(InteractionHand.MAIN_HAND).hurtAndBreak(1, player, (p_220040_1_) -> {
+                p_220040_1_.broadcastBreakEvent(InteractionHand.MAIN_HAND);
+            });
             spawnItem(level, player, blockPos, new ItemStack(ModItems.charmel_bark.get()));
         }
         else if (Blocks.CHERRY_LOG.equals(block) || Blocks.CHERRY_WOOD.equals(block))
