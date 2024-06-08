@@ -44,23 +44,32 @@ public class AlchemicalCondenserScreen extends AbstractContainerScreen<Alchemica
 
         guiGraphics.blit(BACKGROUND, x, y, 0, 0, 256, 234);
 
-        if (menu.getStoredEMC() > 0) {
+        long emc = menu.getStoredEMC();
+        long targetEMC = menu.getTargetEMC();
+        long maxEMC = menu.maxEMC;
+
+        if (emc > 0) {
             int width = 107;
 
-            if (menu.getStoredEMC() > menu.getTargetEMC() || menu.getStoredEMC() > menu.maxEMC) {
-                width = 107;
-            } else {
-                double ratio = (double) menu.getStoredEMC() / Math.min(menu.getTargetEMC(), menu.maxEMC);
-                width = (int) Math.round(ratio * 107);
-
-                if (!(menu.getTargetEMC() < menu.maxEMC && menu.slots.get(91).hasItem())) {
-                    width = (int) Math.round((double) menu.getStoredEMC() / menu.maxEMC * 107);
-                }
+            if (emc > 0 && targetEMC > 0)
+            {
+                float ratio = (float) emc / targetEMC;
+                width = Math.round(ratio * 107);
             }
+            else
+            {
+                width = 0;
+            }
+
+            if (width > 107) width = 107;
 
             guiGraphics.blit(BACKGROUND, x + 31, y + 7, 0, 240, width, 14);
         }
-        guiGraphics.drawString(font, "" + String.format("%,d", menu.getStoredEMC()), x + 140, y + 10, 65535);
+
+        if (emc > 0)
+            guiGraphics.drawString(font, "" + String.format("%,d", emc), x + 140, y + 10, 65535);
+        else
+            guiGraphics.drawString(font, "0", x + 140, y + 10, 65535);
     }
 
     @Override

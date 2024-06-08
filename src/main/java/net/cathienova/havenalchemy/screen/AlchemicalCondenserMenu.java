@@ -159,7 +159,7 @@ public class AlchemicalCondenserMenu extends AbstractContainerMenu
         if (slotIndex == 91)
         { // Target Slot
             ItemStack oldStack = getCarried();
-            super.clicked(slotIndex, button, actionType, player);
+            //super.clicked(slotIndex, button, actionType, player);
             if (!oldStack.isEmpty())
             {
                 setCarried(oldStack);
