@@ -116,11 +116,11 @@ public class EMCSystem
             {
                 HavenAlchemy.LOGGER.info("[HavenAlchemy]: EMC file does not exist, creating with default values...");
                 defaultMap();
+                setEmcFromRecipes();
                 saveEmcValues();
             }
 
             HavenAlchemy.LOGGER.info("[HavenAlchemy]: Setting EMC values from recipes...");
-            setEmcFromRecipes();
             saveEmcValues();
         } catch (Exception e)
         {
