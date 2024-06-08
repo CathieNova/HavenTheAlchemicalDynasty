@@ -551,7 +551,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         stairsRecipe(output, ModBlocks.basphalt_stone_bricks_stairs.get(), ModBlocks.basphalt_stone_bricks.get());
         fenceRecipe(output, ModBlocks.basphalt_stone_bricks_fence.get(), ModBlocks.basphalt_stone_bricks.get());
         wallRecipe(output, ModBlocks.basphalt_stone_bricks_wall.get(), ModBlocks.basphalt_stone_bricks.get());
-        SmallBlockRecipe(output, ModBlocks.basphalt_stone_bricks.get(), ModBlocks.basphalt_stone.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.basphalt_stone_bricks.get(), 4)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', ModBlocks.basphalt_stone.get())
+                .unlockedBy("has_basphalt_stone", has(ModBlocks.basphalt_stone.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/basphalt_stone_bricks");
 
         stoneCutterRecipe(output, ModBlocks.basphalt_stone_bricks.get(), ModBlocks.basphalt_stone.get());
         stoneCutterRecipe(output, ModBlocks.basphalt_stone_bricks_1.get(), ModBlocks.basphalt_stone.get());
