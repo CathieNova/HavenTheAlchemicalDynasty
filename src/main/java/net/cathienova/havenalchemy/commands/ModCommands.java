@@ -20,11 +20,26 @@ public class ModCommands
             .then(Commands.literal("emc")
                     .then(Commands.literal("reload")
                             .executes(ModCommands::reloadConfig))
+                    .then(Commands.literal("addemcrecipes")
+                            .executes(ModCommands::addEMCRecipes))
                     .then(Commands.literal("add")
                             .then(Commands.argument("value", IntegerArgumentType.integer())
                                     .executes(context -> addEMC(context, IntegerArgumentType.getInteger(context, "value")))))
                     .then(Commands.literal("remove")
                             .executes(ModCommands::removeEMC))));
+    }
+
+    private static int addEMCRecipes(CommandContext<CommandSourceStack> context) throws CommandSyntaxException
+    {
+        ServerPlayer player = context.getSource().getPlayerOrException();
+        if (!player.hasPermissions(2) || !player.isCreative())
+        {
+            context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §4You do not have permission to use this command."));
+            return 0;
+        }
+        EMCSystem.setEmcFromRecipes();
+        context.getSource().sendSuccess(() -> Component.literal("§6[§5Haven §2Alchemy§6]§r §2EMC values added from recipes."), true);
+        return 1;
     }
 
     private static int reloadConfig(CommandContext<CommandSourceStack> context) throws CommandSyntaxException
