@@ -715,4 +715,9 @@ public class EMCSystem
         addEmcTags(ModTags.Items.dyes, 16);
         addEmcTags(ModTags.Items.chests, 64);
     }
+
+    public static int getEMCListSize()
+    {
+        return map.size();
+    }
 }

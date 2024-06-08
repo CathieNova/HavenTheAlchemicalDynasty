@@ -32,11 +32,11 @@ public class ModCommands
         ServerPlayer player = context.getSource().getPlayerOrException();
         if (!player.hasPermissions(2) || !player.isCreative())
         {
-            context.getSource().sendFailure(Component.literal("You do not have permission to use this command."));
+            context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §4You do not have permission to use this command."));
             return 0;
         }
         EMCSystem.loadEmcValues();
-        context.getSource().sendSuccess(() -> Component.literal("EMC config reloaded."), true);
+        context.getSource().sendSuccess(() -> Component.literal("§6[§5Haven §2Alchemy§6]§r §2EMC config reloaded with §5" + EMCSystem.getEMCListSize() + " §2entries."), true);
         return 1;
     }
 
@@ -45,7 +45,7 @@ public class ModCommands
         ServerPlayer player = context.getSource().getPlayerOrException();
         if (!player.hasPermissions(2) || !player.isCreative())
         {
-            context.getSource().sendFailure(Component.literal("You do not have permission to use this command."));
+            context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §4You do not have permission to use this command."));
             return 0;
         }
         ItemStack itemInHand = player.getMainHandItem();
@@ -53,9 +53,9 @@ public class ModCommands
         if (!itemInHand.isEmpty()) {
             EMCSystem.AddEMCToConfig(itemInHand.getItem(), value);
             EMCSystem.loadEmcValues();
-            context.getSource().sendSuccess(() -> Component.literal("Item added to EMC list and config reloaded."), true);
+            context.getSource().sendSuccess(() -> Component.literal("§6[§5Haven §2Alchemy§6]§r §5" + itemInHand.getDisplayName().getString() + " §2added to EMC list with value §5" + value + " §2and config reloaded."), true);
         } else {
-            context.getSource().sendFailure(Component.literal("No item in hand to add to EMC list."));
+            context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §cNo item in hand to add to EMC list."));
         }
         return 1;
     }
@@ -65,7 +65,7 @@ public class ModCommands
         ServerPlayer player = context.getSource().getPlayerOrException();
         if (!player.hasPermissions(2) || !player.isCreative())
         {
-            context.getSource().sendFailure(Component.literal("You do not have permission to use this command."));
+            context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §4You do not have permission to use this command."));
             return 0;
         }
         ItemStack itemInHand = player.getMainHandItem();
@@ -73,9 +73,9 @@ public class ModCommands
         if (!itemInHand.isEmpty()) {
             EMCSystem.RemoveEMCFromConfig(itemInHand.getItem());
             EMCSystem.loadEmcValues();
-            context.getSource().sendSuccess(() -> Component.literal("Item removed from EMC list and config reloaded."), true);
+            context.getSource().sendSuccess(() -> Component.literal("§6[§5Haven §2Alchemy§6]§r §5" + itemInHand.getDisplayName().getString() + " §2removed from EMC list and config reloaded."), true);
         } else {
-            context.getSource().sendFailure(Component.literal("No item in hand to remove from EMC list."));
+            context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §cNo item in hand to remove from EMC list."));
         }
         return 1;
     }
