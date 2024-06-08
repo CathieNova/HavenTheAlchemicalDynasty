@@ -39,9 +39,6 @@ public class TrowelItem extends Item {
         }
 
         ArrayList<ItemStack> blockItems = new ArrayList<>();
-        if (blockItems.size() == 0) {
-            return InteractionResult.FAIL;
-        }
 
         for (int i = 0; i < 9; i++) {
             ItemStack itemStack = player.getInventory().getItem(i);
