@@ -139,6 +139,18 @@ public class EMCSystem
         }
     }
 
+    public static void AddEMCToConfig(Item item, long emc)
+    {
+        addEmc(item, emc);
+        saveEmcValues();
+    }
+
+    public static void RemoveEMCFromConfig(Item item)
+    {
+        remove(item);
+        saveEmcValues();
+    }
+
     public static void IncreaseEmcToPlayer(Player player, ItemStack stack)
     {
         IncrementEmc(player, EMCSystem.GetEmc(stack));

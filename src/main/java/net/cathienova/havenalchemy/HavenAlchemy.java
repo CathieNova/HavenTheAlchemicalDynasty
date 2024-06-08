@@ -3,6 +3,7 @@ package net.cathienova.havenalchemy;
 import com.mojang.logging.LogUtils;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
+import net.cathienova.havenalchemy.commands.ModCommands;
 import net.cathienova.havenalchemy.config.CommonConfig;
 import net.cathienova.havenalchemy.events.FluidInit;
 import net.cathienova.havenalchemy.handler.BootsofMeowHandler;
@@ -22,6 +23,7 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -113,5 +115,10 @@ public class HavenAlchemy
                 loadEmcValues();
             });
         }
+    }
+
+    @SubscribeEvent
+    public void onRegisterCommands(RegisterCommandsEvent event) {
+        ModCommands.register(event.getDispatcher());
     }
 }
