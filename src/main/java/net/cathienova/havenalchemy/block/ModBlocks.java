@@ -698,13 +698,13 @@ public class ModBlocks {
             FacadeBlock::new);
 
     public static final RegistryObject<Block> speed_plate_i = registerBlock("speed_plate_i",
-            () -> new SpeedPlate1(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().strength(0.5f)));
+            () -> new SpeedPlate1(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().noCollission().strength(0.25f)));
 
     public static final RegistryObject<Block> speed_plate_ii = registerBlock("speed_plate_ii",
-            () -> new SpeedPlate2(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().strength(0.5f)));
+            () -> new SpeedPlate2(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().noCollission().strength(0.25f)));
 
     public static final RegistryObject<Block> speed_plate_iii = registerBlock("speed_plate_iii",
-            () -> new SpeedPlate3(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().strength(0.5f)));
+            () -> new SpeedPlate3(BlockBehaviour.Properties.copy(Blocks.BLACK_WOOL).noOcclusion().noCollission().strength(0.25f)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
