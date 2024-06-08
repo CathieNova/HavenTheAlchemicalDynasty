@@ -60,10 +60,7 @@ public class AlchemicalCondenserScreen extends AbstractContainerScreen<Alchemica
 
             guiGraphics.blit(BACKGROUND, x + 31, y + 7, 0, 240, width, 14);
         }
-        if (menu.getStoredEMC() > 0)
-            guiGraphics.drawString(font, "" + String.format("%,d", menu.getStoredEMC()), x + 140, y + 10, 65535);
-        else
-            guiGraphics.drawString(font, "0", x + 140, y + 10, 65535);
+        guiGraphics.drawString(font, "" + String.format("%,d", menu.getStoredEMC()), x + 140, y + 10, 65535);
     }
 
     @Override
