@@ -4,7 +4,7 @@
     "item": "havenalchemy:netherite_seeds"
   },
   "categories": [
-    "farmland"
+    "tier5_farmland"
   ],
   "growthTicks": 1200,
   "display": {

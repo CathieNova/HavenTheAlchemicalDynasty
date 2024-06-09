@@ -54,6 +54,12 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlockWithItem(ModBlocks.alchemical_chamber.get(), new ModelFile.UncheckedModelFile(modLoc("block/alchemical_chamber")));
         blockWithItem(ModBlocks.alchemical_processor);
 
+        farmlandBlock(ModBlocks.essentia_farmland.get(), "essentia_farmland", "havenalchemy:block/essentia_dirt", "havenalchemy:block/essentia_farmland");
+        farmlandBlock(ModBlocks.mysterium_farmland.get(), "mysterium_farmland", "havenalchemy:block/mysterium_dirt", "havenalchemy:block/mysterium_farmland");
+        farmlandBlock(ModBlocks.vitalium_farmland.get(), "vitalium_farmland", "havenalchemy:block/vitalium_dirt", "havenalchemy:block/vitalium_farmland");
+        farmlandBlock(ModBlocks.celestium_farmland.get(), "celestium_farmland", "havenalchemy:block/celestium_dirt", "havenalchemy:block/celestium_farmland");
+        farmlandBlock(ModBlocks.eternium_farmland.get(), "eternium_farmland", "havenalchemy:block/eternium_dirt", "havenalchemy:block/eternium_farmland");
+
         CropDrops((CropBlock) ModBlocks.essentia_crop.get(), "essentia_crop", "essentia_crop");
         CropDrops((CropBlock) ModBlocks.coal_crop.get(), "coal_crop", "coal_crop");
         CropDrops((CropBlock) ModBlocks.coral_crop.get(), "coral_crop", "coral_crop");
@@ -212,6 +218,16 @@ public class ModBlockStateProvider extends BlockStateProvider
     private void blockItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile(HavenAlchemy.MOD_ID +
                 ":block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+    }
+
+    private void farmlandBlock(Block block, String name, String dirtTexture, String topTexture) {
+        getVariantBuilder(block)
+                .partialState()
+                .modelForState()
+                .modelFile(models().withExistingParent(name, "minecraft:block/template_farmland")
+                        .texture("dirt", dirtTexture)
+                        .texture("top", topTexture))
+                .addModel();
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

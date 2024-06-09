@@ -1,6 +1,9 @@
 package net.cathienova.havenalchemy.block.horticulture;
 
+import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -9,11 +12,17 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class RedstoneCrop extends BaseCrop
 {
     public RedstoneCrop(Properties properties)
     {
-        super(properties);
+        super(properties,
+                ModBlocks.vitalium_farmland.get(),
+                ModBlocks.celestium_farmland.get(),
+                ModBlocks.eternium_farmland.get()
+        );
     }
 
     public static int MAX_AGE = 7;

@@ -280,6 +280,12 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModBlocks.celestium_spirit_block.get()));
                         add.accept(new ItemStack(ModBlocks.eternium_spirit_block.get()));
 
+                        add.accept(new ItemStack(ModBlocks.essentia_farmland.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.mysterium_farmland.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.vitalium_farmland.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.celestium_farmland.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.eternium_farmland.get().asItem()));
+
                         //Artifacts
                         add.accept(new ItemStack(ModItems.magnet.get()));
                         add.accept(new ItemStack(ModItems.mending_necklace.get()));

@@ -75,6 +75,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.diamond_chest.get());
         this.dropSelf(ModBlocks.emerald_chest.get());
         this.dropSelf(ModBlocks.netherite_chest.get());
+        this.dropSelf(ModBlocks.essentia_farmland.get());
+        this.dropSelf(ModBlocks.mysterium_farmland.get());
+        this.dropSelf(ModBlocks.vitalium_farmland.get());
+        this.dropSelf(ModBlocks.celestium_farmland.get());
+        this.dropSelf(ModBlocks.eternium_farmland.get());
 
         this.add(ModBlocks.neosphore_ore.get(),
                 block -> createOreLikeOreDrops(ModBlocks.neosphore_ore.get(), ModItems.raw_neosphore.get()));

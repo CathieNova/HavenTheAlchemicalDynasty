@@ -4,7 +4,9 @@
     "item": "havenalchemy:nether_quartz_seeds"
   },
   "categories": [
-    "farmland"
+    "tier3_farmland",
+    "tier4_farmland",
+    "tier5_farmland"
   ],
   "growthTicks": 1200,
   "display": {

@@ -3,6 +3,7 @@ package net.cathienova.havenalchemy.block;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.chests.*;
 import net.cathienova.havenalchemy.block.custom.*;
+import net.cathienova.havenalchemy.block.farmland.*;
 import net.cathienova.havenalchemy.block.horticulture.*;
 import net.cathienova.havenalchemy.cables.blocks.CableBlock;
 import net.cathienova.havenalchemy.cables.blocks.FacadeBlock;
@@ -91,6 +92,21 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> eternium_spirit_block = registerBlock("eternium_spirit_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> essentia_farmland = registerBlock("essentia_farmland",
+            () -> new EssentiaFarmland(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
+
+    public static final RegistryObject<Block> mysterium_farmland = registerBlock("mysterium_farmland",
+            () -> new MysteriumFarmland(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
+
+    public static final RegistryObject<Block> vitalium_farmland = registerBlock("vitalium_farmland",
+            () -> new VitaliumFarmland(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
+
+    public static final RegistryObject<Block> celestium_farmland = registerBlock("celestium_farmland",
+            () -> new CelestiumFarmland(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
+
+    public static final RegistryObject<Block> eternium_farmland = registerBlock("eternium_farmland",
+            () -> new EterniumFarmland(BlockBehaviour.Properties.copy(Blocks.FARMLAND)));
 
     public static final RegistryObject<Block> havenite_crop = registerBlock("havenite_crop",
             () -> new HaveniteCrop(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));

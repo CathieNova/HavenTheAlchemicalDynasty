@@ -28,6 +28,7 @@ public class ModTags
         public static final TagKey<Block> suspicious_basphalt = tag("suspicious_basphalt");
         public static final TagKey<Block> forgeOres = forgeTag("ores");
         public static final TagKey<Block> forgeHaveniteOre = forgeTag("ores/havenite");
+        public static final TagKey<Block> farmland = tag("farmland");
 
         private static TagKey<Block> tag(String name)
         {
@@ -116,6 +117,7 @@ public class ModTags
         public static final TagKey<Item> aiots = forgeTag("tools/aiots");
         public static final TagKey<Item> mini_coals = forgeTag("mini_coals");
         public static final TagKey<Item> crushers = tag("crushers");
+        public static final TagKey<Item> farmland = tag("farmland");
 
         private static TagKey<Item> tag(String name)
         {

@@ -317,6 +317,12 @@ public class ModEngLangProvider extends LanguageProvider
         addItem(ModItems.celestium_spirit, "Celestium Spirit");
         addItem(ModItems.eternium_spirit, "Eternium Spirit");
 
+        addBlock(ModBlocks.essentia_farmland, "§2Essentia Farmland");
+        addBlock(ModBlocks.mysterium_farmland, "§6Mysterium Farmland");
+        addBlock(ModBlocks.vitalium_farmland, "§4Vitalium Farmland");
+        addBlock(ModBlocks.celestium_farmland, "§3Celestium Farmland");
+        addBlock(ModBlocks.eternium_farmland, "§5Eternium Farmland");
+
         addItem(ModItems.coal_spirit, "Coal Spirit");
         addItem(ModItems.amethyst_spirit, "Amethyst Spirit");
         addItem(ModItems.coral_spirit, "Coral Spirit");

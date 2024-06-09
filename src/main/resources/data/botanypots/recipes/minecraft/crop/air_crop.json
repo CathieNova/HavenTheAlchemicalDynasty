@@ -1,23 +1,21 @@
 {
   "type": "botanypots:crop",
   "seed": {
-    "item": "havenalchemy:redstone_seeds"
+    "item": "havenalchemy:air_seeds"
   },
   "categories": [
-    "tier3_farmland",
-    "tier4_farmland",
-    "tier5_farmland"
+    "tier1_farmland"
   ],
   "growthTicks": 1200,
   "display": {
     "type": "botanypots:aging",
-    "block": "havenalchemy:redstone_crop"
+    "block": "havenalchemy:air_crop"
   },
   "drops": [
     {
       "chance": 1.00,
       "output": {
-        "item": "havenalchemy:redstone_spirit"
+        "item": "havenalchemy:air_spirit"
       },
       "minRolls": 1,
       "maxRolls": 2
@@ -25,7 +23,7 @@
     {
       "chance": 0.10,
       "output": {
-        "item": "havenalchemy:redstone_seeds"
+        "item": "havenalchemy:air_seeds"
       },
       "minRolls": 1,
       "maxRolls": 2

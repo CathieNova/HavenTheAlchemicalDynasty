@@ -11,6 +11,7 @@ import net.cathienova.havenalchemy.item.equipment.NeosphoreArmor;
 import net.cathienova.havenalchemy.item.fuel.FuelItem;
 import net.cathienova.havenalchemy.item.hammers.HammerBase;
 import net.cathienova.havenalchemy.item.orehammers.*;
+import net.cathienova.havenalchemy.item.spirits.SpiritItem;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -388,19 +389,19 @@ public class ModItems {
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
 
     public static final RegistryObject<Item> essentia_spirit = ITEMS.register("essentia_spirit",
-            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+            () -> new SpiritItem(new Item.Properties().stacksTo(64).rarity(Rarity.RARE), ModBlocks.essentia_farmland.get()));
 
     public static final RegistryObject<Item> mysterium_spirit = ITEMS.register("mysterium_spirit",
-            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+            () -> new SpiritItem(new Item.Properties().stacksTo(64).rarity(Rarity.RARE), ModBlocks.mysterium_farmland.get()));
 
     public static final RegistryObject<Item> vitalium_spirit = ITEMS.register("vitalium_spirit",
-            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+            () -> new SpiritItem(new Item.Properties().stacksTo(64).rarity(Rarity.RARE), ModBlocks.vitalium_farmland.get()));
 
     public static final RegistryObject<Item> celestium_spirit = ITEMS.register("celestium_spirit",
-            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+            () -> new SpiritItem(new Item.Properties().stacksTo(64).rarity(Rarity.RARE), ModBlocks.celestium_farmland.get()));
 
     public static final RegistryObject<Item> eternium_spirit = ITEMS.register("eternium_spirit",
-            () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));
+            () -> new SpiritItem(new Item.Properties().stacksTo(64).rarity(Rarity.RARE), ModBlocks.eternium_farmland.get()));
 
     public static final RegistryObject<Item> stone_spirit = ITEMS.register("stone_spirit",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.RARE)));

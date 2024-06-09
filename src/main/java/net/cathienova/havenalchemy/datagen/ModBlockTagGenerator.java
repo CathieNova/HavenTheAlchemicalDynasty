@@ -390,5 +390,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.granite_havenite_ore.get())
                 .add(ModBlocks.deepslate_havenite_ore.get())
                 ;
+
+        this.tag(ModTags.Blocks.farmland)
+                .add(ModBlocks.essentia_farmland.get())
+                .add(ModBlocks.mysterium_farmland.get())
+                .add(ModBlocks.vitalium_farmland.get())
+                .add(ModBlocks.celestium_farmland.get())
+                .add(ModBlocks.eternium_farmland.get())
+                ;
     }
 }

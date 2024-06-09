@@ -1,8 +1,10 @@
 package net.cathienova.havenalchemy.block.horticulture;
 
+import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -14,7 +16,14 @@ public class EssentiaCrop extends BaseCrop
 {
     public EssentiaCrop(Properties properties)
     {
-        super(properties);
+        super(properties,
+                Blocks.FARMLAND,
+                ModBlocks.essentia_farmland.get(),
+                ModBlocks.mysterium_farmland.get(),
+                ModBlocks.vitalium_farmland.get(),
+                ModBlocks.celestium_farmland.get(),
+                ModBlocks.eternium_farmland.get()
+        );
     }
 
     public static int MAX_AGE = 7;

@@ -4,7 +4,8 @@
     "item": "havenalchemy:experience_seeds"
   },
   "categories": [
-    "farmland"
+    "tier4_farmland",
+    "tier5_farmland"
   ],
   "growthTicks": 1200,
   "display": {

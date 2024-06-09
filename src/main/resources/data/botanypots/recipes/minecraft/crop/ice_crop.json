@@ -4,7 +4,12 @@
     "item": "havenalchemy:ice_seeds"
   },
   "categories": [
-    "farmland"
+    "farmland",
+    "tier1_farmland",
+    "tier2_farmland",
+    "tier3_farmland",
+    "tier4_farmland",
+    "tier5_farmland"
   ],
   "growthTicks": 1200,
   "display": {

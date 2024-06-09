@@ -290,6 +290,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(ModBlocks.charger_block.getId().getPath(), modLoc("block/charger_block_on"));
         withExistingParent(ModBlocks.cable_block.getId().getPath(), modLoc("block/cable"));
         withExistingParent(ModBlocks.facade_block.getId().getPath(), modLoc("block/facade"));
+
+        withExistingParent(ModBlocks.essentia_farmland.getId().getPath(), modLoc("block/essentia_farmland"));
+        withExistingParent(ModBlocks.mysterium_farmland.getId().getPath(), modLoc("block/mysterium_farmland"));
+        withExistingParent(ModBlocks.vitalium_farmland.getId().getPath(), modLoc("block/vitalium_farmland"));
+        withExistingParent(ModBlocks.celestium_farmland.getId().getPath(), modLoc("block/celestium_farmland"));
+        withExistingParent(ModBlocks.eternium_farmland.getId().getPath(), modLoc("block/eternium_farmland"));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

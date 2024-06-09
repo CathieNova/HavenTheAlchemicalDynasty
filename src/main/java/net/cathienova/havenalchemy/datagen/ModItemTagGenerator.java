@@ -272,5 +272,13 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.granite_havenite_ore.get().asItem())
                 .add(ModBlocks.deepslate_havenite_ore.get().asItem())
                 ;
+
+        this.tag(ModTags.Items.farmland)
+                .add(ModBlocks.essentia_farmland.get().asItem())
+                .add(ModBlocks.mysterium_farmland.get().asItem())
+                .add(ModBlocks.vitalium_farmland.get().asItem())
+                .add(ModBlocks.celestium_farmland.get().asItem())
+                .add(ModBlocks.eternium_farmland.get().asItem())
+        ;
     }
 }

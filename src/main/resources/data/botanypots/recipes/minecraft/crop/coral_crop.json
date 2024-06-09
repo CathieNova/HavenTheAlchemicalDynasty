@@ -4,7 +4,8 @@
     "item": "havenalchemy:coral_seeds"
   },
   "categories": [
-    "farmland"
+    "farmland",
+    "tier1_farmland"
   ],
   "growthTicks": 1200,
   "display": {

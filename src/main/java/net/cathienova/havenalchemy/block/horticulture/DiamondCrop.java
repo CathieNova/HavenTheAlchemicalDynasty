@@ -1,5 +1,6 @@
 package net.cathienova.havenalchemy.block.horticulture;
 
+import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -13,7 +14,10 @@ public class DiamondCrop extends BaseCrop
 {
     public DiamondCrop(Properties properties)
     {
-        super(properties);
+        super(properties,
+                ModBlocks.celestium_farmland.get(),
+                ModBlocks.eternium_farmland.get()
+        );
     }
 
     public static int MAX_AGE = 7;
