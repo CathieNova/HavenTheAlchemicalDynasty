@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "havenalchemy:mysterium_farmland"
+  },
+  "display": {
+    "block": "havenalchemy:mysterium_farmland"
+  },
+  "categories": [
+    "tier2_farmland"
+  ],
+  "growthModifier": 1.2
+}

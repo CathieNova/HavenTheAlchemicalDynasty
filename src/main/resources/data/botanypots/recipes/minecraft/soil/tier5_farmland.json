@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "havenalchemy:eternium_farmland"
+  },
+  "display": {
+    "block": "havenalchemy:eternium_farmland"
+  },
+  "categories": [
+    "tier5_farmland"
+  ],
+  "growthModifier": 1.75
+}

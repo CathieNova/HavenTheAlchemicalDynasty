@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "havenalchemy:vitalium_farmland"
+  },
+  "display": {
+    "block": "havenalchemy:vitalium_farmland"
+  },
+  "categories": [
+    "tier3_farmland"
+  ],
+  "growthModifier": 1.3
+}

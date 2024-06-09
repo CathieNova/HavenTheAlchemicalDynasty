@@ -187,7 +187,9 @@ public class TooltipEventHandler {
         if (event.getItemStack().getItem() == ModItems.eternium_spirit.get() ||
                 event.getItemStack().getItem() == ModBlocks.eternium_spirit_block.get().asItem() ||
                 event.getItemStack().getItem() == ModItems.netherite_seeds.get() ||
-                event.getItemStack().getItem() == ModItems.netherite_spirit.get()
+                event.getItemStack().getItem() == ModItems.netherite_spirit.get() ||
+                event.getItemStack().getItem() == ModItems.havenite_seeds.get() ||
+                event.getItemStack().getItem() == ModItems.havenite_spirit.get()
         )
         {
             event.getToolTip().add(Component.translatable("tooltip.havenalchemy.tier5"));

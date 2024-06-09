@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "havenalchemy:essentia_farmland"
+  },
+  "display": {
+    "block": "havenalchemy:essentia_farmland"
+  },
+  "categories": [
+    "tier1_farmland"
+  ],
+  "growthModifier": 1.1
+}

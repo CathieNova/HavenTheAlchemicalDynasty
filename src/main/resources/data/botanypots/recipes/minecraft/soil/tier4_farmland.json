@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "havenalchemy:celestium_farmland"
+  },
+  "display": {
+    "block": "havenalchemy:celestium_farmland"
+  },
+  "categories": [
+    "tier4_farmland"
+  ],
+  "growthModifier": 1.5
+}
