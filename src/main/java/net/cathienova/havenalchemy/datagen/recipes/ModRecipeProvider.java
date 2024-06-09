@@ -449,11 +449,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         UnBlockRecipe(output, ModItems.aether_fuel.get(), ModBlocks.aether_fuel_block.get());
         UnBlockRecipe(output, ModItems.dark_matter.get(), ModBlocks.dark_matter_block.get());
         UnBlockRecipe(output, ModItems.red_matter.get(), ModBlocks.red_matter_block.get());
-        UnBlockRecipe(output, ModBlocks.essentia_spirit_block.get(), ModItems.essentia_spirit.get());
-        UnBlockRecipe(output, ModBlocks.mysterium_spirit_block.get(), ModItems.mysterium_spirit.get());
-        UnBlockRecipe(output, ModBlocks.vitalium_spirit_block.get(), ModItems.vitalium_spirit.get());
-        UnBlockRecipe(output, ModBlocks.celestium_spirit_block.get(), ModItems.celestium_spirit.get());
-        UnBlockRecipe(output, ModBlocks.eternium_spirit_block.get(), ModItems.eternium_spirit.get());
+        UnBlockRecipe(output, ModItems.essentia_spirit.get(), ModBlocks.essentia_spirit_block.get());
+        UnBlockRecipe(output, ModItems.mysterium_spirit.get(), ModBlocks.mysterium_spirit_block.get());
+        UnBlockRecipe(output, ModItems.vitalium_spirit.get(), ModBlocks.vitalium_spirit_block.get());
+        UnBlockRecipe(output, ModItems.celestium_spirit.get(), ModBlocks.celestium_spirit_block.get());
+        UnBlockRecipe(output, ModItems.eternium_spirit.get(), ModBlocks.eternium_spirit_block.get());
 
         HammerCraft(output, ModItems.stone_hammer.get(), Items.STONE, Items.STICK);
         HammerCraft(output, ModItems.iron_hammer.get(), Items.IRON_INGOT, Items.STICK);
