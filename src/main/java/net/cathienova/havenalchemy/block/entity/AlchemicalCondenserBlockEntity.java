@@ -1,11 +1,10 @@
 package net.cathienova.havenalchemy.block.entity;
 
-import net.cathienova.havenalchemy.handler.InputSlotHandler;
-import net.cathienova.havenalchemy.handler.OutputSlotHandler;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.networking.packet.EMCSyncS2CPacket;
 import net.cathienova.havenalchemy.screen.AlchemicalCondenserMenu;
 import net.cathienova.havenalchemy.util.EMCSystem;
+import net.cathienova.havenalchemy.util.RestrictedOutputSlotHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -19,13 +18,13 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
@@ -47,8 +46,9 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
             }
         }
     };
-
-    private LazyOptional<IItemHandler> handler = LazyOptional.empty();
+    private static final int RESTRICTED_SLOT = 91;
+    private LazyOptional<IItemHandler> handler = LazyOptional.of(() -> stackHandler);
+    private final LazyOptional<IItemHandler> restrictedHandler = LazyOptional.of(() -> new RestrictedOutputSlotHandler(stackHandler, RESTRICTED_SLOT));
 
     protected final ContainerData data;
 
@@ -97,9 +97,12 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-            if (cap == ForgeCapabilities.ITEM_HANDLER) {
-                return handler.cast();
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
+            if (side == Direction.DOWN || side == Direction.UP || side == Direction.NORTH || side == Direction.SOUTH || side == Direction.WEST || side == Direction.EAST) {
+                return restrictedHandler.cast();
             }
+            return handler.cast();
+        }
         return super.getCapability(cap, side);
     }
 

@@ -1534,7 +1534,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 Items.FEATHER, ModBlocks.essentia_spirit_block.get());
 
         createAlchemicalChamberRecipe(output, ModItems.earth_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
-                Items.DIRT, ModBlocks.essentia_spirit_block.get());
+                Items.GRASS, ModBlocks.essentia_spirit_block.get());
 
         createAlchemicalChamberRecipe(output, ModItems.stone_seeds.get(), Items.WHEAT_SEEDS, ModItems.alchemy_dust.get(),
                 Items.STONE, ModBlocks.essentia_spirit_block.get());
