@@ -2,6 +2,7 @@ package net.cathienova.havenalchemy.block.horticulture;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.item.ModItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 public class EssentiaCrop extends BaseCrop
@@ -22,7 +24,8 @@ public class EssentiaCrop extends BaseCrop
                 ModBlocks.mysterium_farmland.get(),
                 ModBlocks.vitalium_farmland.get(),
                 ModBlocks.celestium_farmland.get(),
-                ModBlocks.eternium_farmland.get()
+                ModBlocks.eternium_farmland.get(),
+                ForgeRegistries.BLOCKS.getValue(new ResourceLocation("farmersdelight", "rich_soil_farmland"))
         );
     }
 
