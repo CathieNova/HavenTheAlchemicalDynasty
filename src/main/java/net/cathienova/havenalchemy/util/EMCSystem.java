@@ -604,16 +604,7 @@ public class EMCSystem
         }
 
         addEmc(Items.LIME_SHULKER_BOX, 4176);
-        addEmc(ModBlocks.dirt_chest.get().asItem(), 40);
-        addEmc(ModBlocks.stone_chest.get().asItem(), 40);
-        addEmc(ModBlocks.copper_chest.get().asItem(), 576);
-        addEmc(ModBlocks.iron_chest.get().asItem(), 2624);
-        addEmc(ModBlocks.gold_chest.get().asItem(), 19008);
-        addEmc(ModBlocks.diamond_chest.get().asItem(), 84544);
-        addEmc(ModBlocks.alchemical_chest.get().asItem(), 91556);
-        addEmc(ModBlocks.emerald_chest.get().asItem(), 150080);
-        addEmc(ModBlocks.obsidian_chest.get().asItem(), 85056);
-        addEmc(ModBlocks.netherite_chest.get().asItem(), 608832);
+        addEmc(ModBlocks.alchemical_chest.get().asItem(), 7076);
         addEmc(ModItems.alchemical_coal.get(), 512);
         addEmc(ModBlocks.alchemical_coal_block.get().asItem(), 4608);
         addEmc(ModItems.ethern_coal.get(), 2048);
@@ -667,7 +658,7 @@ public class EMCSystem
         addEmc(ModItems.osmium_dust.get(), 512);
         addEmcTags(ModTags.Items.forgeZincIngot, 256);
         addEmc(ModItems.zinc_dust.get(), 256);
-        addEmc(ModBlocks.alchemical_condenser.get().asItem(), 2162688);
+        addEmc(ModBlocks.alchemical_condenser.get().asItem(), 2169764);
         addEmc(Items.CAMPFIRE, 140);
         addEmc(Items.FURNACE, 8);
         addEmc(Items.CRAFTING_TABLE, 32);
