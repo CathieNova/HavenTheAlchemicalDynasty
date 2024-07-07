@@ -671,7 +671,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> alchemical_transmutation = registerBlock("alchemical_transmutation",
             () -> new AlchemicalTransmutationBlock(BlockBehaviour.Properties.copy(ModBlocks.basphalt_stone.get()).noOcclusion()));
 
-    public static final RegistryObject<Block> dirt_chest = registerBlock("dirt_chest",
+    /*public static final RegistryObject<Block> dirt_chest = registerBlock("dirt_chest",
             () -> new DirtChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.DIRT));
 
     public static final RegistryObject<Block> stone_chest = registerBlock("stone_chest",
@@ -692,14 +692,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> obsidian_chest = registerBlock("obsidian_chest",
             () -> new ObsidianChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.OBSIDIAN));
 
-    public static final RegistryObject<Block> alchemical_chest = registerBlock("alchemical_chest",
-            () -> new AlchemicalChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.ALCHEMICAL));
-
     public static final RegistryObject<Block> emerald_chest = registerBlock("emerald_chest",
             () -> new EmeraldChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.EMERALD));
 
     public static final RegistryObject<Block> netherite_chest = registerBlock("netherite_chest",
-            () -> new NetheriteChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.NETHERITE));
+            () -> new NetheriteChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.NETHERITE));*/
+
+    public static final RegistryObject<Block> alchemical_chest = registerBlock("alchemical_chest",
+            () -> new AlchemicalChestBlock(BlockBehaviour.Properties.copy(Blocks.CHEST).noOcclusion(), ChestTypes.ALCHEMICAL));
 
     public static final RegistryObject<Block> generator_block = registerBlock("generator_block",
             GeneratorBlock::new);

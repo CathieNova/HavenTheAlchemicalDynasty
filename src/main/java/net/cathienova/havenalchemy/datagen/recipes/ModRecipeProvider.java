@@ -70,7 +70,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_experience_spirit", has(ModItems.experience_spirit.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/experience_orb");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.dirt_chest.get(), 1)
+        /*ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.dirt_chest.get(), 1)
                 .pattern("DDD")
                 .pattern("DLD")
                 .pattern("DDD")
@@ -149,7 +149,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('N', Items.NETHERITE_INGOT)
                 .define('C', ModBlocks.emerald_chest.get())
                 .unlockedBy("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/netherite_chest");
+                .save(output, HavenAlchemy.MOD_ID + ":craft/netherite_chest");*/
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.alchemical_chest.get(), 1)
                 .pattern("SDS")
@@ -157,7 +157,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("SDS")
                 .define('D', ModItems.alchemy_dust.get())
                 .define('S', ModBlocks.basphalt_stone.get())
-                .define('C', ModBlocks.diamond_chest.get())
+                .define('C', Items.CHEST)
                 .unlockedBy("has_basphalt_stone", has(ModBlocks.basphalt_stone.get()))
                 .save(output, HavenAlchemy.MOD_ID + ":craft/alchemical_chest");
 

@@ -1,7 +1,0 @@
-{
-    "parent": "havenalchemy:block/chest_template",
-    "textures": {
-        "0": "havenalchemy:block/stone_chest",
-        "particle": "minecraft:block/stone"
-    }
-}

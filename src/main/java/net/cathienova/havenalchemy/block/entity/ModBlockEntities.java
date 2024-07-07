@@ -44,31 +44,4 @@ public class ModBlockEntities
 
     public static final RegistryObject<BlockEntityType<AlchemicalChestBlockEntity>> alchemical_chest = BLOCK_ENTITIES.register("alchemical_chest",
             () -> BlockEntityType.Builder.of(AlchemicalChestBlockEntity::new, ModBlocks.alchemical_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<DirtChestBlockEntity>> dirt_chest = BLOCK_ENTITIES.register("dirt_chest",
-            () -> BlockEntityType.Builder.of(DirtChestBlockEntity::new, ModBlocks.dirt_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<CopperChestBlockEntity>> copper_chest = BLOCK_ENTITIES.register("copper_chest",
-            () -> BlockEntityType.Builder.of(CopperChestBlockEntity::new, ModBlocks.copper_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<IronChestBlockEntity>> iron_chest = BLOCK_ENTITIES.register("iron_chest",
-            () -> BlockEntityType.Builder.of(IronChestBlockEntity::new, ModBlocks.iron_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<GoldChestBlockEntity>> gold_chest = BLOCK_ENTITIES.register("gold_chest",
-            () -> BlockEntityType.Builder.of(GoldChestBlockEntity::new, ModBlocks.gold_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<DiamondChestBlockEntity>> diamond_chest = BLOCK_ENTITIES.register("diamond_chest",
-            () -> BlockEntityType.Builder.of(DiamondChestBlockEntity::new, ModBlocks.diamond_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<ObsidianChestBlockEntity>> obsidian_chest = BLOCK_ENTITIES.register("obsidian_chest",
-            () -> BlockEntityType.Builder.of(ObsidianChestBlockEntity::new, ModBlocks.obsidian_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<EmeraldChestBlockEntity>> emerald_chest = BLOCK_ENTITIES.register("emerald_chest",
-            () -> BlockEntityType.Builder.of(EmeraldChestBlockEntity::new, ModBlocks.emerald_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<NetheriteChestBlockEntity>> netherite_chest = BLOCK_ENTITIES.register("netherite_chest",
-            () -> BlockEntityType.Builder.of(NetheriteChestBlockEntity::new, ModBlocks.netherite_chest.get()).build(null));
-
-    public static final RegistryObject<BlockEntityType<StoneChestBlockEntity>> stone_chest = BLOCK_ENTITIES.register("stone_chest",
-            () -> BlockEntityType.Builder.of(StoneChestBlockEntity::new, ModBlocks.stone_chest.get()).build(null));
 }

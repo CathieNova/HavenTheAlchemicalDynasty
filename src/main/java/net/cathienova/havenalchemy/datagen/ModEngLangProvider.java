@@ -22,15 +22,6 @@ public class ModEngLangProvider extends LanguageProvider
         addBlock(ModBlocks.alchemical_coal_block, "Alchemical Coal Block");
         addBlock(ModBlocks.ethern_coal_block, "Ethern Coal Block");
         addBlock(ModBlocks.aether_fuel_block, "Aether Fuel Block");
-        addBlock(ModBlocks.dirt_chest, "Dirt Chest");
-        addBlock(ModBlocks.stone_chest, "Stone Chest");
-        addBlock(ModBlocks.copper_chest, "Copper Chest");
-        addBlock(ModBlocks.iron_chest, "Iron Chest");
-        addBlock(ModBlocks.gold_chest, "Gold Chest");
-        addBlock(ModBlocks.obsidian_chest, "Obsidian Chest");
-        addBlock(ModBlocks.diamond_chest, "Diamond Chest");
-        addBlock(ModBlocks.emerald_chest, "Emerald Chest");
-        addBlock(ModBlocks.netherite_chest, "Netherite Chest");
         addBlock(ModBlocks.alchemical_chest, "Alchemical Chest");
         addBlock(ModBlocks.alchemical_condenser, "Alchemical Condenser");
         addBlock(ModBlocks.alchemical_transmutation, "Alchemical Transmutation");
@@ -193,8 +184,9 @@ public class ModEngLangProvider extends LanguageProvider
         add("tooltip.havenalchemy.ore_hammer.durability", "Durability: %s");
         add("tooltip.havenalchemy.ore_hammer.durability.inf", "Durability: §2Infinite");
         add("tooltip.havenalchemy.alchemical_condenser", "Condenses items with EMC values.");
+        add("tooltip.havenalchemy.alchemical_processor", "Processes seeds into spirits.");
+        add("tooltip.havenalchemy.alchemical_chamber", "Used to craft seeds.");
         add("tooltip.havenalchemy.hammer", "Breaks a 3x3 area.");
-        add("tooltip.havenalchemy.hammer.durability", "Durability: %s");
 
         addItem(ModItems.copper_ore_hammer, "Copper Ore Hammer");
         addItem(ModItems.iron_ore_hammer, "Iron Ore Hammer");

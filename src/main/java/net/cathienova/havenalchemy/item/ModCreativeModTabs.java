@@ -91,16 +91,16 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModBlocks.alchemical_condenser.get().asItem()));
                         //add.accept(new ItemStack(ModBlocks.alchemical_transmutation.get().asItem()));
 
-                        add.accept(new ItemStack(ModBlocks.dirt_chest.get().asItem()));
+                        /*add.accept(new ItemStack(ModBlocks.dirt_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.stone_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.copper_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.iron_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.gold_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.obsidian_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.diamond_chest.get().asItem()));
-                        add.accept(new ItemStack(ModBlocks.alchemical_chest.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.emerald_chest.get().asItem()));
-                        add.accept(new ItemStack(ModBlocks.netherite_chest.get().asItem()));
+                        add.accept(new ItemStack(ModBlocks.netherite_chest.get().asItem()));*/
+                        add.accept(new ItemStack(ModBlocks.alchemical_chest.get().asItem()));
 
                         add.accept(new ItemStack(ModItems.mini_coal.get()));
                         add.accept(new ItemStack(ModItems.mini_charcoal.get()));
