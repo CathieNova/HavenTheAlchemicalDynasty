@@ -204,5 +204,15 @@ public class TooltipEventHandler {
         {
             event.getToolTip().add(Component.translatable("tooltip.havenalchemy.alchemical_condenser").withStyle(net.minecraft.ChatFormatting.GOLD));
         }
+
+        if (event.getItemStack().getItem() == ModBlocks.alchemical_processor.get().asItem())
+        {
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.alchemical_processor").withStyle(net.minecraft.ChatFormatting.GOLD));
+        }
+
+        if (event.getItemStack().getItem() == ModBlocks.alchemical_chamber.get().asItem())
+        {
+            event.getToolTip().add(Component.translatable("tooltip.havenalchemy.alchemical_chamber").withStyle(net.minecraft.ChatFormatting.GOLD));
+        }
     }
 }
