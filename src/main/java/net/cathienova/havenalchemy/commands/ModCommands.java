@@ -45,7 +45,7 @@ public class ModCommands
     private static int reloadConfig(CommandContext<CommandSourceStack> context) throws CommandSyntaxException
     {
         ServerPlayer player = context.getSource().getPlayerOrException();
-        if (!player.hasPermissions(2) || !player.isCreative())
+        if (!player.hasPermissions(2) || !player.isCreative() || !context.getSource().getServer().isDedicatedServer())
         {
             context.getSource().sendFailure(Component.literal("§6[§5Haven §2Alchemy§6]§r §4You do not have permission to use this command."));
             return 0;
