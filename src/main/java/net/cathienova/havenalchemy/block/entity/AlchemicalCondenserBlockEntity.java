@@ -170,7 +170,6 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
         if (this.level.isClientSide) return;
 
         long oldStoredEMC = this.storedEMC;
-        long oldMaxEMC = this.maxEMC;
 
         ItemStack targetStack = this.stackHandler.getStackInSlot(91);
         if (EMCSystem.GetEmc(targetStack.getItem()) <= 0) return;
@@ -216,7 +215,7 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
             this.coolDown = 0;
         }
 
-        if (oldStoredEMC != this.storedEMC || oldMaxEMC != this.maxEMC) {
+        if (oldStoredEMC != this.storedEMC) {
             this.setChanged();
             this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Block.UPDATE_ALL);
             syncEMCValues();
