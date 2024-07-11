@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.networking.packet.SearchPacket;
+import net.cathienova.havenalchemy.util.EMCSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -16,10 +17,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-
-import java.util.List;
+import org.lwjgl.glfw.GLFW;
 
 @OnlyIn(Dist.CLIENT)
 public class AlchemicalTransmutationScreen extends AbstractContainerScreen<AlchemicalTransmutationMenu> {
@@ -38,7 +39,6 @@ public class AlchemicalTransmutationScreen extends AbstractContainerScreen<Alche
         }
         return null;
     }
-
 
     @Override
     protected void init() {
@@ -137,5 +137,25 @@ public class AlchemicalTransmutationScreen extends AbstractContainerScreen<Alche
             }
         }
         return super.keyReleased(keyCode, scanCode, modifiers);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0) { // Left mouse button
+            Slot slot = getSlotUnderMouse();
+            if (slot != null && slot.index == 50) {
+                handleSlotClick(slot);
+                return true;
+            }
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    private void handleSlotClick(Slot slot) {
+        ItemStack stack = slot.getItem();
+        if (!stack.isEmpty()) {
+            assert Minecraft.getInstance().player != null;
+            EMCSystem.IncrementEmc(Minecraft.getInstance().player, EMCSystem.GetEmc(stack));
+        }
     }
 }

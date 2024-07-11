@@ -31,7 +31,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
-    private final AlchemicalTransmutationBlockEntity blockEntity;
+    public final AlchemicalTransmutationBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
     private final SimpleContainer otherInventory = new SimpleContainer(52);
@@ -116,7 +116,32 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
     }
 
     private void addRegisterSlot(IItemHandler handler, int index, int x, int y) {
-        this.addSlot(new SlotItemHandler(handler, index, x, y));
+        this.addSlot(new SlotItemHandler(handler, index, x, y) {
+            @Override
+            public void setChanged() {
+                super.setChanged();
+                if (index == 50) {
+                    try {
+                        handleEMCAndNBTUpdates();
+                    } catch (StackOverflowError e) {
+                        System.err.println("StackOverflowError while updating NBT data.");
+                    }
+                }
+            }
+        });
+    }
+
+    private void handleEMCAndNBTUpdates() {
+        if (blockEntity != null) {
+            CompoundTag playerData = player.getPersistentData();
+            CompoundTag havenAlchemyTag = playerData.getCompound("havenalchemy");
+
+            // Calculate EMC value
+            long emcValue = blockEntity.calculateEMC();
+            havenAlchemyTag.putLong("emc", emcValue);
+
+            playerData.put("havenalchemy", havenAlchemyTag);
+        }
     }
 
     private void addExtractSlot(IItemHandler handler, int index, int x, int y) {

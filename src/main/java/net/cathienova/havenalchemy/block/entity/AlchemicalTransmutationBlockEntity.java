@@ -36,8 +36,7 @@ public class AlchemicalTransmutationBlockEntity extends BlockEntity implements M
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            assert level != null;
-            if (!level.isClientSide) {
+            if (level != null && !level.isClientSide) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
@@ -106,18 +105,39 @@ public class AlchemicalTransmutationBlockEntity extends BlockEntity implements M
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
-        tag.put("inventory", itemHandler.serializeNBT());
-        super.saveAdditional(tag);
+        try {
+            tag.put("inventory", itemHandler.serializeNBT());
+            super.saveAdditional(tag);
+        } catch (StackOverflowError e) {
+            System.err.println("StackOverflowError while saving NBT data.");
+        }
     }
 
     @Override
     public void load(CompoundTag tag) {
-        super.load(tag);
-        itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        try {
+            super.load(tag);
+            if (tag.contains("inventory")) {
+                itemHandler.deserializeNBT(tag.getCompound("inventory"));
+            }
+        } catch (StackOverflowError e) {
+            System.err.println("StackOverflowError while loading NBT data.");
+        }
     }
 
     public void tick() {
         if (this.level.isClientSide) return;
-        // Add any periodic actions here if needed
+    }
+
+    public long calculateEMC() {
+        long totalEMC = 0;
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            ItemStack stack = itemHandler.getStackInSlot(i);
+            if (!stack.isEmpty()) {
+                long emcValue = EMCSystem.GetEmc(stack);
+                totalEMC += emcValue * stack.getCount();
+            }
+        }
+        return totalEMC;
     }
 }

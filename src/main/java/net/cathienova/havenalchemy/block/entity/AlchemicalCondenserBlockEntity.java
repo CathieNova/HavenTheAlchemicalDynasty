@@ -53,7 +53,7 @@ public class AlchemicalCondenserBlockEntity extends ChestBlockEntity implements 
     protected final ContainerData data;
 
     public long storedEMC = 0;
-    public long maxEMC = 10000000;
+    public long maxEMC = 250000000;
 
     public int coolDown = 0;
 

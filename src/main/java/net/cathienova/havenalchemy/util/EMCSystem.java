@@ -140,7 +140,7 @@ public class EMCSystem
     }
 
     public static void AddEMCToConfig(Item item, long emc)
-    {
+        {
         addEmc(item, emc);
         saveEmcValues();
     }
@@ -176,58 +176,26 @@ public class EMCSystem
         return emc;
     }
 
-    public static void decrementEmc(Player player, long amount)
-    {
+    public static void decrementEmc(Player player, long amount) {
         CompoundTag playerNbt = player.getPersistentData();
-        long emc = 0;
-        if (playerNbt.contains("havenalchemy"))
-        {
-            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-            if (havenAlchemyTag.contains("emc"))
-            {
-                emc += havenAlchemyTag.getLong("emc");
-            }
-        }
-        emc -= amount;
+        CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
 
-        if (playerNbt.contains("havenalchemy"))
-        {
-            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-            havenAlchemyTag.putLong("emc", emc);
-        }
-        else
-        {
-            CompoundTag havenAlchemyTag = new CompoundTag();
-            havenAlchemyTag.putLong("emc", emc);
-            playerNbt.put("havenalchemy", havenAlchemyTag);
-        }
+        long emc = havenAlchemyTag.getLong("emc");
+        emc -= amount;
+        havenAlchemyTag.putLong("emc", emc);
+
+        playerNbt.put("havenalchemy", havenAlchemyTag);
     }
 
-    public static void IncrementEmc(Player player, long amount)
-    {
+    public static void IncrementEmc(Player player, long amount) {
         CompoundTag playerNbt = player.getPersistentData();
-        long emc = 0;
-        if (playerNbt.contains("havenalchemy"))
-        {
-            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-            if (havenAlchemyTag.contains("emc"))
-            {
-                emc += havenAlchemyTag.getLong("emc");
-            }
-        }
-        emc += amount;
+        CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
 
-        if (playerNbt.contains("havenalchemy"))
-        {
-            CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
-            havenAlchemyTag.putLong("emc", emc);
-        }
-        else
-        {
-            CompoundTag havenAlchemyTag = new CompoundTag();
-            havenAlchemyTag.putLong("emc", emc);
-            playerNbt.put("havenalchemy", havenAlchemyTag);
-        }
+        long emc = havenAlchemyTag.getLong("emc");
+        emc += amount;
+        havenAlchemyTag.putLong("emc", emc);
+
+        playerNbt.put("havenalchemy", havenAlchemyTag);
     }
 
     public static void setEmcFromRecipes()
