@@ -471,6 +471,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         upgradeSmithing(output, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.diamond_hammer.get(), Items.NETHERITE_INGOT, ModItems.netherite_hammer.get());
 
+        // Dark Matter
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_PICKAXE, ModItems.dark_matter.get(), ModItems.dark_matter_pickaxe.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_AXE, ModItems.dark_matter.get(), ModItems.dark_matter_axe.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_SHOVEL, ModItems.dark_matter.get(), ModItems.dark_matter_shovel.get());
@@ -484,6 +485,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_BOOTS, ModItems.dark_matter.get(), ModItems.dark_matter_boots.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.SHIELD, ModItems.dark_matter.get(), ModItems.dark_matter_shield.get());
 
+        // Red Matter
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_pickaxe.get(), ModItems.red_matter.get(), ModItems.red_matter_pickaxe.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_axe.get(), ModItems.red_matter.get(), ModItems.red_matter_axe.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shovel.get(), ModItems.red_matter.get(), ModItems.red_matter_shovel.get());
@@ -498,6 +500,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_boots.get(), ModItems.red_matter.get(), ModItems.red_matter_boots.get());
         upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shield.get(), ModItems.red_matter.get(), ModItems.red_matter_shield.get());
 
+        // Neosphore
         upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_pickaxe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_pickaxe.get());
         upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_axe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_axe.get());
         upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shovel.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_shovel.get());
