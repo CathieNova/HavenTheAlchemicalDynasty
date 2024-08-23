@@ -134,6 +134,7 @@ public class ModEngLangProvider extends LanguageProvider
         addItem(ModItems.dark_matter_apple, "Dark Matter Apple");
         addItem(ModItems.red_matter_apple, "Red Matter Apple");
         addItem(ModItems.essence_apple, "Essence Apple");
+        addItem(ModItems.havenite_shard, "Havenite Shard");
         addItem(ModItems.trowel, "Trowel");
         add("item.havenalchemy.trowel.tooltip", "Right click to place random blocks from the hotbar.");
         addItem(ModItems.experience_orb, "Experience Orb");

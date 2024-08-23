@@ -71,6 +71,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.essence_apple);
         simpleItem(ModItems.dark_matter_apple);
         simpleItem(ModItems.red_matter_apple);
+        simpleItem(ModItems.havenite_shard);
         handHeldItem(ModItems.trowel);
         simpleItem(ModItems.experience_orb);
         ShearsItem(ModItems.wooden_shears);

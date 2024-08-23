@@ -57,6 +57,7 @@ public class ModCreativeModTabs
                         add.accept(new ItemStack(ModItems.havenite_nugget.get()));
                         add.accept(new ItemStack(ModItems.havenite_ingot.get()));
                         add.accept(new ItemStack(ModBlocks.havenite_block.get().asItem()));
+                        add.accept(new ItemStack(ModItems.havenite_shard.get().asItem()));
 
                         add.accept(new ItemStack(ModBlocks.speed_plate_i.get().asItem()));
                         add.accept(new ItemStack(ModBlocks.speed_plate_ii.get().asItem()));

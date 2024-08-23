@@ -630,41 +630,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         spiritCirclePlusCrafting(output, ModItems.essentia_seeds.get(), ModItems.essence_shard.get(), Items.WHEAT_SEEDS, 1);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.mysterium_spirit.get(), 1)
-                .pattern(" S ")
-                .pattern("SNS")
-                .pattern(" S ")
-                .define('S', ModItems.essentia_spirit.get())
-                .define('N', ModItems.essence_shard.get())
-                .unlockedBy("has_essentia_spirit", has(ModItems.essentia_spirit.get()))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/spirit/essentia_spirit_to_mysterium_spirit");
+        SpiritUpgradeCrafting(output, ModItems.mysterium_spirit.get(), ModItems.essentia_spirit.get(), ModItems.essence_shard.get());
+        SpiritUpgradeCrafting(output, ModItems.vitalium_spirit.get(), ModItems.mysterium_spirit.get(), ModItems.essence_shard.get());
+        SpiritUpgradeCrafting(output, ModItems.celestium_spirit.get(), ModItems.vitalium_spirit.get(), ModItems.essence_shard.get());
+        SpiritUpgradeCrafting(output, ModItems.eternium_spirit.get(), ModItems.celestium_spirit.get(), ModItems.essence_shard.get());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.vitalium_spirit.get(), 1)
-                .pattern(" S ")
-                .pattern("SNS")
-                .pattern(" S ")
-                .define('S', ModItems.mysterium_spirit.get())
-                .define('N', ModItems.essence_shard.get())
-                .unlockedBy("has_mysterium_spirit", has(ModItems.mysterium_spirit.get()))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/spirit/mysterium_spirit_to_vitalium_spirit");
+        SpiritUpgradeCrafting(output, ModItems.mysterium_spirit.get(), ModItems.essentia_spirit.get(), ModItems.havenite_shard.get());
+        SpiritUpgradeCrafting(output, ModItems.vitalium_spirit.get(), ModItems.mysterium_spirit.get(), ModItems.havenite_shard.get());
+        SpiritUpgradeCrafting(output, ModItems.celestium_spirit.get(), ModItems.vitalium_spirit.get(), ModItems.havenite_shard.get());
+        SpiritUpgradeCrafting(output, ModItems.eternium_spirit.get(), ModItems.celestium_spirit.get(), ModItems.havenite_shard.get());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.celestium_spirit.get(), 1)
-                .pattern(" S ")
-                .pattern("SNS")
-                .pattern(" S ")
-                .define('S', ModItems.vitalium_spirit.get())
-                .define('N', ModItems.essence_shard.get())
-                .unlockedBy("has_vitalium_spirit", has(ModItems.vitalium_spirit.get()))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/spirit/vitalium_spirit_to_celestium_spirit");
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.eternium_spirit.get(), 1)
-                .pattern(" S ")
-                .pattern("SNS")
-                .pattern(" S ")
-                .define('S', ModItems.celestium_spirit.get())
-                .define('N', ModItems.essence_shard.get())
-                .unlockedBy("has_celestium_spirit", has(ModItems.celestium_spirit.get()))
-                .save(output, HavenAlchemy.MOD_ID + ":craft/spirit/celestium_spirit_to_eternium_spirit");
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.havenite_shard.get(), 1)
+                .pattern("SSS")
+                .pattern("SIS")
+                .pattern("SSS")
+                .define('S', ModItems.essence_shard.get())
+                .define('I', ModItems.havenite_ingot.get())
+                .unlockedBy("has_havenite_ingot", has(ModItems.havenite_ingot.get()))
+                .save(output, HavenAlchemy.MOD_ID + ":craft/havenite_shard");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.essentia_spirit.get(), 4)
                 .requires(ModItems.mysterium_spirit.get())
@@ -2181,6 +2164,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('I', ingredient)
                 .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + getItemName(result) + "_from_" + getItemName(ingredient));
+    }
+
+    protected static void SpiritUpgradeCrafting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike shard)
+    {
+        String[] shardName = getItemName(shard).split("_");
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, result, 1)
+                .pattern(" S ")
+                .pattern("SCS")
+                .pattern(" S ")
+                .define('S', ingredient)
+                .define('C', shard)
+                .unlockedBy("has_" + getItemName(ingredient), has(ingredient))
+                .save(consumer, HavenAlchemy.MOD_ID + ":craft/" + shardName[0] + "/" + getItemName(result) + "_from_" + getItemName(ingredient));
     }
 
     protected static void spiritCirclePlusCrafting(Consumer<FinishedRecipe> consumer, ItemLike result, ItemLike ingredient, ItemLike ingredient2, int amount)

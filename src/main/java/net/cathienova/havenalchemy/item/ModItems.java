@@ -75,6 +75,9 @@ public class ModItems {
     public static final RegistryObject<Item> essence_shard = ITEMS.register("essence_shard",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
 
+    public static final RegistryObject<Item> havenite_shard = ITEMS.register("havenite_shard",
+            () -> new HaveniteShard(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).durability(512)));
+
     public static final RegistryObject<Item> research_tier_basic = ITEMS.register("research_tier_basic",
             () -> new Item(new Item.Properties().stacksTo(64).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> research_tier_intermediate = ITEMS.register("research_tier_intermediate",
