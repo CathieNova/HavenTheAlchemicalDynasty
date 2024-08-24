@@ -471,49 +471,50 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         upgradeSmithing(output, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.diamond_hammer.get(), Items.NETHERITE_INGOT, ModItems.netherite_hammer.get());
 
-        // Dark Matter
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_PICKAXE, ModItems.dark_matter.get(), ModItems.dark_matter_pickaxe.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_AXE, ModItems.dark_matter.get(), ModItems.dark_matter_axe.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_SHOVEL, ModItems.dark_matter.get(), ModItems.dark_matter_shovel.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_HOE, ModItems.dark_matter.get(), ModItems.dark_matter_hoe.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_SWORD, ModItems.dark_matter.get(), ModItems.dark_matter_sword.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.SHEARS, ModItems.dark_matter.get(), ModItems.dark_matter_shears.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_pickaxe.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_PICKAXE, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_axe.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_AXE, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_shovel.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_SHOVEL, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_hoe.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_HOE, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_sword.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_SWORD, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_shears.get(), ModItems.alchemy_stone_fractured.get(), Items.SHEARS, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_hammer.get(), ModItems.alchemy_stone_fractured.get(), ModItems.netherite_hammer.get(), ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_crusher.get(), ModItems.alchemy_stone_fractured.get(), ModItems.netherite_crusher.get(), ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
 
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_HELMET, ModItems.dark_matter.get(), ModItems.dark_matter_helmet.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_CHESTPLATE, ModItems.dark_matter.get(), ModItems.dark_matter_chestplate.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_LEGGINGS, ModItems.dark_matter.get(), ModItems.dark_matter_leggings.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_BOOTS, ModItems.dark_matter.get(), ModItems.dark_matter_boots.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), Items.SHIELD, ModItems.dark_matter.get(), ModItems.dark_matter_shield.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_helmet.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_HELMET, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_chestplate.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_CHESTPLATE, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_leggings.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_LEGGINGS, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_boots.get(), ModItems.alchemy_stone_fractured.get(), Items.NETHERITE_BOOTS, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.dark_matter_shield.get(), ModItems.alchemy_stone_fractured.get(), Items.SHIELD, ModBlocks.vitalium_spirit_block.get(), ModItems.dark_matter.get());
 
-        // Red Matter
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_pickaxe.get(), ModItems.red_matter.get(), ModItems.red_matter_pickaxe.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_axe.get(), ModItems.red_matter.get(), ModItems.red_matter_axe.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shovel.get(), ModItems.red_matter.get(), ModItems.red_matter_shovel.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_hoe.get(), ModItems.red_matter.get(), ModItems.red_matter_hoe.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_sword.get(), ModItems.red_matter.get(), ModItems.red_matter_sword.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shears.get(), ModItems.red_matter.get(), ModItems.red_matter_shears.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_hammer.get(), ModItems.red_matter.get(), ModItems.red_matter_hammer.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_pickaxe.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_pickaxe.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_axe.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_axe.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_shovel.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shovel.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_hoe.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_hoe.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_sword.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_sword.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_shears.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shears.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_hammer.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_hammer.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_crusher.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_crusher.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
 
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_helmet.get(), ModItems.red_matter.get(), ModItems.red_matter_helmet.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_chestplate.get(), ModItems.red_matter.get(), ModItems.red_matter_chestplate.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_leggings.get(), ModItems.red_matter.get(), ModItems.red_matter_leggings.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_boots.get(), ModItems.red_matter.get(), ModItems.red_matter_boots.get());
-        upgradeSmithing(output, ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shield.get(), ModItems.red_matter.get(), ModItems.red_matter_shield.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_helmet.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_helmet.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_chestplate.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_chestplate.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_leggings.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_leggings.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_boots.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_boots.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
+        createAlchemicalChamberRecipe(output, ModItems.red_matter_shield.get(), ModItems.alchemy_stone_fractured.get(), ModItems.dark_matter_shield.get(), ModBlocks.celestium_spirit_block.get(), ModItems.red_matter.get());
 
-        // Neosphore
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_pickaxe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_pickaxe.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_axe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_axe.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shovel.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_shovel.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_hoe.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_hoe.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_sword.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_sword.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shears.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_shears.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_hammer.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_hammer.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_pickaxe.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_pickaxe.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_axe.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_axe.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_shovel.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shovel.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_hoe.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_hoe.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_sword.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_sword.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_shears.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shears.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_hammer.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_hammer.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_crusher.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_crusher.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
 
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_helmet.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_helmet.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_chestplate.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_chestplate.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_leggings.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_leggings.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_boots.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_boots.get());
-        upgradeSmithing(output, ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shield.get(), ModItems.neosphore_ingot.get(), ModItems.neosphore_shield.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_helmet.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_helmet.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_chestplate.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_chestplate.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_leggings.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_leggings.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_boots.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_boots.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
+        createAlchemicalChamberRecipe(output, ModItems.neosphore_shield.get(), ModItems.neosphore_smithing_template.get(), ModItems.red_matter_shield.get(), ModBlocks.eternium_spirit_block.get(), ModItems.neosphore_ingot.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.neosphore_smithing_template.get(), 2)
                 .pattern("SIS")
