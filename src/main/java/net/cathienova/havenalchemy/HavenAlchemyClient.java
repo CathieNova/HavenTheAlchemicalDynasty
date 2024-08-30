@@ -28,7 +28,7 @@ public class HavenAlchemyClient
 {
     private static final Minecraft CLIENT = Minecraft.getInstance();
 
-    private static CompoundTag havenAlchemyNbt;
+    //private static CompoundTag havenAlchemyNbt;
 
     public HavenAlchemyClient()
     {
@@ -60,7 +60,7 @@ public class HavenAlchemyClient
         Color color = new Color(255, 255, 255);
 
         long playerEMC = getClientPlayerEMC();
-        Component textComponent = Component.nullToEmpty("");
+        Component textComponent;
         if (playerEMC > 0)
         {
             textComponent = Component.nullToEmpty("EMC: " + playerEMC);
@@ -74,11 +74,13 @@ public class HavenAlchemyClient
     }
 
     public static long getClientPlayerEMC() {
-        long emc = 0;
+        /*
+        long emc = EMCSystem.GetEMCFromPlayer(CLIENT.player);
         if (havenAlchemyNbt != null && havenAlchemyNbt.contains("emc")) {
             emc = havenAlchemyNbt.getLong("emc");
         }
-        return emc;
+         */
+        return EMCSystem.GetEMCFromPlayer(CLIENT.player);
     }
 
     public static List<Component> getEmcText(ItemStack stack) {

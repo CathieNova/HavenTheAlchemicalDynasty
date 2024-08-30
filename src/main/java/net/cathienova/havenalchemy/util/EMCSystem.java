@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import net.cathienova.havenalchemy.HavenAlchemy;
 import net.cathienova.havenalchemy.block.ModBlocks;
+import net.cathienova.havenalchemy.capabilities.EmcHandler;
+import net.cathienova.havenalchemy.capabilities.PlayerEmcProvider;
 import net.cathienova.havenalchemy.item.ModItems;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
@@ -163,8 +165,8 @@ public class EMCSystem
 
     public static long GetEMCFromPlayer(Player player)
     {
+        /*
         CompoundTag playerNbt = player.getPersistentData();
-        long emc = 0;
         if (playerNbt.contains("havenalchemy"))
         {
             CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
@@ -173,10 +175,12 @@ public class EMCSystem
                 emc += havenAlchemyTag.getLong("emc");
             }
         }
-        return emc;
+         */
+        return getEMCHandler(player).getEMC();
     }
 
     public static void decrementEmc(Player player, long amount) {
+        /*
         CompoundTag playerNbt = player.getPersistentData();
         CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
 
@@ -185,9 +189,13 @@ public class EMCSystem
         havenAlchemyTag.putLong("emc", emc);
 
         playerNbt.put("havenalchemy", havenAlchemyTag);
+         */
+
+        getEMCHandler(player).takeEMC(amount);
     }
 
     public static void IncrementEmc(Player player, long amount) {
+        /*
         CompoundTag playerNbt = player.getPersistentData();
         CompoundTag havenAlchemyTag = playerNbt.getCompound("havenalchemy");
 
@@ -196,6 +204,9 @@ public class EMCSystem
         havenAlchemyTag.putLong("emc", emc);
 
         playerNbt.put("havenalchemy", havenAlchemyTag);
+         */
+
+        getEMCHandler(player).storeEMC(amount);
     }
 
     public static void setEmcFromRecipes()
@@ -678,5 +689,9 @@ public class EMCSystem
     public static int getEMCListSize()
     {
         return map.size();
+    }
+
+    public static EmcHandler getEMCHandler(Player player) {
+        return player.getCapability(PlayerEmcProvider.EMC_HANDLER).orElseGet(EmcHandler::new);
     }
 }

@@ -2,6 +2,9 @@ package net.cathienova.havenalchemy.screen;
 
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.AlchemicalTransmutationBlockEntity;
+import net.cathienova.havenalchemy.capabilities.EmcHandler;
+import net.cathienova.havenalchemy.capabilities.IEmcHandler;
+import net.cathienova.havenalchemy.capabilities.PlayerEmcProvider;
 import net.cathienova.havenalchemy.gui.RegisterInventory;
 import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.networking.packet.LearnedItemsSyncPacket;
@@ -133,14 +136,16 @@ public class AlchemicalTransmutationMenu extends AbstractContainerMenu {
 
     private void handleEMCAndNBTUpdates() {
         if (blockEntity != null) {
-            CompoundTag playerData = player.getPersistentData();
-            CompoundTag havenAlchemyTag = playerData.getCompound("havenalchemy");
-
             // Calculate EMC value
             long emcValue = blockEntity.calculateEMC();
-            havenAlchemyTag.putLong("emc", emcValue);
+            EMCSystem.IncrementEmc(player, emcValue);
 
-            playerData.put("havenalchemy", havenAlchemyTag);
+            //CompoundTag playerData = player.getPersistentData();
+            //CompoundTag havenAlchemyTag = playerData.getCompound("havenalchemy");
+
+            //havenAlchemyTag.putLong("emc", emcValue);
+
+            //playerData.put("havenalchemy", havenAlchemyTag);
         }
     }
 
