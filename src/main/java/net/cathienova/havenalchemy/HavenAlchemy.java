@@ -23,12 +23,17 @@ import net.cathienova.havenalchemy.screen.chests.*;
 import net.cathienova.havenalchemy.util.EMCSystem;
 import net.cathienova.havenalchemy.worldgen.tree.ModFoliagePlacers;
 import net.cathienova.havenalchemy.worldgen.tree.ModTrunkPlacerTypes;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
@@ -49,6 +54,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.commons.lang3.tuple.Pair;
 import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
+
+import java.awt.*;
 
 import static net.cathienova.havenalchemy.util.EMCSystem.loadEmcValues;
 
@@ -121,6 +128,30 @@ public class HavenAlchemy
                 MenuScreens.register(ModMenuTypes.GENERATOR_BLOCK_MENU.get(), GeneratorScreen::new);
                 loadEmcValues();
             });
+        }
+
+        @SubscribeEvent
+        public void onRenderGameOverlay(RenderGuiOverlayEvent event)
+        {
+            Minecraft CLIENT = Minecraft.getInstance();
+            Level level = CLIENT.level;
+            assert level != null;
+            int x = 1000;
+            int y = 750;
+            Color color = new Color(255, 255, 255);
+
+            long playerEMC = EMCSystem.GetEMCFromPlayer(CLIENT.player);
+            Component textComponent;
+            if (playerEMC > 0)
+            {
+                textComponent = Component.nullToEmpty("EMC: " + playerEMC);
+            }
+            else
+            {
+                textComponent = Component.nullToEmpty("");
+            }
+            Font font = CLIENT.font;
+            event.getGuiGraphics().drawString(font, textComponent, x, y, color.getRGB());
         }
     }
 
