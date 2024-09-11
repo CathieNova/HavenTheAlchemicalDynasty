@@ -23,12 +23,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
+@Mod.EventBusSubscriber(modid=HavenAlchemy.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
 public class HavenAlchemyClient
 {
     private static final Minecraft CLIENT = Minecraft.getInstance();
 
-    private static CompoundTag havenAlchemyNbt;
+    //private static CompoundTag havenAlchemyNbt;
 
     public HavenAlchemyClient()
     {
@@ -55,12 +55,12 @@ public class HavenAlchemyClient
     {
         Level level = CLIENT.level;
         assert level != null;
-        int x = 0;
-        int y = 0;
+        int x = 1000;
+        int y = 750;
         Color color = new Color(255, 255, 255);
 
         long playerEMC = getClientPlayerEMC();
-        Component textComponent = Component.nullToEmpty("");
+        Component textComponent = Component.nullToEmpty("EMC: " + playerEMC);
         if (playerEMC > 0)
         {
             textComponent = Component.nullToEmpty("EMC: " + playerEMC);
@@ -74,11 +74,13 @@ public class HavenAlchemyClient
     }
 
     public static long getClientPlayerEMC() {
-        long emc = 0;
+        /*
+        long emc = EMCSystem.GetEMCFromPlayer(CLIENT.player);
         if (havenAlchemyNbt != null && havenAlchemyNbt.contains("emc")) {
             emc = havenAlchemyNbt.getLong("emc");
         }
-        return emc;
+         */
+        return EMCSystem.GetEMCFromPlayer(CLIENT.player);
     }
 
     public static List<Component> getEmcText(ItemStack stack) {

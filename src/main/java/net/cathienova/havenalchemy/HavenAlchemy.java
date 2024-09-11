@@ -3,6 +3,9 @@ package net.cathienova.havenalchemy;
 import com.mojang.logging.LogUtils;
 import net.cathienova.havenalchemy.block.ModBlocks;
 import net.cathienova.havenalchemy.block.entity.ModBlockEntities;
+import net.cathienova.havenalchemy.capabilities.EmcHandler;
+import net.cathienova.havenalchemy.capabilities.IEmcHandler;
+import net.cathienova.havenalchemy.capabilities.PlayerEmcProvider;
 import net.cathienova.havenalchemy.commands.ModCommands;
 import net.cathienova.havenalchemy.config.CommonConfig;
 import net.cathienova.havenalchemy.events.FluidInit;
@@ -17,13 +20,27 @@ import net.cathienova.havenalchemy.networking.ModMessages;
 import net.cathienova.havenalchemy.recipe.ModRecipes;
 import net.cathienova.havenalchemy.screen.*;
 import net.cathienova.havenalchemy.screen.chests.*;
+import net.cathienova.havenalchemy.util.EMCSystem;
 import net.cathienova.havenalchemy.worldgen.tree.ModFoliagePlacers;
 import net.cathienova.havenalchemy.worldgen.tree.ModTrunkPlacerTypes;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,7 +52,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.commons.lang3.tuple.Pair;
+import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
+
+import java.awt.*;
 
 import static net.cathienova.havenalchemy.util.EMCSystem.loadEmcValues;
 
@@ -109,10 +129,72 @@ public class HavenAlchemy
                 loadEmcValues();
             });
         }
+
+        @SubscribeEvent
+        public void onRenderGameOverlay(RenderGuiOverlayEvent event)
+        {
+            Minecraft CLIENT = Minecraft.getInstance();
+            Level level = CLIENT.level;
+            assert level != null;
+            int x = 1000;
+            int y = 750;
+            Color color = new Color(255, 255, 255);
+
+            long playerEMC = EMCSystem.GetEMCFromPlayer(CLIENT.player);
+            Component textComponent;
+            if (playerEMC > 0)
+            {
+                textComponent = Component.nullToEmpty("EMC: " + playerEMC);
+            }
+            else
+            {
+                textComponent = Component.nullToEmpty("");
+            }
+            Font font = CLIENT.font;
+            event.getGuiGraphics().drawString(font, textComponent, x, y, color.getRGB());
+        }
     }
 
     @SubscribeEvent
     public void onRegisterCommands(RegisterCommandsEvent event) {
         ModCommands.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public void onRegisterCompabilities(RegisterCapabilitiesEvent event) {
+        event.register(EmcHandler.class);
+    }
+
+    // Adds the EMC Handler Capability to the player
+    @SubscribeEvent
+    public void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
+        if(event.getObject() instanceof Player player) {
+            if(!player.getCapability(PlayerEmcProvider.EMC_HANDLER).isPresent()) {
+                event.addCapability(new ResourceLocation(MOD_ID), new PlayerEmcProvider());
+            }
+            EMCSystem.IncrementEmc(player, 100);
+        }
+    }
+
+    // Transfers EMC from dead player to revived player
+    @SubscribeEvent
+    public void onPlayerCloned(PlayerEvent.Clone event) {
+        if(event.isWasDeath()) {
+            event.getOriginal().getCapability(PlayerEmcProvider.EMC_HANDLER).ifPresent(older ->
+                    event.getEntity().getCapability(PlayerEmcProvider.EMC_HANDLER).ifPresent(newer -> {
+                        CompoundTag tag = new CompoundTag();
+                        older.saveNBTData(tag);
+                        newer.loadNBTData(tag);
+                    })
+            );
+        }
+    }
+
+    @SubscribeEvent
+    public void onPlayerJump(LivingEvent.LivingJumpEvent event) {
+        if(event.getEntity() instanceof Player player && !event.getEntity().level().isClientSide) {
+            EMCSystem.IncrementEmc(player, 100);
+            System.out.println(EMCSystem.GetEMCFromPlayer(player));
+        }
     }
 }

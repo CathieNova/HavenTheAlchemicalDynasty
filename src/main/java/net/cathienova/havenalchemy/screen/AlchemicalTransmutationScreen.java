@@ -151,6 +151,11 @@ public class AlchemicalTransmutationScreen extends AbstractContainerScreen<Alche
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
     private void handleSlotClick(Slot slot) {
         ItemStack stack = slot.getItem();
         if (!stack.isEmpty()) {
