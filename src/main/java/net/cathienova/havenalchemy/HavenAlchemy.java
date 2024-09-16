@@ -31,6 +31,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
@@ -51,6 +53,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.tuple.Pair;
 import org.checkerframework.checker.units.qual.C;
 import org.slf4j.Logger;
@@ -172,7 +175,6 @@ public class HavenAlchemy
             if(!player.getCapability(PlayerEmcProvider.EMC_HANDLER).isPresent()) {
                 event.addCapability(new ResourceLocation(MOD_ID), new PlayerEmcProvider());
             }
-            EMCSystem.IncrementEmc(player, 100);
         }
     }
 
@@ -190,11 +192,18 @@ public class HavenAlchemy
         }
     }
 
+    /**
     @SubscribeEvent
     public void onPlayerJump(LivingEvent.LivingJumpEvent event) {
         if(event.getEntity() instanceof Player player && !event.getEntity().level().isClientSide) {
+            IEmcHandler emcHandler = EMCSystem.getEMCHandler(player);
+            System.out.println( "Does player know how to create diamonds: " + emcHandler.hasKnowledge(Items.DIAMOND));
             EMCSystem.IncrementEmc(player, 100);
+            emcHandler.deconstructItem(new ItemStack(Items.DIAMOND, 1));
+
             System.out.println(EMCSystem.GetEMCFromPlayer(player));
+            System.out.println( "Does player know how to create diamonds: " + emcHandler.hasKnowledge(Items.DIAMOND));
         }
     }
+    **/
 }
