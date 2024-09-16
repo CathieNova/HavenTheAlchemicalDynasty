@@ -68,6 +68,11 @@ public class EmcHandler implements IEmcHandler {
         return item_knowledge.contains(ForgeRegistries.ITEMS.getKey(item));
     }
 
+    @Override
+    public List<ResourceLocation> getKnowledge() {
+        return item_knowledge;
+    }
+
     public void saveNBTData(CompoundTag tag) {
         tag.putLong("emc", stored_emc);
         tag.putInt("knowledge", item_knowledge.size());

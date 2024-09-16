@@ -1,7 +1,10 @@
 package net.cathienova.havenalchemy.capabilities;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+
+import java.util.List;
 
 public interface IEmcHandler {
 
@@ -44,4 +47,6 @@ public interface IEmcHandler {
      * @return True if the player has the knowledge, false if they don't
      */
     boolean hasKnowledge(Item item);
+
+    List<ResourceLocation> getKnowledge();
 }
